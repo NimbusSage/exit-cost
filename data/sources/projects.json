@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-09-03T20:57:09.778Z",
+  "fetched_at": "2026-09-03T21:01:58.731Z",
   "projects": {
     "dani-garcia/vaultwarden": {
       "full_name": "dani-garcia/vaultwarden",
       "url": "https://github.com/dani-garcia/vaultwarden",
       "homepage": null,
       "description": "Unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs",
-      "stars": 66780,
+      "stars": 66782,
       "forks": 3176,
       "open_issues": 87,
       "license": "AGPL-3.0",
@@ -21,7 +21,7 @@
       "days_since_release": 12,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:57:05.966Z"
+      "verified_at": "2026-09-03T21:01:54.666Z"
     },
     "nocodb/nocodb": {
       "full_name": "nocodb/nocodb",
@@ -43,7 +43,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:57:06.319Z"
+      "verified_at": "2026-09-03T21:01:55.015Z"
     },
     "keycloak/keycloak": {
       "full_name": "keycloak/keycloak",
@@ -65,7 +65,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:57:06.660Z"
+      "verified_at": "2026-09-03T21:01:55.338Z"
     },
     "calcom/cal.com": {
       "full_name": "calcom/cal.diy",
@@ -87,7 +87,7 @@
       "days_since_release": 186,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:57:07.067Z"
+      "verified_at": "2026-09-03T21:01:55.692Z"
     },
     "documenso/documenso": {
       "full_name": "documenso/documenso",
@@ -109,14 +109,14 @@
       "days_since_release": 15,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:57:07.747Z"
+      "verified_at": "2026-09-03T21:01:56.472Z"
     },
     "AppFlowy-IO/AppFlowy": {
       "full_name": "AppFlowy-IO/AppFlowy",
       "url": "https://github.com/AppFlowy-IO/AppFlowy",
       "homepage": "https://appflowy.com",
       "description": "Bring projects, wikis, and teams together with AI. AppFlowy is the AI collaborative workspace where you achieve more without losing control of your data. The leading open source Notion alternative.",
-      "stars": 76237,
+      "stars": 76238,
       "forks": 5964,
       "open_issues": 1015,
       "license": "AGPL-3.0",
@@ -131,7 +131,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:57:08.086Z"
+      "verified_at": "2026-09-03T21:01:56.842Z"
     },
     "outline/outline": {
       "full_name": "outline/outline",
@@ -153,7 +153,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:57:08.472Z"
+      "verified_at": "2026-09-03T21:01:57.220Z"
     },
     "plausible/analytics": {
       "full_name": "plausible/analytics",
@@ -175,7 +175,7 @@
       "days_since_release": 111,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:57:08.780Z"
+      "verified_at": "2026-09-03T21:01:57.525Z"
     },
     "coollabsio/coolify": {
       "full_name": "coollabsio/coolify",
@@ -197,7 +197,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:57:09.089Z"
+      "verified_at": "2026-09-03T21:01:57.900Z"
     },
     "n8n-io/n8n": {
       "full_name": "n8n-io/n8n",
@@ -209,7 +209,7 @@
       "open_issues": 1139,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-03T20:55:28Z",
+      "pushed_at": "2026-09-03T20:58:51Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "n8n@2.37.9",
@@ -219,7 +219,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:57:09.431Z"
+      "verified_at": "2026-09-03T21:01:58.281Z"
     }
   },
   "errors": [],
