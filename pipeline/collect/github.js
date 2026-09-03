@@ -25,6 +25,15 @@ function githubToken() {
 }
 
 const DAY_MS = 86400000;
+
+/**
+ * GitHub returns "NOASSERTION" when it cannot match a LICENSE file to a known
+ * SPDX identifier. That is not a licence name and must never reach a page.
+ */
+function normaliseLicense(spdx) {
+  if (!spdx || spdx === 'NOASSERTION') return null;
+  return spdx;
+}
 const daysSince = (iso, now) => (iso ? Math.round((now - new Date(iso).getTime()) / DAY_MS) : null);
 
 /**
@@ -77,7 +86,7 @@ async function collectRepo(fullName, { now = Date.now() } = {}) {
     stars: repo.stargazers_count,
     forks: repo.forks_count,
     open_issues: repo.open_issues_count,
-    license: repo.license?.spdx_id || null,
+    license: normaliseLicense(repo.license?.spdx_id),
     archived: !!repo.archived,
     pushed_at: repo.pushed_at,
     days_since_push,
@@ -103,4 +112,4 @@ async function collectRepos(fullNames, opts = {}) {
   return { fetched_at: new Date().toISOString(), projects, errors, authenticated: !!githubToken() };
 }
 
-module.exports = { collectRepo, collectRepos, healthVerdict, githubToken, NOT_RECOMMENDED };
+module.exports = { collectRepo, collectRepos, healthVerdict, normaliseLicense, githubToken, NOT_RECOMMENDED };

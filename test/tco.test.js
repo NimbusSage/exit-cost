@@ -329,3 +329,35 @@ test('sensitivity: verdict degrades monotonically as time gets more expensive', 
       'savings must not increase as the hourly rate rises');
   }
 });
+
+test('REGRESSION: the crossover rate accounts for admin time the incumbent already costs', () => {
+  // If the SaaS itself eats 0.25h/month, switching only costs the DIFFERENCE in
+  // hours. Ignoring that overstates the crossover and makes self-hosting look
+  // better than it is.
+  const base = {
+    seats: 3, horizon_months: 24,
+    incumbent: { costs: [{ amount: 30, period: 'month', per_seat: true }] },
+    alternative: { costs: [{ amount: 20, period: 'month' }], migration_hours: 8, maintenance_hours_per_month: 0.75 },
+  };
+  const withIncTime = {
+    ...base,
+    incumbent: { ...base.incumbent, maintenance_hours_per_month: 0.25 },
+  };
+
+  const a = compare({ ...base, hourly_rate: 0 }).break_even_hourly_rate;
+  const b = compare({ ...withIncTime, hourly_rate: 0 }).break_even_hourly_rate;
+  assert.ok(b > a, 'time the incumbent already costs raises the rate at which staying wins');
+
+  // And the reported crossover must genuinely be the flip point.
+  assert.ok(compare({ ...withIncTime, hourly_rate: b - 1 }).savings.at_horizon > 0);
+  assert.ok(compare({ ...withIncTime, hourly_rate: b + 1 }).savings.at_horizon < 0);
+});
+
+test('the crossover is null when both sides cost the same number of hours', () => {
+  const r = compare({
+    seats: 1, horizon_months: 36, hourly_rate: 50,
+    incumbent: { costs: [{ amount: 30, period: 'month' }], maintenance_hours_per_month: 0.5 },
+    alternative: { costs: [{ amount: 10, period: 'month' }], migration_hours: 0, maintenance_hours_per_month: 0.5 },
+  });
+  assert.equal(r.break_even_hourly_rate, null, 'no net time difference means no rate can flip it');
+});

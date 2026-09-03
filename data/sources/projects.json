@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-03T20:40:53.592Z",
+  "fetched_at": "2026-09-03T20:52:34.205Z",
   "projects": {
     "dani-garcia/vaultwarden": {
       "full_name": "dani-garcia/vaultwarden",
@@ -21,7 +21,7 @@
       "days_since_release": 12,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:40:47.263Z"
+      "verified_at": "2026-09-03T20:52:28.037Z"
     },
     "nocodb/nocodb": {
       "full_name": "nocodb/nocodb",
@@ -31,7 +31,7 @@
       "stars": 64816,
       "forks": 5026,
       "open_issues": 714,
-      "license": "NOASSERTION",
+      "license": null,
       "archived": false,
       "pushed_at": "2026-09-03T20:26:16Z",
       "days_since_push": 0,
@@ -43,7 +43,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:40:47.929Z"
+      "verified_at": "2026-09-03T20:52:28.891Z"
     },
     "keycloak/keycloak": {
       "full_name": "keycloak/keycloak",
@@ -65,7 +65,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:40:48.497Z"
+      "verified_at": "2026-09-03T20:52:29.434Z"
     },
     "calcom/cal.com": {
       "full_name": "calcom/cal.diy",
@@ -87,7 +87,7 @@
       "days_since_release": 186,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:40:49.219Z"
+      "verified_at": "2026-09-03T20:52:29.963Z"
     },
     "documenso/documenso": {
       "full_name": "documenso/documenso",
@@ -109,7 +109,7 @@
       "days_since_release": 15,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:40:50.257Z"
+      "verified_at": "2026-09-03T20:52:31.054Z"
     },
     "AppFlowy-IO/AppFlowy": {
       "full_name": "AppFlowy-IO/AppFlowy",
@@ -131,7 +131,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:40:50.793Z"
+      "verified_at": "2026-09-03T20:52:31.514Z"
     },
     "outline/outline": {
       "full_name": "outline/outline",
@@ -141,7 +141,7 @@
       "stars": 40438,
       "forks": 3536,
       "open_issues": 83,
-      "license": "NOASSERTION",
+      "license": null,
       "archived": false,
       "pushed_at": "2026-09-03T15:32:42Z",
       "days_since_push": 0,
@@ -153,7 +153,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:40:51.356Z"
+      "verified_at": "2026-09-03T20:52:32.088Z"
     },
     "plausible/analytics": {
       "full_name": "plausible/analytics",
@@ -175,7 +175,7 @@
       "days_since_release": 111,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:40:51.908Z"
+      "verified_at": "2026-09-03T20:52:32.601Z"
     },
     "coollabsio/coolify": {
       "full_name": "coollabsio/coolify",
@@ -197,7 +197,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:40:52.468Z"
+      "verified_at": "2026-09-03T20:52:33.171Z"
     },
     "n8n-io/n8n": {
       "full_name": "n8n-io/n8n",
@@ -205,11 +205,11 @@
       "homepage": "https://n8n.io",
       "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
       "stars": 203254,
-      "forks": 60542,
+      "forks": 60541,
       "open_issues": 1140,
-      "license": "NOASSERTION",
+      "license": null,
       "archived": false,
-      "pushed_at": "2026-09-03T20:40:48Z",
+      "pushed_at": "2026-09-03T20:42:05Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "n8n@2.37.9",
@@ -219,7 +219,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-03T20:40:53.026Z"
+      "verified_at": "2026-09-03T20:52:33.642Z"
     }
   },
   "errors": [],

@@ -97,12 +97,16 @@ function breakEvenMonth(deltaMonthly, deltaUpfront) {
  * Returns null when the operator's time does not enter the comparison at all
  * (no migration hours and no maintenance hours), because then no rate flips it.
  */
-function breakEvenHourlyRate({ incumbentTotalCash, altTotalCash, migrationHours, maintenanceHoursPerMonth, horizonMonths }) {
-  const totalHours = migrationHours + maintenanceHoursPerMonth * horizonMonths;
-  if (totalHours <= 0) return null;
+function breakEvenHourlyRate({ incumbentTotalCash, altTotalCash, migrationHours, maintenanceHoursPerMonth, incumbentMaintenanceHoursPerMonth = 0, horizonMonths }) {
+  // Net hours the switch actually costs: the alternative's migration and upkeep,
+  // LESS whatever upkeep the incumbent was already consuming. Omitting that second
+  // term overstates the crossover whenever the SaaS also costs the operator time.
+  const netHours = migrationHours
+    + maintenanceHoursPerMonth * horizonMonths
+    - incumbentMaintenanceHoursPerMonth * horizonMonths;
+  if (Math.abs(netHours) < 1e-9) return null;
   const cashHeadroom = incumbentTotalCash - altTotalCash;
-  const r = cashHeadroom / totalHours;
-  return r;
+  return cashHeadroom / netHours;
 }
 
 /**
@@ -180,6 +184,7 @@ function compare(input) {
     altTotalCash:       alt.one_time + alt.monthly * h,
     migrationHours,
     maintenanceHoursPerMonth: maintPerMonth,
+    incumbentMaintenanceHoursPerMonth: incMaintPerMonth,
     horizonMonths: h,
   });
 
