@@ -1,0 +1,541 @@
+{
+  "_comment": "SaaS list prices. Every entry is human-verified against the vendor's own pricing page and carries the exact sentence that justifies it. `amount` is only ever changed by a human; pipeline/collect/saas.js may refresh verified_at on a match but never rewrites a price.",
+  "schema_version": 1,
+  "vendors": [
+    {
+      "id": "notion",
+      "name": "Notion",
+      "pricing_url": "https://www.notion.com/pricing",
+      "category": "docs-wiki",
+      "plans": [
+        {
+          "id": "plus",
+          "name": "Plus",
+          "page_label": "Plus",
+          "amount": 10,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Plus $10 per member / month",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "last_auto_confirmed_at": "2026-09-03",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-09-03"
+          }
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "page_label": "Business",
+          "amount": 20,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Business Recommended $20 per member / month",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "last_auto_confirmed_at": "2026-09-03",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-09-03"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "7e6b57243b152edf",
+        "token_count": 4,
+        "tokens": [
+          "USD0",
+          "USD10",
+          "USD20",
+          "USD8"
+        ]
+      },
+      "last_checked_at": "2026-09-03",
+      "last_check_ok": true,
+      "last_check_reason": null
+    },
+    {
+      "id": "airtable",
+      "name": "Airtable",
+      "pricing_url": "https://airtable.com/pricing",
+      "category": "database-spreadsheet",
+      "plans": [
+        {
+          "id": "team",
+          "name": "Team",
+          "page_label": "Team",
+          "amount": 20,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "our Team plan is available for $20/user/month when billed annually",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "last_auto_confirmed_at": "2026-09-03",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-09-03"
+          }
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "page_label": "Business",
+          "amount": 45,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Business is available at $45/user/month when billed annually",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "last_auto_confirmed_at": "2026-09-03",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-09-03"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "6ea4ff6a711b04ff",
+        "token_count": 2,
+        "tokens": [
+          "USD20",
+          "USD45"
+        ]
+      },
+      "last_checked_at": "2026-09-03",
+      "last_check_ok": true,
+      "last_check_reason": null
+    },
+    {
+      "id": "zapier",
+      "name": "Zapier",
+      "pricing_url": "https://zapier.com/pricing",
+      "category": "automation",
+      "plans": [
+        {
+          "id": "professional",
+          "name": "Professional",
+          "page_label": "Professional",
+          "amount": 19.99,
+          "period": "month",
+          "per_seat": false,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Professional Starting from $19.99 /month",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "caveat": "Entry tier. Zapier prices by task volume, so the real bill rises with usage; this is the floor, not the typical spend.",
+          "last_auto_confirmed_at": "2026-09-03",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-09-03"
+          }
+        },
+        {
+          "id": "team",
+          "name": "Team",
+          "page_label": "Team",
+          "amount": 69,
+          "period": "month",
+          "per_seat": false,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Team Starting from $69 /month",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "caveat": "Entry tier; rises with task volume.",
+          "last_auto_confirmed_at": "2026-09-03",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-09-03"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "c1f7c66a65cd5b58",
+        "token_count": 9,
+        "tokens": [
+          "USD0",
+          "USD13.33",
+          "USD160",
+          "USD19.99",
+          "USD33.33",
+          "USD400",
+          "USD66.67",
+          "USD69",
+          "USD800"
+        ]
+      },
+      "last_checked_at": "2026-09-03",
+      "last_check_ok": true,
+      "last_check_reason": null
+    },
+    {
+      "id": "auth0",
+      "name": "Auth0",
+      "pricing_url": "https://auth0.com/pricing",
+      "category": "auth",
+      "plans": [
+        {
+          "id": "essentials",
+          "name": "Essentials",
+          "page_label": "Essentials",
+          "amount": 35,
+          "period": "month",
+          "per_seat": false,
+          "currency": "USD",
+          "billed": "monthly",
+          "quote": "Essentials $ 35 / month ... Up to 500 monthly active users",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "caveat": "Priced at up to 500 monthly active users. Cost scales with MAU, so this is the entry price for a small user base.",
+          "last_auto_confirmed_at": "2026-09-03",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-09-03"
+          }
+        },
+        {
+          "id": "professional",
+          "name": "Professional",
+          "page_label": "Professional",
+          "amount": 240,
+          "period": "month",
+          "per_seat": false,
+          "currency": "USD",
+          "billed": "monthly",
+          "quote": "Professional $ 240 / month ... Up to 500 monthly active users",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "caveat": "Priced at up to 500 monthly active users.",
+          "last_auto_confirmed_at": "2026-09-03",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-09-03"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "7b35c2d11577b72c",
+        "token_count": 4,
+        "tokens": [
+          "USD0",
+          "USD240",
+          "USD35",
+          "USD5000"
+        ]
+      },
+      "last_checked_at": "2026-09-03",
+      "last_check_ok": true,
+      "last_check_reason": null
+    },
+    {
+      "id": "calendly",
+      "name": "Calendly",
+      "pricing_url": "https://calendly.com/pricing",
+      "category": "scheduling",
+      "plans": [
+        {
+          "id": "standard",
+          "name": "Standard",
+          "page_label": "Standard",
+          "amount": 10,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Standard ... $10 /seat/mo",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "last_auto_confirmed_at": "2026-09-03",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-09-03"
+          }
+        },
+        {
+          "id": "teams",
+          "name": "Teams",
+          "page_label": "Teams",
+          "amount": 16,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Teams ... $16 /seat/mo",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "last_auto_confirmed_at": "2026-09-03",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-09-03"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "9af6ac15c8b7cff4",
+        "token_count": 3,
+        "tokens": [
+          "USD10",
+          "USD15",
+          "USD16"
+        ]
+      },
+      "last_checked_at": "2026-09-03",
+      "last_check_ok": true,
+      "last_check_reason": null
+    },
+    {
+      "id": "1password",
+      "name": "1Password",
+      "pricing_url": "https://1password.com/business-pricing",
+      "category": "password-manager",
+      "plans": [
+        {
+          "id": "business",
+          "name": "Business",
+          "page_label": "Business",
+          "amount": 8.99,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "1Password Business costs $8.99 per user per month when billed annually, or $107.88 per user per year",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "check": {
+            "agreement": "unverifiable",
+            "at": "2026-09-03",
+            "reason": "two prices near the plan name (likely monthly and annual)"
+          }
+        },
+        {
+          "id": "teams-starter",
+          "name": "Teams Starter Pack",
+          "page_label": "Teams Starter Pack",
+          "amount": 24.95,
+          "period": "month",
+          "per_seat": false,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Teams Starter Pack costs $24.95 per month when billed annually ... Includes 10 members",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "caveat": "Flat price covering up to 10 members.",
+          "check": {
+            "agreement": "unverifiable",
+            "at": "2026-09-03",
+            "reason": "6 different prices near the plan name"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "9dbe2ad1fd26ebbc",
+        "token_count": 11,
+        "tokens": [
+          "EUR21.95",
+          "EUR263.4",
+          "EUR4.49",
+          "USD107.88",
+          "USD24.95",
+          "USD29.95",
+          "USD299.4",
+          "USD359.4",
+          "USD4.99",
+          "USD6.25",
+          "USD8.99"
+        ]
+      },
+      "last_checked_at": "2026-09-03",
+      "last_check_ok": true,
+      "last_check_reason": null
+    },
+    {
+      "id": "docusign",
+      "name": "Docusign",
+      "pricing_url": "https://www.docusign.com/products-and-pricing",
+      "category": "e-signature",
+      "plans": [
+        {
+          "id": "standard",
+          "name": "Standard",
+          "page_label": "Standard",
+          "amount": 30,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Standard ... $ 30 /user/month Annual ... This is an annual commitment of $360.",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "check": {
+            "agreement": "unverifiable",
+            "at": "2026-09-03",
+            "reason": "4 different prices near the plan name"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "5d10324d72edb46f",
+        "token_count": 8,
+        "tokens": [
+          "USD0.36",
+          "USD11",
+          "USD132",
+          "USD2.4",
+          "USD30",
+          "USD360",
+          "USD45",
+          "USD540"
+        ]
+      },
+      "last_checked_at": "2026-09-03",
+      "last_check_ok": true,
+      "last_check_reason": null
+    },
+    {
+      "id": "vercel",
+      "name": "Vercel",
+      "pricing_url": "https://vercel.com/pricing",
+      "category": "hosting-paas",
+      "plans": [
+        {
+          "id": "pro",
+          "name": "Pro",
+          "page_label": "Pro",
+          "amount": 20,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "monthly",
+          "quote": "Pro Popular $20 /mo. ... Team Seats Developer seat 1 $20 / month",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "caveat": "$20 per developer seat per month, which includes $20 of usage credit. Bandwidth and compute above that credit are billed on top, so real bills commonly exceed the seat price.",
+          "check": {
+            "agreement": "unverifiable",
+            "at": "2026-09-03",
+            "reason": "two prices near the plan name (likely monthly and annual)"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "85a6e772fb36dd56",
+        "token_count": 31,
+        "tokens": [
+          "USD0",
+          "USD0.01",
+          "USD0.02",
+          "USD0.03",
+          "USD0.05",
+          "USD0.06",
+          "USD0.08",
+          "USD0.1",
+          "USD0.12",
+          "USD0.15",
+          "USD0.25",
+          "USD0.4",
+          "USD0.5",
+          "USD0.6",
+          "USD0.65",
+          "USD0.95",
+          "USD1",
+          "USD1.2",
+          "USD10",
+          "USD100",
+          "USD150",
+          "USD2",
+          "USD20",
+          "USD200",
+          "USD250",
+          "USD3",
+          "USD300",
+          "USD350",
+          "USD4",
+          "USD5",
+          "USD50"
+        ]
+      },
+      "last_checked_at": "2026-09-03",
+      "last_check_ok": true,
+      "last_check_reason": null
+    },
+    {
+      "id": "plausible",
+      "name": "Plausible Analytics (Cloud)",
+      "pricing_url": "https://plausible.io/#pricing",
+      "category": "analytics",
+      "plans": [
+        {
+          "id": "starter",
+          "name": "Starter",
+          "page_label": "Starter",
+          "amount": 9,
+          "period": "month",
+          "per_seat": false,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Starter /year /month $9 /month ... Up to 10k monthly pageviews",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "caveat": "Priced at up to 10k monthly pageviews; scales with traffic.",
+          "last_auto_confirmed_at": "2026-09-03",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-09-03"
+          }
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "page_label": "Business",
+          "amount": 19,
+          "period": "month",
+          "per_seat": false,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Business /year /month $19 /month ... Up to 10 sites",
+          "verified_at": "2026-09-03",
+          "verified_by": "human",
+          "last_auto_confirmed_at": "2026-09-03",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-09-03"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "09d1c89276d982e3",
+        "token_count": 3,
+        "tokens": [
+          "USD14",
+          "USD19",
+          "USD9"
+        ]
+      },
+      "last_checked_at": "2026-09-03",
+      "last_check_ok": true,
+      "last_check_reason": null
+    }
+  ]
+}

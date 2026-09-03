@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "slug": "notion-to-outline",
+  "title": "Notion Business to self-hosted Outline",
+  "summary": "Outline is a narrower product than Notion — a team wiki, not a database — which is exactly why the migration is cheaper.",
+  "category": "docs-wiki",
+  "incumbent": {
+    "vendor": "notion",
+    "plan": "business",
+    "seats": 10
+  },
+  "alternative": {
+    "name": "Outline (self-hosted)",
+    "repo": "outline/outline",
+    "requirements": {
+      "ram_gb": 2,
+      "vcpu": 1,
+      "disk_gb": 25
+    },
+    "backup_gb": 30,
+    "migration_hours": 8,
+    "maintenance_hours_per_month": 0.5
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Notion databases entirely — Outline is documents and collections, with no relational views",
+      "Kanban boards, calendars and rollups",
+      "Notion AI"
+    ],
+    "you_gain": [
+      "A genuinely fast wiki; Outline is the better product if documents are what you actually use Notion for",
+      "Markdown in, Markdown out, so you are never locked in again",
+      "Real full-text search that does not degrade as the workspace grows"
+    ]
+  },
+  "caveats": [
+    "If your team uses Notion databases as a lightweight app platform, Outline is not a replacement and this comparison does not apply to you.",
+    "Outline needs an external auth provider (Google, Slack, OIDC). Budget an hour for that on top of the estimate."
+  ],
+  "hours_are_estimates": true
+}

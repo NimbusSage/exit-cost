@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "slug": "vercel-to-coolify",
+  "title": "Vercel Pro to self-hosted Coolify",
+  "summary": "Coolify gives you a Vercel-shaped deploy experience on your own VPS. The seat price is only half the story — Vercel's usage billing is the other half.",
+  "category": "hosting-paas",
+  "incumbent": {
+    "vendor": "vercel",
+    "plan": "pro",
+    "seats": 3
+  },
+  "alternative": {
+    "name": "Coolify (self-hosted)",
+    "repo": "coollabsio/coolify",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 50
+    },
+    "backup_gb": 40,
+    "migration_hours": 10,
+    "maintenance_hours_per_month": 1
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Vercel's edge network — this is the big one, and it is not something a single VPS replicates",
+      "Instant global cache invalidation and automatic image optimisation",
+      "Zero-config Next.js features that only exist because Vercel builds both sides",
+      "Preview deployments that scale to zero for free"
+    ],
+    "you_gain": [
+      "A fixed monthly bill instead of a usage bill that can spike without warning",
+      "Free seats, and no per-seat charge for a viewer who just wants to see logs",
+      "Any runtime you like, not only the ones the platform supports"
+    ]
+  },
+  "caveats": [
+    "If your traffic is global and latency-sensitive, one VPS is a genuine downgrade and no amount of savings fixes that. Put Cloudflare in front of it or stay on Vercel.",
+    "The $20/seat Vercel figure excludes usage overages. If your bandwidth bill is the reason you are reading this, your real Vercel cost is higher and Coolify wins sooner.",
+    "Coolify itself needs headroom on top of the applications you deploy. The 4 GB here is for Coolify plus a couple of small apps, not a full production estate."
+  ],
+  "hours_are_estimates": true
+}

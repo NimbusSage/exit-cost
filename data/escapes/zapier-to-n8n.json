@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "zapier-to-n8n",
+  "title": "Zapier Professional to self-hosted n8n",
+  "summary": "Zapier bills by task volume; n8n on your own box does not. The crossover depends on how much you automate, not how many people you employ.",
+  "category": "automation",
+  "incumbent": {
+    "vendor": "zapier",
+    "plan": "professional",
+    "seats": 1
+  },
+  "alternative": {
+    "name": "n8n (self-hosted)",
+    "repo": "n8n-io/n8n",
+    "requirements": {
+      "ram_gb": 2,
+      "vcpu": 1,
+      "disk_gb": 25
+    },
+    "backup_gb": 20,
+    "migration_hours": 8,
+    "maintenance_hours_per_month": 0.5
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Zapier's 8,000+ prebuilt integrations; n8n has a few hundred plus generic HTTP",
+      "Someone else fixing an integration when a vendor changes their API",
+      "Zero-maintenance reliability — a failed workflow at 3am is now your pager"
+    ],
+    "you_gain": [
+      "Unmetered task volume, which is the whole point if you run high-frequency automations",
+      "Arbitrary JavaScript in a workflow without paying for a higher tier",
+      "Data that never leaves your server, which matters for regulated workloads"
+    ]
+  },
+  "caveats": [
+    "n8n's licence is a fair-code Sustainable Use Licence, not OSI open source. Self-hosting for your own internal use is permitted; reselling it as a service is not.",
+    "The $19.99 Zapier figure is the entry tier. If you are over its task allowance your real bill is higher and n8n wins sooner than this page shows.",
+    "Rebuilding Zaps is manual — there is no importer. The 8-hour estimate assumes roughly a dozen workflows."
+  ],
+  "hours_are_estimates": true
+}

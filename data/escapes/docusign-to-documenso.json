@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "docusign-to-documenso",
+  "title": "Docusign Standard to self-hosted Documenso",
+  "summary": "Docusign is expensive per seat and Documenso is a direct answer, but the legal-evidence story is where the real comparison lives.",
+  "category": "e-signature",
+  "incumbent": {
+    "vendor": "docusign",
+    "plan": "standard",
+    "seats": 3
+  },
+  "alternative": {
+    "name": "Documenso (self-hosted)",
+    "repo": "documenso/documenso",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 30
+    },
+    "backup_gb": 40,
+    "migration_hours": 8,
+    "maintenance_hours_per_month": 0.75
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Docusign's name on the audit trail, which counts for something in a dispute",
+      "Twenty years of case law and enterprise procurement acceptance",
+      "Managed certificate handling and identity verification add-ons"
+    ],
+    "you_gain": [
+      "Signed documents stored on infrastructure you control",
+      "No envelope limits",
+      "AGPL-3.0 with an open, inspectable signing implementation"
+    ]
+  },
+  "caveats": [
+    "Read this one carefully: e-signature validity depends on your jurisdiction and on the evidence you can produce. Documenso produces a cryptographically sound audit trail, but \"sound\" and \"accepted by the other side's lawyers\" are different questions.",
+    "You must supply your own signing certificate. Getting a trusted one is a cost this page does not include, because it varies enormously.",
+    "For high-value contracts, the cost difference here is small relative to the risk. We would stay on Docusign."
+  ],
+  "hours_are_estimates": true
+}

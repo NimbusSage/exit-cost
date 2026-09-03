@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "slug": "airtable-to-nocodb",
+  "title": "Airtable Team to self-hosted NocoDB",
+  "summary": "NocoDB puts an Airtable-shaped interface on a Postgres database you own. Per-seat pricing is what makes this one work.",
+  "category": "database-spreadsheet",
+  "incumbent": {
+    "vendor": "airtable",
+    "plan": "team",
+    "seats": 5
+  },
+  "alternative": {
+    "name": "NocoDB (self-hosted)",
+    "repo": "nocodb/nocodb",
+    "requirements": {
+      "ram_gb": 2,
+      "vcpu": 1,
+      "disk_gb": 25
+    },
+    "backup_gb": 25,
+    "migration_hours": 6,
+    "maintenance_hours_per_month": 0.5
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Airtable's automations and scripting block — NocoDB's equivalents are thinner",
+      "The interface designer and published interfaces",
+      "A large marketplace of extensions and templates"
+    ],
+    "you_gain": [
+      "A real Postgres database underneath, queryable with SQL by anything you own",
+      "No record limits per base",
+      "Free seats, which is the entire argument for teams above about four people"
+    ]
+  },
+  "caveats": [
+    "NocoDB has a direct Airtable import, which is why the migration estimate is low. Verify formula fields after import — they are the part that most often does not survive.",
+    "Attachment-heavy bases need more disk and more backup volume than the defaults here."
+  ],
+  "hours_are_estimates": true
+}

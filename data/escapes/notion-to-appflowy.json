@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "slug": "notion-to-appflowy",
+  "title": "Notion Business to self-hosted AppFlowy",
+  "summary": "AppFlowy is the closest open-source shape to Notion. Whether it pays off depends almost entirely on your seat count.",
+  "category": "docs-wiki",
+  "incumbent": {
+    "vendor": "notion",
+    "plan": "business",
+    "seats": 5
+  },
+  "alternative": {
+    "name": "AppFlowy (self-hosted)",
+    "repo": "AppFlowy-IO/AppFlowy",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 40
+    },
+    "backup_gb": 50,
+    "migration_hours": 10,
+    "maintenance_hours_per_month": 0.75
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Notion's AI features, which are a large part of what the Business tier is sold on",
+      "Public page publishing and the template gallery",
+      "Mature mobile apps — AppFlowy's are usable but noticeably behind",
+      "Someone else's uptime guarantee"
+    ],
+    "you_gain": [
+      "Your documents in a Postgres database you can query and back up yourself",
+      "No per-seat cost, so adding people is free",
+      "Local-first editing that keeps working when the network does not",
+      "AGPL-3.0 licensing with no vendor able to change the terms on you"
+    ]
+  },
+  "caveats": [
+    "AppFlowy Cloud self-hosting is a multi-container stack (Postgres, Redis, GoTrue, MinIO). It is a real deployment, not a single binary.",
+    "Notion's import is one-way. Getting a large workspace out cleanly takes longer than the estimate if you have deeply nested databases.",
+    "The 10-hour migration figure assumes a workspace of a few hundred pages. Multiply it for a large one."
+  ],
+  "hours_are_estimates": true
+}

@@ -1,0 +1,227 @@
+{
+  "fetched_at": "2026-09-03T20:40:53.592Z",
+  "projects": {
+    "dani-garcia/vaultwarden": {
+      "full_name": "dani-garcia/vaultwarden",
+      "url": "https://github.com/dani-garcia/vaultwarden",
+      "homepage": null,
+      "description": "Unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs",
+      "stars": 66780,
+      "forks": 3176,
+      "open_issues": 87,
+      "license": "AGPL-3.0",
+      "archived": false,
+      "pushed_at": "2026-09-03T19:17:52Z",
+      "days_since_push": 0,
+      "latest_release": {
+        "tag": "1.37.2",
+        "published_at": "2026-08-22T12:29:13Z",
+        "url": "https://github.com/dani-garcia/vaultwarden/releases/tag/1.37.2"
+      },
+      "days_since_release": 12,
+      "health": "active",
+      "recommended": true,
+      "verified_at": "2026-09-03T20:40:47.263Z"
+    },
+    "nocodb/nocodb": {
+      "full_name": "nocodb/nocodb",
+      "url": "https://github.com/nocodb/nocodb",
+      "homepage": "https://nocodb.com",
+      "description": "🔥 🔥 🔥 A Free & Self-hostable Airtable Alternative",
+      "stars": 64816,
+      "forks": 5026,
+      "open_issues": 714,
+      "license": "NOASSERTION",
+      "archived": false,
+      "pushed_at": "2026-09-03T20:26:16Z",
+      "days_since_push": 0,
+      "latest_release": {
+        "tag": "2026.08.2",
+        "published_at": "2026-09-03T12:36:17Z",
+        "url": "https://github.com/nocodb/nocodb/releases/tag/2026.08.2"
+      },
+      "days_since_release": 0,
+      "health": "active",
+      "recommended": true,
+      "verified_at": "2026-09-03T20:40:47.929Z"
+    },
+    "keycloak/keycloak": {
+      "full_name": "keycloak/keycloak",
+      "url": "https://github.com/keycloak/keycloak",
+      "homepage": "https://www.keycloak.org",
+      "description": "Open Source Identity and Access Management For Modern Applications and Services",
+      "stars": 36590,
+      "forks": 8889,
+      "open_issues": 3233,
+      "license": "Apache-2.0",
+      "archived": false,
+      "pushed_at": "2026-09-03T19:23:46Z",
+      "days_since_push": 0,
+      "latest_release": {
+        "tag": "26.7.3",
+        "published_at": "2026-08-31T09:29:37Z",
+        "url": "https://github.com/keycloak/keycloak/releases/tag/26.7.3"
+      },
+      "days_since_release": 3,
+      "health": "active",
+      "recommended": true,
+      "verified_at": "2026-09-03T20:40:48.497Z"
+    },
+    "calcom/cal.com": {
+      "full_name": "calcom/cal.diy",
+      "url": "https://github.com/calcom/cal.diy",
+      "homepage": "https://cal.diy",
+      "description": "Scheduling infrastructure for absolutely everyone.",
+      "stars": 48126,
+      "forks": 14998,
+      "open_issues": 1429,
+      "license": "MIT",
+      "archived": false,
+      "pushed_at": "2026-09-01T14:01:19Z",
+      "days_since_push": 2,
+      "latest_release": {
+        "tag": "v6.2.0",
+        "published_at": "2026-03-01T23:49:01Z",
+        "url": "https://github.com/calcom/cal.diy/releases/tag/v6.2.0"
+      },
+      "days_since_release": 186,
+      "health": "active",
+      "recommended": true,
+      "verified_at": "2026-09-03T20:40:49.219Z"
+    },
+    "documenso/documenso": {
+      "full_name": "documenso/documenso",
+      "url": "https://github.com/documenso/documenso",
+      "homepage": "https://documenso.com",
+      "description": "The Open Source DocuSign Alternative.",
+      "stars": 14877,
+      "forks": 3168,
+      "open_issues": 248,
+      "license": "AGPL-3.0",
+      "archived": false,
+      "pushed_at": "2026-09-03T20:07:56Z",
+      "days_since_push": 0,
+      "latest_release": {
+        "tag": "v2.17.0",
+        "published_at": "2026-08-19T11:01:04Z",
+        "url": "https://github.com/documenso/documenso/releases/tag/v2.17.0"
+      },
+      "days_since_release": 15,
+      "health": "active",
+      "recommended": true,
+      "verified_at": "2026-09-03T20:40:50.257Z"
+    },
+    "AppFlowy-IO/AppFlowy": {
+      "full_name": "AppFlowy-IO/AppFlowy",
+      "url": "https://github.com/AppFlowy-IO/AppFlowy",
+      "homepage": "https://appflowy.com",
+      "description": "Bring projects, wikis, and teams together with AI. AppFlowy is the AI collaborative workspace where you achieve more without losing control of your data. The leading open source Notion alternative.",
+      "stars": 76237,
+      "forks": 5964,
+      "open_issues": 1015,
+      "license": "AGPL-3.0",
+      "archived": false,
+      "pushed_at": "2026-09-01T07:10:47Z",
+      "days_since_push": 3,
+      "latest_release": {
+        "tag": "0.14.1",
+        "published_at": "2026-09-01T07:10:48Z",
+        "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.14.1"
+      },
+      "days_since_release": 3,
+      "health": "active",
+      "recommended": true,
+      "verified_at": "2026-09-03T20:40:50.793Z"
+    },
+    "outline/outline": {
+      "full_name": "outline/outline",
+      "url": "https://github.com/outline/outline",
+      "homepage": "https://www.getoutline.com",
+      "description": "The fastest knowledge base for growing teams. Beautiful, realtime collaborative, feature packed, and markdown compatible.",
+      "stars": 40438,
+      "forks": 3536,
+      "open_issues": 83,
+      "license": "NOASSERTION",
+      "archived": false,
+      "pushed_at": "2026-09-03T15:32:42Z",
+      "days_since_push": 0,
+      "latest_release": {
+        "tag": "v1.10.0",
+        "published_at": "2026-09-02T00:05:15Z",
+        "url": "https://github.com/outline/outline/releases/tag/v1.10.0"
+      },
+      "days_since_release": 2,
+      "health": "active",
+      "recommended": true,
+      "verified_at": "2026-09-03T20:40:51.356Z"
+    },
+    "plausible/analytics": {
+      "full_name": "plausible/analytics",
+      "url": "https://github.com/plausible/analytics",
+      "homepage": "https://plausible.io",
+      "description": "Open source, privacy-first web analytics. Lightweight, cookie-free Google Analytics alternative. Self-hosted or cloud.",
+      "stars": 28857,
+      "forks": 1833,
+      "open_issues": 69,
+      "license": "AGPL-3.0",
+      "archived": false,
+      "pushed_at": "2026-09-03T14:21:35Z",
+      "days_since_push": 0,
+      "latest_release": {
+        "tag": "v3.2.1",
+        "published_at": "2026-05-15T09:15:56Z",
+        "url": "https://github.com/plausible/analytics/releases/tag/v3.2.1"
+      },
+      "days_since_release": 111,
+      "health": "active",
+      "recommended": true,
+      "verified_at": "2026-09-03T20:40:51.908Z"
+    },
+    "coollabsio/coolify": {
+      "full_name": "coollabsio/coolify",
+      "url": "https://github.com/coollabsio/coolify",
+      "homepage": "https://coolify.io",
+      "description": "An open-source, self-hostable PaaS alternative to Vercel, Heroku & Netlify that lets you easily deploy static sites, databases, full-stack applications and 280+ one-click services on your own servers.",
+      "stars": 61365,
+      "forks": 5402,
+      "open_issues": 668,
+      "license": "Apache-2.0",
+      "archived": false,
+      "pushed_at": "2026-09-03T18:47:55Z",
+      "days_since_push": 0,
+      "latest_release": {
+        "tag": "v4.3.16",
+        "published_at": "2026-09-03T18:47:56Z",
+        "url": "https://github.com/coollabsio/coolify/releases/tag/v4.3.16"
+      },
+      "days_since_release": 0,
+      "health": "active",
+      "recommended": true,
+      "verified_at": "2026-09-03T20:40:52.468Z"
+    },
+    "n8n-io/n8n": {
+      "full_name": "n8n-io/n8n",
+      "url": "https://github.com/n8n-io/n8n",
+      "homepage": "https://n8n.io",
+      "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+      "stars": 203254,
+      "forks": 60542,
+      "open_issues": 1140,
+      "license": "NOASSERTION",
+      "archived": false,
+      "pushed_at": "2026-09-03T20:40:48Z",
+      "days_since_push": 0,
+      "latest_release": {
+        "tag": "n8n@2.37.9",
+        "published_at": "2026-09-03T13:16:03Z",
+        "url": "https://github.com/n8n-io/n8n/releases/tag/n8n%402.37.9"
+      },
+      "days_since_release": 0,
+      "health": "active",
+      "recommended": true,
+      "verified_at": "2026-09-03T20:40:53.026Z"
+    }
+  },
+  "errors": [],
+  "authenticated": true
+}

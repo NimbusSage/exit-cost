@@ -1,0 +1,29 @@
+{
+  "_comment": "Object-storage rates for the backup line of every escape. Human-verified against the provider's published pricing page.",
+  "schema_version": 1,
+  "options": [
+    {
+      "id": "backblaze-b2",
+      "name": "Backblaze B2",
+      "usd_per_gb_month": 0.00695,
+      "egress": "free up to 3x stored volume per month, then $0.01/GB",
+      "pricing_url": "https://www.backblaze.com/cloud-storage/pricing",
+      "quote": "the amount of data stored per byte-hour over the last month at a rate of $6.95/TB/30-day",
+      "verified_at": "2026-09-03",
+      "verified_by": "human",
+      "affiliate": true
+    },
+    {
+      "id": "cloudflare-r2",
+      "name": "Cloudflare R2",
+      "usd_per_gb_month": 0.015,
+      "egress": "free",
+      "pricing_url": "https://developers.cloudflare.com/r2/pricing/",
+      "quote": "Standard storage ... Storage $0.015 / GB-month",
+      "verified_at": "2026-09-03",
+      "verified_by": "human",
+      "affiliate": false
+    }
+  ],
+  "default": "backblaze-b2"
+}

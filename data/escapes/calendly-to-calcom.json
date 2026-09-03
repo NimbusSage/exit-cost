@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "calendly-to-calcom",
+  "title": "Calendly Standard to self-hosted Cal.com",
+  "summary": "Cal.com is a close feature match for Calendly, which makes this one of the cleaner swaps — if you have enough seats.",
+  "category": "scheduling",
+  "incumbent": {
+    "vendor": "calendly",
+    "plan": "standard",
+    "seats": 3
+  },
+  "alternative": {
+    "name": "Cal.com (self-hosted)",
+    "repo": "calcom/cal.com",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 30
+    },
+    "backup_gb": 20,
+    "migration_hours": 8,
+    "maintenance_hours_per_month": 0.75
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Calendly's polish, particularly on mobile booking pages",
+      "Managed calendar-sync reliability — OAuth tokens to Google and Microsoft are now yours to keep alive",
+      "Some routing and workflow features gated behind Cal.com's own commercial licence"
+    ],
+    "you_gain": [
+      "Free seats, which is the whole argument once you pass a handful of users",
+      "Booking data in your own database",
+      "AGPL-3.0 for the core product"
+    ]
+  },
+  "caveats": [
+    "Cal.com self-hosted is a Next.js monorepo and is heavier to run than its feature list suggests. The 4 GB requirement is not padding.",
+    "Parts of Cal.com are under a commercial licence rather than the AGPL core. Check the /packages/features/ee directory against what you need before committing.",
+    "Google Calendar OAuth setup is fiddly and is the most common place this migration stalls."
+  ],
+  "hours_are_estimates": true
+}

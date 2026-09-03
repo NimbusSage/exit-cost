@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "slug": "auth0-to-keycloak",
+  "title": "Auth0 Essentials to self-hosted Keycloak",
+  "summary": "Auth0 prices by monthly active users; Keycloak does not care how many you have. This is the escape with the steepest operational cost.",
+  "category": "auth",
+  "incumbent": {
+    "vendor": "auth0",
+    "plan": "essentials",
+    "seats": 1
+  },
+  "alternative": {
+    "name": "Keycloak (self-hosted)",
+    "repo": "keycloak/keycloak",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 25
+    },
+    "backup_gb": 20,
+    "migration_hours": 24,
+    "maintenance_hours_per_month": 1.5
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Auth0's uptime record, on the one service where downtime locks every user out of everything",
+      "Anomaly detection, breached-password checks and bot protection out of the box",
+      "Rules, Actions and the extension marketplace"
+    ],
+    "you_gain": [
+      "MAU-independent pricing — the reason anyone considers this at 10,000+ users",
+      "Full OIDC and SAML with no feature gating behind an enterprise tier",
+      "Apache-2.0 licensing and a CNCF-adjacent governance model"
+    ]
+  },
+  "caveats": [
+    "This is the one on this site we are most cautious about. Identity is the worst thing to run badly: a botched Keycloak upgrade locks every user out of every application at once.",
+    "The 24-hour migration estimate is realistic only if you already understand OIDC. Double it if you do not.",
+    "Auth0 Essentials at $35/month is priced for up to 500 monthly active users. Below that ceiling Auth0 is very hard to beat, and this page will usually tell you to stay.",
+    "Budget for a staging Keycloak as well. The arithmetic here assumes one box; a serious deployment wants two."
+  ],
+  "hours_are_estimates": true
+}

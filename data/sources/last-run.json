@@ -1,0 +1,48 @@
+{
+  "started_at": "2026-09-03T20:40:45.427Z",
+  "day": "2026-09-03",
+  "dry_run": false,
+  "steps": {
+    "vps": {
+      "updated": [],
+      "kept_stale": [],
+      "skipped": [
+        {
+          "name": "hetzner",
+          "reason": "HETZNER_API_TOKEN not set"
+        },
+        {
+          "name": "digitalocean",
+          "reason": "DO_API_TOKEN not set"
+        }
+      ],
+      "lost": [],
+      "first_seen": [
+        "vultr",
+        "linode"
+      ],
+      "total_plans": 118,
+      "healthy": 2,
+      "ok": true
+    },
+    "projects": {
+      "checked": 10,
+      "ok": 10,
+      "errors": [],
+      "authenticated": true
+    },
+    "saas": {
+      "vendors": 9,
+      "ok": 9,
+      "failed": 0,
+      "blocked": 0,
+      "match": 12,
+      "drift": 0,
+      "unverifiable": 4,
+      "drifted": []
+    }
+  },
+  "finished_at": "2026-09-03T20:40:58.059Z",
+  "duration_s": 12.6,
+  "ok": true
+}

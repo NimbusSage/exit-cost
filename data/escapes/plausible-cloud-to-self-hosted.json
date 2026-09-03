@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "plausible-cloud-to-self-hosted",
+  "title": "Plausible Cloud to self-hosted Plausible CE",
+  "summary": "The rare case where the vendor publishes the self-hosting instructions themselves — and the rarer case where the numbers usually say do not bother.",
+  "category": "analytics",
+  "incumbent": {
+    "vendor": "plausible",
+    "plan": "business",
+    "seats": 1
+  },
+  "alternative": {
+    "name": "Plausible Community Edition (self-hosted)",
+    "repo": "plausible/analytics",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 40
+    },
+    "backup_gb": 30,
+    "migration_hours": 4,
+    "maintenance_hours_per_month": 0.75
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Funnels, ecommerce revenue tracking and several other features that are cloud-only",
+      "Managed ClickHouse, which is the part of this stack most likely to bite you",
+      "Supporting a small independent company that publishes its own self-hosting guide"
+    ],
+    "you_gain": [
+      "Analytics data on your own infrastructure, which is the actual point for most people who ask",
+      "No pageview ceiling",
+      "AGPL-3.0"
+    ]
+  },
+  "caveats": [
+    "We expect this page to tell most readers to stay. Plausible Cloud is cheap, the CE build drops features, and ClickHouse is not a database you want to learn during an outage.",
+    "Plausible CE is deliberately a subset of the cloud product. Check the feature matrix before you migrate, not after.",
+    "This escape is here precisely because it usually loses. A site that only publishes wins is a marketing site."
+  ],
+  "hours_are_estimates": true
+}
