@@ -14,6 +14,13 @@ const { readJson, listJson, p } = require('../pipeline/lib/store.js');
 const chart = require('./assets/chart.js');
 
 const DIST = path.join(__dirname, 'dist');
+
+/**
+ * Deploys land either at a domain root or under a project subpath
+ * (nimbussage.github.io/exit-cost). Every internal href goes through u().
+ */
+let BASE = '';
+const u = (p) => BASE + p;   // BASE is '' at a domain root, '/exit-cost' under a subpath
 const SITE_NAME = 'Exit Cost';
 const TAGLINE = 'What it really costs to leave a subscription.';
 
@@ -59,18 +66,18 @@ function layout({ title, description, canonical, body, jsonld = null, scripts = 
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:site_name" content="${SITE_NAME}">
 <meta name="twitter:card" content="summary">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="${u('/assets/style.css')}">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23edeef0'/><text y='24' x='4' font-family='Georgia,serif' font-size='22' fill='%23000'>&#8709;</text></svg>">
 ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ''}
 </head>
 <body>
 <div class="wrap">
 <header class="masthead">
-  <a class="wordmark" href="/">${SITE_NAME}</a>
+  <a class="wordmark" href="${u('/')}">${SITE_NAME}</a>
   <nav>
-    <a href="/">Comparisons</a>
-    <a href="/method/">How we count</a>
-    <a href="/api/index.json">Data</a>
+    <a href="${u('/')}">Comparisons</a>
+    <a href="${u('/method/')}">How we count</a>
+    <a href="${u('/api/index.json')}">Data</a>
   </nav>
 </header>
 <main>
@@ -84,7 +91,7 @@ ${body}
   comparisons where staying on the subscription is the right answer.</p>
   <p>Prices are list prices in USD, exclusive of tax, and each carries the date it was
   last verified. We are not affiliated with any of the vendors compared here.
-  <a href="/method/">How we count</a> · <a href="/api/index.json">Open data</a></p>
+  <a href="${u('/method/')}">How we count</a> · <a href="${u('/api/index.json')}">Open data</a></p>
 </footer>
 </div>
 ${scripts}
@@ -257,7 +264,7 @@ function escapePage(e, siteUrl) {
     <p style="margin-bottom:.5rem">Every number above comes from one of these, on the date shown. ${e.incumbent.quote ? `The ${esc(e.incumbent.vendor)} figure is the site's own wording: &ldquo;${esc(e.incumbent.quote)}&rdquo;.` : ''}</p>
     <table>${provenanceTable(e)}</table>
     <p style="margin-top:.7rem">Hosting requirements (${e.alternative.requirements.vcpu || 1} vCPU, ${e.alternative.requirements.ram_gb} GB RAM, ${e.alternative.requirements.disk_gb} GB disk), migration hours and maintenance hours are our estimates, not measurements. They are the numbers most worth arguing with, so we put them where you can see them. The cheapest plan meeting those requirements is selected automatically from ${esc(e.alternative.box.provider)}, Vultr and Linode's live catalogues.</p>
-    <p><a href="/api/escapes/${esc(e.slug)}.json">This comparison as JSON</a></p>
+    <p><a href="${u(`/api/escapes/${esc(e.slug)}.json`)}">This comparison as JSON</a></p>
   </div>
 </article>`;
 
@@ -285,9 +292,9 @@ function escapePage(e, siteUrl) {
     body,
     jsonld,
     scripts: `<script type="application/json" id="escape-model">${JSON.stringify(model)}</script>
-<script src="/assets/linear.js"></script>
-<script src="/assets/chart.js"></script>
-<script src="/assets/page.js"></script>`,
+<script src="${u('/assets/linear.js')}"></script>
+<script src="${u('/assets/chart.js')}"></script>
+<script src="${u('/assets/page.js')}"></script>`,
   });
 }
 
@@ -301,7 +308,7 @@ function indexPage(index, siteUrl) {
     const alt = e.alternative.replace(/ \(self-hosted\)$/, '');
     const x = e.break_even_hourly_rate;
     const num = x === null || x < 0 ? '—' : money(x, 2);
-    return `<li><a href="/e/${esc(e.slug)}/">
+    return `<li><a href="${u(`/e/${esc(e.slug)}/`)}">
       <span class="idx-title">${esc(e.incumbent)} ${esc(e.incumbent_plan)} &rarr; ${esc(alt)}</span>
       <span class="idx-sub">${plural(e.seats, 'seat', 'seats')} · ${money(e.incumbent_annual, 0)}/yr now · ${money(e.alternative_annual, 0)}/yr self-hosted</span>
       <span class="idx-num">${num}<span class="idx-verdict v-${e.verdict}-t">${e.verdict === 'switch' ? 'switch' : e.verdict === 'stay' ? 'stay' : 'marginal'}</span></span>
@@ -333,7 +340,7 @@ If it is worth more, you are better off paying the subscription and spending the
 else. On a dash, self-hosting costs more in cash alone and no hourly rate rescues it.</p>
 <p class="measure">Every page shows the working: what you pay now, what the escape costs, what
 we assumed about your hours, and the date each price was last verified.
-<a href="/method/">How we count</a>.</p>`;
+<a href="${u('/method/')}">How we count</a>.</p>`;
 
   return layout({
     title: `${SITE_NAME} — ${TAGLINE}`,
@@ -406,7 +413,7 @@ them, and the slider lets you test how much they matter.</p>
 <p class="section-head">Use the data</p>
 <p class="measure">Every comparison is available as JSON, with the same provenance the pages carry.
 It is free to use, including commercially, with attribution.
-<a href="/api/index.json">Start here</a>.</p>`;
+<a href="${u('/api/index.json')}">Start here</a>.</p>`;
 
   return layout({
     title: `How we count — ${SITE_NAME}`,
@@ -419,7 +426,8 @@ It is free to use, including commercially, with attribution.
 /* -------------------------------------------------------------------- main */
 
 function main() {
-  const siteUrl = (process.env.SITE_URL || 'https://exitcost.pages.dev').replace(/\/$/, '');
+  const siteUrl = (process.env.SITE_URL || 'https://nimbussage.github.io/exit-cost').replace(/\/$/, '');
+  BASE = new URL(siteUrl).pathname.replace(/\/$/, '');
   const index = readJson(p('data', 'build', 'index.json'));
   if (!index) { console.error('FATAL: no data/build/index.json. Run `npm run build:data` first.'); process.exit(1); }
 
