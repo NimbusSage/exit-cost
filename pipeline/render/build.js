@@ -32,7 +32,9 @@ function loadEscapes() {
 }
 
 function main() {
-  const now = new Date();
+  // EXITCOST_NOW pins the clock. Nightly runs leave it unset; tests set it to the
+  // date the committed pricing was fetched, so they do not rot with the calendar.
+  const now = process.env.EXITCOST_NOW ? new Date(process.env.EXITCOST_NOW) : new Date();
   const ctx = loadContext(now);
   const escapes = loadEscapes();
 

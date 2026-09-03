@@ -75,3 +75,15 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  smoke:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+      # A deploy can return 200 on every URL and still serve a broken page, so
+      # this follows the live page's own references rather than trusting status.
+      - run: node ops/smoke.js "${{ needs.deploy.outputs.page_url || vars.SITE_URL || 'https://nimbussage.github.io/exit-cost/' }}"

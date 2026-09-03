@@ -9,6 +9,8 @@
     "test:quiet": "node --test test/*.test.js",
     "collect": "node pipeline/collect/index.js",
     "build:data": "node pipeline/render/build.js",
-    "verify": "node ops/verify.js"
+    "verify": "node ops/verify.js",
+    "smoke": "node ops/smoke.js",
+    "site": "node site/build.js"
   }
 }

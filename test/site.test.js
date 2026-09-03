@@ -8,7 +8,25 @@ const ROOT = path.resolve(__dirname, '..');
 const DIST = path.join(ROOT, 'site', 'dist');
 const NODE = process.execPath;
 
+/**
+ * The site is generated from data/build/, which is not committed. Rather than
+ * depend on a previous command having run, these tests regenerate it — pinning
+ * the clock to the date the committed pricing was collected, so the suite does
+ * not start failing as that data ages.
+ */
+const vps = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'sources', 'vps.json'), 'utf8'));
+const PINNED_NOW = vps.fetched_at;
+
+let prepared = false;
+function prepare() {
+  if (prepared) return;
+  execFileSync(NODE, [path.join(ROOT, 'pipeline', 'render', 'build.js')],
+    { env: { ...process.env, EXITCOST_NOW: PINNED_NOW }, stdio: 'ignore' });
+  prepared = true;
+}
+
 function buildWith(siteUrl) {
+  prepare();
   execFileSync(NODE, [path.join(ROOT, 'site', 'build.js')], { env: { ...process.env, SITE_URL: siteUrl }, stdio: 'ignore' });
   return (rel) => fs.readFileSync(path.join(DIST, rel), 'utf8');
 }
