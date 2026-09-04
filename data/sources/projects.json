@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-04T00:35:29.220Z",
+  "fetched_at": "2026-09-04T00:39:52.090Z",
   "projects": {
     "dani-garcia/vaultwarden": {
       "full_name": "dani-garcia/vaultwarden",
@@ -21,7 +21,7 @@
       "days_since_release": 13,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:22.335Z"
+      "verified_at": "2026-09-04T00:39:44.055Z"
     },
     "baserow/baserow": {
       "full_name": "baserow/baserow",
@@ -43,7 +43,7 @@
       "days_since_release": 44,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:22.676Z"
+      "verified_at": "2026-09-04T00:39:44.451Z"
     },
     "nocodb/nocodb": {
       "full_name": "nocodb/nocodb",
@@ -62,10 +62,10 @@
         "published_at": "2026-09-03T12:36:17Z",
         "url": "https://github.com/nocodb/nocodb/releases/tag/2026.08.2"
       },
-      "days_since_release": 0,
+      "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:23.001Z"
+      "verified_at": "2026-09-04T00:39:44.876Z"
     },
     "keycloak/keycloak": {
       "full_name": "keycloak/keycloak",
@@ -87,7 +87,7 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:23.307Z"
+      "verified_at": "2026-09-04T00:39:45.227Z"
     },
     "zitadel/zitadel": {
       "full_name": "zitadel/zitadel",
@@ -109,7 +109,7 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:23.651Z"
+      "verified_at": "2026-09-04T00:39:45.613Z"
     },
     "calcom/cal.com": {
       "full_name": "calcom/cal.diy",
@@ -131,7 +131,7 @@
       "days_since_release": 186,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:24.127Z"
+      "verified_at": "2026-09-04T00:39:46.197Z"
     },
     "chatwoot/chatwoot": {
       "full_name": "chatwoot/chatwoot",
@@ -153,7 +153,7 @@
       "days_since_release": 8,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:24.692Z"
+      "verified_at": "2026-09-04T00:39:46.869Z"
     },
     "documenso/documenso": {
       "full_name": "documenso/documenso",
@@ -175,7 +175,7 @@
       "days_since_release": 16,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:24.981Z"
+      "verified_at": "2026-09-04T00:39:47.252Z"
     },
     "OpenSignLabs/OpenSign": {
       "full_name": "OpenSignLabs/OpenSign",
@@ -197,7 +197,7 @@
       "days_since_release": 14,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:25.249Z"
+      "verified_at": "2026-09-04T00:39:47.666Z"
     },
     "excalidraw/excalidraw": {
       "full_name": "excalidraw/excalidraw",
@@ -219,7 +219,7 @@
       "days_since_release": 136,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:25.566Z"
+      "verified_at": "2026-09-04T00:39:48.028Z"
     },
     "toeverything/AFFiNE": {
       "full_name": "toeverything/AFFiNE",
@@ -241,7 +241,7 @@
       "days_since_release": 16,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:25.844Z"
+      "verified_at": "2026-09-04T00:39:48.342Z"
     },
     "AppFlowy-IO/AppFlowy": {
       "full_name": "AppFlowy-IO/AppFlowy",
@@ -263,7 +263,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:26.185Z"
+      "verified_at": "2026-09-04T00:39:48.733Z"
     },
     "outline/outline": {
       "full_name": "outline/outline",
@@ -285,7 +285,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:26.495Z"
+      "verified_at": "2026-09-04T00:39:49.144Z"
     },
     "plausible/analytics": {
       "full_name": "plausible/analytics",
@@ -307,7 +307,7 @@
       "days_since_release": 112,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:26.949Z"
+      "verified_at": "2026-09-04T00:39:49.590Z"
     },
     "umami-software/umami": {
       "full_name": "umami-software/umami",
@@ -329,7 +329,7 @@
       "days_since_release": 14,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:27.234Z"
+      "verified_at": "2026-09-04T00:39:49.971Z"
     },
     "go-vikunja/vikunja": {
       "full_name": "go-vikunja/vikunja",
@@ -351,7 +351,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:27.565Z"
+      "verified_at": "2026-09-04T00:39:50.356Z"
     },
     "coollabsio/coolify": {
       "full_name": "coollabsio/coolify",
@@ -373,14 +373,14 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:27.947Z"
+      "verified_at": "2026-09-04T00:39:50.687Z"
     },
     "Dokploy/dokploy": {
       "full_name": "Dokploy/dokploy",
       "url": "https://github.com/Dokploy/dokploy",
       "homepage": "https://dokploy.com/",
       "description": "Open Source Alternative to Vercel, Netlify and Heroku.",
-      "stars": 37074,
+      "stars": 37075,
       "forks": 2940,
       "open_issues": 679,
       "license": null,
@@ -395,7 +395,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:28.264Z"
+      "verified_at": "2026-09-04T00:39:51.046Z"
     },
     "activepieces/activepieces": {
       "full_name": "activepieces/activepieces",
@@ -417,14 +417,14 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:28.585Z"
+      "verified_at": "2026-09-04T00:39:51.401Z"
     },
     "n8n-io/n8n": {
       "full_name": "n8n-io/n8n",
       "url": "https://github.com/n8n-io/n8n",
       "homepage": "https://n8n.io",
       "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
-      "stars": 203262,
+      "stars": 203263,
       "forks": 60540,
       "open_issues": 1146,
       "license": null,
@@ -439,7 +439,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:35:28.892Z"
+      "verified_at": "2026-09-04T00:39:51.766Z"
     }
   },
   "errors": [],
