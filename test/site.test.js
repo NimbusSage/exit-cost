@@ -123,3 +123,22 @@ test('the public API lists every published comparison with an absolute URL', () 
     assert.ok(fs.existsSync(path.join(DIST, 'api', 'escapes', `${e.slug}.json`)));
   }
 });
+
+test('the index orders each group by the crossover rate, not alphabetically', () => {
+  const read = buildWith('https://exitcost.dev');
+  const html = read('index.html');
+  const nums = [...html.matchAll(/class="idx-num">([^<]*)<span class="idx-verdict v-(\w+)-t"/g)]
+    .map((m) => ({ raw: m[1].trim(), verdict: m[2] }));
+  const parse = (r) => (r === '—' ? null : parseFloat(r.replace(/[$,]/g, '')));
+
+  const sw = nums.filter((n) => n.verdict === 'switch').map((n) => parse(n.raw));
+  assert.ok(sw.length >= 10);
+  for (let i = 1; i < sw.length; i++) {
+    assert.ok(sw[i] <= sw[i - 1], `switch list is not descending at ${i}: ${sw[i - 1]} then ${sw[i]}`);
+  }
+
+  const stay = nums.filter((n) => n.verdict === 'stay').map((n) => parse(n.raw)).filter((v) => v !== null);
+  for (let i = 1; i < stay.length; i++) {
+    assert.ok(stay[i] >= stay[i - 1], `stay list is not ascending at ${i}: ${stay[i - 1]} then ${stay[i]}`);
+  }
+});

@@ -325,6 +325,14 @@ function indexPage(index, siteUrl) {
   const byVerdict = { switch: [], marginal: [], stay: [] };
   for (const e of index.escapes) byVerdict[e.verdict].push(e);
 
+  // The crossover rate is the headline number, so it should order the list.
+  // Among the ones worth leaving, the most compelling case leads; among the ones
+  // to keep paying for, the most hopeless leads, which is the more useful read.
+  const rate = (e) => (e.break_even_hourly_rate === null ? -Infinity : e.break_even_hourly_rate);
+  byVerdict.switch.sort((a, b) => rate(b) - rate(a) || a.slug.localeCompare(b.slug));
+  byVerdict.marginal.sort((a, b) => rate(b) - rate(a) || a.slug.localeCompare(b.slug));
+  byVerdict.stay.sort((a, b) => rate(a) - rate(b) || a.slug.localeCompare(b.slug));
+
   const row = (e) => {
     const alt = e.alternative.replace(/ \(self-hosted\)$/, '');
     const x = e.break_even_hourly_rate;
