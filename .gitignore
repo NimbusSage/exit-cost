@@ -6,3 +6,4 @@ site/dist/
 *.log
 *.tmp-*
 .DS_Store
+data/sources/last-run.json
