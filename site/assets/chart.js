@@ -11,7 +11,7 @@
 })(typeof self !== 'undefined' ? self : this, function () {
   'use strict';
 
-  var W = 640, H = 232, PAD = { t: 12, r: 12, b: 26, l: 52 };
+  var DEFAULT_W = 640, DEFAULT_H = 232, DEFAULT_PAD = { t: 12, r: 12, b: 26, l: 52 };
 
   /** A round step (1, 2, 2.5 or 5 x a power of ten) near the requested size. */
   function niceStep(v) {
@@ -34,6 +34,9 @@
    */
   function geometry(curve, opts) {
     opts = opts || {};
+    var W = opts.width || DEFAULT_W;
+    var H = opts.height || DEFAULT_H;
+    var PAD = opts.pad || DEFAULT_PAD;
     var months = curve[curve.length - 1].month;
     var maxV = 0;
     for (var i = 0; i < curve.length; i++) maxV = Math.max(maxV, curve[i].incumbent, curve[i].alternative);
@@ -77,6 +80,7 @@
 
   /** Full SVG markup, used at build time. */
   function svg(curve, opts) {
+    opts = opts || {};
     var g = geometry(curve, opts);
     var p = g.plot, out = [];
     out.push('<svg viewBox="' + g.viewBox + '" role="img" aria-label="' + (opts && opts.alt || 'Cumulative cost over time') + '">');
@@ -96,5 +100,5 @@
     return out.join('');
   }
 
-  return { geometry: geometry, svg: svg, W: W, H: H };
+  return { geometry: geometry, svg: svg, W: DEFAULT_W, H: DEFAULT_H };
 });

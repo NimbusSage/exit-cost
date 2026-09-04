@@ -7,3 +7,5 @@ site/dist/
 *.tmp-*
 .DS_Store
 data/sources/last-run.json
+video/out/
+video/**/snapshots/

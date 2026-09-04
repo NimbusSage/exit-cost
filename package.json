@@ -14,6 +14,8 @@
     "verify": "node ops/verify.js",
     "smoke": "node ops/smoke.js",
     "site": "node site/build.js",
-    "report": "node ops/report.js"
+    "report": "node ops/report.js",
+    "video": "node video/build.js",
+    "video:render": "node video/build.js --render"
   }
 }
