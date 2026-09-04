@@ -1,0 +1,58 @@
+name: Weekly report
+
+# Delivered as a GitHub issue, which emails the repo owner. No extra account,
+# no ESP, no mailing list to maintain — the report is the only thing a human is
+# expected to read routinely, so it should arrive without any setup.
+on:
+  schedule:
+    - cron: '0 14 * * 1'      # Mondays, 14:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Refresh data so the report reflects today
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HETZNER_API_TOKEN: ${{ secrets.HETZNER_API_TOKEN }}
+          DO_API_TOKEN: ${{ secrets.DO_API_TOKEN }}
+        run: |
+          node pipeline/collect/index.js
+          node pipeline/render/build.js
+
+      - name: Generate report
+        id: report
+        run: |
+          node ops/report.js > report.txt
+          echo "needs_you=$(grep -c '^NEEDS YOU' report.txt || true)" >> "$GITHUB_OUTPUT"
+
+      - name: Open the report as an issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE="Weekly report — $(date -u +%Y-%m-%d)"
+          if [ "${{ steps.report.outputs.needs_you }}" != "0" ]; then
+            TITLE="$TITLE — action needed"
+          fi
+          {
+            echo '```'
+            cat report.txt
+            echo '```'
+          } > body.md
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "$TITLE" \
+            --body-file body.md \
+            --label "report" || \
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "$TITLE" \
+            --body-file body.md

@@ -2,8 +2,10 @@
   "name": "exit-cost",
   "version": "0.1.0",
   "private": true,
-  "description": "Exit Cost — the real, fully-loaded cost of escaping a subscription.",
-  "engines": { "node": ">=22" },
+  "description": "Exit Cost \u2014 the real, fully-loaded cost of escaping a subscription.",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "test": "node --test --test-reporter=spec test/*.test.js",
     "test:quiet": "node --test test/*.test.js",
@@ -11,6 +13,7 @@
     "build:data": "node pipeline/render/build.js",
     "verify": "node ops/verify.js",
     "smoke": "node ops/smoke.js",
-    "site": "node site/build.js"
+    "site": "node site/build.js",
+    "report": "node ops/report.js"
   }
 }
