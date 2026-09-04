@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-04T00:39:52.090Z",
+  "fetched_at": "2026-09-04T00:50:11.028Z",
   "projects": {
     "dani-garcia/vaultwarden": {
       "full_name": "dani-garcia/vaultwarden",
@@ -21,7 +21,7 @@
       "days_since_release": 13,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:44.055Z"
+      "verified_at": "2026-09-04T00:50:01.575Z"
     },
     "baserow/baserow": {
       "full_name": "baserow/baserow",
@@ -43,7 +43,7 @@
       "days_since_release": 44,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:44.451Z"
+      "verified_at": "2026-09-04T00:50:02.123Z"
     },
     "nocodb/nocodb": {
       "full_name": "nocodb/nocodb",
@@ -65,7 +65,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:44.876Z"
+      "verified_at": "2026-09-04T00:50:02.496Z"
     },
     "keycloak/keycloak": {
       "full_name": "keycloak/keycloak",
@@ -77,7 +77,7 @@
       "open_issues": 3230,
       "license": "Apache-2.0",
       "archived": false,
-      "pushed_at": "2026-09-03T19:23:46Z",
+      "pushed_at": "2026-09-04T00:44:58Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "26.7.3",
@@ -87,7 +87,7 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:45.227Z"
+      "verified_at": "2026-09-04T00:50:03.003Z"
     },
     "zitadel/zitadel": {
       "full_name": "zitadel/zitadel",
@@ -109,7 +109,7 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:45.613Z"
+      "verified_at": "2026-09-04T00:50:03.417Z"
     },
     "calcom/cal.com": {
       "full_name": "calcom/cal.diy",
@@ -131,7 +131,7 @@
       "days_since_release": 186,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:46.197Z"
+      "verified_at": "2026-09-04T00:50:03.904Z"
     },
     "chatwoot/chatwoot": {
       "full_name": "chatwoot/chatwoot",
@@ -153,7 +153,7 @@
       "days_since_release": 8,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:46.869Z"
+      "verified_at": "2026-09-04T00:50:04.759Z"
     },
     "documenso/documenso": {
       "full_name": "documenso/documenso",
@@ -175,7 +175,7 @@
       "days_since_release": 16,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:47.252Z"
+      "verified_at": "2026-09-04T00:50:05.148Z"
     },
     "OpenSignLabs/OpenSign": {
       "full_name": "OpenSignLabs/OpenSign",
@@ -197,7 +197,7 @@
       "days_since_release": 14,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:47.666Z"
+      "verified_at": "2026-09-04T00:50:05.611Z"
     },
     "excalidraw/excalidraw": {
       "full_name": "excalidraw/excalidraw",
@@ -219,14 +219,14 @@
       "days_since_release": 136,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:48.028Z"
+      "verified_at": "2026-09-04T00:50:06.019Z"
     },
     "toeverything/AFFiNE": {
       "full_name": "toeverything/AFFiNE",
       "url": "https://github.com/toeverything/AFFiNE",
       "homepage": "https://affine.pro",
       "description": "There can be more than Notion and Miro. AFFiNE(pronounced [ə‘fain]) is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use. ",
-      "stars": 72165,
+      "stars": 72167,
       "forks": 5224,
       "open_issues": 730,
       "license": null,
@@ -241,7 +241,7 @@
       "days_since_release": 16,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:48.342Z"
+      "verified_at": "2026-09-04T00:50:06.388Z"
     },
     "AppFlowy-IO/AppFlowy": {
       "full_name": "AppFlowy-IO/AppFlowy",
@@ -249,7 +249,7 @@
       "homepage": "https://appflowy.com",
       "description": "Bring projects, wikis, and teams together with AI. AppFlowy is the AI collaborative workspace where you achieve more without losing control of your data. The leading open source Notion alternative.",
       "stars": 76245,
-      "forks": 5966,
+      "forks": 5967,
       "open_issues": 1015,
       "license": "AGPL-3.0",
       "archived": false,
@@ -263,7 +263,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:48.733Z"
+      "verified_at": "2026-09-04T00:50:06.853Z"
     },
     "outline/outline": {
       "full_name": "outline/outline",
@@ -272,10 +272,10 @@
       "description": "The fastest knowledge base for growing teams. Beautiful, realtime collaborative, feature packed, and markdown compatible.",
       "stars": 40439,
       "forks": 3536,
-      "open_issues": 81,
+      "open_issues": 82,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-04T00:29:39Z",
+      "pushed_at": "2026-09-04T00:43:51Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "v1.10.0",
@@ -285,7 +285,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:49.144Z"
+      "verified_at": "2026-09-04T00:50:07.325Z"
     },
     "plausible/analytics": {
       "full_name": "plausible/analytics",
@@ -307,14 +307,14 @@
       "days_since_release": 112,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:49.590Z"
+      "verified_at": "2026-09-04T00:50:07.751Z"
     },
     "umami-software/umami": {
       "full_name": "umami-software/umami",
       "url": "https://github.com/umami-software/umami",
       "homepage": "https://umami.is",
       "description": "Umami is a privacy-first analytics platform. Traffic, campaigns, behavior, conversions, and revenue in one place — no cookies, no surveillance, self-hosted or in the cloud.",
-      "stars": 38589,
+      "stars": 38590,
       "forks": 7931,
       "open_issues": 124,
       "license": "MIT",
@@ -329,7 +329,7 @@
       "days_since_release": 14,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:49.971Z"
+      "verified_at": "2026-09-04T00:50:08.159Z"
     },
     "go-vikunja/vikunja": {
       "full_name": "go-vikunja/vikunja",
@@ -351,7 +351,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:50.356Z"
+      "verified_at": "2026-09-04T00:50:08.668Z"
     },
     "coollabsio/coolify": {
       "full_name": "coollabsio/coolify",
@@ -373,7 +373,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:50.687Z"
+      "verified_at": "2026-09-04T00:50:09.230Z"
     },
     "Dokploy/dokploy": {
       "full_name": "Dokploy/dokploy",
@@ -395,7 +395,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:51.046Z"
+      "verified_at": "2026-09-04T00:50:09.671Z"
     },
     "activepieces/activepieces": {
       "full_name": "activepieces/activepieces",
@@ -417,7 +417,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:51.401Z"
+      "verified_at": "2026-09-04T00:50:10.096Z"
     },
     "n8n-io/n8n": {
       "full_name": "n8n-io/n8n",
@@ -429,7 +429,7 @@
       "open_issues": 1146,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-04T00:29:02Z",
+      "pushed_at": "2026-09-04T00:41:56Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "n8n@2.37.9",
@@ -439,7 +439,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:39:51.766Z"
+      "verified_at": "2026-09-04T00:50:10.654Z"
     }
   },
   "errors": [],
