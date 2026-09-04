@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-04T00:32:35.798Z",
+  "fetched_at": "2026-09-04T00:35:29.220Z",
   "projects": {
     "dani-garcia/vaultwarden": {
       "full_name": "dani-garcia/vaultwarden",
@@ -21,7 +21,7 @@
       "days_since_release": 13,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:24.242Z"
+      "verified_at": "2026-09-04T00:35:22.335Z"
     },
     "baserow/baserow": {
       "full_name": "baserow/baserow",
@@ -43,7 +43,7 @@
       "days_since_release": 44,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:25.083Z"
+      "verified_at": "2026-09-04T00:35:22.676Z"
     },
     "nocodb/nocodb": {
       "full_name": "nocodb/nocodb",
@@ -65,7 +65,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:25.605Z"
+      "verified_at": "2026-09-04T00:35:23.001Z"
     },
     "keycloak/keycloak": {
       "full_name": "keycloak/keycloak",
@@ -87,7 +87,7 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:26.147Z"
+      "verified_at": "2026-09-04T00:35:23.307Z"
     },
     "zitadel/zitadel": {
       "full_name": "zitadel/zitadel",
@@ -109,7 +109,7 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:26.756Z"
+      "verified_at": "2026-09-04T00:35:23.651Z"
     },
     "calcom/cal.com": {
       "full_name": "calcom/cal.diy",
@@ -131,7 +131,7 @@
       "days_since_release": 186,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:27.574Z"
+      "verified_at": "2026-09-04T00:35:24.127Z"
     },
     "chatwoot/chatwoot": {
       "full_name": "chatwoot/chatwoot",
@@ -153,7 +153,7 @@
       "days_since_release": 8,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:28.591Z"
+      "verified_at": "2026-09-04T00:35:24.692Z"
     },
     "documenso/documenso": {
       "full_name": "documenso/documenso",
@@ -175,7 +175,7 @@
       "days_since_release": 16,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:29.150Z"
+      "verified_at": "2026-09-04T00:35:24.981Z"
     },
     "OpenSignLabs/OpenSign": {
       "full_name": "OpenSignLabs/OpenSign",
@@ -197,14 +197,14 @@
       "days_since_release": 14,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:29.629Z"
+      "verified_at": "2026-09-04T00:35:25.249Z"
     },
     "excalidraw/excalidraw": {
       "full_name": "excalidraw/excalidraw",
       "url": "https://github.com/excalidraw/excalidraw",
       "homepage": "https://excalidraw.com",
       "description": "Virtual whiteboard for sketching hand-drawn like diagrams",
-      "stars": 131105,
+      "stars": 131106,
       "forks": 15125,
       "open_issues": 3436,
       "license": "MIT",
@@ -219,7 +219,7 @@
       "days_since_release": 136,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:30.107Z"
+      "verified_at": "2026-09-04T00:35:25.566Z"
     },
     "toeverything/AFFiNE": {
       "full_name": "toeverything/AFFiNE",
@@ -241,7 +241,7 @@
       "days_since_release": 16,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:30.555Z"
+      "verified_at": "2026-09-04T00:35:25.844Z"
     },
     "AppFlowy-IO/AppFlowy": {
       "full_name": "AppFlowy-IO/AppFlowy",
@@ -263,7 +263,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:31.128Z"
+      "verified_at": "2026-09-04T00:35:26.185Z"
     },
     "outline/outline": {
       "full_name": "outline/outline",
@@ -285,7 +285,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:31.679Z"
+      "verified_at": "2026-09-04T00:35:26.495Z"
     },
     "plausible/analytics": {
       "full_name": "plausible/analytics",
@@ -307,7 +307,7 @@
       "days_since_release": 112,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:32.134Z"
+      "verified_at": "2026-09-04T00:35:26.949Z"
     },
     "umami-software/umami": {
       "full_name": "umami-software/umami",
@@ -329,7 +329,7 @@
       "days_since_release": 14,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:32.644Z"
+      "verified_at": "2026-09-04T00:35:27.234Z"
     },
     "go-vikunja/vikunja": {
       "full_name": "go-vikunja/vikunja",
@@ -351,7 +351,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:33.242Z"
+      "verified_at": "2026-09-04T00:35:27.565Z"
     },
     "coollabsio/coolify": {
       "full_name": "coollabsio/coolify",
@@ -373,7 +373,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:33.775Z"
+      "verified_at": "2026-09-04T00:35:27.947Z"
     },
     "Dokploy/dokploy": {
       "full_name": "Dokploy/dokploy",
@@ -395,7 +395,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:34.252Z"
+      "verified_at": "2026-09-04T00:35:28.264Z"
     },
     "activepieces/activepieces": {
       "full_name": "activepieces/activepieces",
@@ -417,7 +417,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:34.788Z"
+      "verified_at": "2026-09-04T00:35:28.585Z"
     },
     "n8n-io/n8n": {
       "full_name": "n8n-io/n8n",
@@ -439,7 +439,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-04T00:32:35.317Z"
+      "verified_at": "2026-09-04T00:35:28.892Z"
     }
   },
   "errors": [],
