@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "plausible-to-umami",
+  "title": "Plausible Business to self-hosted Umami",
+  "summary": "Umami is much lighter to run than Plausible Community Edition, which is the only reason this comparison reads differently from the other one.",
+  "category": "analytics",
+  "incumbent": {
+    "vendor": "plausible",
+    "plan": "business",
+    "seats": 1
+  },
+  "alternative": {
+    "name": "Umami (self-hosted)",
+    "repo": "umami-software/umami",
+    "requirements": {
+      "ram_gb": 1,
+      "vcpu": 1,
+      "disk_gb": 20
+    },
+    "backup_gb": 20,
+    "migration_hours": 3,
+    "maintenance_hours_per_month": 0.4
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Plausible's polish, and its funnels and revenue tracking",
+      "A hosted service run by people who care about privacy analytics specifically",
+      "Email reports and shared dashboards without configuration"
+    ],
+    "you_gain": [
+      "Postgres or MySQL instead of ClickHouse, which is the difference between a 1 GB box and a 4 GB one",
+      "No pageview ceiling",
+      "MIT licensing"
+    ]
+  },
+  "caveats": [
+    "Historical data does not transfer. You start counting from zero unless you write the import yourself.",
+    "Plausible Cloud at $19 a month is genuinely cheap. This comparison exists because Umami is light enough to change the answer, not because $19 is outrageous.",
+    "Umami's reporting is thinner than Plausible's. If you actually read your analytics rather than just collecting them, that matters."
+  ],
+  "hours_are_estimates": true
+}

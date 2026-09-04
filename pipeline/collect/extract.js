@@ -77,7 +77,9 @@ function inferPeriod(text, priceEnd, window = 70) {
 /** Whether the price is quoted per seat. Same rule: silence is not a yes. */
 function inferPerSeat(text, priceStart, priceEnd, window = 80) {
   const around = (text.slice(Math.max(0, priceStart - 40), priceEnd + window)).toLowerCase();
-  return /\bper\s+(user|seat|member|person|editor)\b|\/\s?(user|seat|member)\b|\buser\s?\/\s?month\b/.test(around);
+  return /\bper\s+(user|seat|member|person|editor|agent|host|author|contributor)\b/.test(around)
+      || /\/\s?(user|seat|member|agent|editor|host)\b/.test(around)
+      || /\b(user|seat|member|agent)\s?\/\s?month\b/.test(around);
 }
 
 /** Word-boundary matcher for a plan name (so "Pro" does not match "Product"). */

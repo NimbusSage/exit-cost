@@ -144,3 +144,13 @@ test('extractForPlan: a plan with genuinely no price stays low even with sibling
   const r = extractForPlan(text, 'Enterprise', { otherPlans: ['Standard', 'Enterprise'] });
   assert.equal(r.confidence, 'low');
 });
+
+test('REGRESSION: per-agent and per-editor billing count as per-seat', () => {
+  // Missing these turns an 8-seat bill into a flat one, understating the
+  // incumbent by a factor of the team size.
+  assert.equal(inferPerSeat('$19 /agent/month', 0, 3), true);
+  assert.equal(inferPerSeat('$19 per agent, per month', 0, 3), true);
+  assert.equal(inferPerSeat('$8 per editor / month', 0, 3), true);
+  assert.equal(inferPerSeat('$12 per host per month', 0, 3), true);
+  assert.equal(inferPerSeat('$19 per month for your whole team', 0, 3), false);
+});

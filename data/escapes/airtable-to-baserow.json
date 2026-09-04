@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "slug": "airtable-to-baserow",
+  "title": "Airtable Business to self-hosted Baserow",
+  "summary": "At ten seats Airtable Business is $5,400 a year. That is enough that the arithmetic stops being interesting and starts being obvious.",
+  "category": "database-spreadsheet",
+  "incumbent": {
+    "vendor": "airtable",
+    "plan": "business",
+    "seats": 10
+  },
+  "alternative": {
+    "name": "Baserow (self-hosted)",
+    "repo": "baserow/baserow",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 40
+    },
+    "backup_gb": 50,
+    "migration_hours": 12,
+    "maintenance_hours_per_month": 0.75
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Airtable's automations, scripting and the extension marketplace",
+      "Interface Designer and published interfaces",
+      "Enterprise controls that Baserow gates behind its own paid tier"
+    ],
+    "you_gain": [
+      "Postgres underneath, queryable by anything you own",
+      "Free seats at a tier where Airtable charges $45 each",
+      "A documented Airtable importer"
+    ]
+  },
+  "caveats": [
+    "Baserow's advanced and enterprise features are separately licensed. The comparison here is against the free core; check the feature matrix if you need row colouring, audit logs or SSO.",
+    "Twelve hours assumes a handful of bases. A decade of accumulated Airtable across a company is a much bigger job."
+  ],
+  "hours_are_estimates": true
+}

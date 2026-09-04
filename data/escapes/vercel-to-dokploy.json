@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "slug": "vercel-to-dokploy",
+  "title": "Vercel Pro to self-hosted Dokploy",
+  "summary": "Dokploy is the lighter of the two self-hosted platform-as-a-service options here. The seat price is still only half the story.",
+  "category": "hosting-paas",
+  "incumbent": {
+    "vendor": "vercel",
+    "plan": "pro",
+    "seats": 5
+  },
+  "alternative": {
+    "name": "Dokploy (self-hosted)",
+    "repo": "Dokploy/dokploy",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 50
+    },
+    "backup_gb": 40,
+    "migration_hours": 10,
+    "maintenance_hours_per_month": 1
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Vercel's edge network, which one VPS does not replicate at any price",
+      "Automatic image optimisation and instant cache invalidation",
+      "Zero-config Next.js behaviour that exists because Vercel builds both halves",
+      "Preview deployments that cost nothing when idle"
+    ],
+    "you_gain": [
+      "A fixed bill instead of usage billing that can spike without warning",
+      "Free seats, including for people who only need to read logs",
+      "Any runtime, not only the supported ones"
+    ]
+  },
+  "caveats": [
+    "Latency-sensitive global traffic is the case where this loses regardless of price. Put a CDN in front of it or stay on Vercel.",
+    "The $20 per seat excludes usage overages. If bandwidth is why you are here, your Vercel bill is higher than this page assumes and Dokploy wins sooner.",
+    "Dokploy is younger than Coolify with a smaller community. That is a real operational risk on the box that runs your production apps."
+  ],
+  "hours_are_estimates": true
+}

@@ -11,26 +11,47 @@
 
 const { spawn } = require('node:child_process');
 const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
 
 const CHROME = process.env.CHROME_BIN || '/usr/bin/google-chrome';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function launch(port) {
+/**
+ * Launch Chrome on an OS-assigned port.
+ *
+ * A fixed port collides whenever two launches overlap — including consecutive
+ * ones, because a killed Chrome does not release its port instantly. Passing
+ * port 0 makes the OS choose, and Chrome writes the chosen port into
+ * DevToolsActivePort in its profile directory.
+ */
+async function launch() {
+  const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'exitcost-chrome-'));
   const proc = spawn(CHROME, [
     '--headless=new', '--disable-gpu', '--no-sandbox', '--hide-scrollbars',
     '--disable-dev-shm-usage', '--force-color-profile=srgb',
-    `--remote-debugging-port=${port}`, 'about:blank',
+    `--user-data-dir=${profile}`, '--remote-debugging-port=0', 'about:blank',
   ], { stdio: 'ignore' });
 
-  for (let i = 0; i < 60; i++) {
+  const portFile = path.join(profile, 'DevToolsActivePort');
+  for (let i = 0; i < 80; i++) {
     try {
-      const r = await fetch(`http://127.0.0.1:${port}/json/version`);
-      if (r.ok) return proc;
+      const port = parseInt(fs.readFileSync(portFile, 'utf8').split('\n')[0], 10);
+      if (port > 0) {
+        const r = await fetch(`http://127.0.0.1:${port}/json/version`);
+        if (r.ok) return { proc, port, profile };
+      }
     } catch {}
-    await sleep(250);
+    await sleep(200);
   }
   proc.kill();
+  fs.rmSync(profile, { recursive: true, force: true });
   throw new Error('Chrome did not open a debugging port');
+}
+
+function cleanup(session) {
+  try { session.proc.kill(); } catch {}
+  try { fs.rmSync(session.profile, { recursive: true, force: true }); } catch {}
 }
 
 function connect(wsUrl) {
@@ -57,8 +78,9 @@ function connect(wsUrl) {
   return { send, close: () => ws.close(), ready };
 }
 
-async function shoot({ url, out, evaluate, width = 1100, height = 1600, full = false, port = 9333 }) {
-  const proc = await launch(port);
+async function shoot({ url, out, evaluate, width = 1100, height = 1600, full = false }) {
+  const session = await launch();
+  const { port } = session;
   try {
     const target = await (await fetch(`http://127.0.0.1:${port}/json/new?${encodeURIComponent(url)}`, { method: 'PUT' })).json();
     const cdp = connect(target.webSocketDebuggerUrl);
@@ -85,7 +107,30 @@ async function shoot({ url, out, evaluate, width = 1100, height = 1600, full = f
     if (errors.length) { console.error('PAGE ERROR:', errors.join('\n')); process.exitCode = 1; }
     return out;
   } finally {
-    proc.kill();
+    cleanup(session);
+  }
+}
+
+/**
+ * Rendered HTML for a page whose pricing is built by JavaScript. Plenty of
+ * vendors ship an empty pricing table in the initial response; reading the page
+ * as a browser does is the only honest way to see what they publish.
+ */
+async function renderHtml(url, { waitMs = 2500 } = {}) {
+  const session = await launch();
+  const { port } = session;
+  try {
+    const target = await (await fetch(`http://127.0.0.1:${port}/json/new?${encodeURIComponent(url)}`, { method: 'PUT' })).json();
+    const cdp = connect(target.webSocketDebuggerUrl);
+    await cdp.send('Page.enable');
+    await cdp.send('Runtime.enable');
+    await cdp.send('Page.navigate', { url });
+    await sleep(waitMs);
+    const r = await cdp.send('Runtime.evaluate', { expression: 'document.documentElement.outerHTML', returnByValue: true });
+    cdp.close();
+    return r.result.value;
+  } finally {
+    cleanup(session);
   }
 }
 
@@ -99,4 +144,4 @@ if (require.main === module) {
     .catch((e) => { console.error(e.message); process.exit(1); });
 }
 
-module.exports = { shoot };
+module.exports = { shoot, renderHtml };

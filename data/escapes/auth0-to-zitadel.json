@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "auth0-to-zitadel",
+  "title": "Auth0 Professional to self-hosted Zitadel",
+  "summary": "Zitadel is a lighter thing to run than Keycloak, and Auth0 Professional is four times the price of Essentials. Both facts move this one.",
+  "category": "auth",
+  "incumbent": {
+    "vendor": "auth0",
+    "plan": "professional",
+    "seats": 1
+  },
+  "alternative": {
+    "name": "Zitadel (self-hosted)",
+    "repo": "zitadel/zitadel",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 30
+    },
+    "backup_gb": 25,
+    "migration_hours": 20,
+    "maintenance_hours_per_month": 1.25
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Auth0's operational record on the one service whose outage locks users out of everything else",
+      "Attack protection, breached-password detection and bot defence as managed features",
+      "The Auth0 Actions ecosystem"
+    ],
+    "you_gain": [
+      "Pricing that does not move with monthly active users",
+      "A Go service with a much smaller operational footprint than a JVM identity server",
+      "AGPL-3.0, with multi-tenancy and audit trails in the open-source build"
+    ]
+  },
+  "caveats": [
+    "Everything on the Keycloak page applies here too: identity is the worst system to run badly, and a bad upgrade is a company-wide outage.",
+    "Auth0 Professional is priced at up to 500 monthly active users. Above that its cost climbs steeply while Zitadel's does not, so check your own MAU before trusting this comparison.",
+    "Twenty hours assumes you have migrated an identity provider before. If you have not, this is not a weekend."
+  ],
+  "hours_are_estimates": true
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "slug": "todoist-to-vikunja",
+  "title": "Todoist Business to self-hosted Vikunja",
+  "summary": "Todoist Business is cheap per seat, which makes this a genuine test of whether a $96-a-year subscription is worth escaping at all.",
+  "category": "tasks",
+  "incumbent": {
+    "vendor": "todoist",
+    "plan": "business",
+    "seats": 6
+  },
+  "alternative": {
+    "name": "Vikunja (self-hosted)",
+    "repo": "go-vikunja/vikunja",
+    "requirements": {
+      "ram_gb": 1,
+      "vcpu": 1,
+      "disk_gb": 20
+    },
+    "backup_gb": 10,
+    "migration_hours": 5,
+    "maintenance_hours_per_month": 0.4
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Todoist's natural-language quick add, which is the feature most people actually stay for",
+      "Mature apps on every platform, including watch and widget support",
+      "Karma, streaks and the habit machinery that makes people keep using it"
+    ],
+    "you_gain": [
+      "A Go binary that runs comfortably on the smallest box any provider sells",
+      "Free seats, so the whole team costs the same as one person",
+      "Kanban, Gantt and list views without a higher tier"
+    ]
+  },
+  "caveats": [
+    "Vikunja imports from Todoist directly, which is why the migration estimate is low. Recurring tasks are the part that most often needs rebuilding by hand.",
+    "Todoist Business is one of the cheaper subscriptions on this site. At small team sizes the arithmetic here usually favours simply paying it."
+  ],
+  "hours_are_estimates": true
+}

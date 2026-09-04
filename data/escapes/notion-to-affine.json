@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "slug": "notion-to-affine",
+  "title": "Notion Plus to self-hosted AFFiNE",
+  "summary": "AFFiNE merges a document editor with an infinite canvas. At three seats, the question is whether that is worth becoming its operator.",
+  "category": "docs-wiki",
+  "incumbent": {
+    "vendor": "notion",
+    "plan": "plus",
+    "seats": 3
+  },
+  "alternative": {
+    "name": "AFFiNE (self-hosted)",
+    "repo": "toeverything/AFFiNE",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 40
+    },
+    "backup_gb": 40,
+    "migration_hours": 10,
+    "maintenance_hours_per_month": 0.75
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Notion databases, relations and rollups",
+      "A decade of templates, integrations and institutional familiarity",
+      "Notion AI"
+    ],
+    "you_gain": [
+      "A whiteboard and a document editor in the same file, which Notion does not offer",
+      "Local-first storage with real offline editing",
+      "No per-seat cost"
+    ]
+  },
+  "caveats": [
+    "AFFiNE moves fast and its self-hosted releases have been less stable than the hosted product. Pin a version and read the upgrade notes before every bump.",
+    "Three seats of Notion Plus is $360 a year. That is a low bar for a VPS plus your hours to clear, and this page will often say so."
+  ],
+  "hours_are_estimates": true
+}

@@ -536,6 +536,95 @@
       "last_checked_at": "2026-09-03",
       "last_check_ok": true,
       "last_check_reason": null
+    },
+    {
+      "id": "todoist",
+      "name": "Todoist",
+      "pricing_url": "https://www.todoist.com/pricing",
+      "category": "tasks",
+      "plans": [
+        {
+          "id": "pro",
+          "name": "Pro",
+          "page_label": "Pro",
+          "amount": 5,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Individuals Pro Organize your work and life US $5 per user/month $60 billed yearly",
+          "verified_at": "2026-09-03",
+          "verified_by": "human"
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "page_label": "Business",
+          "amount": 8,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Teams Business Manage your teamwork, too ... US $8 plus local tax per user/month, $96 billed yearly",
+          "verified_at": "2026-09-03",
+          "verified_by": "human"
+        }
+      ]
+    },
+    {
+      "id": "miro",
+      "name": "Miro",
+      "pricing_url": "https://miro.com/pricing/",
+      "category": "whiteboard",
+      "plans": [
+        {
+          "id": "starter",
+          "name": "Starter",
+          "page_label": "Starter",
+          "amount": 8,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Starter For small teams collaborating regularly with unlimited boards $ 8 /month per member, billed yearly",
+          "verified_at": "2026-09-03",
+          "verified_by": "human"
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "page_label": "Business",
+          "amount": 20,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Business For growing organizations and consultants to streamline workflows with AI $ 20 /month per member, billed yearly",
+          "verified_at": "2026-09-03",
+          "verified_by": "human"
+        }
+      ]
+    },
+    {
+      "id": "chatwoot-cloud",
+      "name": "Chatwoot Cloud",
+      "pricing_url": "https://www.chatwoot.com/pricing",
+      "category": "support-inbox",
+      "plans": [
+        {
+          "id": "startups",
+          "name": "Startups",
+          "page_label": "Startups",
+          "amount": 19,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Startups $19 /agent/month billed annually",
+          "verified_at": "2026-09-03",
+          "verified_by": "human"
+        }
+      ]
     }
   ]
 }

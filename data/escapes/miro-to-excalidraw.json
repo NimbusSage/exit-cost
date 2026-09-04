@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "miro-to-excalidraw",
+  "title": "Miro Business to self-hosted Excalidraw",
+  "summary": "Excalidraw is a fraction of Miro and runs on almost nothing — but it is a whiteboard, not a workspace, and that distinction decides this one.",
+  "category": "whiteboard",
+  "incumbent": {
+    "vendor": "miro",
+    "plan": "business",
+    "seats": 8
+  },
+  "alternative": {
+    "name": "Excalidraw (self-hosted)",
+    "repo": "excalidraw/excalidraw",
+    "requirements": {
+      "ram_gb": 1,
+      "vcpu": 1,
+      "disk_gb": 20
+    },
+    "backup_gb": 15,
+    "migration_hours": 4,
+    "maintenance_hours_per_month": 0.3
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Miro's templates, frameworks and the meeting facilitation tooling built on top of them",
+      "Infinite-canvas features like voting, timers and Jira integration",
+      "Comment threads and the review workflow around them"
+    ],
+    "you_gain": [
+      "A static front end that costs almost nothing to run and almost never breaks",
+      "Drawings stored as plain files you can version and diff",
+      "MIT licensing, the most permissive on this site"
+    ]
+  },
+  "caveats": [
+    "These are not the same product. Excalidraw is a sketching tool; Miro is a workspace people run meetings in. If your team lives in Miro, this comparison is not for you.",
+    "Real-time collaboration needs the separate excalidraw-room server. The estimate assumes you deploy both.",
+    "There is no Miro importer. Existing boards are recreated by hand or not at all."
+  ],
+  "hours_are_estimates": true
+}

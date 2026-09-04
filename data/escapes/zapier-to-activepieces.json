@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "zapier-to-activepieces",
+  "title": "Zapier Team to self-hosted Activepieces",
+  "summary": "Zapier Team is $828 a year before you exceed a single task allowance. That is where self-hosted automation starts to make sense.",
+  "category": "automation",
+  "incumbent": {
+    "vendor": "zapier",
+    "plan": "team",
+    "seats": 1
+  },
+  "alternative": {
+    "name": "Activepieces (self-hosted)",
+    "repo": "activepieces/activepieces",
+    "requirements": {
+      "ram_gb": 2,
+      "vcpu": 1,
+      "disk_gb": 25
+    },
+    "backup_gb": 20,
+    "migration_hours": 10,
+    "maintenance_hours_per_month": 0.6
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Zapier's integration catalogue, which is an order of magnitude larger",
+      "Someone else repairing an integration when a vendor changes their API",
+      "Zapier's reliability record on unattended overnight runs"
+    ],
+    "you_gain": [
+      "Unmetered task volume, which is the entire argument",
+      "A visual builder close enough to Zapier's that the team does not have to relearn it",
+      "Pieces written in TypeScript that you can extend yourself"
+    ]
+  },
+  "caveats": [
+    "Activepieces uses the MIT licence for its core with some enterprise features held back. Check which side of that line the features you need fall on.",
+    "The $69 Zapier figure is its entry tier. If you are on Team because of task volume rather than seats, your real bill is higher and this comparison understates the saving.",
+    "There is no automated import. Every workflow is rebuilt by hand."
+  ],
+  "hours_are_estimates": true
+}

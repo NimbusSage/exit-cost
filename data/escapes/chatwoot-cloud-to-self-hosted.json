@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "chatwoot-cloud-to-self-hosted",
+  "title": "Chatwoot Cloud to self-hosted Chatwoot",
+  "summary": "Same software either way, so this is the cleanest comparison on the site: purely the price of someone else running it.",
+  "category": "support-inbox",
+  "incumbent": {
+    "vendor": "chatwoot-cloud",
+    "plan": "startups",
+    "seats": 5
+  },
+  "alternative": {
+    "name": "Chatwoot (self-hosted)",
+    "repo": "chatwoot/chatwoot",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 40
+    },
+    "backup_gb": 50,
+    "migration_hours": 8,
+    "maintenance_hours_per_month": 1
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Managed upgrades on a Rails app with Postgres, Redis and Sidekiq behind it",
+      "Deliverability handled for you — running your own inbound and outbound mail is its own project",
+      "Support from the people who wrote it"
+    ],
+    "you_gain": [
+      "Identical software with no per-agent charge",
+      "Customer conversations on infrastructure you control, which is often the actual requirement",
+      "No ceiling on agents, inboxes or conversation volume"
+    ]
+  },
+  "caveats": [
+    "Chatwoot self-hosted is the same product, so there is no feature trade-off to weigh — only operational cost. That makes the hourly rate below unusually decisive.",
+    "Email deliverability is the hidden cost. If your support inbox runs on email, budget for a transactional mail provider on top of the figures here.",
+    "The stack wants 4 GB. It will boot in 2 GB and then fall over during a busy hour."
+  ],
+  "hours_are_estimates": true
+}

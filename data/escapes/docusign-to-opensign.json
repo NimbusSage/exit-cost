@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "docusign-to-opensign",
+  "title": "Docusign Standard to self-hosted OpenSign",
+  "summary": "Five seats of Docusign is $1,800 a year. The cost is not the hard part of this decision — the evidence trail is.",
+  "category": "e-signature",
+  "incumbent": {
+    "vendor": "docusign",
+    "plan": "standard",
+    "seats": 5
+  },
+  "alternative": {
+    "name": "OpenSign (self-hosted)",
+    "repo": "OpenSignLabs/OpenSign",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 40
+    },
+    "backup_gb": 60,
+    "migration_hours": 10,
+    "maintenance_hours_per_month": 1
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Docusign's name on the audit trail, which carries weight in a dispute",
+      "Two decades of procurement acceptance and legal precedent",
+      "Managed identity verification and certificate handling"
+    ],
+    "you_gain": [
+      "Signed documents on infrastructure you control",
+      "No envelope limits at any team size",
+      "An open, inspectable signing implementation"
+    ]
+  },
+  "caveats": [
+    "Signature validity depends on your jurisdiction and on the evidence you can produce. A technically sound audit trail and one the other side's lawyers accept are different things.",
+    "You supply your own signing certificate, and a trusted one is a cost this page does not include.",
+    "For contracts where the amount at stake dwarfs $1,800 a year, we would stay on Docusign and consider the difference an insurance premium."
+  ],
+  "hours_are_estimates": true
+}
