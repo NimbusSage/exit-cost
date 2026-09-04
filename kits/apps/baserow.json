@@ -6,31 +6,111 @@
   "docs": "https://baserow.io/docs/installation%2Finstall-with-docker-compose",
   "repo": "baserow/baserow",
   "images": {
-    "app":   "baserow/baserow:2.3.3",
-    "db":    "postgres:16-alpine",
+    "app": "baserow/baserow:2.3.3",
+    "db": "postgres:16-alpine",
     "cache": "redis:8.8-alpine",
     "proxy": "caddy:2.11-alpine"
   },
-  "database": { "engine": "postgres", "name": "baserow", "user": "baserow" },
+  "database": {
+    "engine": "postgres",
+    "name": "baserow",
+    "user": "baserow"
+  },
   "app_port": 80,
-  "data_paths": ["/baserow/data"],
+  "data_paths": [
+    "/baserow/data"
+  ],
   "env": [
-    { "key": "DOMAIN", "desc": "The hostname you will reach this on, e.g. base.example.com", "example": "base.example.com" },
-    { "key": "ACME_EMAIL", "desc": "Email for the TLS certificate. Let's Encrypt uses it for expiry warnings.", "example": "you@example.com" },
-    { "key": "POSTGRES_PASSWORD", "desc": "Database password.", "generate": "password" },
-    { "key": "BASEROW_SECRET_KEY", "desc": "Signs sessions. Changing it logs everyone out.", "generate": "secret" },
-    { "key": "BASEROW_JWT_SIGNING_KEY", "desc": "Signs API tokens.", "generate": "secret" },
-    { "key": "BACKUP_PASSPHRASE", "desc": "Encrypts every backup before it leaves the machine. Store it somewhere that is NOT this server — without it the backups are unreadable.", "generate": "secret" },
-    { "key": "RCLONE_REMOTE", "desc": "rclone remote and path for offsite backups, e.g. b2:my-bucket/baserow", "example": "b2:my-bucket/baserow" }
+    {
+      "key": "DOMAIN",
+      "desc": "The hostname you will reach this on, e.g. base.example.com",
+      "example": "base.example.com"
+    },
+    {
+      "key": "ACME_EMAIL",
+      "desc": "Email for the TLS certificate. Let's Encrypt uses it for expiry warnings.",
+      "example": "you@example.com"
+    },
+    {
+      "key": "POSTGRES_PASSWORD",
+      "desc": "Database password.",
+      "generate": "password"
+    },
+    {
+      "key": "REDIS_PASSWORD",
+      "desc": "Redis password. Baserow always sends AUTH, so Redis must require one \u2014 without this the workers cannot connect and migrations never run.",
+      "generate": "password"
+    },
+    {
+      "key": "BASEROW_SECRET_KEY",
+      "desc": "Signs sessions. Changing it logs everyone out.",
+      "generate": "secret"
+    },
+    {
+      "key": "BASEROW_JWT_SIGNING_KEY",
+      "desc": "Signs API tokens.",
+      "generate": "secret"
+    },
+    {
+      "key": "BACKUP_PASSPHRASE",
+      "desc": "Encrypts every backup before it leaves the machine. Store it somewhere that is NOT this server \u2014 without it the backups are unreadable.",
+      "generate": "secret"
+    },
+    {
+      "key": "RCLONE_REMOTE",
+      "desc": "rclone remote and path for offsite backups, e.g. b2:my-bucket/baserow",
+      "example": "b2:my-bucket/baserow"
+    }
   ],
   "restore_assertions": [
-    { "label": "core Django tables restored", "sql": "select count(*) from information_schema.tables where table_schema='public'", "min": 20 },
-    { "label": "at least one user account survived", "sql": "select count(*) from auth_user", "min": 1 },
-    { "label": "workspaces restored", "sql": "select count(*) from core_workspace", "min": 1 }
+    {
+      "label": "the schema restored in full",
+      "sql": "select count(*) from information_schema.tables where table_schema='public'",
+      "min": 40
+    },
+    {
+      "label": "user accounts survived",
+      "sql": "select count(*) from auth_user",
+      "compare_live": true
+    },
+    {
+      "label": "workspaces survived",
+      "sql": "select count(*) from core_workspace",
+      "compare_live": true
+    },
+    {
+      "label": "applications and tables survived",
+      "sql": "select count(*) from core_application",
+      "compare_live": true
+    }
   ],
-  "requirements": { "ram_gb": 4, "vcpu": 2, "disk_gb": 40 },
+  "requirements": {
+    "ram_gb": 4,
+    "vcpu": 2,
+    "disk_gb": 40
+  },
   "notes": [
     "Baserow ships an all-in-one image that bundles Postgres and Redis. This kit deliberately runs them as separate services, because a bundled database is far harder to back up and restore cleanly.",
-    "The first boot runs migrations and can take several minutes. That is normal."
-  ]
+    "The first boot runs migrations and can take several minutes. That is normal.",
+    "Baserow's workers always authenticate to Redis, so Redis is started with requirepass. Leaving Redis open causes an AuthenticationError loop that looks like a hang rather than a failure.",
+    "Restore assertions compare against the live database rather than fixed minimums: a fresh install legitimately has no workspaces yet, and a drill that cries wolf on a good backup gets ignored."
+  ],
+  "validated": {
+    "date": "2026-09-04",
+    "docker": "29.8.0 in an LXC container, overlayfs storage driver",
+    "stack_boots": true,
+    "migrations_complete": "56 tables on first boot, ~20s",
+    "backup_verified": "863 KB dump of a real 270-table Baserow database, encrypted, shipped, retention applied",
+    "drill_passes_on_good_backup": true,
+    "drill_fails_on": [
+      "truncated ciphertext",
+      "wrong passphrase",
+      "empty bucket",
+      "a backup that restores cleanly but lost its data while the live system was fine"
+    ],
+    "not_yet_tested": [
+      "the Caddy proxy service, which needs a real domain for a certificate",
+      "Baserow's own web UI, which had not finished starting when the database work was done"
+    ]
+  }
 }

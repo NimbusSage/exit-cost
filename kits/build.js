@@ -47,10 +47,14 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${db.user} -d ${db.name}"]
-      interval: 10s
+      # Not pg_isready: during initdb the image runs a temporary postmaster, so
+      # pg_isready reports healthy before this database exists. Querying it is
+      # the condition that actually matters.
+      test: ["CMD-SHELL", "psql -U ${db.user} -d ${db.name} -c 'select 1' > /dev/null 2>&1"]
+      interval: 5s
       timeout: 5s
-      retries: 12
+      retries: 24
+      start_period: 20s
     # Never published to the host. Only the app network reaches the database.
     expose:
       - "5432"
@@ -62,9 +66,14 @@ services:
   cache:
     image: ${s.images.cache}
     restart: unless-stopped
-    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    # Baserow always sends AUTH, so Redis must require a password. Without one it
+    # rejects every connection with an AuthenticationError and the app loops
+    # forever without ever running its migrations.
+    command: ['sh', '-c', 'exec redis-server --requirepass "$$REDIS_PASSWORD" --save "" --appendonly no']
+    environment:
+      REDIS_PASSWORD: \${REDIS_PASSWORD:?REDIS_PASSWORD is required}
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ['CMD-SHELL', 'redis-cli -a "$$REDIS_PASSWORD" --no-auth-warning ping | grep -q PONG']
       interval: 10s
       timeout: 5s
       retries: 6
@@ -90,6 +99,7 @@ services:
       DATABASE_USER: ${db.user}
       DATABASE_PASSWORD: \${POSTGRES_PASSWORD}
       REDIS_HOST: cache
+      REDIS_PASSWORD: \${REDIS_PASSWORD:?REDIS_PASSWORD is required}
       SECRET_KEY: \${BASEROW_SECRET_KEY:?BASEROW_SECRET_KEY is required}
       BASEROW_JWT_SIGNING_KEY: \${BASEROW_JWT_SIGNING_KEY:?BASEROW_JWT_SIGNING_KEY is required}
     volumes:
@@ -240,8 +250,12 @@ echo "backup: done"
 /* ---------------------------------------------------- the restore drill */
 
 const restoreDrillSh = (s) => {
-  const assertions = s.restore_assertions.map((a) => `
-run_assertion "${a.label}" "${a.sql.replace(/"/g, '\\"')}" ${a.min}`).join('');
+  const assertions = s.restore_assertions.map((a) => {
+    const sql = a.sql.replace(/"/g, '\\"');
+    return a.compare_live
+      ? `\ncompare_live "${a.label}" "${sql}"`
+      : `\nassert_min   "${a.label}" "${sql}" ${a.min}`;
+  }).join('');
 
   return `#!/usr/bin/env bash
 #
@@ -252,9 +266,11 @@ run_assertion "${a.label}" "${a.sql.replace(/"/g, '\\"')}" ${a.min}`).join('');
 # database container that is not part of your stack, runs assertions against the
 # restored data, and destroys it.
 #
-# It never touches your live database. It exits non-zero if the restore did not
-# produce data you would actually want back, so running it from cron means you
-# hear about a broken backup on a Tuesday rather than during an outage.
+# It reads your live database — only to compare row counts against the restored
+# copy — and writes to nothing but the throwaway container. It exits non-zero if
+# the restore did not produce data you would actually want back, so running it
+# from cron means you hear about a broken backup on a Tuesday rather than during
+# an outage.
 
 set -Eeuo pipefail
 
@@ -311,14 +327,16 @@ docker run -d --name "\$DRILL_DB" \\
   ${s.images.db} >/dev/null
 
 printf 'drill: waiting for the throwaway database'
-for _ in $(seq 1 60); do
-  if docker exec "\$DRILL_DB" pg_isready -U "${s.database.user}" -d "${s.database.name}" >/dev/null 2>&1; then
+# Query the database rather than asking pg_isready, which answers yes to the
+# temporary postmaster initdb runs and would send us into pg_restore too early.
+for _ in $(seq 1 90); do
+  if docker exec "\$DRILL_DB" psql -U "${s.database.user}" -d "${s.database.name}" -c 'select 1' >/dev/null 2>&1; then
     echo " ready"; break
   fi
   printf '.'; sleep 1
 done
-docker exec "\$DRILL_DB" pg_isready -U "${s.database.user}" -d "${s.database.name}" >/dev/null 2>&1 \\
-  || { echo; echo "drill: FAIL — the throwaway database never came up" >&2; exit 1; }
+docker exec "\$DRILL_DB" psql -U "${s.database.user}" -d "${s.database.name}" -c 'select 1' >/dev/null 2>&1 \\
+  || { echo; echo "drill: FAIL — the throwaway database never became queryable" >&2; exit 1; }
 
 docker cp "\$WORK/db.dump" "\$DRILL_DB:/tmp/db.dump"
 # --exit-on-error so a partially-restorable dump counts as a failure, which is
@@ -330,18 +348,53 @@ docker exec -e PGPASSWORD="\$DRILL_PW" "\$DRILL_DB" \\
 echo "drill: restored"
 
 # --- assert the data is actually there ----------------------------------------
-run_assertion() {
+# Query the restored copy.
+restored_count() {
+  docker exec -e PGPASSWORD="\$DRILL_PW" "\$DRILL_DB" \\
+    psql -U "${s.database.user}" -d "${s.database.name}" -tAc "\$1" 2>/dev/null | tr -d '\\r' || echo ERR
+}
+
+# Query the running system. Read-only — the drill never writes to your database.
+live_count() {
+  docker compose exec -T -e PGPASSWORD="\$POSTGRES_PASSWORD" db \\
+    psql -U "${s.database.user}" -d "${s.database.name}" -tAc "\$1" 2>/dev/null | tr -d '\\r' || echo ERR
+}
+
+# A fixed floor. Used for structural checks, where the answer does not depend on
+# how much data you happen to have.
+assert_min() {
   local label="\$1" sql="\$2" min="\$3" got
-  got=$(docker exec -e PGPASSWORD="\$DRILL_PW" "\$DRILL_DB" \\
-        psql -U "${s.database.user}" -d "${s.database.name}" -tAc "\$sql" 2>/dev/null || echo "ERR")
-  if [ "\$got" = "ERR" ]; then
-    echo "  FAIL  \$label — query failed against the restored database"
+  got=$(restored_count "\$sql")
+  if [ "\$got" = "ERR" ] || [ -z "\$got" ]; then
+    echo "  FAIL  \$label — the query failed against the restored database"
     FAILURES=$((FAILURES + 1))
   elif [ "\$got" -lt "\$min" ]; then
     echo "  FAIL  \$label — got \$got, expected at least \$min"
     FAILURES=$((FAILURES + 1))
   else
     echo "  ok    \$label (\$got)"
+  fi
+}
+
+# Compared against what you actually have, so a brand-new install with no data
+# yet does not fail, and a backup that silently lost everything does. A fixed
+# minimum would do the opposite of both.
+compare_live() {
+  local label="\$1" sql="\$2" got live
+  got=$(restored_count "\$sql")
+  live=$(live_count "\$sql")
+  if [ "\$got" = "ERR" ] || [ -z "\$got" ]; then
+    echo "  FAIL  \$label — the query failed against the restored database"
+    FAILURES=$((FAILURES + 1))
+  elif [ "\$live" = "ERR" ] || [ -z "\$live" ]; then
+    echo "  warn  \$label — could not read the live database to compare; restored has \$got"
+  elif [ "\$live" -gt 0 ] && [ "\$got" -eq 0 ]; then
+    echo "  FAIL  \$label — the live database has \$live, the restored copy has none"
+    FAILURES=$((FAILURES + 1))
+  elif [ "\$live" -eq 0 ]; then
+    echo "  ok    \$label (nothing to lose yet — live is empty too)"
+  else
+    echo "  ok    \$label (\$got restored, \$live live)"
   fi
 }
 ${assertions}
@@ -454,7 +507,7 @@ know the backup works.
 | \`.env.example\` | Every setting, with what it is for. |
 | \`Caddyfile\` | TLS, obtained and renewed automatically. |
 | \`backup.sh\` | Real \`pg_dump\` plus the data directory, encrypted before it leaves the machine, shipped offsite, 14-day retention. |
-| \`restore-drill.sh\` | **Restores the latest backup into a throwaway database and asserts the data is there.** |
+| \`restore-drill.sh\` | **Restores the latest backup into a throwaway database and checks the data is still there, by comparing it against what you actually have.** |
 | \`RUNBOOK.md\` | Upgrades, what to watch, and what to do when it breaks. |
 | \`crontab.example\` | Nightly backup, nightly drill. |
 
@@ -476,7 +529,9 @@ with a passphrase I no longer had".
 ${s.restore_assertions.map((a) => `   - ${a.label} (at least ${a.min})`).join('\n')}
 7. Destroys the container and exits non-zero if anything failed
 
-Your live database is never touched. You find out on a Tuesday, not during an outage.
+The drill reads your live database to compare row counts against the restored
+copy, and writes to nothing but the throwaway container. You find out on a
+Tuesday, not during an outage.
 
 ## Getting started
 

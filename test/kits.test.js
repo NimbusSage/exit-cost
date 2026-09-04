@@ -91,8 +91,23 @@ for (const s of specs) {
     assert.match(drill, /--exit-on-error/, 'a partial restore must count as a failure');
     assert.match(drill, /exit 1/, 'the drill must exit non-zero on failure');
     assert.match(drill, /docker rm -f/, 'the throwaway container must be cleaned up');
-    assert.ok(!/docker compose exec[^\n]*db\b/.test(drill),
-      'the drill must never touch the live database');
+    // The drill reads the live database on purpose, to compare row counts
+    // against the restored copy. What it must never do is write to it.
+    // Join shell line-continuations first, or a multi-line command is only half seen.
+    const joined = drill.replace(/\\\n\s*/g, ' ');
+    const liveCalls = [...joined.matchAll(/docker compose exec[^\n]*/g)].map((m) => m[0]);
+    assert.ok(liveCalls.length > 0, 'the drill should read the live database to compare against');
+    for (const call of liveCalls) {
+      assert.match(call, /-tAc "\\?\$?1?"|select/i, `live query must be a read: ${call}`);
+      for (const destructive of ['pg_restore', 'insert ', 'update ', 'delete ', 'drop ', 'truncate', 'alter ', 'create ']) {
+        assert.ok(!call.toLowerCase().includes(destructive),
+          `the drill must not run "${destructive.trim()}" against the live database: ${call}`);
+      }
+    }
+    // pg_restore may only ever target the throwaway container.
+    for (const m of joined.matchAll(/pg_restore[^\n]*/g)) {
+      assert.ok(!/compose exec/.test(m[0]), 'pg_restore must never run against the live stack');
+    }
     for (const a of s.restore_assertions) {
       assert.ok(drill.includes(a.label), `assertion "${a.label}" is not in the drill`);
     }
@@ -143,3 +158,21 @@ for (const s of specs) {
     assert.ok(escapes.includes(s.escape), `${s.escape} is not a published comparison`);
   });
 }
+
+test('REGRESSION: readiness is a real query, never pg_isready', () => {
+  // pg_isready answers yes to the temporary postmaster the official image runs
+  // during initdb, so it reports a database healthy before it exists. Observed
+  // in a live container: the healthcheck went green, then psql reported
+  // 'database "baserow" does not exist'.
+  build();
+  for (const s of specs) {
+    // Check the directives, not the prose — the comment above the healthcheck
+    // legitimately names pg_isready in order to explain why it is not used.
+    const composeLines = read(s, 'docker-compose.yml').split('\n').filter((l) => !l.trim().startsWith('#'));
+    const drillLines = read(s, 'restore-drill.sh').split('\n').filter((l) => !l.trim().startsWith('#'));
+    assert.ok(!composeLines.some((l) => l.includes('pg_isready')), 'compose must not gate on pg_isready');
+    assert.ok(composeLines.some((l) => /test:.*psql .*select 1/.test(l)), 'healthcheck must run a real query');
+    assert.ok(!drillLines.some((l) => l.includes('pg_isready')), 'the drill must not wait on pg_isready');
+    assert.ok(drillLines.some((l) => /psql .*select 1/.test(l)), 'the drill must wait on a real query');
+  }
+});
