@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "plausible-to-matomo",
+  "title": "Plausible Business to self-hosted Matomo",
+  "summary": "Matomo does far more than Plausible and costs far more to run. Whether that is a trade or a downgrade depends entirely on what you actually look at.",
+  "category": "analytics",
+  "incumbent": {
+    "vendor": "plausible",
+    "plan": "business",
+    "seats": 1
+  },
+  "alternative": {
+    "name": "Matomo (self-hosted)",
+    "repo": "matomo-org/matomo",
+    "requirements": {
+      "ram_gb": 2,
+      "vcpu": 1,
+      "disk_gb": 40
+    },
+    "backup_gb": 60,
+    "migration_hours": 6,
+    "maintenance_hours_per_month": 1
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Plausible's speed and its one-screen simplicity, which is why people choose it",
+      "A managed service that never needs a cron job debugged",
+      "Funnels and revenue tracking on the cloud plan"
+    ],
+    "you_gain": [
+      "Fifteen years of features: heatmaps, session recording, goals, e-commerce, A/B tests",
+      "GDPR tooling that a European auditor already recognises",
+      "GPL-3.0, and an importer that can pull your history out of Google Analytics"
+    ]
+  },
+  "caveats": [
+    "Matomo's archiving cron is the piece that bites people. If it is not running, your reports quietly stop updating and nothing tells you.",
+    "Disk grows fast on a busy site. The 40 GB here suits modest traffic; budget more if you have real volume.",
+    "If you picked Plausible because it is simple, Matomo is not an upgrade. Read the Umami page instead — it is the closer swap."
+  ],
+  "hours_are_estimates": true
+}

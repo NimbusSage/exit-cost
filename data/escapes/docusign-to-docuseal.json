@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "docusign-to-docuseal",
+  "title": "Docusign Standard to self-hosted DocuSeal",
+  "summary": "DocuSeal is lighter to run than Documenso and does the same job. The legal question is identical, though.",
+  "category": "e-signature",
+  "incumbent": {
+    "vendor": "docusign",
+    "plan": "standard",
+    "seats": 5
+  },
+  "alternative": {
+    "name": "DocuSeal (self-hosted)",
+    "repo": "docusealco/docuseal",
+    "requirements": {
+      "ram_gb": 2,
+      "vcpu": 1,
+      "disk_gb": 30
+    },
+    "backup_gb": 50,
+    "migration_hours": 6,
+    "maintenance_hours_per_month": 0.6
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Docusign on the audit trail, which is worth something in a dispute",
+      "Enterprise procurement acceptance you do not have to argue for",
+      "Managed identity verification"
+    ],
+    "you_gain": [
+      "A single Rails app that runs happily on a small box",
+      "No envelope limits at any team size",
+      "AGPL-3.0, with the signing implementation open to inspection"
+    ]
+  },
+  "caveats": [
+    "Everything on the Documenso page applies here: validity depends on your jurisdiction and on the evidence you can produce, and \"cryptographically sound\" is not the same as \"accepted by the other side's lawyers\".",
+    "DocuSeal needs materially less server than Documenso, which is most of why the arithmetic differs between the two pages.",
+    "For contracts worth more than the annual saving, we would stay on Docusign and treat the difference as insurance."
+  ],
+  "hours_are_estimates": true
+}

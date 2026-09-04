@@ -4,8 +4,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 
+const os = require('node:os');
+
 const ROOT = path.resolve(__dirname, '..');
-const DIST = path.join(ROOT, 'site', 'dist');
+// Own output directory — test files run in parallel and both build the site.
+const DIST = fs.mkdtempSync(path.join(os.tmpdir(), 'exitcost-site-'));
 const NODE = process.execPath;
 
 /**
@@ -27,7 +30,7 @@ function prepare() {
 
 function buildWith(siteUrl) {
   prepare();
-  execFileSync(NODE, [path.join(ROOT, 'site', 'build.js')], { env: { ...process.env, SITE_URL: siteUrl }, stdio: 'ignore' });
+  execFileSync(NODE, [path.join(ROOT, 'site', 'build.js')], { env: { ...process.env, SITE_URL: siteUrl, EXITCOST_DIST: DIST }, stdio: 'ignore' });
   return (rel) => fs.readFileSync(path.join(DIST, rel), 'utf8');
 }
 

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "airtable-to-teable",
+  "title": "Airtable Team to self-hosted Teable",
+  "summary": "Teable is the closest thing to Airtable anyone has built. It is also the youngest, and that cuts both ways.",
+  "category": "database-spreadsheet",
+  "incumbent": {
+    "vendor": "airtable",
+    "plan": "team",
+    "seats": 6
+  },
+  "alternative": {
+    "name": "Teable (self-hosted)",
+    "repo": "teableio/teable",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 40
+    },
+    "backup_gb": 40,
+    "migration_hours": 8,
+    "maintenance_hours_per_month": 0.75
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Airtable's automations, scripting block and extension marketplace",
+      "A decade of stability; Teable is moving fast and breaking things is part of that",
+      "Interface Designer"
+    ],
+    "you_gain": [
+      "A grid that genuinely feels like Airtable rather than a spreadsheet pretending",
+      "Real Postgres underneath, with the tables queryable directly",
+      "Free seats at a tier where Airtable charges $20 each"
+    ]
+  },
+  "caveats": [
+    "Teable is the youngest project on this site. Pin a version, read the release notes, and do not upgrade on a Friday.",
+    "Its licence is not one GitHub recognises automatically. Check the repository before building anything commercial on it.",
+    "If you want the mature option in this category, read the NocoDB and Baserow comparisons instead — both are older and calmer."
+  ],
+  "hours_are_estimates": true
+}

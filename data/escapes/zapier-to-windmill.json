@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "zapier-to-windmill",
+  "title": "Zapier Team to self-hosted Windmill",
+  "summary": "Windmill is automation for people who would rather write a function than drag a box. That suits some teams and rules out others.",
+  "category": "automation",
+  "incumbent": {
+    "vendor": "zapier",
+    "plan": "team",
+    "seats": 1
+  },
+  "alternative": {
+    "name": "Windmill (self-hosted)",
+    "repo": "windmill-labs/windmill",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 40
+    },
+    "backup_gb": 25,
+    "migration_hours": 14,
+    "maintenance_hours_per_month": 0.75
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Zapier's catalogue of prebuilt integrations, which is the actual product",
+      "Non-technical colleagues being able to build their own workflows",
+      "Someone else fixing an integration when a vendor changes their API"
+    ],
+    "you_gain": [
+      "Scripts in TypeScript, Python, Go or Bash with proper version control",
+      "Genuinely fast execution — this is a Rust runtime, not a hosted queue",
+      "Unmetered runs, which is the whole argument"
+    ]
+  },
+  "caveats": [
+    "This is the least like-for-like swap on the site. If the people building your automations are not programmers, Windmill is not a Zapier replacement and the arithmetic is beside the point.",
+    "The 14-hour estimate assumes you are comfortable writing the integrations yourself. There is no importer.",
+    "Windmill's licence is not one GitHub recognises automatically, and some features are enterprise-gated. Check before committing."
+  ],
+  "hours_are_estimates": true
+}

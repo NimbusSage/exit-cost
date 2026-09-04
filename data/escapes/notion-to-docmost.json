@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "notion-to-docmost",
+  "title": "Notion Business to self-hosted Docmost",
+  "summary": "Docmost is the closest open-source thing to a Notion team wiki with real-time editing. It is also newer than Outline.",
+  "category": "docs-wiki",
+  "incumbent": {
+    "vendor": "notion",
+    "plan": "business",
+    "seats": 8
+  },
+  "alternative": {
+    "name": "Docmost (self-hosted)",
+    "repo": "docmost/docmost",
+    "requirements": {
+      "ram_gb": 2,
+      "vcpu": 1,
+      "disk_gb": 30
+    },
+    "backup_gb": 40,
+    "migration_hours": 8,
+    "maintenance_hours_per_month": 0.6
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Notion databases, relations and rollups entirely",
+      "Notion AI",
+      "The maturity that comes from a decade of use"
+    ],
+    "you_gain": [
+      "Real-time collaborative editing, which Outline does not have",
+      "Spaces and permissions built for teams rather than bolted on",
+      "AGPL-3.0 and free seats at a tier where Notion charges $20 each"
+    ]
+  },
+  "caveats": [
+    "Docmost is younger than Outline and moves faster. If you want the settled option in this category, read the Outline page.",
+    "It has a Notion importer, which is why the estimate is 8 hours rather than more. Verify nested pages after import — that is where imports usually lose things.",
+    "Some features are behind an enterprise edition. Check which side of that line you need before migrating."
+  ],
+  "hours_are_estimates": true
+}

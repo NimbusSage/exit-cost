@@ -13,7 +13,26 @@ const path = require('node:path');
 const { readJson, listJson, p } = require('../pipeline/lib/store.js');
 const chart = require('./assets/chart.js');
 
-const DIST = path.join(__dirname, 'dist');
+const DIST = process.env.EXITCOST_DIST || path.join(__dirname, 'dist');
+
+/**
+ * Affiliate links live in data/affiliates.json and are applied ONLY to the
+ * outbound link. Provider selection is automated on price and never consults
+ * this table — that separation is what makes the disclosure honest.
+ */
+let AFFILIATES = new Map();
+function loadAffiliates() {
+  const d = readJson(p('data', 'affiliates.json'), { programs: [] });
+  AFFILIATES = new Map((d.programs || [])
+    .filter((a) => a.status === 'active' && a.url)
+    .map((a) => [a.provider, a]));
+}
+/** The link for a provider, plus any genuine offer the reader gets by using it. */
+function providerLink(provider, plainUrl) {
+  const a = AFFILIATES.get(provider);
+  return a ? { url: a.url, affiliate: true, benefit: a.reader_benefit || null }
+           : { url: plainUrl, affiliate: false, benefit: null };
+}
 
 /**
  * Deploys land either at a domain root or under a project subpath
@@ -153,8 +172,9 @@ function statementRows(e) {
     incRows.push(`<tr><td>Your time<div class="note">${e.incumbent.maintenance_hours_per_month ?? 0} h/month administering it</div></td><td class="amt" id="inc-time-monthly">${money(r.incumbent.time_monthly)}</td></tr>`);
   }
 
+  const hostLink = providerLink(alt.box.provider, alt.box.url);
   const altRows = [
-    `<tr><td>${esc(alt.box.provider)} ${esc(alt.box.name)}<div class="note">${alt.box.vcpu} vCPU · ${alt.box.ram_gb} GB RAM · ${alt.box.disk_gb} GB disk${alt.box.bandwidth_tb ? ` · ${alt.box.bandwidth_tb} TB transfer` : ''}</div></td><td class="amt">${money(alt.box.monthly_usd)}</td></tr>`,
+    `<tr><td><a href="${esc(hostLink.url)}" rel="sponsored nofollow">${esc(alt.box.provider)} ${esc(alt.box.name)}</a><div class="note">${alt.box.vcpu} vCPU · ${alt.box.ram_gb} GB RAM · ${alt.box.disk_gb} GB disk${alt.box.bandwidth_tb ? ` · ${alt.box.bandwidth_tb} TB transfer` : ''}${hostLink.benefit ? ` · <b>${esc(hostLink.benefit)}</b> via our referral link` : ''}</div></td><td class="amt">${money(alt.box.monthly_usd)}</td></tr>`,
   ];
   if (alt.storage) {
     altRows.push(`<tr><td>${esc(alt.storage.name)} backup<div class="note">${alt.storage.gb} GB at ${money(alt.storage.usd_per_gb_month, 5)}/GB/month</div></td><td class="amt">${money(alt.storage.monthly_usd)}</td></tr>`);
@@ -167,7 +187,8 @@ function statementRows(e) {
 function provenanceTable(e) {
   const rows = [];
   rows.push(`<tr><td><a href="${esc(e.incumbent.source_url)}" rel="nofollow">${esc(e.incumbent.vendor)} pricing page</a></td><td>${niceDate(e.incumbent.verified_at)}</td></tr>`);
-  rows.push(`<tr><td><a href="${esc(e.alternative.box.url)}" rel="sponsored nofollow">${esc(e.alternative.box.provider)} plan catalogue</a></td><td>${niceDate(e.alternative.box.verified_at)}</td></tr>`);
+  const host = providerLink(e.alternative.box.provider, e.alternative.box.url);
+  rows.push(`<tr><td><a href="${esc(host.url)}" rel="sponsored nofollow">${esc(e.alternative.box.provider)} plan catalogue</a>${host.affiliate ? ' <span class="aff">affiliate link</span>' : ''}</td><td>${niceDate(e.alternative.box.verified_at)}</td></tr>`);
   if (e.alternative.storage) rows.push(`<tr><td><a href="${esc(e.alternative.storage.pricing_url)}" rel="sponsored nofollow">${esc(e.alternative.storage.name)} pricing</a></td><td>${niceDate(e.alternative.storage.verified_at)}</td></tr>`);
   if (e.alternative.project) rows.push(`<tr><td><a href="${esc(e.alternative.project.url)}">${esc(e.alternative.project.full_name)} activity</a></td><td>${niceDate(e.alternative.project.verified_at)}</td></tr>`);
   return rows.join('\n');
@@ -428,6 +449,7 @@ It is free to use, including commercially, with attribution.
 function main() {
   const siteUrl = (process.env.SITE_URL || 'https://nimbussage.github.io/exit-cost').replace(/\/$/, '');
   BASE = new URL(siteUrl).pathname.replace(/\/$/, '');
+  loadAffiliates();
   const index = readJson(p('data', 'build', 'index.json'));
   if (!index) { console.error('FATAL: no data/build/index.json. Run `npm run build:data` first.'); process.exit(1); }
 

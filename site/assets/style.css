@@ -187,6 +187,7 @@ small, .small { font-size: .875rem; }
 .provenance td { padding: .22rem 0; vertical-align: baseline; }
 .provenance td:last-child { text-align: right; font-family: var(--mono); font-size: .8125rem; white-space: nowrap; padding-left: 1rem; }
 .provenance a { color: var(--muted); }
+.aff { font-size: .75rem; color: var(--muted); border: 1px solid var(--rule); padding: .05em .35em; border-radius: 2px; white-space: nowrap; }
 
 .flag { background: var(--mark); color: var(--ink); padding: .7rem .85rem; margin: 1.25rem 0; border-left: 3px solid var(--rule-strong); font-size: .9375rem; }
 

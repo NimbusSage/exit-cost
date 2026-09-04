@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "miro-to-drawio",
+  "title": "Miro Starter to self-hosted draw.io",
+  "summary": "draw.io costs almost nothing to run and does maybe a third of what Miro does. Which third decides this.",
+  "category": "whiteboard",
+  "incumbent": {
+    "vendor": "miro",
+    "plan": "starter",
+    "seats": 6
+  },
+  "alternative": {
+    "name": "draw.io (self-hosted)",
+    "repo": "jgraph/drawio",
+    "requirements": {
+      "ram_gb": 1,
+      "vcpu": 1,
+      "disk_gb": 20
+    },
+    "backup_gb": 10,
+    "migration_hours": 3,
+    "maintenance_hours_per_month": 0.3
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Real-time multiplayer, which is most of what Miro sells",
+      "Templates, voting, timers and everything built for running a workshop",
+      "Comment threads and the review flow around them"
+    ],
+    "you_gain": [
+      "The best diagramming tool of the lot, and it is not close for flowcharts and architecture",
+      "Diagrams as XML files you can version and diff in git",
+      "Apache-2.0, and a container that runs on the cheapest box sold"
+    ]
+  },
+  "caveats": [
+    "These are different products. draw.io is for diagrams; Miro is for meetings. If your team runs workshops on Miro, this is not a replacement.",
+    "Self-hosted draw.io has no collaboration server. People edit files, not a shared board.",
+    "If you want an infinite shared canvas, read the Excalidraw page instead."
+  ],
+  "hours_are_estimates": true
+}

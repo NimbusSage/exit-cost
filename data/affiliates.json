@@ -1,0 +1,22 @@
+{
+  "_comment": "Affiliate and referral links, kept out of the code so adding one is a data change. A program listed here is used ONLY for the outbound link; it never touches provider selection, which is automated on price alone. reader_benefit must be a real, verifiable offer — it is shown to the reader as the reason the link is worth using.",
+  "schema_version": 1,
+  "programs": [
+    {
+      "provider": "Vultr",
+      "url": null,
+      "status": "pending",
+      "note": "Give $300 / Get $100 referral. Awaiting the link. Payout is PayPal, which the owner has approved for automated income.",
+      "reader_benefit": "$300 in free credit to try it, valid for 30 days",
+      "verified_at": null
+    },
+    {
+      "provider": "DigitalOcean",
+      "url": null,
+      "status": "pending",
+      "note": "10% of referred spend, monthly for 12 months, via the CJ network. Application not yet submitted.",
+      "reader_benefit": null,
+      "verified_at": null
+    }
+  ]
+}

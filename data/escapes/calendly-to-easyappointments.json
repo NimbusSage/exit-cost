@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "calendly-to-easyappointments",
+  "title": "Calendly Standard to self-hosted Easy!Appointments",
+  "summary": "The lightest scheduling swap here — a PHP app on a $6 box. The trade is that it looks and feels like one.",
+  "category": "scheduling",
+  "incumbent": {
+    "vendor": "calendly",
+    "plan": "standard",
+    "seats": 6
+  },
+  "alternative": {
+    "name": "Easy!Appointments (self-hosted)",
+    "repo": "alextselegidis/easyappointments",
+    "requirements": {
+      "ram_gb": 1,
+      "vcpu": 1,
+      "disk_gb": 20
+    },
+    "backup_gb": 10,
+    "migration_hours": 5,
+    "maintenance_hours_per_month": 0.5
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Calendly's polish, which matters because your customers see this page, not you",
+      "Deep calendar sync; Google works, everything else is thinner",
+      "Routing forms, workflows and reminders beyond the basics"
+    ],
+    "you_gain": [
+      "A LAMP app that runs on the smallest box sold and asks almost nothing of you",
+      "Free seats, which is the entire argument past a couple of users",
+      "GPL-3.0 with no feature gating"
+    ]
+  },
+  "caveats": [
+    "This is the booking page your customers land on. If it looks dated, that cost does not appear anywhere in the arithmetic below and may still be the deciding factor.",
+    "If you want a like-for-like Calendly replacement, read the Cal.com page instead — closer product, heavier server.",
+    "Timezone handling has historically been the rough edge. Test it against a customer in another country before you switch."
+  ],
+  "hours_are_estimates": true
+}

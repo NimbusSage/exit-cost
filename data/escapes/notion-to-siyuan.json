@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "notion-to-siyuan",
+  "title": "Notion Plus to self-hosted SiYuan",
+  "summary": "SiYuan runs on almost nothing. At one seat, that still may not be enough to beat paying Notion.",
+  "category": "docs-wiki",
+  "incumbent": {
+    "vendor": "notion",
+    "plan": "plus",
+    "seats": 1
+  },
+  "alternative": {
+    "name": "SiYuan (self-hosted)",
+    "repo": "siyuan-note/siyuan",
+    "requirements": {
+      "ram_gb": 1,
+      "vcpu": 1,
+      "disk_gb": 20
+    },
+    "backup_gb": 15,
+    "migration_hours": 6,
+    "maintenance_hours_per_month": 0.4
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Notion databases, relations and rollups",
+      "Real-time collaboration — SiYuan is built for one person",
+      "A polished web app; SiYuan is a desktop-first tool with a server mode"
+    ],
+    "you_gain": [
+      "Block-level linking and backlinks that Notion does not do as well",
+      "Local Markdown files you own outright",
+      "A binary small enough to run on the cheapest box any provider sells"
+    ]
+  },
+  "caveats": [
+    "We expect this page to say stay, and it is here for that reason. One seat of Notion Plus is $120 a year, which is very hard to beat once your own hours are counted.",
+    "SiYuan is single-user by design. If anyone else needs access, this comparison does not apply to you.",
+    "Some SiYuan features are behind a paid cloud subscription of its own. The self-hosted core does not include them."
+  ],
+  "hours_are_estimates": true
+}

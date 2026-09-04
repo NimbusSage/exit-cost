@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "slug": "vercel-to-caprover",
+  "title": "Vercel Pro to self-hosted CapRover",
+  "summary": "CapRover is the oldest and calmest of the self-hosted deploy platforms. It is also the least fashionable, which is often a recommendation.",
+  "category": "hosting-paas",
+  "incumbent": {
+    "vendor": "vercel",
+    "plan": "pro",
+    "seats": 4
+  },
+  "alternative": {
+    "name": "CapRover (self-hosted)",
+    "repo": "caprover/caprover",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 50
+    },
+    "backup_gb": 40,
+    "migration_hours": 8,
+    "maintenance_hours_per_month": 0.75
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Vercel's edge network, which a single box does not replicate",
+      "Automatic image optimisation and instant cache invalidation",
+      "Next.js features that exist because Vercel builds both halves",
+      "Free idle preview deployments"
+    ],
+    "you_gain": [
+      "A fixed bill instead of usage billing that can spike overnight",
+      "Free seats, including for people who only read logs",
+      "A mature, boring codebase — CapRover has been doing this since 2017"
+    ]
+  },
+  "caveats": [
+    "Global latency-sensitive traffic is the case this loses regardless of price. Put Cloudflare in front or stay on Vercel.",
+    "CapRover is built on Docker Swarm, which is stable but effectively frozen. That is fine for a single box and a poor foundation for a cluster.",
+    "The $20 per seat excludes usage overages. If bandwidth is why you are reading this, your real bill is higher and this page understates the saving."
+  ],
+  "hours_are_estimates": true
+}
