@@ -1,20 +1,31 @@
 {
-  "_comment": "Affiliate and referral links, kept out of the code so adding one is a data change. A program listed here is used ONLY for the outbound link; it never touches provider selection, which is automated on price alone. reader_benefit must be a real, verifiable offer — it is shown to the reader as the reason the link is worth using.",
+  "_comment": "Affiliate and referral links, kept out of the code so adding one is a data change. A program listed here is used ONLY for the outbound link; it never touches provider selection, which is automated on price alone. reader_benefit must be a real, verifiable offer, stated with its actual limits — it is shown to the reader as the reason the link is worth using.",
   "schema_version": 1,
   "programs": [
     {
       "provider": "Vultr",
-      "url": null,
-      "status": "pending",
-      "note": "Give $300 / Get $100 referral. Awaiting the link. Payout is PayPal, which the owner has approved for automated income.",
-      "reader_benefit": "$300 in free credit to try it, valid for 30 days",
-      "verified_at": null
+      "url": "https://www.vultr.com/?ref=9921242-9J",
+      "status": "active",
+      "program": "Give $300, Get $100",
+      "reader_benefit": "$300 of credit for your first 30 days",
+      "pays": "$100 once the referred account is 30+ days old and has paid $100",
+      "note": "Chosen over the $10-per-signup code on expected value. The $10 code qualifies far more often — $10 of spend is one month on the boxes we recommend, against 5-10 months to reach $100 — but $100 at a lower qualification rate still beats $10 at a high one, and the $300 offer is a materially better reason for a reader to click. Revisit once there is real conversion data.",
+      "alternate": {
+        "program": "$10 per paid signup",
+        "url": "https://www.vultr.com/?ref=9921241",
+        "pays": "$10 once the referred account is 30+ days old and has paid $10",
+        "reader_benefit": null
+      },
+      "payout": "PayPal, or Vultr account credit. Owner approved PayPal for automated income on 2026-09-04.",
+      "verified_at": "2026-09-04"
     },
     {
       "provider": "DigitalOcean",
       "url": null,
       "status": "pending",
-      "note": "10% of referred spend, monthly for 12 months, via the CJ network. Application not yet submitted.",
+      "program": "Affiliate via CJ",
+      "pays": "10% of referred spend, monthly, for 12 months",
+      "note": "Application not yet submitted. The only recurring program found.",
       "reader_benefit": null,
       "verified_at": null
     }

@@ -31,10 +31,33 @@ function withProgram(program, fn) {
 }
 
 test('with no active program, provider links are the plain vendor URLs', () => {
+  // Controls its own data rather than depending on what the repo currently
+  // ships — otherwise adding a real program breaks a test about the empty case.
+  fs.writeFileSync(AFF, JSON.stringify({ schema_version: 1, programs: [] }, null, 2));
+  try {
+    rebuild();
+    const html = page('airtable-to-baserow');
+    assert.match(html, /href="https:\/\/www\.vultr\.com\/pricing\/"/);
+    assert.doesNotMatch(html, /affiliate link<\/span>/);
+  } finally {
+    fs.writeFileSync(AFF, original);
+    rebuild();
+  }
+});
+
+test('the referral link that ships is well formed and stated honestly', () => {
   rebuild();
-  const html = page('airtable-to-baserow');
-  assert.match(html, /href="https:\/\/www\.vultr\.com\/pricing\/"/);
-  assert.doesNotMatch(html, /affiliate link<\/span>/);
+  const live = JSON.parse(fs.readFileSync(AFF, 'utf8'));
+  for (const prog of live.programs.filter((p) => p.status === 'active')) {
+    assert.match(prog.url, /^https:\/\//, `${prog.provider}: url must be absolute`);
+    assert.ok(prog.verified_at, `${prog.provider}: an active program needs a verified_at`);
+    if (prog.reader_benefit) {
+      // An offer with a time limit must say so. "$300 of credit" without the
+      // 30-day expiry would be true and still misleading.
+      assert.ok(/\bday|month|year\b/.test(prog.reader_benefit),
+        `${prog.provider}: the reader benefit must state its limits, got "${prog.reader_benefit}"`);
+    }
+  }
 });
 
 test('an active program replaces the outbound link and labels it', () => {
