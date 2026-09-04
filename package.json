@@ -16,6 +16,7 @@
     "site": "node site/build.js",
     "report": "node ops/report.js",
     "video": "node video/build.js",
-    "video:render": "node video/build.js --render"
+    "video:render": "node video/build.js --render",
+    "kits": "node kits/build.js --verify"
   }
 }

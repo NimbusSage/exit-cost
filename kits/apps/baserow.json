@@ -1,0 +1,36 @@
+{
+  "id": "baserow",
+  "name": "Baserow",
+  "escape": "airtable-to-baserow",
+  "replaces": "Airtable",
+  "docs": "https://baserow.io/docs/installation%2Finstall-with-docker-compose",
+  "repo": "baserow/baserow",
+  "images": {
+    "app":   "baserow/baserow:2.3.3",
+    "db":    "postgres:16-alpine",
+    "cache": "redis:8.8-alpine",
+    "proxy": "caddy:2.11-alpine"
+  },
+  "database": { "engine": "postgres", "name": "baserow", "user": "baserow" },
+  "app_port": 80,
+  "data_paths": ["/baserow/data"],
+  "env": [
+    { "key": "DOMAIN", "desc": "The hostname you will reach this on, e.g. base.example.com", "example": "base.example.com" },
+    { "key": "ACME_EMAIL", "desc": "Email for the TLS certificate. Let's Encrypt uses it for expiry warnings.", "example": "you@example.com" },
+    { "key": "POSTGRES_PASSWORD", "desc": "Database password.", "generate": "password" },
+    { "key": "BASEROW_SECRET_KEY", "desc": "Signs sessions. Changing it logs everyone out.", "generate": "secret" },
+    { "key": "BASEROW_JWT_SIGNING_KEY", "desc": "Signs API tokens.", "generate": "secret" },
+    { "key": "BACKUP_PASSPHRASE", "desc": "Encrypts every backup before it leaves the machine. Store it somewhere that is NOT this server — without it the backups are unreadable.", "generate": "secret" },
+    { "key": "RCLONE_REMOTE", "desc": "rclone remote and path for offsite backups, e.g. b2:my-bucket/baserow", "example": "b2:my-bucket/baserow" }
+  ],
+  "restore_assertions": [
+    { "label": "core Django tables restored", "sql": "select count(*) from information_schema.tables where table_schema='public'", "min": 20 },
+    { "label": "at least one user account survived", "sql": "select count(*) from auth_user", "min": 1 },
+    { "label": "workspaces restored", "sql": "select count(*) from core_workspace", "min": 1 }
+  ],
+  "requirements": { "ram_gb": 4, "vcpu": 2, "disk_gb": 40 },
+  "notes": [
+    "Baserow ships an all-in-one image that bundles Postgres and Redis. This kit deliberately runs them as separate services, because a bundled database is far harder to back up and restore cleanly.",
+    "The first boot runs migrations and can take several minutes. That is normal."
+  ]
+}
