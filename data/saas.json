@@ -18,13 +18,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Plus $10 per member / month",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         },
         {
@@ -37,13 +37,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Business Recommended $20 per member / month",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         }
       ],
@@ -57,7 +57,7 @@
           "USD8"
         ]
       },
-      "last_checked_at": "2026-09-04",
+      "last_checked_at": "2026-09-05",
       "last_check_ok": true,
       "last_check_reason": null
     },
@@ -77,13 +77,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "our Team plan is available for $20/user/month when billed annually",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         },
         {
@@ -96,13 +96,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Business is available at $45/user/month when billed annually",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         }
       ],
@@ -114,7 +114,7 @@
           "USD45"
         ]
       },
-      "last_checked_at": "2026-09-04",
+      "last_checked_at": "2026-09-05",
       "last_check_ok": true,
       "last_check_reason": null
     },
@@ -134,14 +134,14 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Professional Starting from $19.99 /month",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
           "caveat": "Entry tier. Zapier prices by task volume, so the real bill rises with usage; this is the floor, not the typical spend.",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         },
         {
@@ -154,14 +154,14 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Team Starting from $69 /month",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
           "caveat": "Entry tier; rises with task volume.",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         }
       ],
@@ -180,7 +180,7 @@
           "USD800"
         ]
       },
-      "last_checked_at": "2026-09-04",
+      "last_checked_at": "2026-09-05",
       "last_check_ok": true,
       "last_check_reason": null
     },
@@ -200,14 +200,14 @@
           "currency": "USD",
           "billed": "monthly",
           "quote": "Essentials $ 35 / month ... Up to 500 monthly active users",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
           "caveat": "Priced at up to 500 monthly active users. Cost scales with MAU, so this is the entry price for a small user base.",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         },
         {
@@ -220,14 +220,14 @@
           "currency": "USD",
           "billed": "monthly",
           "quote": "Professional $ 240 / month ... Up to 500 monthly active users",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
           "caveat": "Priced at up to 500 monthly active users.",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         }
       ],
@@ -241,7 +241,7 @@
           "USD5000"
         ]
       },
-      "last_checked_at": "2026-09-04",
+      "last_checked_at": "2026-09-05",
       "last_check_ok": true,
       "last_check_reason": null
     },
@@ -261,13 +261,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Standard ... $10 /seat/mo",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         },
         {
@@ -280,13 +280,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Teams ... $16 /seat/mo",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         }
       ],
@@ -299,7 +299,7 @@
           "USD16"
         ]
       },
-      "last_checked_at": "2026-09-04",
+      "last_checked_at": "2026-09-05",
       "last_check_ok": true,
       "last_check_reason": null
     },
@@ -323,7 +323,7 @@
           "verified_by": "human",
           "check": {
             "agreement": "unverifiable",
-            "at": "2026-09-04",
+            "at": "2026-09-05",
             "reason": "two prices near the plan name (likely monthly and annual)"
           }
         },
@@ -342,7 +342,7 @@
           "caveat": "Flat price covering up to 10 members.",
           "check": {
             "agreement": "unverifiable",
-            "at": "2026-09-04",
+            "at": "2026-09-05",
             "reason": "6 different prices near the plan name"
           }
         }
@@ -364,7 +364,7 @@
           "USD8.99"
         ]
       },
-      "last_checked_at": "2026-09-04",
+      "last_checked_at": "2026-09-05",
       "last_check_ok": true,
       "last_check_reason": null
     },
@@ -388,7 +388,7 @@
           "verified_by": "human",
           "check": {
             "agreement": "unverifiable",
-            "at": "2026-09-04",
+            "at": "2026-09-05",
             "reason": "4 different prices near the plan name"
           }
         }
@@ -407,7 +407,7 @@
           "USD540"
         ]
       },
-      "last_checked_at": "2026-09-04",
+      "last_checked_at": "2026-09-05",
       "last_check_ok": true,
       "last_check_reason": null
     },
@@ -432,7 +432,7 @@
           "caveat": "$20 per developer seat per month, which includes $20 of usage credit. Bandwidth and compute above that credit are billed on top, so real bills commonly exceed the seat price.",
           "check": {
             "agreement": "unverifiable",
-            "at": "2026-09-04",
+            "at": "2026-09-05",
             "reason": "two prices near the plan name (likely monthly and annual)"
           }
         }
@@ -474,7 +474,7 @@
           "USD50"
         ]
       },
-      "last_checked_at": "2026-09-04",
+      "last_checked_at": "2026-09-05",
       "last_check_ok": true,
       "last_check_reason": null
     },
@@ -494,14 +494,14 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Starter /year /month $9 /month ... Up to 10k monthly pageviews",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
           "caveat": "Priced at up to 10k monthly pageviews; scales with traffic.",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         },
         {
@@ -514,13 +514,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Business /year /month $19 /month ... Up to 10 sites",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         }
       ],
@@ -533,7 +533,7 @@
           "USD9"
         ]
       },
-      "last_checked_at": "2026-09-04",
+      "last_checked_at": "2026-09-05",
       "last_check_ok": true,
       "last_check_reason": null
     },
@@ -557,7 +557,7 @@
           "verified_by": "human",
           "check": {
             "agreement": "unverifiable",
-            "at": "2026-09-04",
+            "at": "2026-09-05",
             "reason": "no price found near the plan name"
           }
         },
@@ -575,7 +575,7 @@
           "verified_by": "human",
           "check": {
             "agreement": "unverifiable",
-            "at": "2026-09-04",
+            "at": "2026-09-05",
             "reason": "no price found near the plan name"
           }
         }
@@ -585,7 +585,7 @@
         "token_count": 0,
         "tokens": []
       },
-      "last_checked_at": "2026-09-04",
+      "last_checked_at": "2026-09-05",
       "last_check_ok": true,
       "last_check_reason": null
     },
@@ -605,13 +605,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Starter For small teams collaborating regularly with unlimited boards $ 8 /month per member, billed yearly",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         },
         {
@@ -624,13 +624,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Business For growing organizations and consultants to streamline workflows with AI $ 20 /month per member, billed yearly",
-          "verified_at": "2026-09-04",
+          "verified_at": "2026-09-05",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-04",
+          "last_auto_confirmed_at": "2026-09-05",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-04"
+            "at": "2026-09-05"
           }
         }
       ],
@@ -645,7 +645,7 @@
           "USD8"
         ]
       },
-      "last_checked_at": "2026-09-04",
+      "last_checked_at": "2026-09-05",
       "last_check_ok": true,
       "last_check_reason": null
     },
@@ -669,7 +669,7 @@
           "verified_by": "human",
           "check": {
             "agreement": "unverifiable",
-            "at": "2026-09-04",
+            "at": "2026-09-05",
             "reason": "3 different prices near the plan name"
           }
         }
@@ -685,7 +685,7 @@
           "USD99"
         ]
       },
-      "last_checked_at": "2026-09-04",
+      "last_checked_at": "2026-09-05",
       "last_check_ok": true,
       "last_check_reason": null
     }
