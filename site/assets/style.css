@@ -92,7 +92,7 @@ small, .small { font-size: .875rem; }
 /* ---------------------------------------------------------------- verdict */
 
 .standfirst { margin: 2.25rem 0 0; }
-.route { font-size: .9375rem; color: var(--muted); margin-bottom: 1.1rem; }
+h1.route { font-size: .9375rem; font-weight: 400; letter-spacing: 0; line-height: 1.5; color: var(--muted); margin: 0 0 1.1rem; }
 .route b { font-weight: 500; color: var(--ink); }
 
 .verdict-line {

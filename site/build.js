@@ -275,7 +275,7 @@ function escapePage(e, siteUrl) {
 
   const body = `
 <article class="standfirst">
-  <p class="route"><b>${esc(e.incumbent.vendor)} ${esc(e.incumbent.plan)}</b>${e.incumbent.per_seat ? `, <span id="route-seats">${plural(r.inputs.seats, 'seat', 'seats')}</span>` : ''} &rarr; <b>${esc(altShort)}</b>, self-hosted</p>
+  <h1 class="route"><b>${esc(e.incumbent.vendor)} ${esc(e.incumbent.plan)}</b>${e.incumbent.per_seat ? `, <span id="route-seats">${plural(r.inputs.seats, 'seat', 'seats')}</span>` : ''} &rarr; <b>${esc(altShort)}</b>, self-hosted</h1>
 
   <p class="verdict-line v-${r.verdict}" id="verdict">${VERDICT_SENTENCE[r.verdict](esc(altShort), r.savings.at_horizon, yrs)}</p>
 
@@ -450,7 +450,7 @@ we assumed about your hours, and the date each price was last verified.
 
   return layout({
     title: `${SITE_NAME} — ${TAGLINE}`,
-    description: 'The real, fully-loaded cost of leaving a SaaS subscription — including your own time. Live pricing, verified dates, and the comparisons where staying is the right answer.',
+    description: 'What it really costs to leave a SaaS subscription, including your own time. Live pricing, and the comparisons where staying is the right answer.',
     canonical: `${siteUrl}/`,
     body,
     jsonld: {
@@ -545,6 +545,16 @@ It is free to use, including commercially, with attribution.
     description: 'The method behind Exit Cost: charging your own time, verifying every price, and refusing to publish numbers we could not confirm.',
     canonical: `${siteUrl}/method/`,
     body,
+    jsonld: {
+      '@context': 'https://schema.org',
+      '@type': 'TechArticle',
+      headline: 'How Exit Cost counts',
+      description: 'The method: charging the reader\'s own time, verifying every price against the vendor\'s page, and refusing to publish a number that could not be confirmed.',
+      mainEntityOfPage: `${siteUrl}/method/`,
+      author: { '@type': 'Organization', name: SITE_NAME },
+      publisher: { '@type': 'Organization', name: SITE_NAME },
+      dateModified: index.day,
+    },
   });
 }
 

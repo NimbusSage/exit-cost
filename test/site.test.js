@@ -190,3 +190,36 @@ test('INTEGRITY: the model in the page reproduces the page\'s own headline numbe
     }
   }
 });
+
+test('every page has exactly one h1, and it names the page subject', () => {
+  const read = buildWith('https://exitcost.dev');
+  for (const page of ['index.html', 'method/index.html', 'e/notion-to-outline/index.html']) {
+    const h1s = [...read(page).matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)];
+    assert.equal(h1s.length, 1, `${page} has ${h1s.length} h1 elements`);
+    assert.ok(h1s[0][1].replace(/<[^>]*>/g, '').trim().length > 8, `${page}: h1 is empty or trivial`);
+  }
+  assert.match(read('e/notion-to-outline/index.html'), /<h1[^>]*>.*Notion Business[\s\S]*?Outline/,
+    'a comparison page should be headed by the comparison');
+});
+
+test('meta descriptions stay inside what a search result will show', () => {
+  const read = buildWith('https://exitcost.dev');
+  for (const page of ['index.html', 'method/index.html', 'e/notion-to-outline/index.html']) {
+    const d = read(page).match(/<meta name="description" content="([^"]*)"/)[1];
+    assert.ok(d.length > 40, `${page}: description is too short`);
+    assert.ok(d.length <= 160, `${page}: description is ${d.length} chars and will be truncated`);
+  }
+});
+
+test('every page carries valid structured data', () => {
+  const read = buildWith('https://exitcost.dev');
+  for (const page of ['index.html', 'method/index.html', 'e/notion-to-outline/index.html']) {
+    const blocks = [...read(page).matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+    assert.ok(blocks.length >= 1, `${page} has no structured data`);
+    for (const b of blocks) {
+      const ld = JSON.parse(b[1]);
+      assert.equal(ld['@context'], 'https://schema.org');
+      assert.ok(ld['@type']);
+    }
+  }
+});
