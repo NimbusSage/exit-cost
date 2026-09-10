@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-09-09T09:51:46.681Z",
+  "fetched_at": "2026-09-10T08:13:37.765Z",
   "fx": {
-    "rate": 1.1614,
-    "verified_at": "2026-09-08",
+    "rate": 1.1652,
+    "verified_at": "2026-09-09",
     "source_url": "https://api.frankfurter.dev/v1/latest?base=EUR&symbols=USD"
   },
   "providers": {
@@ -10,8 +10,8 @@
       "ok": true,
       "stale": false,
       "source_url": "https://api.vultr.com/v2/plans",
-      "fetched_at": "2026-09-09T09:51:46.681Z",
-      "verified_at": "2026-09-09T09:51:46.681Z",
+      "fetched_at": "2026-09-10T08:13:37.765Z",
+      "verified_at": "2026-09-10T08:13:37.765Z",
       "plans": [
         {
           "id": "vultr:vc2-1c-0.5gb",
@@ -1063,8 +1063,8 @@
       "ok": true,
       "stale": false,
       "source_url": "https://api.linode.com/v4/linode/types",
-      "fetched_at": "2026-09-09T09:51:46.681Z",
-      "verified_at": "2026-09-09T09:51:46.681Z",
+      "fetched_at": "2026-09-10T08:13:37.765Z",
+      "verified_at": "2026-09-10T08:13:37.765Z",
       "plans": [
         {
           "id": "linode:g6-nanode-1",
@@ -1445,14 +1445,14 @@
       "stale": true,
       "plans": [],
       "last_error": "HETZNER_API_TOKEN not set",
-      "last_attempt_at": "2026-09-09T09:51:46.681Z"
+      "last_attempt_at": "2026-09-10T08:13:37.765Z"
     },
     "digitalocean": {
       "ok": false,
       "stale": true,
       "plans": [],
       "last_error": "DO_API_TOKEN not set",
-      "last_attempt_at": "2026-09-09T09:51:46.681Z"
+      "last_attempt_at": "2026-09-10T08:13:37.765Z"
     }
   }
 }
