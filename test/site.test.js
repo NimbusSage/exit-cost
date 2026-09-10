@@ -281,3 +281,46 @@ test('the data page declares itself as a Dataset for search engines', () => {
   assert.equal(ld.isAccessibleForFree, true);
   assert.equal(ld.distribution.length, 2);
 });
+
+test('every subscription gets a page gathering all its alternatives', () => {
+  const read = buildWith('https://exitcost.dev');
+  const index = JSON.parse(read('api/index.json'));
+  const vendors = [...new Set(index.escapes.map((e) => e.incumbent))];
+  assert.ok(vendors.length >= 10);
+  for (const v of vendors) {
+    const slug = v.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const file = path.join(DIST, 'vs', slug, 'index.html');
+    assert.ok(fs.existsSync(file), `no page for ${v}`);
+    const html = fs.readFileSync(file, 'utf8');
+    assert.match(html, new RegExp(`<h1[^>]*>Leaving ${v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`));
+    // It must list every comparison for that vendor, or it is a partial answer.
+    const mine = index.escapes.filter((e) => e.incumbent === v);
+    for (const e of mine) assert.match(html, new RegExp(`/e/${e.slug}/`), `${v} page omits ${e.slug}`);
+  }
+});
+
+test('vendor pages are in the sitemap and reachable from a comparison', () => {
+  const read = buildWith('https://exitcost.dev');
+  const sm = read('sitemap.xml');
+  assert.match(sm, /<loc>https:\/\/exitcost\.dev\/vs\/notion\/<\/loc>/);
+  assert.match(sm, /<loc>https:\/\/exitcost\.dev\/data\/<\/loc>/);
+  assert.match(read('e/notion-to-outline/index.html'), /href="\/vs\/notion\/"/,
+    'a comparison should link to its vendor page');
+});
+
+test('a vendor page states plainly when nothing is worth leaving for', () => {
+  const read = buildWith('https://exitcost.dev');
+  const index = JSON.parse(read('api/index.json'));
+  const byVendor = new Map();
+  for (const e of index.escapes) {
+    if (!byVendor.has(e.incumbent)) byVendor.set(e.incumbent, []);
+    byVendor.get(e.incumbent).push(e);
+  }
+  for (const [v, rows] of byVendor) {
+    if (rows.every((r) => r.verdict === 'stay')) {
+      const slug = v.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      const html = fs.readFileSync(path.join(DIST, 'vs', slug, 'index.html'), 'utf8');
+      assert.match(html, /None of them beat paying/, `${v}: should say so outright`);
+    }
+  }
+});

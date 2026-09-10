@@ -353,7 +353,7 @@ function escapePage(e, siteUrl) {
     <p style="margin-bottom:.5rem">Every number above comes from one of these, on the date shown. ${e.incumbent.quote ? `The ${esc(e.incumbent.vendor)} figure is the site's own wording: &ldquo;${esc(e.incumbent.quote)}&rdquo;.` : ''}</p>
     <table>${provenanceTable(e)}</table>
     <p style="margin-top:.7rem">Hosting requirements (${e.alternative.requirements.vcpu || 1} vCPU, ${e.alternative.requirements.ram_gb} GB RAM, ${e.alternative.requirements.disk_gb} GB disk), migration hours and maintenance hours are our estimates, not measurements. They are the numbers most worth arguing with, so we put them where you can see them. The cheapest plan meeting those requirements is selected automatically from ${esc(e.alternative.box.provider)}, Vultr and Linode's live catalogues.</p>
-    <p><a href="${u(`/api/escapes/${esc(e.slug)}.json`)}">This comparison as JSON</a></p>
+    <p><a href="${u(`/vs/${vendorSlug(e.incumbent.vendor)}/`)}">Every route out of ${esc(e.incumbent.vendor)}</a> · <a href="${u(`/api/escapes/${esc(e.slug)}.json`)}">this comparison as JSON</a></p>
   </div>
 </article>`;
 
@@ -558,6 +558,90 @@ It is free to use, including commercially, with attribution.
   });
 }
 
+/* ------------------------------------------------------------ vendor pages */
+
+/**
+ * One page per subscription, gathering every alternative we have priced against it.
+ *
+ * A reader searching "Notion alternatives" or "what Airtable costs for 20 people"
+ * has a broader question than any single pairing answers, and this is the page
+ * that answers it — four routes out of Notion side by side, ordered by the rate
+ * at which each stops being worth it.
+ */
+function vendorPage(vendor, rows, index, siteUrl) {
+  const worthLeaving = rows.filter((r) => r.verdict !== 'stay');
+  const keepPaying = rows.filter((r) => r.verdict === 'stay');
+  const managedFlips = rows.filter((r) => r.verdict === 'stay' && r.managed && r.managed.verdict !== 'stay');
+  const cheapest = [...rows].sort((a, b) => a.alternative_annual - b.alternative_annual)[0];
+  const best = [...rows].sort((a, b) => (b.break_even_hourly_rate ?? -1) - (a.break_even_hourly_rate ?? -1))[0];
+  const plans = [...new Set(rows.map((r) => r.incumbent_plan))];
+
+  const row = (e) => {
+    const alt = e.alternative.replace(/ \(self-hosted\)$/, '');
+    const x = e.break_even_hourly_rate;
+    return `<li><a href="${u(`/e/${esc(e.slug)}/`)}">
+      <span class="idx-title">${esc(alt)}</span>
+      <span class="idx-sub">${esc(e.incumbent_plan)}, ${plural(e.seats, 'seat', 'seats')} · ${money(e.alternative_annual, 0)}/yr self-hosted${e.managed ? ` · ${money(e.managed.monthly_usd)}/mo managed` : ''}</span>
+      <span class="idx-num">${x === null || x < 0 ? '—' : money(x, 2)}<span class="idx-verdict v-${e.verdict}-t">${e.verdict}</span></span>
+    </a></li>`;
+  };
+
+  const body = `
+<div class="standfirst">
+  <h1 class="measure">Leaving ${esc(vendor)}</h1>
+  <p class="dek measure">${rows.length === 1 ? 'One route out, priced honestly' : `${rows.length} routes out, priced honestly`} — including the hours it would cost you.</p>
+  <p class="measure">We have priced ${plural(rows.length, 'alternative', 'alternatives')} to ${esc(vendor)}
+  ${plans.length > 1 ? `across its ${esc(plans.join(' and '))} plans` : `on ${esc(plans[0])}`}.
+  ${worthLeaving.length === 0
+    ? `None of them beat paying ${esc(vendor)} once your own time is counted, which is worth knowing before you spend a weekend finding out.`
+    : `${worthLeaving.length === rows.length ? 'All of them' : `${worthLeaving.length} of them`} come out ahead at $50 an hour${keepPaying.length ? `; ${keepPaying.length} do not` : ''}.`}</p>
+</div>
+
+${worthLeaving.length ? `
+<h2 class="section-head">Worth leaving for</h2>
+<p class="measure muted small" style="margin-top:-.1rem">The figure is what your hour would have to be worth before staying wins.</p>
+<ul class="index-list">${worthLeaving.sort((a, b) => (b.break_even_hourly_rate ?? -1) - (a.break_even_hourly_rate ?? -1)).map(row).join('')}</ul>` : ''}
+
+${keepPaying.length ? `
+<h2 class="section-head">Not worth leaving for</h2>
+<p class="measure muted small" style="margin-top:-.1rem">Running these yourself costs more than the subscription once your hours are counted.</p>
+<ul class="index-list">${keepPaying.sort((a, b) => (a.break_even_hourly_rate ?? 999) - (b.break_even_hourly_rate ?? 999)).map(row).join('')}</ul>` : ''}
+
+${managedFlips.length ? `
+<h2 class="section-head">Unless somebody else runs it</h2>
+<p class="measure">${managedFlips.length === 1 ? 'One of those' : `${managedFlips.length} of those`} changes answer if you pay a managed host instead of running a server:
+${managedFlips.map((m) => `<a href="${u(`/e/${esc(m.slug)}/`)}">${esc(m.alternative.replace(/ \(self-hosted\)$/, ''))}</a> from ${money(m.managed.monthly_usd)} a month`).join(', ')}.
+That removes the upkeep hours entirely, which is what made the arithmetic fail.</p>` : ''}
+
+<h2 class="section-head">The short version</h2>
+<ul class="caveats measure">
+  <li><b>Cheapest to run:</b> ${esc(cheapest.alternative.replace(/ \(self-hosted\)$/, ''))} at ${money(cheapest.alternative_annual, 0)} a year, against ${money(cheapest.incumbent_annual, 0)} for ${esc(vendor)} ${esc(cheapest.incumbent_plan)} at ${plural(cheapest.seats, 'seat', 'seats')}.</li>
+  ${best.break_even_hourly_rate !== null && best.break_even_hourly_rate > 0 ? `<li><b>Tolerates the most expensive hour:</b> ${esc(best.alternative.replace(/ \(self-hosted\)$/, ''))}, worth doing unless your time is worth more than ${money(best.break_even_hourly_rate, 2)} an hour.</li>` : ''}
+  <li>Every figure assumes 36 months and a $50 hour. Each comparison lets you set both, and your team size.</li>
+</ul>
+
+<p class="measure"><a href="${u('/')}">All ${index.counts.published} comparisons</a> · <a href="${u('/method/')}">how we count</a> · <a href="${u('/data/')}">the raw data</a></p>`;
+
+  return layout({
+    title: `Leaving ${vendor} — ${SITE_NAME}`,
+    description: `${rows.length} self-hosted alternatives to ${vendor}, priced with your own time included, and the hourly rate at which each stops being worth it.`,
+    canonical: `${siteUrl}/vs/${vendorSlug(vendor)}/`,
+    body,
+    jsonld: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: `Leaving ${vendor}`,
+      description: `Self-hosted alternatives to ${vendor}, priced including the operator's own time.`,
+      mainEntityOfPage: `${siteUrl}/vs/${vendorSlug(vendor)}/`,
+      dateModified: index.day,
+      about: { '@type': 'SoftwareApplication', name: vendor },
+      hasPart: rows.map((r) => ({ '@type': 'Article', headline: r.title, url: `${siteUrl}/e/${r.slug}/` })),
+    },
+  });
+}
+
+const vendorSlug = (v) => v.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
 /* ---------------------------------------------------------------- dataset */
 
 /** One flat row per comparison. CSV because a spreadsheet is where most people
@@ -675,6 +759,19 @@ function main() {
   write('index.html', indexPage(index, siteUrl));
   write('method/index.html', methodPage(index, siteUrl));
   write('data/index.html', dataPage(index, siteUrl));
+
+  // One page per subscription, for the broader query a single pairing cannot answer.
+  const byVendor = new Map();
+  for (const e of index.escapes) {
+    if (!byVendor.has(e.incumbent)) byVendor.set(e.incumbent, []);
+    byVendor.get(e.incumbent).push(e);
+  }
+  const vendorUrls = [];
+  for (const [vendor, rows] of byVendor) {
+    const slug = vendorSlug(vendor);
+    write(`vs/${slug}/index.html`, vendorPage(vendor, rows, index, siteUrl));
+    vendorUrls.push(`/vs/${slug}/`);
+  }
   for (const e of escapes) write(`e/${e.slug}/index.html`, escapePage(e, siteUrl));
 
   // Public JSON API — the point of it is to be citeable and linkable.
@@ -706,7 +803,7 @@ function main() {
     escapes,
   }, null, 2));
 
-  const urls = ['/', '/method/', '/data/', ...escapes.map((e) => `/e/${e.slug}/`)];
+  const urls = ['/', '/method/', '/data/', ...vendorUrls, ...escapes.map((e) => `/e/${e.slug}/`)];
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `  <url><loc>${siteUrl}${u}</loc><lastmod>${index.day}</lastmod></url>`).join('\n')}
