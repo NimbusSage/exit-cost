@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-09-10T08:13:51.581Z",
+  "fetched_at": "2026-09-10T08:23:12.500Z",
   "projects": {
     "passbolt/passbolt_api": {
       "full_name": "passbolt/passbolt_api",
       "url": "https://github.com/passbolt/passbolt_api",
       "homepage": "https://passbolt.com",
       "description": "Passbolt Community Edition (CE) API. The JSON API for the open source password manager for teams!",
-      "stars": 6111,
+      "stars": 6112,
       "forks": 401,
       "open_issues": 28,
       "license": "AGPL-3.0",
@@ -21,14 +21,14 @@
       "days_since_release": 20,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:39.509Z"
+      "verified_at": "2026-09-10T08:22:59.624Z"
     },
     "dani-garcia/vaultwarden": {
       "full_name": "dani-garcia/vaultwarden",
       "url": "https://github.com/dani-garcia/vaultwarden",
       "homepage": null,
       "description": "Unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs",
-      "stars": 67099,
+      "stars": 67100,
       "forks": 3192,
       "open_issues": 76,
       "license": "AGPL-3.0",
@@ -43,7 +43,7 @@
       "days_since_release": 19,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:39.975Z"
+      "verified_at": "2026-09-10T08:23:00.068Z"
     },
     "baserow/baserow": {
       "full_name": "baserow/baserow",
@@ -55,7 +55,7 @@
       "open_issues": 1238,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-10T08:07:50Z",
+      "pushed_at": "2026-09-10T08:19:30Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "2.3.3",
@@ -65,14 +65,14 @@
       "days_since_release": 51,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:40.331Z"
+      "verified_at": "2026-09-10T08:23:00.464Z"
     },
     "nocodb/nocodb": {
       "full_name": "nocodb/nocodb",
       "url": "https://github.com/nocodb/nocodb",
       "homepage": "https://nocodb.com",
       "description": "🔥 🔥 🔥 A Free & Self-hostable Airtable Alternative",
-      "stars": 64912,
+      "stars": 64913,
       "forks": 5043,
       "open_issues": 709,
       "license": null,
@@ -87,7 +87,7 @@
       "days_since_release": 7,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:40.723Z"
+      "verified_at": "2026-09-10T08:23:00.873Z"
     },
     "teableio/teable": {
       "full_name": "teableio/teable",
@@ -109,7 +109,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:41.099Z"
+      "verified_at": "2026-09-10T08:23:01.254Z"
     },
     "keycloak/keycloak": {
       "full_name": "keycloak/keycloak",
@@ -131,7 +131,7 @@
       "days_since_release": 10,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:41.476Z"
+      "verified_at": "2026-09-10T08:23:01.631Z"
     },
     "zitadel/zitadel": {
       "full_name": "zitadel/zitadel",
@@ -153,7 +153,7 @@
       "days_since_release": 6,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:41.835Z"
+      "verified_at": "2026-09-10T08:23:02.053Z"
     },
     "calcom/cal.com": {
       "full_name": "calcom/cal.diy",
@@ -161,7 +161,7 @@
       "homepage": "https://cal.diy",
       "description": "Scheduling infrastructure for absolutely everyone.",
       "stars": 48338,
-      "forks": 15076,
+      "forks": 15077,
       "open_issues": 1433,
       "license": "MIT",
       "archived": false,
@@ -175,7 +175,7 @@
       "days_since_release": 192,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:42.347Z"
+      "verified_at": "2026-09-10T08:23:02.573Z"
     },
     "alextselegidis/easyappointments": {
       "full_name": "alextselegidis/easyappointments",
@@ -197,7 +197,7 @@
       "days_since_release": 106,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:43.057Z"
+      "verified_at": "2026-09-10T08:23:03.404Z"
     },
     "chatwoot/chatwoot": {
       "full_name": "chatwoot/chatwoot",
@@ -209,7 +209,7 @@
       "open_issues": 1369,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-10T08:12:26Z",
+      "pushed_at": "2026-09-10T08:22:32Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "v4.17.1",
@@ -219,7 +219,7 @@
       "days_since_release": 14,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:43.433Z"
+      "verified_at": "2026-09-10T08:23:03.805Z"
     },
     "documenso/documenso": {
       "full_name": "documenso/documenso",
@@ -241,7 +241,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:43.803Z"
+      "verified_at": "2026-09-10T08:23:04.120Z"
     },
     "docusealco/docuseal": {
       "full_name": "docusealco/docuseal",
@@ -263,7 +263,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:44.187Z"
+      "verified_at": "2026-09-10T08:23:04.536Z"
     },
     "OpenSignLabs/OpenSign": {
       "full_name": "OpenSignLabs/OpenSign",
@@ -285,7 +285,7 @@
       "days_since_release": 20,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:44.554Z"
+      "verified_at": "2026-09-10T08:23:04.917Z"
     },
     "jgraph/drawio": {
       "full_name": "jgraph/drawio",
@@ -307,7 +307,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:44.909Z"
+      "verified_at": "2026-09-10T08:23:05.259Z"
     },
     "excalidraw/excalidraw": {
       "full_name": "excalidraw/excalidraw",
@@ -329,7 +329,7 @@
       "days_since_release": 142,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:45.311Z"
+      "verified_at": "2026-09-10T08:23:05.677Z"
     },
     "toeverything/AFFiNE": {
       "full_name": "toeverything/AFFiNE",
@@ -351,7 +351,7 @@
       "days_since_release": 23,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:45.693Z"
+      "verified_at": "2026-09-10T08:23:06.025Z"
     },
     "AppFlowy-IO/AppFlowy": {
       "full_name": "AppFlowy-IO/AppFlowy",
@@ -373,7 +373,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:46.078Z"
+      "verified_at": "2026-09-10T08:23:06.421Z"
     },
     "docmost/docmost": {
       "full_name": "docmost/docmost",
@@ -395,7 +395,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:46.422Z"
+      "verified_at": "2026-09-10T08:23:06.780Z"
     },
     "outline/outline": {
       "full_name": "outline/outline",
@@ -417,7 +417,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:46.808Z"
+      "verified_at": "2026-09-10T08:23:07.221Z"
     },
     "siyuan-note/siyuan": {
       "full_name": "siyuan-note/siyuan",
@@ -439,7 +439,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:47.132Z"
+      "verified_at": "2026-09-10T08:23:07.586Z"
     },
     "plausible/analytics": {
       "full_name": "plausible/analytics",
@@ -461,7 +461,7 @@
       "days_since_release": 118,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:47.621Z"
+      "verified_at": "2026-09-10T08:23:08.155Z"
     },
     "matomo-org/matomo": {
       "full_name": "matomo-org/matomo",
@@ -483,7 +483,7 @@
       "days_since_release": 24,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:48.050Z"
+      "verified_at": "2026-09-10T08:23:08.477Z"
     },
     "umami-software/umami": {
       "full_name": "umami-software/umami",
@@ -505,7 +505,7 @@
       "days_since_release": 21,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:48.591Z"
+      "verified_at": "2026-09-10T08:23:09.027Z"
     },
     "go-vikunja/vikunja": {
       "full_name": "go-vikunja/vikunja",
@@ -527,7 +527,7 @@
       "days_since_release": 10,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:48.923Z"
+      "verified_at": "2026-09-10T08:23:09.466Z"
     },
     "caprover/caprover": {
       "full_name": "caprover/caprover",
@@ -549,14 +549,14 @@
       "days_since_release": 10,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:49.315Z"
+      "verified_at": "2026-09-10T08:23:09.872Z"
     },
     "coollabsio/coolify": {
       "full_name": "coollabsio/coolify",
       "url": "https://github.com/coollabsio/coolify",
       "homepage": "https://coolify.io",
       "description": "An open-source, self-hostable PaaS alternative to Vercel, Heroku & Netlify that lets you easily deploy static sites, databases, full-stack applications and 280+ one-click services on your own servers.",
-      "stars": 61631,
+      "stars": 61632,
       "forks": 5435,
       "open_issues": 652,
       "license": "Apache-2.0",
@@ -571,7 +571,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:49.706Z"
+      "verified_at": "2026-09-10T08:23:10.244Z"
     },
     "Dokploy/dokploy": {
       "full_name": "Dokploy/dokploy",
@@ -579,7 +579,7 @@
       "homepage": "https://dokploy.com/",
       "description": "Open Source Alternative to Vercel, Netlify and Heroku.",
       "stars": 37203,
-      "forks": 2959,
+      "forks": 2958,
       "open_issues": 672,
       "license": null,
       "archived": false,
@@ -593,7 +593,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:50.071Z"
+      "verified_at": "2026-09-10T08:23:10.610Z"
     },
     "activepieces/activepieces": {
       "full_name": "activepieces/activepieces",
@@ -615,19 +615,19 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:50.470Z"
+      "verified_at": "2026-09-10T08:23:11.265Z"
     },
     "n8n-io/n8n": {
       "full_name": "n8n-io/n8n",
       "url": "https://github.com/n8n-io/n8n",
       "homepage": "https://n8n.io",
       "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
-      "stars": 203902,
-      "forks": 60629,
+      "stars": 203903,
+      "forks": 60628,
       "open_issues": 1145,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-10T08:13:40Z",
+      "pushed_at": "2026-09-10T08:21:54Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "n8n@2.38.6",
@@ -637,7 +637,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:50.828Z"
+      "verified_at": "2026-09-10T08:23:11.676Z"
     },
     "windmill-labs/windmill": {
       "full_name": "windmill-labs/windmill",
@@ -649,7 +649,7 @@
       "open_issues": 853,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-10T08:02:44Z",
+      "pushed_at": "2026-09-10T08:20:31Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "v1.808.0",
@@ -659,7 +659,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:13:51.192Z"
+      "verified_at": "2026-09-10T08:23:12.072Z"
     }
   },
   "errors": [],
