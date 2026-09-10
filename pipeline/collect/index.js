@@ -14,11 +14,13 @@ const { collectAll } = require('./vps.js');
 const { mergeProviders } = require('./merge.js');
 const { collectRepos } = require('./github.js');
 const { checkAll, summarise } = require('./saas.js');
+const { collectAll: collectManaged } = require('./managed.js');
 const { today } = require('../lib/freshness.js');
 
 const VPS_FILE      = p('data', 'sources', 'vps.json');
 const PROJECTS_FILE = p('data', 'sources', 'projects.json');
 const SAAS_FILE     = p('data', 'saas.json');
+const MANAGED_FILE  = p('data', 'sources', 'managed.json');
 const RUN_FILE      = p('data', 'sources', 'last-run.json');
 
 const arg = (name) => process.argv.includes(`--${name}`);
@@ -66,7 +68,29 @@ async function main() {
     for (const e of res.errors) log(`  ERROR   ${e.repo}: ${e.error}`);
   }
 
-  // ---- 3. SaaS price cross-check ------------------------------------------
+  // ---- 3. Managed self-hosting --------------------------------------------
+  if (!only || only === 'managed') {
+    log('\n[managed] fetching managed-hosting catalogues');
+    const fresh = await collectManaged();
+    const previous = readJson(MANAGED_FILE);
+    // Same fail-safe rule as everywhere else: a failed fetch keeps the last
+    // known prices and marks them stale rather than dropping the column.
+    const merged = { fetched_at: fresh.fetched_at, providers: {} };
+    for (const [name, r] of Object.entries(fresh.providers)) {
+      const old = previous?.providers?.[name];
+      if (r.ok) merged.providers[name] = r;
+      else if (old?.ok) {
+        merged.providers[name] = { ...old, stale: true, last_error: r.error || r.reason, last_attempt_at: fresh.fetched_at };
+        log(`  STALE   ${name}: ${r.error || r.reason} (keeping ${old.count} apps from ${old.verified_at?.slice(0, 10)})`);
+      } else merged.providers[name] = r;
+      if (r.ok) log(`  ok      ${name}: ${r.count} apps`);
+      else if (!old?.ok) log(`  FAIL    ${name}: ${r.error || r.reason}`);
+    }
+    if (!dry) writeJson(MANAGED_FILE, merged);
+    run.steps.managed = Object.fromEntries(Object.entries(merged.providers).map(([k, v]) => [k, { ok: !!v.ok, count: v.count ?? 0, stale: !!v.stale }]));
+  }
+
+  // ---- 4. SaaS price cross-check ------------------------------------------
   if (!only || only === 'saas') {
     const saas = readJson(SAAS_FILE);
     log(`\n[saas] cross-checking ${saas.vendors.length} vendor pricing pages`);

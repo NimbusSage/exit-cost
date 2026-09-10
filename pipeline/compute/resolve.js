@@ -12,6 +12,7 @@
 
 const { compare, curve, sensitivity } = require('./tco.js');
 const { cheapestMeeting } = require('../collect/merge.js');
+const { lookup: lookupManaged } = require('../collect/managed.js');
 const { assess, rollup } = require('../lib/freshness.js');
 
 /** Default value of the operator's own hour. Stated on every page, and adjustable. */
@@ -32,6 +33,54 @@ function findVendorPlan(saas, vendorId, planId) {
  * @param {object} escape    a record from data/escapes/*.json
  * @param {object} ctx       { vpsPlans, saas, storage, projects, now }
  */
+/**
+ * The third option: the same open-source software, run by somebody else.
+ *
+ * It exists because the binary of "keep paying" versus "run a server yourself"
+ * fails the reader whose hour is expensive — the site would tell them to stay on
+ * a subscription when the honest answer is to let someone else operate it. The
+ * defining difference is that the maintenance hours go to zero, because not
+ * spending them is the product.
+ */
+function resolveManaged(escape, ctx, seats, hourly_rate, horizon_months, incumbentCosts) {
+  const { managed, now = new Date() } = ctx;
+  if (!managed) return null;
+
+  const appName = escape.managed_app
+    || (escape.alternative.name || '').replace(/\s*\(self-hosted\)\s*$/, '').trim();
+  const hit = lookupManaged(managed, 'pikapods', appName);
+  if (!hit) return null;
+
+  const p = managed.providers.pikapods;
+  if (p.stale) return null;   // same rule as everywhere: stale data does not publish
+
+  // Moving the data is the same job either way; building and hardening the
+  // server is not. Halving the estimate is a judgement, and it is stated on the
+  // page rather than buried here.
+  const migration_hours = escape.managed_migration_hours
+    ?? Math.max(1, Math.round((escape.alternative.migration_hours ?? 0) * 0.5));
+
+  const input = {
+    seats, horizon_months, hourly_rate,
+    incumbent: incumbentCosts,
+    alternative: {
+      costs: [{ amount: hit.from_usd_month, period: 'month', label: `${hit.provider} ${appName}` }],
+      migration_hours,
+      maintenance_hours_per_month: 0,
+    },
+  };
+  const result = compare(input);
+  if (!result.computable) return null;
+
+  return {
+    provider: hit.provider, app: appName, url: hit.url, note: hit.note,
+    source_url: hit.source_url, quote: hit.quote,
+    monthly_usd: hit.from_usd_month, verified_at: hit.verified_at,
+    migration_hours, result,
+    crossover: result.break_even_hourly_rate,
+  };
+}
+
 function resolveEscape(escape, ctx) {
   const { vpsPlans = [], saas = {}, storage = {}, projects = {}, now = new Date() } = ctx;
   const errors = [];
@@ -105,6 +154,8 @@ function resolveEscape(escape, ctx) {
     return { slug: escape.slug, publishable: false, errors: [`uncomputable: ${result.reason}`, ...(result.unknown_items || [])], freshness };
   }
 
+  const managed = resolveManaged(escape, ctx, seats, hourly_rate, horizon_months, input.incumbent);
+
   // A dead upstream project is a hard stop regardless of how good the price looks.
   const projectBlocked = project && !project.recommended;
 
@@ -137,6 +188,7 @@ function resolveEscape(escape, ctx) {
       maintenance_hours_per_month: input.alternative.maintenance_hours_per_month,
     },
     result,
+    managed,
     curve: curve(result, horizon_months),
     sensitivity: sensitivity(input),
     tradeoffs: escape.tradeoffs || { you_lose: [], you_gain: [] },
@@ -156,4 +208,4 @@ function resolveAll(escapes, ctx) {
   return { pages, blocked };
 }
 
-module.exports = { resolveEscape, resolveAll, findVendorPlan, DEFAULT_HOURLY_RATE, DEFAULT_HORIZON_MONTHS };
+module.exports = { resolveEscape, resolveAll, resolveManaged, findVendorPlan, DEFAULT_HOURLY_RATE, DEFAULT_HORIZON_MONTHS };

@@ -24,6 +24,7 @@ function loadContext(now = new Date()) {
     saas: readJson(p('data', 'saas.json'), { vendors: [] }),
     storage: readJson(p('data', 'storage.json'), { options: [] }),
     projects: readJson(p('data', 'sources', 'projects.json'), { projects: {} }).projects || {},
+    managed: readJson(p('data', 'sources', 'managed.json'), null),
   };
 }
 
@@ -61,6 +62,7 @@ function main() {
       break_even_hourly_rate: r.result.break_even_hourly_rate,
       savings_year_3: r.result.savings.year_3,
       freshness: r.freshness.state,
+      managed: r.managed ? { provider: r.managed.provider, monthly_usd: r.managed.monthly_usd, verdict: r.managed.result.verdict } : null,
       updated_at: r.updated_at,
     })),
     blocked: blocked.map((b) => ({ slug: b.slug, reason: b.block_reason || b.errors?.join('; ') })),

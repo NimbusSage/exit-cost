@@ -184,6 +184,7 @@ small, .small { font-size: .875rem; }
 .idx-sub { grid-column: 1; color: var(--muted); font-size: .875rem; }
 .idx-num { grid-row: 1 / span 2; grid-column: 2; text-align: right; font-family: var(--mono); font-feature-settings: 'tnum' 1; font-size: 1.0625rem; white-space: nowrap; }
 .idx-num .idx-verdict { display: block; font-family: var(--serif); font-size: .8125rem; }
+.managed-flip { color: var(--credit); font-weight: 500; }
 .v-switch-t { color: var(--credit); }
 .v-stay-t   { color: var(--debit); }
 .v-marginal-t { color: var(--muted); }

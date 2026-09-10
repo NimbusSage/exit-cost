@@ -161,6 +161,45 @@ function crossoverCopy(e) {
   };
 }
 
+/**
+ * The third option, shown only when it exists.
+ *
+ * A comparison that offers only "keep paying" or "run a server yourself" fails
+ * the reader whose hour is expensive: it tells them to stay on a subscription
+ * when the honest answer is to let somebody else operate the same software. Four
+ * of these comparisons change their verdict once this column exists.
+ */
+function managedBlock(e) {
+  const m = e.managed;
+  if (!m) return '';
+  const r = m.result;
+  const diy = e.result;
+  const altShort = e.alternative.name.replace(/ \(self-hosted\)$/, '');
+  const inc = `${e.incumbent.vendor} ${e.incumbent.plan}`;
+  const flips = diy.verdict === 'stay' && r.verdict !== 'stay';
+
+  const verdictLine = r.verdict === 'stay'
+    ? `Even with the hours removed, it still costs more than ${esc(inc)} over ${r.inputs.horizon_months / 12} years.`
+    : `At $${r.inputs.hourly_rate} an hour that saves <b>${money(r.savings.at_horizon, 0)}</b> over ${r.inputs.horizon_months / 12} years, against ${diy.savings.at_horizon > 0 ? `${money(diy.savings.at_horizon, 0)} for running it yourself` : `a ${money(Math.abs(diy.savings.at_horizon), 0)} loss for running it yourself`}.`;
+
+  return `
+  <p class="section-head" id="managed">Or don't run it yourself</p>
+  ${flips ? `<p class="flag">This is the case the arithmetic above misses. Running ${esc(altShort)} yourself is not worth your hours — but paying ${esc(m.provider)} to run it is.</p>` : ''}
+  <p class="measure">${esc(m.provider)} runs ${esc(m.app)} from <b>${money(m.monthly_usd)}/month</b>. ${esc(m.note)}
+  The maintenance hours drop to zero, because not spending them is the entire product.</p>
+
+  <table class="statement">
+    <tr><td>${esc(m.provider)} ${esc(m.app)}<div class="note">their published minimum for this app</div></td><td class="amt">${money(m.monthly_usd)}</td></tr>
+    <tr><td>Your time<div class="note">nothing per month; they patch it and back it up</div></td><td class="amt">${money(0)}</td></tr>
+    <tr class="total"><td>Every month</td><td class="amt">${money(r.alternative.monthly)}</td></tr>
+    <tr><td style="padding-top:.9rem">Migration, once<div class="note">${m.migration_hours} hours — half our estimate for the self-hosted route, since there is no server to build</div></td><td class="amt" style="padding-top:.9rem">${money(r.alternative.one_time)}</td></tr>
+    <tr class="grand"><td>After ${r.inputs.horizon_months / 12} years, against ${esc(inc)}</td><td class="amt ${r.savings.at_horizon < 0 ? 'neg' : 'pos'}">${signed(r.savings.at_horizon)}</td></tr>
+  </table>
+
+  <p class="measure">${verdictLine}</p>
+  <p class="small muted measure">That figure is ${esc(m.provider)}'s own minimum for ${esc(m.app)} and rises with the CPU, memory and storage you give it — it is not the same allocation as the ${esc(e.alternative.box.provider)} box priced above, and a busy install will cost more. Verified ${niceDate(m.verified_at)} from <a href="${esc(m.source_url)}" rel="nofollow">their catalogue</a>.</p>`;
+}
+
 function statementRows(e) {
   const inc = e.incumbent, alt = e.alternative, r = e.result;
   const seatNote = inc.per_seat
@@ -244,6 +283,7 @@ function escapePage(e, siteUrl) {
   <span class="crossover" id="crossover-figure">${x.headline !== null ? `${money(x.headline, 2)}<span class="per">/hr</span>` : '—'}</span>
   <p class="crossover-note measure" id="crossover-note">${x.note}</p>
 
+  ${e.managed && e.result.verdict === 'stay' && e.managed.result.verdict !== 'stay' ? `<p class="flag">Running it yourself is not worth your hours — but <a href="#managed">paying ${esc(e.managed.provider)} ${money(e.managed.monthly_usd)} a month to run it</a> is. The arithmetic below is for doing it yourself.</p>` : ''}
   ${e.incumbent.needs_reverification ? `<p class="flag">${esc(e.incumbent.vendor)} appears to have changed this price since we last verified it. The figure below is the last one we confirmed by hand, dated ${niceDate(e.incumbent.verified_at)}. We are re-checking it.</p>` : ''}
   ${pj && pj.health === 'slowing' ? `<p class="flag">${esc(pj.full_name)} has been quiet for ${pj.days_since_push} days. Still maintained, but worth a look at the repository before you commit to it.</p>` : ''}
 
@@ -295,6 +335,8 @@ function escapePage(e, siteUrl) {
     <tr><td>After one year</td><td class="amt ${r.savings.year_1 < 0 ? 'neg' : 'pos'}" id="save-1yr">${signed(r.savings.year_1)}</td></tr>
     <tr class="grand"><td>After ${yrs} years</td><td class="amt ${r.savings.at_horizon < 0 ? 'neg' : 'pos'}" id="save-horizon">${signed(r.savings.at_horizon)}</td></tr>
   </table>
+
+  ${managedBlock(e)}
 
   <p class="section-head">What you give up, and what you get</p>
   <div class="two-col">
@@ -365,7 +407,7 @@ function indexPage(index, siteUrl) {
     const num = x === null || x < 0 ? '—' : money(x, 2);
     return `<li><a href="${u(`/e/${esc(e.slug)}/`)}">
       <span class="idx-title">${esc(e.incumbent)} ${esc(e.incumbent_plan)} &rarr; ${esc(alt)}</span>
-      <span class="idx-sub">${plural(e.seats, 'seat', 'seats')} · ${money(e.incumbent_annual, 0)}/yr now · ${money(e.alternative_annual, 0)}/yr self-hosted</span>
+      <span class="idx-sub">${plural(e.seats, 'seat', 'seats')} · ${money(e.incumbent_annual, 0)}/yr now · ${money(e.alternative_annual, 0)}/yr self-hosted${e.managed && e.verdict === 'stay' && e.managed.verdict !== 'stay' ? ` · <b class="managed-flip">or ${money(e.managed.monthly_usd)}/mo managed</b>` : ''}</span>
       <span class="idx-num">${num}<span class="idx-verdict v-${e.verdict}-t">${e.verdict === 'switch' ? 'switch' : e.verdict === 'stay' ? 'stay' : 'marginal'}</span></span>
     </a></li>`;
   };
@@ -386,7 +428,16 @@ function indexPage(index, siteUrl) {
 
 ${section('Worth leaving', byVerdict.switch, 'The number on the right is what your hour would have to be worth before staying becomes the better deal.')}
 ${section('Close enough to be a coin toss', byVerdict.marginal, 'Technically cheaper. Probably not worth the disruption.')}
-${section('Keep paying', byVerdict.stay, 'The arithmetic says stay. In most of these the subscription is simply cheaper than the box plus the hours.')}
+${section('Keep paying', byVerdict.stay, 'The arithmetic says stay — at least if you run it yourself. Where a managed host changes that answer, the row says so.')}
+
+${(() => {
+  const flips = index.escapes.filter((e) => e.managed && e.verdict === 'stay' && e.managed.verdict !== 'stay');
+  return flips.length ? `
+<p class="section-head">There is a third option</p>
+<p class="measure">Most comparisons of this kind offer a binary: keep paying, or run a server yourself. There
+is a middle — someone else runs the same open-source software, applies the updates and takes the backups —
+and for ${flips.length} of the comparisons here it changes the answer. Those rows are marked above.</p>` : '';
+})()}
 
 <p class="section-head">How to read the number</p>
 <p class="measure">The figure beside each comparison is its <b>break-even hourly rate</b> — the value of your
@@ -423,6 +474,13 @@ so obviously self-host". That is only true if your time is free. It is not, so w
 to migrate, and the hours each month to keep the thing patched, backed up and running. Then we solve
 for the hourly rate at which the two totals meet. That rate is the headline number on every page,
 and it is the one figure here you will not find anywhere else.</p>
+
+<p class="section-head">The third option</p>
+<p class="measure">Comparisons like this usually offer two choices: keep paying, or run it yourself.
+There is a third — a managed host that runs the same open-source software, applies the updates and
+takes the backups — and it is the honest answer for anyone whose hours are worth more than the
+saving. We price it wherever the provider publishes a figure for that application, and we say plainly
+that it is their minimum allocation rather than the sized server the self-hosted column prices.</p>
 
 <p class="section-head">Where the prices come from</p>
 <p class="measure">Hosting prices come straight from Vultr's and Linode's public plan catalogues,

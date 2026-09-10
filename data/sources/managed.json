@@ -1,0 +1,652 @@
+{
+  "fetched_at": "2026-09-10T08:18:54.052Z",
+  "providers": {
+    "pikapods": {
+      "ok": true,
+      "name": "PikaPods",
+      "url": "https://www.pikapods.com/",
+      "source_url": "https://www.pikapods.com/apps",
+      "note": "Runs the same open-source software, applies updates, and takes daily encrypted backups to storage you own.",
+      "count": 127,
+      "apps": [
+        {
+          "label": "Actual A fast, privacy-focused",
+          "from_usd_month": 2,
+          "quote": "Actual A fast, privacy-focused … Run Your Own From $2.0/month"
+        },
+        {
+          "label": "Airsonic Advanced Web-based media",
+          "from_usd_month": 3.9,
+          "quote": "Airsonic Advanced Web-based media … Run Your Own From $3.9/month"
+        },
+        {
+          "label": "Answer Build a community",
+          "from_usd_month": 2.7,
+          "quote": "Answer Build a community … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "ArchiveBox Open source self-hosted",
+          "from_usd_month": 4.9,
+          "quote": "ArchiveBox Open source self-hosted … Run Your Own From $4.9/month"
+        },
+        {
+          "label": "Audiobookshelf Open source audiobook",
+          "from_usd_month": 2.8,
+          "quote": "Audiobookshelf Open source audiobook … Run Your Own From $2.8/month"
+        },
+        {
+          "label": "Automatisch Create and manage",
+          "from_usd_month": 4.8,
+          "quote": "Automatisch Create and manage … Run Your Own From $4.8/month"
+        },
+        {
+          "label": "Baserow Create your own",
+          "from_usd_month": 6.7,
+          "quote": "Baserow Create your own … Run Your Own From $6.7/month"
+        },
+        {
+          "label": "Beszel Lightweight server monitoring",
+          "from_usd_month": 2,
+          "quote": "Beszel Lightweight server monitoring … Run Your Own From $2.0/month"
+        },
+        {
+          "label": "Blinko Note tool with",
+          "from_usd_month": 3.1,
+          "quote": "Blinko Note tool with … Run Your Own From $3.1/month"
+        },
+        {
+          "label": "BookStack BookStack is a",
+          "from_usd_month": 2.7,
+          "quote": "BookStack BookStack is a … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Bugsink Error tracking tool.",
+          "from_usd_month": 3.5,
+          "quote": "Bugsink Error tracking tool. … Run Your Own From $3.5/month"
+        },
+        {
+          "label": "ByteStash Store, organise, and",
+          "from_usd_month": 1.8,
+          "quote": "ByteStash Store, organise, and … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Calibre Web Web app",
+          "from_usd_month": 4.9,
+          "quote": "Calibre Web Web app … Run Your Own From $4.9/month"
+        },
+        {
+          "label": "Changedetection The simplest tool",
+          "from_usd_month": 3.4,
+          "quote": "Changedetection The simplest tool … Run Your Own From $3.4/month"
+        },
+        {
+          "label": "Checkmate Monitor uptime, response",
+          "from_usd_month": 3.3,
+          "quote": "Checkmate Monitor uptime, response … Run Your Own From $3.3/month"
+        },
+        {
+          "label": "Chevereto A powerful image",
+          "from_usd_month": 2.8,
+          "quote": "Chevereto A powerful image … Run Your Own From $2.8/month"
+        },
+        {
+          "label": "Code Server Run VS",
+          "from_usd_month": 4.6,
+          "quote": "Code Server Run VS … Run Your Own From $4.6/month"
+        },
+        {
+          "label": "CommaFeed A bloat-free RSS",
+          "from_usd_month": 2.5,
+          "quote": "CommaFeed A bloat-free RSS … Run Your Own From $2.5/month"
+        },
+        {
+          "label": "Convos A simple way",
+          "from_usd_month": 1.8,
+          "quote": "Convos A simple way … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Dashy A startpage for",
+          "from_usd_month": 6.2,
+          "quote": "Dashy A startpage for … Run Your Own From $6.2/month"
+        },
+        {
+          "label": "Directus A real-time API",
+          "from_usd_month": 4.9,
+          "quote": "Directus A real-time API … Run Your Own From $4.9/month"
+        },
+        {
+          "label": "Docmost A collaborative wiki",
+          "from_usd_month": 2.8,
+          "quote": "Docmost A collaborative wiki … Run Your Own From $2.8/month"
+        },
+        {
+          "label": "DokuWiki Lightweight wiki and",
+          "from_usd_month": 2,
+          "quote": "DokuWiki Lightweight wiki and … Run Your Own From $2.0/month"
+        },
+        {
+          "label": "Etherpad A modern really-real-time",
+          "from_usd_month": 2.5,
+          "quote": "Etherpad A modern really-real-time … Run Your Own From $2.5/month"
+        },
+        {
+          "label": "Excalidraw Virtual collaborative whiteboard",
+          "from_usd_month": 1.8,
+          "quote": "Excalidraw Virtual collaborative whiteboard … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Fider A feedback portal",
+          "from_usd_month": 1.8,
+          "quote": "Fider A feedback portal … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Firefly III A free",
+          "from_usd_month": 2.7,
+          "quote": "Firefly III A free … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Flarum Delightfully simple discussion",
+          "from_usd_month": 2.7,
+          "quote": "Flarum Delightfully simple discussion … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "flatnotes Note taking web",
+          "from_usd_month": 1.8,
+          "quote": "flatnotes Note taking web … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Forgejo A painless, self-hosted",
+          "from_usd_month": 2.7,
+          "quote": "Forgejo A painless, self-hosted … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "FreeScout A help desk",
+          "from_usd_month": 3.1,
+          "quote": "FreeScout A help desk … Run Your Own From $3.1/month"
+        },
+        {
+          "label": "FreshRSS FreshRSS is a",
+          "from_usd_month": 2.7,
+          "quote": "FreshRSS FreshRSS is a … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Fusion A lightweight RSS",
+          "from_usd_month": 1.8,
+          "quote": "Fusion A lightweight RSS … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Ghost Free and open",
+          "from_usd_month": 3.3,
+          "quote": "Ghost Free and open … Run Your Own From $3.3/month"
+        },
+        {
+          "label": "Gitea A painless, self-hosted",
+          "from_usd_month": 2.7,
+          "quote": "Gitea A painless, self-hosted … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "GlitchTip Simple, open source",
+          "from_usd_month": 3.7,
+          "quote": "GlitchTip Simple, open source … Run Your Own From $3.7/month"
+        },
+        {
+          "label": "Gokapi Lightweight server to",
+          "from_usd_month": 2,
+          "quote": "Gokapi Lightweight server to … Run Your Own From $2.0/month"
+        },
+        {
+          "label": "Gonic A music streaming",
+          "from_usd_month": 2.8,
+          "quote": "Gonic A music streaming … Run Your Own From $2.8/month"
+        },
+        {
+          "label": "Gotify A simple server",
+          "from_usd_month": 2.4,
+          "quote": "Gotify A simple server … Run Your Own From $2.4/month"
+        },
+        {
+          "label": "Grimmory A modern book",
+          "from_usd_month": 6.2,
+          "quote": "Grimmory A modern book … Run Your Own From $6.2/month"
+        },
+        {
+          "label": "Grocy A web-based groceries",
+          "from_usd_month": 2,
+          "quote": "Grocy A web-based groceries … Run Your Own From $2.0/month"
+        },
+        {
+          "label": "Haven Private blog application.",
+          "from_usd_month": 2.4,
+          "quote": "Haven Private blog application. … Run Your Own From $2.4/month"
+        },
+        {
+          "label": "HedgeDoc Collaborative markdown editor.",
+          "from_usd_month": 2,
+          "quote": "HedgeDoc Collaborative markdown editor. … Run Your Own From $2.0/month"
+        },
+        {
+          "label": "Homarr A sleek, modern",
+          "from_usd_month": 3.1,
+          "quote": "Homarr A sleek, modern … Run Your Own From $3.1/month"
+        },
+        {
+          "label": "HomeBox Keep track of",
+          "from_usd_month": 2.7,
+          "quote": "HomeBox Keep track of … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Homer A dead simple",
+          "from_usd_month": 2.2,
+          "quote": "Homer A dead simple … Run Your Own From $2.2/month"
+        },
+        {
+          "label": "Immich A Google Photos",
+          "from_usd_month": 6.8,
+          "quote": "Immich A Google Photos … Run Your Own From $6.8/month"
+        },
+        {
+          "label": "Joplin Open source note-taking",
+          "from_usd_month": 2.2,
+          "quote": "Joplin Open source note-taking … Run Your Own From $2.2/month"
+        },
+        {
+          "label": "Journiv Privacy-first journaling application",
+          "from_usd_month": 4.3,
+          "quote": "Journiv Privacy-first journaling application … Run Your Own From $4.3/month"
+        },
+        {
+          "label": "Jupyter A web-based interactive",
+          "from_usd_month": 3.1,
+          "quote": "Jupyter A web-based interactive … Run Your Own From $3.1/month"
+        },
+        {
+          "label": "Kan The open-source Trello",
+          "from_usd_month": 2.5,
+          "quote": "Kan The open-source Trello … Run Your Own From $2.5/month"
+        },
+        {
+          "label": "Karakeep A bookmark-everything app",
+          "from_usd_month": 4.8,
+          "quote": "Karakeep A bookmark-everything app … Run Your Own From $4.8/month"
+        },
+        {
+          "label": "Kavita Fast and slick",
+          "from_usd_month": 3.4,
+          "quote": "Kavita Fast and slick … Run Your Own From $3.4/month"
+        },
+        {
+          "label": "Keycloak Identity and Access",
+          "from_usd_month": 6.5,
+          "quote": "Keycloak Identity and Access … Run Your Own From $6.5/month"
+        },
+        {
+          "label": "Komga A media server",
+          "from_usd_month": 4.5,
+          "quote": "Komga A media server … Run Your Own From $4.5/month"
+        },
+        {
+          "label": "Linkding Simple bookmark service",
+          "from_usd_month": 2.7,
+          "quote": "Linkding Simple bookmark service … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Linkwarden Collaborative bookmark manager",
+          "from_usd_month": 4.8,
+          "quote": "Linkwarden Collaborative bookmark manager … Run Your Own From $4.8/month"
+        },
+        {
+          "label": "Listmonk A self-hosted, high",
+          "from_usd_month": 2,
+          "quote": "Listmonk A self-hosted, high … Run Your Own From $2.0/month"
+        },
+        {
+          "label": "LubeLogger Vehicle maintenance records",
+          "from_usd_month": 2.7,
+          "quote": "LubeLogger Vehicle maintenance records … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Lychee A great looking",
+          "from_usd_month": 3.4,
+          "quote": "Lychee A great looking … Run Your Own From $3.4/month"
+        },
+        {
+          "label": "Matomo Matomo is the",
+          "from_usd_month": 2.7,
+          "quote": "Matomo Matomo is the … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Mattermost Internal chat service",
+          "from_usd_month": 3.4,
+          "quote": "Mattermost Internal chat service … Run Your Own From $3.4/month"
+        },
+        {
+          "label": "Mautic Marketing automation platform",
+          "from_usd_month": 3.9,
+          "quote": "Mautic Marketing automation platform … Run Your Own From $3.9/month"
+        },
+        {
+          "label": "Mealie Recipe management for",
+          "from_usd_month": 3.3,
+          "quote": "Mealie Recipe management for … Run Your Own From $3.3/month"
+        },
+        {
+          "label": "MediaWiki A free and",
+          "from_usd_month": 2.7,
+          "quote": "MediaWiki A free and … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Memos A Twitter-like notes",
+          "from_usd_month": 1.8,
+          "quote": "Memos A Twitter-like notes … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Metabase The easy, open",
+          "from_usd_month": 4.6,
+          "quote": "Metabase The easy, open … Run Your Own From $4.6/month"
+        },
+        {
+          "label": "MicroBin A super tiny,",
+          "from_usd_month": 1.8,
+          "quote": "MicroBin A super tiny, … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Miniflux Minimalist and opinionated",
+          "from_usd_month": 1.8,
+          "quote": "Miniflux Minimalist and opinionated … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Monica Personal CRM. Remember",
+          "from_usd_month": 2.7,
+          "quote": "Monica Personal CRM. Remember … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Moodle Open source learning",
+          "from_usd_month": 3.9,
+          "quote": "Moodle Open source learning … Run Your Own From $3.9/month"
+        },
+        {
+          "label": "My Idlers Web app",
+          "from_usd_month": 1.8,
+          "quote": "My Idlers Web app … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "n8n n8n is an",
+          "from_usd_month": 3.7,
+          "quote": "n8n n8n is an … Run Your Own From $3.7/month"
+        },
+        {
+          "label": "Navidrome Navidrome allows you",
+          "from_usd_month": 3.3,
+          "quote": "Navidrome Navidrome allows you … Run Your Own From $3.3/month"
+        },
+        {
+          "label": "Nextcloud A comprehensive file",
+          "from_usd_month": 6.8,
+          "quote": "Nextcloud A comprehensive file … Run Your Own From $6.8/month"
+        },
+        {
+          "label": "NocoDB An open source",
+          "from_usd_month": 3.1,
+          "quote": "NocoDB An open source … Run Your Own From $3.1/month"
+        },
+        {
+          "label": "NoteDiscovery Self-hosted knowledge base",
+          "from_usd_month": 2.7,
+          "quote": "NoteDiscovery Self-hosted knowledge base … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Notifuse A modern, self-hosted",
+          "from_usd_month": 2.7,
+          "quote": "Notifuse A modern, self-hosted … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Ntfy Simple HTTP-based pub-sub",
+          "from_usd_month": 1.8,
+          "quote": "Ntfy Simple HTTP-based pub-sub … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Ocular A simplistic budgeting",
+          "from_usd_month": 2.4,
+          "quote": "Ocular A simplistic budgeting … Run Your Own From $2.4/month"
+        },
+        {
+          "label": "Open DroneLog Drone flight",
+          "from_usd_month": 2.4,
+          "quote": "Open DroneLog Drone flight … Run Your Own From $2.4/month"
+        },
+        {
+          "label": "Open WebUI Web interface",
+          "from_usd_month": 6.8,
+          "quote": "Open WebUI Web interface … Run Your Own From $6.8/month"
+        },
+        {
+          "label": "Paisa A personal finance",
+          "from_usd_month": 1.8,
+          "quote": "Paisa A personal finance … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Paperless-ngx Document management system",
+          "from_usd_month": 4.9,
+          "quote": "Paperless-ngx Document management system … Run Your Own From $4.9/month"
+        },
+        {
+          "label": "PasswordPusher Securely communicate passwords",
+          "from_usd_month": 2.2,
+          "quote": "PasswordPusher Securely communicate passwords … Run Your Own From $2.2/month"
+        },
+        {
+          "label": "PdfDing PDF manager, viewer",
+          "from_usd_month": 2.7,
+          "quote": "PdfDing PDF manager, viewer … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Penpot Open-source design tool",
+          "from_usd_month": 7.5,
+          "quote": "Penpot Open-source design tool … Run Your Own From $7.5/month"
+        },
+        {
+          "label": "PhotoPrism An AI-powered app",
+          "from_usd_month": 7.5,
+          "quote": "PhotoPrism An AI-powered app … Run Your Own From $7.5/month"
+        },
+        {
+          "label": "Photoview Simple and user-friendly",
+          "from_usd_month": 2.5,
+          "quote": "Photoview Simple and user-friendly … Run Your Own From $2.5/month"
+        },
+        {
+          "label": "Pinry Image board system",
+          "from_usd_month": 2.1,
+          "quote": "Pinry Image board system … Run Your Own From $2.1/month"
+        },
+        {
+          "label": "Pocketbase Simple backend for",
+          "from_usd_month": 2.1,
+          "quote": "Pocketbase Simple backend for … Run Your Own From $2.1/month"
+        },
+        {
+          "label": "Poznote Note-taking and personal",
+          "from_usd_month": 2,
+          "quote": "Poznote Note-taking and personal … Run Your Own From $2.0/month"
+        },
+        {
+          "label": "PrivateBin Minimalist, open source",
+          "from_usd_month": 1.8,
+          "quote": "PrivateBin Minimalist, open source … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Pydio Cells A versatile",
+          "from_usd_month": 4.5,
+          "quote": "Pydio Cells A versatile … Run Your Own From $4.5/month"
+        },
+        {
+          "label": "Rallly Schedule group meetingswith",
+          "from_usd_month": 2.8,
+          "quote": "Rallly Schedule group meetingswith … Run Your Own From $2.8/month"
+        },
+        {
+          "label": "Readeck Helps keep all",
+          "from_usd_month": 2,
+          "quote": "Readeck Helps keep all … Run Your Own From $2.0/month"
+        },
+        {
+          "label": "Rocket.Chat Fully customizable communications",
+          "from_usd_month": 4.9,
+          "quote": "Rocket.Chat Fully customizable communications … Run Your Own From $4.9/month"
+        },
+        {
+          "label": "Roundcube Browser-based multilingual IMAP",
+          "from_usd_month": 1.8,
+          "quote": "Roundcube Browser-based multilingual IMAP … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "RSS-Bridge RSS-Bridge is free",
+          "from_usd_month": 1.8,
+          "quote": "RSS-Bridge RSS-Bridge is free … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "RSSHub An open source,",
+          "from_usd_month": 3.1,
+          "quote": "RSSHub An open source, … Run Your Own From $3.1/month"
+        },
+        {
+          "label": "Seafile A self-hosted file",
+          "from_usd_month": 7.4,
+          "quote": "Seafile A self-hosted file … Run Your Own From $7.4/month"
+        },
+        {
+          "label": "SerpBear Search Engine Position",
+          "from_usd_month": 2.5,
+          "quote": "SerpBear Search Engine Position … Run Your Own From $2.5/month"
+        },
+        {
+          "label": "Shiori A simple bookmarks",
+          "from_usd_month": 1.8,
+          "quote": "Shiori A simple bookmarks … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Shlink The definitive self-hosted",
+          "from_usd_month": 3.1,
+          "quote": "Shlink The definitive self-hosted … Run Your Own From $3.1/month"
+        },
+        {
+          "label": "SilverBullet A personal knowledge",
+          "from_usd_month": 2,
+          "quote": "SilverBullet A personal knowledge … Run Your Own From $2.0/month"
+        },
+        {
+          "label": "Slink A self-hosted image",
+          "from_usd_month": 3.3,
+          "quote": "Slink A self-hosted image … Run Your Own From $3.3/month"
+        },
+        {
+          "label": "Snipe-IT Asset management for",
+          "from_usd_month": 2.4,
+          "quote": "Snipe-IT Asset management for … Run Your Own From $2.4/month"
+        },
+        {
+          "label": "SparkyFitness A privacy-first alternative",
+          "from_usd_month": 3.3,
+          "quote": "SparkyFitness A privacy-first alternative … Run Your Own From $3.3/month"
+        },
+        {
+          "label": "Stirling PDF Web application",
+          "from_usd_month": 4.8,
+          "quote": "Stirling PDF Web application … Run Your Own From $4.8/month"
+        },
+        {
+          "label": "Storyteller Platform to combine",
+          "from_usd_month": 11.8,
+          "quote": "Storyteller Platform to combine … Run Your Own From $11.8/month"
+        },
+        {
+          "label": "SuiteCRM Open source customer",
+          "from_usd_month": 3.7,
+          "quote": "SuiteCRM Open source customer … Run Your Own From $3.7/month"
+        },
+        {
+          "label": "Sure Financial planning and",
+          "from_usd_month": 3,
+          "quote": "Sure Financial planning and … Run Your Own From $3.0/month"
+        },
+        {
+          "label": "The Lounge Modern, responsive,",
+          "from_usd_month": 2.7,
+          "quote": "The Lounge Modern, responsive, … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Traggo Traggo is a",
+          "from_usd_month": 2,
+          "quote": "Traggo Traggo is a … Run Your Own From $2.0/month"
+        },
+        {
+          "label": "Transmute File converter for",
+          "from_usd_month": 4.9,
+          "quote": "Transmute File converter for … Run Your Own From $4.9/month"
+        },
+        {
+          "label": "TriliumNext Hierarchical note taking",
+          "from_usd_month": 2,
+          "quote": "TriliumNext Hierarchical note taking … Run Your Own From $2.0/month"
+        },
+        {
+          "label": "Tududi A simple and",
+          "from_usd_month": 2.4,
+          "quote": "Tududi A simple and … Run Your Own From $2.4/month"
+        },
+        {
+          "label": "Twenty CRM Modern, powerful",
+          "from_usd_month": 6.7,
+          "quote": "Twenty CRM Modern, powerful … Run Your Own From $6.7/month"
+        },
+        {
+          "label": "Umami Umami is a",
+          "from_usd_month": 2.8,
+          "quote": "Umami Umami is a … Run Your Own From $2.8/month"
+        },
+        {
+          "label": "Uptime Kuma Monitoring tool",
+          "from_usd_month": 3.3,
+          "quote": "Uptime Kuma Monitoring tool … Run Your Own From $3.3/month"
+        },
+        {
+          "label": "Vaultwarden Alternative implementation of",
+          "from_usd_month": 1.8,
+          "quote": "Vaultwarden Alternative implementation of … Run Your Own From $1.8/month"
+        },
+        {
+          "label": "Vikunja Self-hosted task and",
+          "from_usd_month": 2.7,
+          "quote": "Vikunja Self-hosted task and … Run Your Own From $2.7/month"
+        },
+        {
+          "label": "Wallabag For saving web",
+          "from_usd_month": 2.5,
+          "quote": "Wallabag For saving web … Run Your Own From $2.5/month"
+        },
+        {
+          "label": "Wealthfolio A personal finance",
+          "from_usd_month": 2.4,
+          "quote": "Wealthfolio A personal finance … Run Your Own From $2.4/month"
+        },
+        {
+          "label": "WeKan Open-source kanban board",
+          "from_usd_month": 4.3,
+          "quote": "WeKan Open-source kanban board … Run Your Own From $4.3/month"
+        },
+        {
+          "label": "Wiki.js A modern, lightweight",
+          "from_usd_month": 3.3,
+          "quote": "Wiki.js A modern, lightweight … Run Your Own From $3.3/month"
+        },
+        {
+          "label": "WordPress Popular blogging platform",
+          "from_usd_month": 2.4,
+          "quote": "WordPress Popular blogging platform … Run Your Own From $2.4/month"
+        }
+      ],
+      "fetched_at": "2026-09-10T08:18:54.052Z",
+      "verified_at": "2026-09-10T08:18:54.052Z"
+    }
+  }
+}
