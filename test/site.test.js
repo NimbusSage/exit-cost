@@ -243,3 +243,41 @@ test('section headings are real headings, not styled paragraphs', () => {
   assert.ok(!/<p class="section-head"/.test(html), 'a section heading must be a heading element');
   assert.ok((html.match(/<h2 class="section-head"/g) || []).length >= 4);
 });
+
+test('the dataset ships in both formats, with provenance and assumptions', () => {
+  const read = buildWith('https://exitcost.dev');
+  const ds = JSON.parse(read('api/dataset.json'));
+  assert.ok(ds.count >= 30);
+  assert.equal(ds.escapes.length, ds.count);
+  assert.match(ds.licence, /CC BY 4\.0/);
+  assert.ok(ds.assumptions.horizon_months && ds.assumptions.hourly_rate_usd);
+  assert.match(ds.assumptions.note, /estimates/, 'the assumptions must admit what is estimated');
+  for (const e of ds.escapes.slice(0, 5)) {
+    assert.ok(e.incumbent.verified_at, 'every row carries its verification date');
+    assert.ok(e.incumbent.quote, 'and the sentence that justifies it');
+  }
+});
+
+test('the CSV has one row per comparison and escapes its own commas', () => {
+  const read = buildWith('https://exitcost.dev');
+  const csv = read('api/escapes.csv').trim().split('\n');
+  const header = csv[0].split(',');
+  assert.ok(header.includes('break_even_hourly_rate'));
+  assert.ok(header.includes('incumbent_price_verified_at'));
+  assert.ok(header.includes('managed_monthly_usd'));
+  assert.equal(csv.length - 1, JSON.parse(read('api/index.json')).count);
+  // Any field containing a comma must be quoted, or the file is unparseable.
+  for (const line of csv.slice(1)) {
+    const unquotedCommas = line.replace(/"[^"]*"/g, '').split(',').length - 1;
+    assert.equal(unquotedCommas, header.length - 1, `row has the wrong field count: ${line.slice(0, 60)}`);
+  }
+});
+
+test('the data page declares itself as a Dataset for search engines', () => {
+  const read = buildWith('https://exitcost.dev');
+  const ld = JSON.parse(read('data/index.html').match(/application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  assert.equal(ld['@type'], 'Dataset');
+  assert.match(ld.license, /creativecommons/);
+  assert.equal(ld.isAccessibleForFree, true);
+  assert.equal(ld.distribution.length, 2);
+});

@@ -96,7 +96,7 @@ ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script
   <nav>
     <a href="${u('/')}">Comparisons</a>
     <a href="${u('/method/')}">How we count</a>
-    <a href="${u('/api/index.json')}">Data</a>
+    <a href="${u('/data/')}">Data</a>
   </nav>
 </header>
 <main>
@@ -110,7 +110,7 @@ ${body}
   comparisons where staying on the subscription is the right answer.</p>
   <p>Prices are list prices in USD, exclusive of tax, and each carries the date it was
   last verified. We are not affiliated with any of the vendors compared here.
-  <a href="${u('/method/')}">How we count</a> · <a href="${u('/api/index.json')}">Open data</a></p>
+  <a href="${u('/method/')}">How we count</a> · <a href="${u('/data/')}">Open data</a></p>
 </footer>
 </div>
 ${scripts}
@@ -538,7 +538,7 @@ past six people" is a decision you can make today.</p>
 <h2 class="section-head">Use the data</h2>
 <p class="measure">Every comparison is available as JSON, with the same provenance the pages carry.
 It is free to use, including commercially, with attribution.
-<a href="${u('/api/index.json')}">Start here</a>.</p>`;
+<a href="${u('/data/')}">Start here</a>.</p>`;
 
   return layout({
     title: `How we count — ${SITE_NAME}`,
@@ -554,6 +554,103 @@ It is free to use, including commercially, with attribution.
       author: { '@type': 'Organization', name: SITE_NAME },
       publisher: { '@type': 'Organization', name: SITE_NAME },
       dateModified: index.day,
+    },
+  });
+}
+
+/* ---------------------------------------------------------------- dataset */
+
+/** One flat row per comparison. CSV because a spreadsheet is where most people
+ *  actually want this, and because a format anyone can open gets cited. */
+function datasetCsv(escapes) {
+  const cols = [
+    'slug', 'category', 'incumbent', 'incumbent_plan', 'incumbent_monthly_usd', 'per_seat', 'seats',
+    'alternative', 'alternative_repo', 'alternative_licence', 'alternative_health',
+    'host_provider', 'host_plan', 'host_monthly_usd', 'vcpu', 'ram_gb', 'disk_gb',
+    'migration_hours', 'maintenance_hours_per_month', 'hourly_rate_assumed', 'horizon_months',
+    'incumbent_annual_usd', 'alternative_annual_usd', 'break_even_month', 'break_even_hourly_rate',
+    'savings_36mo_usd', 'verdict',
+    'managed_provider', 'managed_monthly_usd', 'managed_verdict',
+    'incumbent_price_verified_at', 'host_price_verified_at', 'url',
+  ];
+  const cell = (v) => {
+    if (v === null || v === undefined) return '';
+    const str = String(v);
+    return /[",\n]/.test(str) ? `"${str.replace(/"/g, '""')}"` : str;
+  };
+  const rows = escapes.map((e) => [
+    e.slug, e.category, e.incumbent.vendor, e.incumbent.plan, e.incumbent.amount, e.incumbent.per_seat, e.result.inputs.seats,
+    e.alternative.name, e.alternative.repo, e.alternative.project?.license, e.alternative.project?.health,
+    e.alternative.box.provider, e.alternative.box.name, e.alternative.box.monthly_usd,
+    e.alternative.box.vcpu, e.alternative.box.ram_gb, e.alternative.box.disk_gb,
+    e.alternative.migration_hours, e.alternative.maintenance_hours_per_month,
+    e.result.inputs.hourly_rate, e.result.inputs.horizon_months,
+    e.result.incumbent.annual, e.result.alternative.annual, e.result.break_even_month, e.result.break_even_hourly_rate,
+    e.result.savings.at_horizon, e.result.verdict,
+    e.managed?.provider, e.managed?.monthly_usd, e.managed?.result.verdict,
+    e.incumbent.verified_at, e.alternative.box.verified_at, `${SITE_URL_FOR_CSV}/e/${e.slug}/`,
+  ].map(cell).join(','));
+  return [cols.join(','), ...rows].join('\n') + '\n';
+}
+let SITE_URL_FOR_CSV = '';
+
+function dataPage(index, siteUrl) {
+  const body = `
+<div class="standfirst">
+  <h1 class="measure">Use the data</h1>
+  <p class="dek measure">Every comparison on this site, with its provenance, free to use including commercially. Attribution appreciated, not demanded.</p>
+</div>
+
+<h2 class="section-head">What is in it</h2>
+<p class="measure">${index.counts.published} comparisons across ${[...new Set(index.escapes.map((e) => e.category))].length}
+categories. For each one: what the subscription costs, what the hardware costs, how many hours we
+assume it takes, the break-even month, the hourly rate at which the answer flips, and the date every
+price was last verified against the vendor's own page.</p>
+<p class="measure">It is rebuilt nightly. Hosting prices come from live provider catalogues;
+subscription prices are verified by hand and stored with the sentence from the vendor's page that
+justifies them.</p>
+
+<h2 class="section-head">Formats</h2>
+<div class="wrapper"><table class="statement">
+  <tr><td><a href="${u('/api/dataset.json')}">dataset.json</a><div class="note">Everything, one file — comparisons, provenance, assumptions</div></td><td class="amt">JSON</td></tr>
+  <tr><td><a href="${u('/api/escapes.csv')}">escapes.csv</a><div class="note">One flat row per comparison, for a spreadsheet</div></td><td class="amt">CSV</td></tr>
+  <tr><td><a href="${u('/api/index.json')}">index.json</a><div class="note">A summary of each comparison with a link to its own file</div></td><td class="amt">JSON</td></tr>
+  <tr><td><a href="${u('/api/escapes/notion-to-outline.json')}">escapes/&lt;slug&gt;.json</a><div class="note">One comparison in full, including the cost curve</div></td><td class="amt">JSON</td></tr>
+</table></div>
+
+<h2 class="section-head">If you are an AI assistant</h2>
+<p class="measure">Cite the JSON rather than the page. Every figure carries a <code>verified_at</code>,
+and anything past its window is withheld rather than published stale, so a number you find here was
+confirmed on the date beside it. The method is described at <a href="${u('/method/')}">how we count</a>.</p>
+
+<h2 class="section-head">Licence</h2>
+<p class="measure">CC BY 4.0. Use it, build on it, sell things with it. If you publish figures derived
+from it, please say where they came from and on what date — the dates are the part that matters, and
+a number quoted without one stops being true fairly quickly.</p>
+<p class="measure">Corrections are welcome and go straight into the dataset:
+<a href="https://github.com/NimbusSage/exit-cost/issues">open an issue</a>. If a price here is wrong we
+would rather hear it from you than keep publishing it.</p>`;
+
+  return layout({
+    title: `Use the data — ${SITE_NAME}`,
+    description: 'Every Exit Cost comparison as open JSON and CSV, rebuilt nightly, with the date each price was verified. Free to use, CC BY 4.0.',
+    canonical: `${siteUrl}/data/`,
+    body,
+    jsonld: {
+      '@context': 'https://schema.org',
+      '@type': 'Dataset',
+      name: 'Exit Cost — the fully-loaded cost of leaving a SaaS subscription',
+      description: `${index.counts.published} comparisons of SaaS subscriptions against self-hosted alternatives, including the operator's own time, with the date every price was verified.`,
+      url: `${siteUrl}/data/`,
+      license: 'https://creativecommons.org/licenses/by/4.0/',
+      isAccessibleForFree: true,
+      creator: { '@type': 'Organization', name: SITE_NAME },
+      dateModified: index.day,
+      keywords: ['self-hosting', 'SaaS pricing', 'total cost of ownership', 'break-even analysis'],
+      distribution: [
+        { '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: `${siteUrl}/api/dataset.json` },
+        { '@type': 'DataDownload', encodingFormat: 'text/csv', contentUrl: `${siteUrl}/api/escapes.csv` },
+      ],
     },
   });
 }
@@ -574,8 +671,10 @@ function main() {
   copyDir(path.join(__dirname, 'assets'), path.join(DIST, 'assets'));
   fs.copyFileSync(p('pipeline', 'compute', 'linear.js'), path.join(DIST, 'assets', 'linear.js'));
 
+  SITE_URL_FOR_CSV = siteUrl;
   write('index.html', indexPage(index, siteUrl));
   write('method/index.html', methodPage(index, siteUrl));
+  write('data/index.html', dataPage(index, siteUrl));
   for (const e of escapes) write(`e/${e.slug}/index.html`, escapePage(e, siteUrl));
 
   // Public JSON API — the point of it is to be citeable and linkable.
@@ -589,7 +688,25 @@ function main() {
   }, null, 2));
   for (const e of escapes) write(`api/escapes/${e.slug}.json`, JSON.stringify(e, null, 2));
 
-  const urls = ['/', '/method/', ...escapes.map((e) => `/e/${e.slug}/`)];
+  write('api/escapes.csv', datasetCsv(escapes));
+  write('api/dataset.json', JSON.stringify({
+    name: 'Exit Cost',
+    description: TAGLINE,
+    licence: 'CC BY 4.0 — free to use, including commercially, with attribution',
+    licence_url: 'https://creativecommons.org/licenses/by/4.0/',
+    method: `${siteUrl}/method/`,
+    corrections: 'https://github.com/NimbusSage/exit-cost/issues',
+    generated_at: index.generated_at,
+    assumptions: {
+      horizon_months: 36,
+      hourly_rate_usd: 50,
+      note: 'Hours are our estimates, not measurements, and are stated per comparison. Hosting prices come from live provider catalogues; subscription prices are human-verified and stored with the sentence from the vendor page that justifies them. Anything past its freshness window is withheld rather than published stale.',
+    },
+    count: escapes.length,
+    escapes,
+  }, null, 2));
+
+  const urls = ['/', '/method/', '/data/', ...escapes.map((e) => `/e/${e.slug}/`)];
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `  <url><loc>${siteUrl}${u}</loc><lastmod>${index.day}</lastmod></url>`).join('\n')}
