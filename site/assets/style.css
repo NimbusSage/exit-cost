@@ -77,8 +77,11 @@ h3 { font-size: 1.0625rem; font-weight: 600; margin: 1.5rem 0 .35rem; }
 
 /* Section headings speak in the statement's own voice rather than as
    tracked-out labels sitting above the content. */
-.section-head {
-  font-style: italic; font-size: 1.0625rem; color: var(--muted);
+/* Semantically an h2 so the page can be navigated by section; visually the same
+   quiet rule it always was. Level and weight are different things. */
+h2.section-head {
+  font-style: italic; font-size: 1.0625rem; font-weight: 400; letter-spacing: 0;
+  line-height: 1.5; color: var(--muted);
   margin: 2.25rem 0 .5rem; border-bottom: 1px solid var(--rule); padding-bottom: .3rem;
 }
 

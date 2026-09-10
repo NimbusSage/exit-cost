@@ -183,7 +183,7 @@ function managedBlock(e) {
     : `At $${r.inputs.hourly_rate} an hour that saves <b>${money(r.savings.at_horizon, 0)}</b> over ${r.inputs.horizon_months / 12} years, against ${diy.savings.at_horizon > 0 ? `${money(diy.savings.at_horizon, 0)} for running it yourself` : `a ${money(Math.abs(diy.savings.at_horizon), 0)} loss for running it yourself`}.`;
 
   return `
-  <p class="section-head" id="managed">Or don't run it yourself</p>
+  <h2 class="section-head" id="managed">Or don't run it yourself</h2>
   ${flips ? `<p class="flag">This is the case the arithmetic above misses. Running ${esc(altShort)} yourself is not worth your hours — but paying ${esc(m.provider)} to run it is.</p>` : ''}
   <p class="measure">${esc(m.provider)} runs ${esc(m.app)} from <b>${money(m.monthly_usd)}/month</b>. ${esc(m.note)}
   The maintenance hours drop to zero, because not spending them is the entire product.</p>
@@ -316,20 +316,20 @@ function escapePage(e, siteUrl) {
     <span>Breaks even <b id="be-month">${r.break_even_month === null ? 'never' : 'month ' + r.break_even_month}</b></span>
   </div>
 
-  <p class="section-head">What you pay now</p>
+  <h2 class="section-head">What you pay now</h2>
   <table class="statement">
     ${incRows.join('\n    ')}
     <tr class="total"><td>Every month</td><td class="amt" id="inc-monthly">${money(r.incumbent.monthly)}</td></tr>
   </table>
 
-  <p class="section-head">What the escape costs</p>
+  <h2 class="section-head">What the escape costs</h2>
   <table class="statement">
     ${altRows.join('\n    ')}
     <tr class="total"><td>Every month</td><td class="amt" id="alt-monthly">${money(r.alternative.monthly)}</td></tr>
     <tr><td style="padding-top:.9rem">Migration, once<div class="note">${e.alternative.migration_hours} hours of your time, our estimate</div></td><td class="amt" id="alt-upfront" style="padding-top:.9rem">${money(r.alternative.one_time)}</td></tr>
   </table>
 
-  <p class="section-head">The difference</p>
+  <h2 class="section-head">The difference</h2>
   <table class="statement">
     <tr><td>Saved each month</td><td class="amt ${r.delta.monthly < 0 ? 'neg' : 'pos'}" id="delta-monthly">${signed(r.delta.monthly, 2)}</td></tr>
     <tr><td>After one year</td><td class="amt ${r.savings.year_1 < 0 ? 'neg' : 'pos'}" id="save-1yr">${signed(r.savings.year_1)}</td></tr>
@@ -338,15 +338,15 @@ function escapePage(e, siteUrl) {
 
   ${managedBlock(e)}
 
-  <p class="section-head">What you give up, and what you get</p>
+  <h2 class="section-head">What you give up, and what you get</h2>
   <div class="two-col">
     <div class="lose"><h3>You lose</h3><ul>${e.tradeoffs.you_lose.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></div>
     <div class="gain"><h3>You gain</h3><ul>${e.tradeoffs.you_gain.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></div>
   </div>
 
-  ${e.caveats.length ? `<p class="section-head">Read this before you decide</p><ul class="caveats measure">${e.caveats.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>` : ''}
+  ${e.caveats.length ? `<h2 class="section-head">Read this before you decide</h2><ul class="caveats measure">${e.caveats.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>` : ''}
 
-  ${pj ? `<p class="section-head">Is the project alive?</p>
+  ${pj ? `<h2 class="section-head">Is the project alive?</h2>
   <p class="measure">${esc(pj.full_name)} has ${pj.stars.toLocaleString('en-US')} stars, was last pushed ${plural(pj.days_since_push, 'day', 'days')} ago${pj.latest_release ? `, and last cut a release (${esc(pj.latest_release.tag)}) ${plural(pj.days_since_release, 'day', 'days')} ago` : ' and does not cut tagged releases'}. ${pj.license ? `Licence: ${esc(pj.license)}. ` : 'Its licence is not one GitHub recognises automatically, so check the repository before you rely on it. '}We rate it <b>${esc(pj.health)}</b>. We do not publish comparisons against software that has gone dormant, however good the arithmetic looks.</p>` : ''}
 
   <div class="provenance">
@@ -413,7 +413,7 @@ function indexPage(index, siteUrl) {
   };
 
   const section = (title, list, blurb) => list.length ? `
-    <p class="section-head">${title}</p>
+    <h2 class="section-head">${title}</h2>
     <p class="measure muted small" style="margin-top:-.1rem">${blurb}</p>
     <ul class="index-list">${list.map(row).join('')}</ul>` : '';
 
@@ -433,13 +433,13 @@ ${section('Keep paying', byVerdict.stay, 'The arithmetic says stay — at least 
 ${(() => {
   const flips = index.escapes.filter((e) => e.managed && e.verdict === 'stay' && e.managed.verdict !== 'stay');
   return flips.length ? `
-<p class="section-head">There is a third option</p>
+<h2 class="section-head">There is a third option</h2>
 <p class="measure">Most comparisons of this kind offer a binary: keep paying, or run a server yourself. There
 is a middle — someone else runs the same open-source software, applies the updates and takes the backups —
 and for ${flips.length} of the comparisons here it changes the answer. Those rows are marked above.</p>` : '';
 })()}
 
-<p class="section-head">How to read the number</p>
+<h2 class="section-head">How to read the number</h2>
 <p class="measure">The figure beside each comparison is its <b>break-even hourly rate</b> — the value of your
 own time at which switching stops paying. If your hour is worth less than that, self-hosting wins.
 If it is worth more, you are better off paying the subscription and spending the time on something
@@ -468,21 +468,21 @@ function methodPage(index, siteUrl) {
   <p class="dek measure">The arithmetic is simple. The honesty is in what gets included.</p>
 </div>
 
-<p class="section-head">Your time is a cost</p>
+<h2 class="section-head">Your time is a cost</h2>
 <p class="measure">Almost every self-hosting comparison comes down to "$240 a year versus $60 a year,
 so obviously self-host". That is only true if your time is free. It is not, so we charge it: the hours
 to migrate, and the hours each month to keep the thing patched, backed up and running. Then we solve
 for the hourly rate at which the two totals meet. That rate is the headline number on every page,
 and it is the one figure here you will not find anywhere else.</p>
 
-<p class="section-head">The third option</p>
+<h2 class="section-head">The third option</h2>
 <p class="measure">Comparisons like this usually offer two choices: keep paying, or run it yourself.
 There is a third — a managed host that runs the same open-source software, applies the updates and
 takes the backups — and it is the honest answer for anyone whose hours are worth more than the
 saving. We price it wherever the provider publishes a figure for that application, and we say plainly
 that it is their minimum allocation rather than the sized server the self-hosted column prices.</p>
 
-<p class="section-head">Where the prices come from</p>
+<h2 class="section-head">Where the prices come from</h2>
 <p class="measure">Hosting prices come straight from Vultr's and Linode's public plan catalogues,
 refreshed nightly. The cheapest plan that meets the stated requirements is chosen automatically —
 we do not pick the provider by hand, and we do not pick the one that pays best.</p>
@@ -492,7 +492,7 @@ compares what it finds against what we stored. If they agree, the verification d
 If they disagree, the stored price does <em>not</em> change — the page is flagged and a human
 re-checks it. A collector that fails keeps the last known value and marks it stale.</p>
 
-<p class="section-head">What we refuse to do</p>
+<h2 class="section-head">What we refuse to do</h2>
 <ul class="caveats measure">
   <li>We never publish a number we could not verify. If a price cannot be confirmed, the comparison
   goes stale and comes down rather than going out with a guess.</li>
@@ -504,14 +504,14 @@ re-checks it. A collector that fails keeps the last known value and marks it sta
   code is the same for every comparison.</li>
 </ul>
 
-<p class="section-head">What is an estimate</p>
+<h2 class="section-head">What is an estimate</h2>
 <p class="measure">Three inputs are our judgement rather than a measurement: the size of box each
 piece of software needs, the hours to migrate, and the hours per month to maintain it. We set them
 conservatively — biased toward the subscription — because the worst thing this site could do is talk
 someone into a migration that never paid off. They are printed on every page so you can disagree with
 them, and the slider lets you test how much they matter.</p>
 
-<p class="section-head">Your team size decides most of it</p>
+<h2 class="section-head">Your team size decides most of it</h2>
 <p class="measure">A per-seat subscription scales with headcount; a server does not care how many
 people use it. That single fact decides most of these comparisons, which is why every page with a
 per-seat incumbent lets you set your own team size rather than fixing one. The same comparison can
@@ -521,7 +521,7 @@ picked one number for you would be wrong for nearly everyone reading it.</p>
 hourly rate — usually the more actionable of the two numbers, because "worth doing once you are
 past six people" is a decision you can make today.</p>
 
-<p class="section-head">Horizon and assumptions</p>
+<h2 class="section-head">Horizon and assumptions</h2>
 <ul class="caveats measure">
   <li>Costs are compared over 36 months unless a page says otherwise.</li>
   <li>Migration and maintenance hours do not scale with team size. Moving twenty people off Notion
@@ -535,7 +535,7 @@ past six people" is a decision you can make today.</p>
   and would lose most of these comparisons.</li>
 </ul>
 
-<p class="section-head">Use the data</p>
+<h2 class="section-head">Use the data</h2>
 <p class="measure">Every comparison is available as JSON, with the same provenance the pages carry.
 It is free to use, including commercially, with attribution.
 <a href="${u('/api/index.json')}">Start here</a>.</p>`;

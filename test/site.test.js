@@ -223,3 +223,23 @@ test('every page carries valid structured data', () => {
     }
   }
 });
+
+test('heading levels never skip, so the page can be navigated by section', () => {
+  const read = buildWith('https://exitcost.dev');
+  for (const page of ['index.html', 'method/index.html', 'e/notion-to-outline/index.html', 'e/zapier-to-n8n/index.html']) {
+    const levels = [...read(page).matchAll(/<h([1-6])\b/g)].map((m) => +m[1]);
+    assert.ok(levels.length >= 3, `${page} has almost no headings`);
+    assert.equal(levels[0], 1, `${page} does not start at h1`);
+    for (let i = 1; i < levels.length; i++) {
+      assert.ok(levels[i] - levels[i - 1] <= 1,
+        `${page} jumps h${levels[i - 1]} to h${levels[i]}`);
+    }
+  }
+});
+
+test('section headings are real headings, not styled paragraphs', () => {
+  const read = buildWith('https://exitcost.dev');
+  const html = read('e/notion-to-outline/index.html');
+  assert.ok(!/<p class="section-head"/.test(html), 'a section heading must be a heading element');
+  assert.ok((html.match(/<h2 class="section-head"/g) || []).length >= 4);
+});
