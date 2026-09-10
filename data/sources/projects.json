@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-10T08:23:12.500Z",
+  "fetched_at": "2026-09-10T08:27:06.685Z",
   "projects": {
     "passbolt/passbolt_api": {
       "full_name": "passbolt/passbolt_api",
@@ -21,7 +21,7 @@
       "days_since_release": 20,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:22:59.624Z"
+      "verified_at": "2026-09-10T08:26:54.875Z"
     },
     "dani-garcia/vaultwarden": {
       "full_name": "dani-garcia/vaultwarden",
@@ -43,7 +43,7 @@
       "days_since_release": 19,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:00.068Z"
+      "verified_at": "2026-09-10T08:26:55.262Z"
     },
     "baserow/baserow": {
       "full_name": "baserow/baserow",
@@ -65,7 +65,7 @@
       "days_since_release": 51,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:00.464Z"
+      "verified_at": "2026-09-10T08:26:55.615Z"
     },
     "nocodb/nocodb": {
       "full_name": "nocodb/nocodb",
@@ -87,7 +87,7 @@
       "days_since_release": 7,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:00.873Z"
+      "verified_at": "2026-09-10T08:26:55.993Z"
     },
     "teableio/teable": {
       "full_name": "teableio/teable",
@@ -109,7 +109,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:01.254Z"
+      "verified_at": "2026-09-10T08:26:56.389Z"
     },
     "keycloak/keycloak": {
       "full_name": "keycloak/keycloak",
@@ -131,7 +131,7 @@
       "days_since_release": 10,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:01.631Z"
+      "verified_at": "2026-09-10T08:26:56.906Z"
     },
     "zitadel/zitadel": {
       "full_name": "zitadel/zitadel",
@@ -153,7 +153,7 @@
       "days_since_release": 6,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:02.053Z"
+      "verified_at": "2026-09-10T08:26:57.319Z"
     },
     "calcom/cal.com": {
       "full_name": "calcom/cal.diy",
@@ -175,7 +175,7 @@
       "days_since_release": 192,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:02.573Z"
+      "verified_at": "2026-09-10T08:26:57.858Z"
     },
     "alextselegidis/easyappointments": {
       "full_name": "alextselegidis/easyappointments",
@@ -197,14 +197,14 @@
       "days_since_release": 106,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:03.404Z"
+      "verified_at": "2026-09-10T08:26:58.474Z"
     },
     "chatwoot/chatwoot": {
       "full_name": "chatwoot/chatwoot",
       "url": "https://github.com/chatwoot/chatwoot",
       "homepage": "https://www.chatwoot.com/help-center",
       "description": "Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬",
-      "stars": 36650,
+      "stars": 36651,
       "forks": 8881,
       "open_issues": 1369,
       "license": null,
@@ -219,7 +219,7 @@
       "days_since_release": 14,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:03.805Z"
+      "verified_at": "2026-09-10T08:26:58.813Z"
     },
     "documenso/documenso": {
       "full_name": "documenso/documenso",
@@ -241,7 +241,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:04.120Z"
+      "verified_at": "2026-09-10T08:26:59.118Z"
     },
     "docusealco/docuseal": {
       "full_name": "docusealco/docuseal",
@@ -263,7 +263,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:04.536Z"
+      "verified_at": "2026-09-10T08:26:59.507Z"
     },
     "OpenSignLabs/OpenSign": {
       "full_name": "OpenSignLabs/OpenSign",
@@ -285,7 +285,7 @@
       "days_since_release": 20,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:04.917Z"
+      "verified_at": "2026-09-10T08:26:59.832Z"
     },
     "jgraph/drawio": {
       "full_name": "jgraph/drawio",
@@ -307,7 +307,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:05.259Z"
+      "verified_at": "2026-09-10T08:27:00.137Z"
     },
     "excalidraw/excalidraw": {
       "full_name": "excalidraw/excalidraw",
@@ -329,7 +329,7 @@
       "days_since_release": 142,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:05.677Z"
+      "verified_at": "2026-09-10T08:27:00.466Z"
     },
     "toeverything/AFFiNE": {
       "full_name": "toeverything/AFFiNE",
@@ -351,7 +351,7 @@
       "days_since_release": 23,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:06.025Z"
+      "verified_at": "2026-09-10T08:27:00.808Z"
     },
     "AppFlowy-IO/AppFlowy": {
       "full_name": "AppFlowy-IO/AppFlowy",
@@ -373,7 +373,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:06.421Z"
+      "verified_at": "2026-09-10T08:27:01.199Z"
     },
     "docmost/docmost": {
       "full_name": "docmost/docmost",
@@ -395,7 +395,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:06.780Z"
+      "verified_at": "2026-09-10T08:27:01.503Z"
     },
     "outline/outline": {
       "full_name": "outline/outline",
@@ -417,7 +417,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:07.221Z"
+      "verified_at": "2026-09-10T08:27:01.878Z"
     },
     "siyuan-note/siyuan": {
       "full_name": "siyuan-note/siyuan",
@@ -439,7 +439,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:07.586Z"
+      "verified_at": "2026-09-10T08:27:02.272Z"
     },
     "plausible/analytics": {
       "full_name": "plausible/analytics",
@@ -448,10 +448,10 @@
       "description": "Open source, privacy-first web analytics. Lightweight, cookie-free Google Analytics alternative. Self-hosted or cloud.",
       "stars": 28999,
       "forks": 1856,
-      "open_issues": 61,
+      "open_issues": 60,
       "license": "AGPL-3.0",
       "archived": false,
-      "pushed_at": "2026-09-10T08:01:47Z",
+      "pushed_at": "2026-09-10T08:26:46Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "v3.2.1",
@@ -461,7 +461,7 @@
       "days_since_release": 118,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:08.155Z"
+      "verified_at": "2026-09-10T08:27:02.743Z"
     },
     "matomo-org/matomo": {
       "full_name": "matomo-org/matomo",
@@ -483,7 +483,7 @@
       "days_since_release": 24,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:08.477Z"
+      "verified_at": "2026-09-10T08:27:03.083Z"
     },
     "umami-software/umami": {
       "full_name": "umami-software/umami",
@@ -505,7 +505,7 @@
       "days_since_release": 21,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:09.027Z"
+      "verified_at": "2026-09-10T08:27:03.693Z"
     },
     "go-vikunja/vikunja": {
       "full_name": "go-vikunja/vikunja",
@@ -527,7 +527,7 @@
       "days_since_release": 10,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:09.466Z"
+      "verified_at": "2026-09-10T08:27:04.033Z"
     },
     "caprover/caprover": {
       "full_name": "caprover/caprover",
@@ -549,7 +549,7 @@
       "days_since_release": 10,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:09.872Z"
+      "verified_at": "2026-09-10T08:27:04.425Z"
     },
     "coollabsio/coolify": {
       "full_name": "coollabsio/coolify",
@@ -571,7 +571,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:10.244Z"
+      "verified_at": "2026-09-10T08:27:04.762Z"
     },
     "Dokploy/dokploy": {
       "full_name": "Dokploy/dokploy",
@@ -593,7 +593,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:10.610Z"
+      "verified_at": "2026-09-10T08:27:05.096Z"
     },
     "activepieces/activepieces": {
       "full_name": "activepieces/activepieces",
@@ -615,19 +615,19 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:11.265Z"
+      "verified_at": "2026-09-10T08:27:05.606Z"
     },
     "n8n-io/n8n": {
       "full_name": "n8n-io/n8n",
       "url": "https://github.com/n8n-io/n8n",
       "homepage": "https://n8n.io",
       "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
-      "stars": 203903,
-      "forks": 60628,
-      "open_issues": 1145,
+      "stars": 203902,
+      "forks": 60629,
+      "open_issues": 1144,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-10T08:21:54Z",
+      "pushed_at": "2026-09-10T08:24:25Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "n8n@2.38.6",
@@ -637,7 +637,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:11.676Z"
+      "verified_at": "2026-09-10T08:27:05.988Z"
     },
     "windmill-labs/windmill": {
       "full_name": "windmill-labs/windmill",
@@ -659,7 +659,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-10T08:23:12.072Z"
+      "verified_at": "2026-09-10T08:27:06.334Z"
     }
   },
   "errors": [],
