@@ -123,6 +123,14 @@ small, .small { font-size: .875rem; }
 .rate output { font-family: var(--mono); font-size: 1.25rem; font-feature-settings: 'tnum' 1; }
 .rate input[type=range] { width: 100%; margin: .85rem 0 .3rem; accent-color: var(--ink); height: 1.5rem; }
 .rate input[type=range]:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.threshold {
+  margin: -.6rem 0 1.6rem;
+  font-size: 1.0625rem;
+  color: var(--muted);
+}
+.threshold b { color: var(--ink); font-weight: 500; }
+.threshold:empty { display: none; }
+
 .rate-scale { display: flex; justify-content: space-between; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
 
 /* ------------------------------------------------------------------ chart */

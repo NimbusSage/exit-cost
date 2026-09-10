@@ -142,3 +142,51 @@ test('the index orders each group by the crossover rate, not alphabetically', ()
     assert.ok(stay[i] >= stay[i - 1], `stay list is not ascending at ${i}: ${stay[i - 1]} then ${stay[i]}`);
   }
 });
+
+test('a per-seat comparison ships a team-size control; a flat one explains why it does not', () => {
+  const read = buildWith('https://exitcost.dev');
+  // Notion is per-seat, Auth0 Essentials is flat.
+  const perSeat = read('e/notion-to-outline/index.html');
+  assert.match(perSeat, /id="seats"/, 'a per-seat comparison needs a team-size control');
+  assert.match(perSeat, /id="threshold"/);
+  assert.match(perSeat, /id="route-seats"/);
+
+  const flat = read('e/auth0-to-keycloak/index.html');
+  assert.doesNotMatch(flat, /id="seats"/, 'a flat subscription must not offer a meaningless control');
+  assert.match(flat, /billed flat rather than per seat/, 'and must say why');
+});
+
+test('the page model carries the parts the browser needs to re-price by seats', () => {
+  const read = buildWith('https://exitcost.dev');
+  const m = JSON.parse(read('e/notion-to-outline/index.html')
+    .match(/<script type="application\/json" id="escape-model">([\s\S]*?)<\/script>/)[1]);
+  for (const k of ['inc_per_seat_monthly', 'inc_flat_monthly', 'alt_flat_monthly', 'alt_per_seat_monthly', 'seats']) {
+    assert.ok(k in m.model, `model is missing ${k}`);
+  }
+  // Notion Business is $20 per member per month, and a server is not per-seat.
+  assert.equal(m.model.inc_per_seat_monthly, 20);
+  assert.equal(m.model.inc_flat_monthly, 0);
+  assert.equal(m.model.alt_per_seat_monthly, 0, 'a server does not cost more per person');
+  assert.ok(m.model.alt_flat_monthly > 0);
+});
+
+test('INTEGRITY: the model in the page reproduces the page\'s own headline numbers', () => {
+  // The static HTML and the in-page model must not disagree, or the page would
+  // change its own answer the instant the script runs.
+  const linear = require('../pipeline/compute/linear.js');
+  const read = buildWith('https://exitcost.dev');
+  for (const slug of ['notion-to-outline', 'airtable-to-baserow', 'auth0-to-keycloak']) {
+    const html = read(`e/${slug}/index.html`);
+    const m = JSON.parse(html.match(/id="escape-model">([\s\S]*?)<\/script>/)[1]);
+    const api = JSON.parse(fs.readFileSync(path.join(DIST, 'api', 'escapes', `${slug}.json`), 'utf8'));
+    const r = linear.at(m.model, api.result.inputs.hourly_rate, api.result.inputs.seats);
+    assert.equal(r.incumbent_monthly, api.result.incumbent.monthly, `${slug}: incumbent monthly`);
+    assert.equal(r.alternative_monthly, api.result.alternative.monthly, `${slug}: alternative monthly`);
+    assert.equal(r.break_even_month, api.result.break_even_month, `${slug}: break-even`);
+    assert.equal(r.verdict, api.result.verdict, `${slug}: verdict`);
+    const x = linear.crossover(m.model, api.result.inputs.seats);
+    if (api.result.break_even_hourly_rate !== null) {
+      assert.ok(Math.abs(x - api.result.break_even_hourly_rate) < 0.02, `${slug}: crossover`);
+    }
+  }
+});

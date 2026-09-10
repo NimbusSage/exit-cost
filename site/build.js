@@ -132,12 +132,12 @@ function crossoverCopy(e) {
   const inc = `${e.incumbent.vendor} ${e.incumbent.plan}`;
   const yrs = e.result.inputs.horizon_months / 12;
 
-  if (x === null) return { headline: null, lede: null, note: 'This comparison does not turn on what your time is worth — neither option asks for any of it.' };
+  if (x === null) return { headline: null, lede: 'Neither option asks for any of your time, so this one turns on cash alone.', note: 'Move the controls below to see how it changes with team size.' };
 
   if (x < 0) return {
     headline: null,
-    lede: null,
-    note: `${alt} costs more than ${inc} in cash alone, before a single hour of your time is counted. There is no hourly rate at which this one pays off.`,
+    lede: `${alt} costs more than ${inc} in cash alone at this size.`,
+    note: `Before a single hour of your time is counted, it is already behind. No hourly rate makes it pay${e.incumbent.per_seat ? ' — but adding people does' : ''}.`,
   };
 
   // The headline number is the same either way, but a $7 crossover and a $260
@@ -163,10 +163,12 @@ function crossoverCopy(e) {
 
 function statementRows(e) {
   const inc = e.incumbent, alt = e.alternative, r = e.result;
-  const seatNote = inc.per_seat ? `${money(inc.amount)}/${inc.period} × ${plural(inc.seats, 'seat', 'seats')}` : `${money(inc.amount)}/${inc.period}, flat`;
+  const seatNote = inc.per_seat
+    ? `${money(inc.amount)}/${inc.period} × <span id="seat-note">${plural(inc.seats, 'seat', 'seats')}</span>`
+    : `${money(inc.amount)}/${inc.period}, flat`;
 
   const incRows = [
-    `<tr><td>${esc(inc.vendor)} ${esc(inc.plan)}<div class="note">${esc(seatNote)}${inc.billed ? `, billed ${esc(inc.billed)}` : ''}</div></td><td class="amt">${money(r.incumbent.cash_monthly)}</td></tr>`,
+    `<tr><td>${esc(inc.vendor)} ${esc(inc.plan)}<div class="note">${seatNote}${inc.billed ? `, billed ${esc(inc.billed)}` : ''}</div></td><td class="amt" id="inc-cash">${money(r.incumbent.cash_monthly)}</td></tr>`,
   ];
   if (r.incumbent.time_monthly > 0) {
     incRows.push(`<tr><td>Your time<div class="note">${e.incumbent.maintenance_hours_per_month ?? 0} h/month administering it</div></td><td class="amt" id="inc-time-monthly">${money(r.incumbent.time_monthly)}</td></tr>`);
@@ -201,17 +203,31 @@ function escapePage(e, siteUrl) {
   const x = crossoverCopy(e);
   const { incRows, altRows } = statementRows(e);
 
+  // Split the incumbent into its per-seat and flat parts so the browser can
+  // re-price the whole comparison as the reader changes their team size. Seats
+  // are the dominant variable — a page fixed to one seat count is wrong for
+  // most of the people reading it.
+  const perMonth = (amount, period) => (period === 'year' ? amount / 12 : amount);
+  const incMonthlyUnit = perMonth(e.incumbent.amount, e.incumbent.period);
+
   const model = {
     alternative_short: esc(altShort),
+    incumbent_short: esc(`${e.incumbent.vendor} ${e.incumbent.plan}`),
+    per_seat: !!e.incumbent.per_seat,
     model: {
-      inc_cash_monthly: r.incumbent.cash_monthly,
+      inc_per_seat_monthly: e.incumbent.per_seat ? incMonthlyUnit : 0,
+      inc_flat_monthly: e.incumbent.per_seat ? 0 : incMonthlyUnit,
       inc_hours_monthly: e.incumbent.maintenance_hours_per_month ?? 0,
       inc_cash_one_time: r.incumbent.one_time,
-      alt_cash_monthly: r.alternative.cash_monthly,
+      // Everything on the self-hosted side is flat: a server does not care how
+      // many people use it, which is the entire reason seats decide this.
+      alt_per_seat_monthly: 0,
+      alt_flat_monthly: r.alternative.cash_monthly,
       alt_hours_monthly: e.alternative.maintenance_hours_per_month,
       alt_cash_one_time: r.alternative.cash_one_time,
       alt_migration_hours: e.alternative.migration_hours,
       horizon_months: r.inputs.horizon_months,
+      seats: r.inputs.seats,
     },
   };
 
@@ -220,15 +236,13 @@ function escapePage(e, siteUrl) {
 
   const body = `
 <article class="standfirst">
-  <p class="route"><b>${esc(e.incumbent.vendor)} ${esc(e.incumbent.plan)}</b>, ${plural(r.inputs.seats, 'seat', 'seats')} &rarr; <b>${esc(altShort)}</b>, self-hosted</p>
+  <p class="route"><b>${esc(e.incumbent.vendor)} ${esc(e.incumbent.plan)}</b>${e.incumbent.per_seat ? `, <span id="route-seats">${plural(r.inputs.seats, 'seat', 'seats')}</span>` : ''} &rarr; <b>${esc(altShort)}</b>, self-hosted</p>
 
   <p class="verdict-line v-${r.verdict}" id="verdict">${VERDICT_SENTENCE[r.verdict](esc(altShort), r.savings.at_horizon, yrs)}</p>
 
-  ${x.headline !== null ? `
-  <p class="muted" style="margin:1.4rem 0 0">${esc(x.lede)}</p>
-  <span class="crossover">${money(x.headline, 2)}<span class="per">/hr</span></span>
-  <p class="crossover-note measure">${x.note}</p>` : `
-  <p class="crossover-note measure" style="margin-top:1.4rem">${x.note}</p>`}
+  <p class="muted" id="crossover-lede" style="margin:1.4rem 0 0">${esc(x.lede || 'At the team size below, this comparison turns on cash rather than time.')}</p>
+  <span class="crossover" id="crossover-figure">${x.headline !== null ? `${money(x.headline, 2)}<span class="per">/hr</span>` : '—'}</span>
+  <p class="crossover-note measure" id="crossover-note">${x.note}</p>
 
   ${e.incumbent.needs_reverification ? `<p class="flag">${esc(e.incumbent.vendor)} appears to have changed this price since we last verified it. The figure below is the last one we confirmed by hand, dated ${niceDate(e.incumbent.verified_at)}. We are re-checking it.</p>` : ''}
   ${pj && pj.health === 'slowing' ? `<p class="flag">${esc(pj.full_name)} has been quiet for ${pj.days_since_push} days. Still maintained, but worth a look at the repository before you commit to it.</p>` : ''}
@@ -240,8 +254,20 @@ function escapePage(e, siteUrl) {
     </div>
     <input type="range" id="rate" min="0" max="250" step="5" value="50" aria-label="Your hourly rate in dollars">
     <div class="rate-scale"><span>$0</span><span>$125</span><span>$250</span></div>
-    <p class="small muted" style="margin:.6rem 0 0">Every figure on this page updates as you move it. Most comparisons of this kind quietly assume your time is free.</p>
+
+    ${e.incumbent.per_seat ? `
+    <div class="rate-top" style="margin-top:1.4rem">
+      <label for="seats">How many people?</label>
+      <output id="seats-out" for="seats">${r.inputs.seats}</output>
+    </div>
+    <input type="range" id="seats" min="1" max="60" step="1" value="${r.inputs.seats}" aria-label="Number of seats">
+    <div class="rate-scale"><span>1</span><span>30</span><span>60</span></div>` : `
+    <p class="small muted" style="margin:1.1rem 0 0">${esc(e.incumbent.vendor)} ${esc(e.incumbent.plan)} is billed flat rather than per seat, so team size does not change this comparison.</p>`}
+
+    <p class="small muted" style="margin:.9rem 0 0">Every figure on this page updates as you move these. Most comparisons of this kind quietly assume your time is free and your team never changes size.</p>
   </div>
+
+  ${e.incumbent.per_seat ? `<p class="threshold" id="threshold"></p>` : ''}
 
   <div class="chart">${svg}</div>
   <div class="chart-key">
@@ -427,9 +453,21 @@ conservatively — biased toward the subscription — because the worst thing th
 someone into a migration that never paid off. They are printed on every page so you can disagree with
 them, and the slider lets you test how much they matter.</p>
 
+<p class="section-head">Your team size decides most of it</p>
+<p class="measure">A per-seat subscription scales with headcount; a server does not care how many
+people use it. That single fact decides most of these comparisons, which is why every page with a
+per-seat incumbent lets you set your own team size rather than fixing one. The same comparison can
+honestly say "obviously switch" at twenty people and "obviously stay" at two, and a page that
+picked one number for you would be wrong for nearly everyone reading it.</p>
+<p class="measure">Each page also states the team size at which switching starts to pay at your
+hourly rate — usually the more actionable of the two numbers, because "worth doing once you are
+past six people" is a decision you can make today.</p>
+
 <p class="section-head">Horizon and assumptions</p>
 <ul class="caveats measure">
   <li>Costs are compared over 36 months unless a page says otherwise.</li>
+  <li>Migration and maintenance hours do not scale with team size. Moving twenty people off Notion
+  is not twice the work of moving ten, and pretending otherwise would flatter the subscription.</li>
   <li>Prices are US list prices, in USD, excluding tax.</li>
   <li>Annual-billing discounts are used where the vendor offers them, since that is the cheaper
   honest comparison for the subscription.</li>

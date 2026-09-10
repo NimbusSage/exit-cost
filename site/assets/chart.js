@@ -84,10 +84,14 @@
     var g = geometry(curve, opts);
     var p = g.plot, out = [];
     out.push('<svg viewBox="' + g.viewBox + '" role="img" aria-label="' + (opts && opts.alt || 'Cumulative cost over time') + '">');
+    // Grouped so the page can rescale the axis in place when the reader changes
+    // the inputs; a chart whose labels lag its lines is worse than no chart.
+    out.push('<g id="chart-y-ticks">');
     g.yTicks.forEach(function (t) {
       out.push('<line class="grid" x1="' + p.x0 + '" x2="' + p.x1 + '" y1="' + t.y.toFixed(1) + '" y2="' + t.y.toFixed(1) + '"/>');
       out.push('<text x="' + (p.x0 - 8) + '" y="' + (t.y + 3.5).toFixed(1) + '" text-anchor="end">' + t.label + '</text>');
     });
+    out.push('</g>');
     g.xTicks.forEach(function (t) {
       out.push('<text x="' + t.x.toFixed(1) + '" y="' + (p.y1 + 15) + '" text-anchor="middle">' + t.label + '</text>');
     });
