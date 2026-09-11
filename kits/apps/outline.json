@@ -1,0 +1,153 @@
+{
+  "id": "outline",
+  "name": "Outline",
+  "escape": "notion-to-outline",
+  "replaces": "Notion",
+  "docs": "https://docs.getoutline.com/s/hosting",
+  "repo": "outline/outline",
+  "images": {
+    "app": "outlinewiki/outline:1.10.1",
+    "db": "postgres:16-alpine",
+    "cache": "redis:8.8-alpine",
+    "proxy": "caddy:2.11-alpine"
+  },
+  "app_memory": "1g",
+  "database": {
+    "engine": "postgres",
+    "name": "outline",
+    "user": "outline"
+  },
+  "app_port": 3000,
+  "data_paths": [
+    "/var/lib/outline/data"
+  ],
+  "app_env": {
+    "NODE_ENV": "production",
+    "URL": "https://${DOMAIN:?DOMAIN is required}",
+    "PORT": "3000",
+    "SECRET_KEY": "${OUTLINE_SECRET_KEY:?OUTLINE_SECRET_KEY is required}",
+    "UTILS_SECRET": "${OUTLINE_UTILS_SECRET:?OUTLINE_UTILS_SECRET is required}",
+    "DATABASE_URL": "postgres://outline:${POSTGRES_PASSWORD}@db:5432/outline",
+    "PGSSLMODE": "disable",
+    "REDIS_URL": "redis://:${REDIS_PASSWORD:?REDIS_PASSWORD is required}@cache:6379",
+    "FILE_STORAGE": "local",
+    "FILE_STORAGE_LOCAL_ROOT_DIR": "/var/lib/outline/data",
+    "FORCE_HTTPS": "false",
+    "OIDC_CLIENT_ID": "${OIDC_CLIENT_ID:-}",
+    "OIDC_CLIENT_SECRET": "${OIDC_CLIENT_SECRET:-}",
+    "OIDC_AUTH_URI": "${OIDC_AUTH_URI:-}",
+    "OIDC_TOKEN_URI": "${OIDC_TOKEN_URI:-}",
+    "OIDC_USERINFO_URI": "${OIDC_USERINFO_URI:-}"
+  },
+  "env": [
+    {
+      "key": "DOMAIN",
+      "desc": "The hostname you will reach this on.",
+      "example": "wiki.example.com"
+    },
+    {
+      "key": "ACME_EMAIL",
+      "desc": "Email for the TLS certificate.",
+      "example": "you@example.com"
+    },
+    {
+      "key": "POSTGRES_PASSWORD",
+      "desc": "Database password.",
+      "generate": "password"
+    },
+    {
+      "key": "REDIS_PASSWORD",
+      "desc": "Redis password. Outline authenticates to Redis, so it must require one.",
+      "generate": "password"
+    },
+    {
+      "key": "OUTLINE_SECRET_KEY",
+      "desc": "Signs sessions. Generate with: openssl rand -hex 32",
+      "generate": "secret"
+    },
+    {
+      "key": "OUTLINE_UTILS_SECRET",
+      "desc": "Used for internal tokens. Generate with: openssl rand -hex 32",
+      "generate": "secret"
+    },
+    {
+      "key": "OIDC_CLIENT_ID",
+      "desc": "Outline has no password login. You must connect an identity provider \u2014 Google, Slack, Microsoft or any OIDC one \u2014 or nobody can sign in, including you.",
+      "example": ""
+    },
+    {
+      "key": "OIDC_CLIENT_SECRET",
+      "desc": "The matching secret from your identity provider.",
+      "example": ""
+    },
+    {
+      "key": "OIDC_AUTH_URI",
+      "desc": "Authorisation endpoint from your provider's discovery document.",
+      "example": ""
+    },
+    {
+      "key": "OIDC_TOKEN_URI",
+      "desc": "Token endpoint.",
+      "example": ""
+    },
+    {
+      "key": "OIDC_USERINFO_URI",
+      "desc": "Userinfo endpoint.",
+      "example": ""
+    },
+    {
+      "key": "BACKUP_PASSPHRASE",
+      "desc": "Encrypts every backup before it leaves the machine. Store it somewhere that is NOT this server.",
+      "generate": "secret"
+    },
+    {
+      "key": "RCLONE_REMOTE",
+      "desc": "rclone remote and path for offsite backups.",
+      "example": "b2:my-bucket/outline"
+    }
+  ],
+  "restore_assertions": [
+    {
+      "label": "the schema restored in full",
+      "sql": "select count(*) from information_schema.tables where table_schema='public'",
+      "min": 25
+    },
+    {
+      "label": "user accounts survived",
+      "sql": "select count(*) from users",
+      "compare_live": true
+    },
+    {
+      "label": "documents survived",
+      "sql": "select count(*) from documents",
+      "compare_live": true
+    },
+    {
+      "label": "collections survived",
+      "sql": "select count(*) from collections",
+      "compare_live": true
+    }
+  ],
+  "requirements": {
+    "ram_gb": 2,
+    "vcpu": 1,
+    "disk_gb": 25
+  },
+  "notes": [
+    "Outline has no username-and-password login. Without an identity provider configured, nobody can sign in \u2014 not even you. Set the OIDC values before the first start, or budget an hour for it.",
+    "Attachments are stored on local disk here rather than S3, which keeps the stack small and means the data directory must be in your backups. It is.",
+    "The app listens on 3000 rather than 80; Caddy handles the public ports."
+  ],
+  "validated": {
+    "date": "2026-09-11",
+    "docker": "29.8.0 in an LXC container",
+    "stack_boots": true,
+    "migrations_complete": "45 tables on first boot, ~18s; listening on :3000",
+    "backup_verified": "160 KB dump of a seeded workspace, encrypted, shipped",
+    "drill_passes_on_good_backup": "4/4 users, 7/7 documents, 3/3 collections matched live",
+    "not_yet_tested": [
+      "sign-in, which needs a real identity provider \u2014 the kit says so up front",
+      "the Caddy proxy, which needs a real domain"
+    ]
+  }
+}

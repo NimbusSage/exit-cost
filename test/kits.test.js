@@ -176,3 +176,43 @@ test('REGRESSION: readiness is a real query, never pg_isready', () => {
     assert.ok(drillLines.some((l) => /psql .*select 1/.test(l)), 'the drill must wait on a real query');
   }
 });
+
+test('REGRESSION: compose variables are not backslash-escaped into literals', () => {
+  // A generated "\${POSTGRES_PASSWORD}" is passed through by Compose verbatim,
+  // so the application receives the literal string instead of the password and
+  // fails to connect with an error that names neither cause.
+  build();
+  for (const s of specs) {
+    const compose = read(s, 'docker-compose.yml');
+    assert.ok(!/\\\$\{/.test(compose), `${s.id}: compose contains a backslash-escaped variable`);
+    // Every referenced variable must still look like a real Compose reference.
+    for (const m of compose.matchAll(/^\s+[A-Z_]+:\s*(.*\$\{[^}]+\}.*)$/gm)) {
+      assert.match(m[1], /\$\{[A-Z_]+(:[?-][^}]*)?\}/, `${s.id}: malformed variable in "${m[1]}"`);
+    }
+  }
+});
+
+test('REGRESSION: a service is never declared a dependency unless it exists', () => {
+  // Vaultwarden has no Redis. Leaving "cache" in depends_on made Compose refuse
+  // to start the stack at all.
+  build();
+  for (const s of specs) {
+    const compose = read(s, 'docker-compose.yml');
+    const declared = new Set([...compose.matchAll(/^  ([a-z][a-z0-9-]*):$/gm)].map((m) => m[1]));
+    const appBlock = compose.slice(compose.indexOf('\n  app:'));
+    const deps = [...appBlock.slice(0, appBlock.indexOf('\n    environment:')).matchAll(/^      ([a-z][a-z0-9-]*):$/gm)].map((m) => m[1]);
+    for (const d of deps) assert.ok(declared.has(d), `${s.id}: app depends on "${d}", which is not a service`);
+    if (!s.images.cache) assert.ok(!deps.includes('cache'), `${s.id}: has no cache image but depends on one`);
+  }
+});
+
+test('each kit points at a comparison whose verdict is not "stay"', () => {
+  // Selling a deployment kit for a migration our own arithmetic advises against
+  // would be incoherent.
+  const fs2 = require('node:fs');
+  for (const s of specs) {
+    const e = JSON.parse(fs2.readFileSync(path.join(ROOT, 'data', 'build', 'escapes', `${s.escape}.json`), 'utf8'));
+    assert.notEqual(e.result.verdict, 'stay',
+      `${s.id}: kit exists for ${s.escape}, which our own arithmetic says not to do`);
+  }
+});

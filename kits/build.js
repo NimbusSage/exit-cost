@@ -63,7 +63,7 @@ services:
         limits:
           memory: 1g
 
-  cache:
+${s.images.cache ? `  cache:
     image: ${s.images.cache}
     restart: unless-stopped
     # Baserow always sends AUTH, so Redis must require a password. Without one it
@@ -83,25 +83,19 @@ services:
       resources:
         limits:
           memory: 256m
-
+` : ''}
   app:
     image: ${s.images.app}
     restart: unless-stopped
     depends_on:
       db:
-        condition: service_healthy
+        condition: service_healthy${s.images.cache ? `
       cache:
-        condition: service_healthy
+        condition: service_healthy` : ''}
+    # The application's own settings come from its spec. Hardcoding one app's
+    # variable names here made the generator only look app-agnostic.
     environment:
-      BASEROW_PUBLIC_URL: https://\${DOMAIN:?DOMAIN is required}
-      DATABASE_HOST: db
-      DATABASE_NAME: ${db.name}
-      DATABASE_USER: ${db.user}
-      DATABASE_PASSWORD: \${POSTGRES_PASSWORD}
-      REDIS_HOST: cache
-      REDIS_PASSWORD: \${REDIS_PASSWORD:?REDIS_PASSWORD is required}
-      SECRET_KEY: \${BASEROW_SECRET_KEY:?BASEROW_SECRET_KEY is required}
-      BASEROW_JWT_SIGNING_KEY: \${BASEROW_JWT_SIGNING_KEY:?BASEROW_JWT_SIGNING_KEY is required}
+${Object.entries(s.app_env).map(([k, v]) => `      ${k}: ${v}`).join('\n')}
     volumes:
       - app-data:${s.data_paths[0]}
     expose:
@@ -109,7 +103,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 2g
+          memory: ${s.app_memory || '2g'}
 
   proxy:
     image: ${s.images.proxy}

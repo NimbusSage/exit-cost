@@ -112,5 +112,17 @@
       "the Caddy proxy service, which needs a real domain for a certificate",
       "Baserow's own web UI, which had not finished starting when the database work was done"
     ]
-  }
+  },
+  "app_env": {
+    "BASEROW_PUBLIC_URL": "https://${DOMAIN:?DOMAIN is required}",
+    "DATABASE_HOST": "db",
+    "DATABASE_NAME": "baserow",
+    "DATABASE_USER": "baserow",
+    "DATABASE_PASSWORD": "${POSTGRES_PASSWORD}",
+    "REDIS_HOST": "cache",
+    "REDIS_PASSWORD": "${REDIS_PASSWORD:?REDIS_PASSWORD is required}",
+    "SECRET_KEY": "${BASEROW_SECRET_KEY:?BASEROW_SECRET_KEY is required}",
+    "BASEROW_JWT_SIGNING_KEY": "${BASEROW_JWT_SIGNING_KEY:?BASEROW_JWT_SIGNING_KEY is required}"
+  },
+  "app_memory": "2g"
 }

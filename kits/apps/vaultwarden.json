@@ -1,0 +1,110 @@
+{
+  "id": "vaultwarden",
+  "name": "Vaultwarden",
+  "escape": "1password-to-vaultwarden",
+  "replaces": "1Password",
+  "docs": "https://github.com/dani-garcia/vaultwarden/wiki",
+  "repo": "dani-garcia/vaultwarden",
+  "images": {
+    "app": "vaultwarden/server:1.37.2",
+    "db": "postgres:16-alpine",
+    "proxy": "caddy:2.11-alpine"
+  },
+  "app_memory": "512m",
+  "database": {
+    "engine": "postgres",
+    "name": "vaultwarden",
+    "user": "vaultwarden"
+  },
+  "app_port": 80,
+  "data_paths": [
+    "/data"
+  ],
+  "app_env": {
+    "DOMAIN": "https://${DOMAIN:?DOMAIN is required}",
+    "DATABASE_URL": "postgresql://vaultwarden:${POSTGRES_PASSWORD}@db/vaultwarden",
+    "SIGNUPS_ALLOWED": "${SIGNUPS_ALLOWED:-true}",
+    "INVITATIONS_ALLOWED": "true",
+    "WEBSOCKET_ENABLED": "true",
+    "ROCKET_PORT": "80"
+  },
+  "env": [
+    {
+      "key": "DOMAIN",
+      "desc": "The hostname you will reach this on. Vaultwarden bakes it into invitation links, so getting it wrong breaks sharing.",
+      "example": "vault.example.com"
+    },
+    {
+      "key": "ACME_EMAIL",
+      "desc": "Email for the TLS certificate.",
+      "example": "you@example.com"
+    },
+    {
+      "key": "POSTGRES_PASSWORD",
+      "desc": "Database password.",
+      "generate": "password"
+    },
+    {
+      "key": "SIGNUPS_ALLOWED",
+      "desc": "Leave true until you have created your own account, then set it to false and restart. An open vault server is an open invitation.",
+      "example": "true"
+    },
+    {
+      "key": "BACKUP_PASSPHRASE",
+      "desc": "Encrypts every backup before it leaves the machine. Store it somewhere that is NOT this server \u2014 a password manager you can still reach if this one is down.",
+      "generate": "secret"
+    },
+    {
+      "key": "RCLONE_REMOTE",
+      "desc": "rclone remote and path for offsite backups.",
+      "example": "b2:my-bucket/vaultwarden"
+    }
+  ],
+  "restore_assertions": [
+    {
+      "label": "the schema restored in full",
+      "sql": "select count(*) from information_schema.tables where table_schema='public'",
+      "min": 10
+    },
+    {
+      "label": "accounts survived",
+      "sql": "select count(*) from users",
+      "compare_live": true
+    },
+    {
+      "label": "vault items survived",
+      "sql": "select count(*) from ciphers",
+      "compare_live": true
+    },
+    {
+      "label": "organisations survived",
+      "sql": "select count(*) from organizations",
+      "compare_live": true
+    }
+  ],
+  "requirements": {
+    "ram_gb": 1,
+    "vcpu": 1,
+    "disk_gb": 10
+  },
+  "notes": [
+    "Vaultwarden defaults to SQLite. This kit runs it against Postgres instead, because a database you can pg_dump while it is running is the difference between a backup and a file copy you hope is consistent.",
+    "SIGNUPS_ALLOWED must be set to false once your accounts exist. Leaving it open lets anyone who finds the hostname create an account on your vault server.",
+    "The admin panel is deliberately not enabled. It is another way in, and you do not need it for normal use.",
+    "This holds your passwords. If you are not going to keep the restore drill running, stay on 1Password \u2014 that is the honest advice and it is on the comparison page too."
+  ],
+  "validated": {
+    "date": "2026-09-11",
+    "docker": "29.8.0 in an LXC container",
+    "stack_boots": true,
+    "migrations_complete": "29 tables against Postgres on first boot, ~10s",
+    "account_created": "through Vaultwarden's own registration API, not by inserting rows",
+    "backup_verified": "51 KB dump, encrypted, shipped, retention applied",
+    "drill_passes_on_good_backup": true,
+    "drill_fails_on_hollow_backup": true,
+    "not_yet_tested": [
+      "the Caddy proxy, which needs a real domain for a certificate",
+      "WebSocket notifications to the Bitwarden clients"
+    ]
+  }
+}
