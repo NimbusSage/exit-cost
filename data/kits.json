@@ -1,0 +1,21 @@
+{
+  "_comment": "Which comparisons have a deployment kit. Generated from kits/apps/*.json; the site reads this so a kit cannot be advertised for a comparison that does not have one.",
+  "schema_version": 1,
+  "kits": {
+    "airtable-to-baserow": {
+      "id": "baserow",
+      "name": "Baserow",
+      "validated": true
+    },
+    "notion-to-outline": {
+      "id": "outline",
+      "name": "Outline",
+      "validated": true
+    },
+    "1password-to-vaultwarden": {
+      "id": "vaultwarden",
+      "name": "Vaultwarden",
+      "validated": true
+    }
+  }
+}

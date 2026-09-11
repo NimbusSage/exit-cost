@@ -21,6 +21,10 @@ const DIST = process.env.EXITCOST_DIST || path.join(__dirname, 'dist');
  * this table — that separation is what makes the disclosure honest.
  */
 let AFFILIATES = new Map();
+let KITS = {};
+function loadKits() {
+  KITS = readJson(p('data', 'kits.json'), { kits: {} }).kits || {};
+}
 function loadAffiliates() {
   const d = readJson(p('data', 'affiliates.json'), { programs: [] });
   AFFILIATES = new Map((d.programs || [])
@@ -343,6 +347,16 @@ function escapePage(e, siteUrl) {
     <div class="lose"><h3>You lose</h3><ul>${e.tradeoffs.you_lose.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></div>
     <div class="gain"><h3>You gain</h3><ul>${e.tradeoffs.you_gain.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></div>
   </div>
+
+  ${KITS[e.slug] ? `
+  <h2 class="section-head">If you decide to do it</h2>
+  <p class="measure">There is a deployment kit for this one: a pinned Docker Compose stack with no
+  default passwords, an install script, a backup that encrypts before it leaves the machine, and —
+  the part almost nobody ships — a <b>restore drill</b> that nightly restores the newest backup into a
+  throwaway database and checks your data is actually in it. It has been deployed and run, not just
+  written.</p>
+  <p class="measure"><a href="https://github.com/NimbusSage/exit-cost/tree/main/kits">The kits live in the repository</a>,
+  generated from a spec so the pinned image tags are checked against the registry on every build.</p>` : ''}
 
   ${e.caveats.length ? `<h2 class="section-head">Read this before you decide</h2><ul class="caveats measure">${e.caveats.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>` : ''}
 
@@ -745,6 +759,7 @@ function main() {
   const siteUrl = (process.env.SITE_URL || 'https://nimbussage.github.io/exit-cost').replace(/\/$/, '');
   BASE = new URL(siteUrl).pathname.replace(/\/$/, '');
   loadAffiliates();
+  loadKits();
   const index = readJson(p('data', 'build', 'index.json'));
   if (!index) { console.error('FATAL: no data/build/index.json. Run `npm run build:data` first.'); process.exit(1); }
 

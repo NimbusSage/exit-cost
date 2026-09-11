@@ -324,3 +324,25 @@ test('a vendor page states plainly when nothing is worth leaving for', () => {
     }
   }
 });
+
+test('a kit is advertised only on comparisons that actually have one', () => {
+  const read = buildWith('https://exitcost.dev');
+  const kits = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'kits.json'), 'utf8')).kits;
+  const index = JSON.parse(read('api/index.json'));
+  for (const e of index.escapes) {
+    const html = read(`e/${e.slug}/index.html`);
+    const mentions = /If you decide to do it/.test(html);
+    assert.equal(mentions, !!kits[e.slug],
+      `${e.slug}: ${mentions ? 'advertises a kit it does not have' : 'has a kit but does not mention it'}`);
+  }
+});
+
+test('every kit in data/kits.json has a spec and a published comparison', () => {
+  const kits = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'kits.json'), 'utf8')).kits;
+  assert.ok(Object.keys(kits).length >= 3);
+  for (const [slug, k] of Object.entries(kits)) {
+    assert.ok(fs.existsSync(path.join(ROOT, 'kits', 'apps', `${k.id}.json`)), `no spec for ${k.id}`);
+    assert.ok(fs.existsSync(path.join(ROOT, 'data', 'escapes', `${slug}.json`)), `no comparison ${slug}`);
+    assert.equal(k.validated, true, `${k.id} is listed but not marked validated`);
+  }
+});
