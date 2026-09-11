@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-11T07:05:19.699Z",
+  "fetched_at": "2026-09-11T07:08:01.829Z",
   "projects": {
     "passbolt/passbolt_api": {
       "full_name": "passbolt/passbolt_api",
@@ -21,7 +21,7 @@
       "days_since_release": 21,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:07.974Z"
+      "verified_at": "2026-09-11T07:07:48.739Z"
     },
     "dani-garcia/vaultwarden": {
       "full_name": "dani-garcia/vaultwarden",
@@ -43,7 +43,7 @@
       "days_since_release": 20,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:08.361Z"
+      "verified_at": "2026-09-11T07:07:49.278Z"
     },
     "baserow/baserow": {
       "full_name": "baserow/baserow",
@@ -65,7 +65,7 @@
       "days_since_release": 52,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:08.732Z"
+      "verified_at": "2026-09-11T07:07:49.656Z"
     },
     "nocodb/nocodb": {
       "full_name": "nocodb/nocodb",
@@ -77,7 +77,7 @@
       "open_issues": 711,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-11T06:56:53Z",
+      "pushed_at": "2026-09-11T07:05:44Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "2026.09.0",
@@ -87,7 +87,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:09.170Z"
+      "verified_at": "2026-09-11T07:07:50.033Z"
     },
     "teableio/teable": {
       "full_name": "teableio/teable",
@@ -109,14 +109,14 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:09.547Z"
+      "verified_at": "2026-09-11T07:07:50.430Z"
     },
     "keycloak/keycloak": {
       "full_name": "keycloak/keycloak",
       "url": "https://github.com/keycloak/keycloak",
       "homepage": "https://www.keycloak.org",
       "description": "Open Source Identity and Access Management For Modern Applications and Services",
-      "stars": 36717,
+      "stars": 36718,
       "forks": 8920,
       "open_issues": 3292,
       "license": "Apache-2.0",
@@ -131,7 +131,7 @@
       "days_since_release": 11,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:09.933Z"
+      "verified_at": "2026-09-11T07:07:50.915Z"
     },
     "zitadel/zitadel": {
       "full_name": "zitadel/zitadel",
@@ -153,7 +153,7 @@
       "days_since_release": 7,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:10.294Z"
+      "verified_at": "2026-09-11T07:07:51.391Z"
     },
     "calcom/cal.com": {
       "full_name": "calcom/cal.diy",
@@ -175,7 +175,7 @@
       "days_since_release": 193,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:10.777Z"
+      "verified_at": "2026-09-11T07:07:51.900Z"
     },
     "alextselegidis/easyappointments": {
       "full_name": "alextselegidis/easyappointments",
@@ -197,7 +197,7 @@
       "days_since_release": 107,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:11.485Z"
+      "verified_at": "2026-09-11T07:07:52.803Z"
     },
     "chatwoot/chatwoot": {
       "full_name": "chatwoot/chatwoot",
@@ -219,7 +219,7 @@
       "days_since_release": 15,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:11.840Z"
+      "verified_at": "2026-09-11T07:07:53.176Z"
     },
     "documenso/documenso": {
       "full_name": "documenso/documenso",
@@ -241,7 +241,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:12.230Z"
+      "verified_at": "2026-09-11T07:07:53.601Z"
     },
     "docusealco/docuseal": {
       "full_name": "docusealco/docuseal",
@@ -263,7 +263,7 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:12.631Z"
+      "verified_at": "2026-09-11T07:07:54.030Z"
     },
     "OpenSignLabs/OpenSign": {
       "full_name": "OpenSignLabs/OpenSign",
@@ -285,7 +285,7 @@
       "days_since_release": 21,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:12.996Z"
+      "verified_at": "2026-09-11T07:07:54.454Z"
     },
     "jgraph/drawio": {
       "full_name": "jgraph/drawio",
@@ -307,7 +307,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:13.375Z"
+      "verified_at": "2026-09-11T07:07:54.853Z"
     },
     "excalidraw/excalidraw": {
       "full_name": "excalidraw/excalidraw",
@@ -329,14 +329,14 @@
       "days_since_release": 143,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:13.694Z"
+      "verified_at": "2026-09-11T07:07:55.263Z"
     },
     "toeverything/AFFiNE": {
       "full_name": "toeverything/AFFiNE",
       "url": "https://github.com/toeverything/AFFiNE",
       "homepage": "https://affine.pro",
       "description": "There can be more than Notion and Miro. AFFiNE(pronounced [ə‘fain]) is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use. ",
-      "stars": 72449,
+      "stars": 72450,
       "forks": 5261,
       "open_issues": 732,
       "license": null,
@@ -351,7 +351,7 @@
       "days_since_release": 24,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:14.075Z"
+      "verified_at": "2026-09-11T07:07:55.696Z"
     },
     "AppFlowy-IO/AppFlowy": {
       "full_name": "AppFlowy-IO/AppFlowy",
@@ -373,7 +373,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:14.428Z"
+      "verified_at": "2026-09-11T07:07:56.075Z"
     },
     "docmost/docmost": {
       "full_name": "docmost/docmost",
@@ -395,7 +395,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:14.795Z"
+      "verified_at": "2026-09-11T07:07:56.473Z"
     },
     "outline/outline": {
       "full_name": "outline/outline",
@@ -417,7 +417,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:15.126Z"
+      "verified_at": "2026-09-11T07:07:56.904Z"
     },
     "siyuan-note/siyuan": {
       "full_name": "siyuan-note/siyuan",
@@ -439,7 +439,7 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:15.410Z"
+      "verified_at": "2026-09-11T07:07:57.279Z"
     },
     "plausible/analytics": {
       "full_name": "plausible/analytics",
@@ -461,7 +461,7 @@
       "days_since_release": 119,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:15.869Z"
+      "verified_at": "2026-09-11T07:07:57.802Z"
     },
     "matomo-org/matomo": {
       "full_name": "matomo-org/matomo",
@@ -470,10 +470,10 @@
       "description": "Empowering People Ethically 🚀 — Matomo is hiring! Join us → https://matomo.org/jobs Matomo is the leading open-source alternative to Google Analytics, giving you complete control and built-in privacy. Easily collect, visualise, and analyse data from websites & apps. Star us on GitHub ⭐️  – Pull Requests welcome! ",
       "stars": 21854,
       "forks": 2898,
-      "open_issues": 2577,
+      "open_issues": 2578,
       "license": "GPL-3.0",
       "archived": false,
-      "pushed_at": "2026-09-11T06:43:18Z",
+      "pushed_at": "2026-09-11T07:06:13Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "5.13.0",
@@ -483,7 +483,7 @@
       "days_since_release": 25,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:16.224Z"
+      "verified_at": "2026-09-11T07:07:58.176Z"
     },
     "umami-software/umami": {
       "full_name": "umami-software/umami",
@@ -505,7 +505,7 @@
       "days_since_release": 22,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:16.736Z"
+      "verified_at": "2026-09-11T07:07:58.770Z"
     },
     "go-vikunja/vikunja": {
       "full_name": "go-vikunja/vikunja",
@@ -527,7 +527,7 @@
       "days_since_release": 11,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:17.104Z"
+      "verified_at": "2026-09-11T07:07:59.137Z"
     },
     "caprover/caprover": {
       "full_name": "caprover/caprover",
@@ -549,7 +549,7 @@
       "days_since_release": 11,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:17.552Z"
+      "verified_at": "2026-09-11T07:07:59.560Z"
     },
     "coollabsio/coolify": {
       "full_name": "coollabsio/coolify",
@@ -571,7 +571,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:17.929Z"
+      "verified_at": "2026-09-11T07:07:59.945Z"
     },
     "Dokploy/dokploy": {
       "full_name": "Dokploy/dokploy",
@@ -579,7 +579,7 @@
       "homepage": "https://dokploy.com/",
       "description": "Open Source Alternative to Vercel, Netlify and Heroku.",
       "stars": 37224,
-      "forks": 2959,
+      "forks": 2960,
       "open_issues": 668,
       "license": null,
       "archived": false,
@@ -593,7 +593,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:18.273Z"
+      "verified_at": "2026-09-11T07:08:00.304Z"
     },
     "activepieces/activepieces": {
       "full_name": "activepieces/activepieces",
@@ -615,7 +615,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:18.682Z"
+      "verified_at": "2026-09-11T07:08:00.666Z"
     },
     "n8n-io/n8n": {
       "full_name": "n8n-io/n8n",
@@ -627,7 +627,7 @@
       "open_issues": 1148,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-11T07:04:07Z",
+      "pushed_at": "2026-09-11T07:06:58Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "n8n@2.38.6",
@@ -637,14 +637,14 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:19.028Z"
+      "verified_at": "2026-09-11T07:08:01.049Z"
     },
     "windmill-labs/windmill": {
       "full_name": "windmill-labs/windmill",
       "url": "https://github.com/windmill-labs/windmill",
       "homepage": "https://windmill.dev",
       "description": "Open-source developer platform to power your entire infra and turn scripts into webhooks, workflows and UIs. Fastest workflow engine (13x vs Airflow). Open-source alternative to Retool and Temporal.",
-      "stars": 17864,
+      "stars": 17863,
       "forks": 1095,
       "open_issues": 854,
       "license": null,
@@ -659,7 +659,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-11T07:05:19.378Z"
+      "verified_at": "2026-09-11T07:08:01.433Z"
     }
   },
   "errors": [],
