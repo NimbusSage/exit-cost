@@ -586,8 +586,8 @@
         "tokens": []
       },
       "last_checked_at": "2026-09-11",
-      "last_check_ok": false,
-      "last_check_reason": "fetch failed: This operation was aborted"
+      "last_check_ok": true,
+      "last_check_reason": null
     },
     {
       "id": "miro",
