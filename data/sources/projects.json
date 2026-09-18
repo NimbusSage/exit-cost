@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-18T05:59:54.086Z",
+  "fetched_at": "2026-09-18T06:03:49.647Z",
   "projects": {
     "passbolt/passbolt_api": {
       "full_name": "passbolt/passbolt_api",
@@ -21,7 +21,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:38.312Z"
+      "verified_at": "2026-09-18T06:03:39.252Z"
     },
     "dani-garcia/vaultwarden": {
       "full_name": "dani-garcia/vaultwarden",
@@ -43,7 +43,7 @@
       "days_since_release": 5,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:39.098Z"
+      "verified_at": "2026-09-18T06:03:39.630Z"
     },
     "baserow/baserow": {
       "full_name": "baserow/baserow",
@@ -65,7 +65,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:39.507Z"
+      "verified_at": "2026-09-18T06:03:39.951Z"
     },
     "nocodb/nocodb": {
       "full_name": "nocodb/nocodb",
@@ -87,7 +87,7 @@
       "days_since_release": 8,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:39.989Z"
+      "verified_at": "2026-09-18T06:03:40.266Z"
     },
     "teableio/teable": {
       "full_name": "teableio/teable",
@@ -109,14 +109,14 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:40.469Z"
+      "verified_at": "2026-09-18T06:03:40.592Z"
     },
     "keycloak/keycloak": {
       "full_name": "keycloak/keycloak",
       "url": "https://github.com/keycloak/keycloak",
       "homepage": "https://www.keycloak.org",
       "description": "Open Source Identity and Access Management For Modern Applications and Services",
-      "stars": 36838,
+      "stars": 36839,
       "forks": 8942,
       "open_issues": 3266,
       "license": "Apache-2.0",
@@ -131,7 +131,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:40.924Z"
+      "verified_at": "2026-09-18T06:03:40.931Z"
     },
     "zitadel/zitadel": {
       "full_name": "zitadel/zitadel",
@@ -153,7 +153,7 @@
       "days_since_release": 14,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:41.434Z"
+      "verified_at": "2026-09-18T06:03:41.210Z"
     },
     "calcom/cal.com": {
       "full_name": "calcom/cal.diy",
@@ -175,7 +175,7 @@
       "days_since_release": 200,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:41.996Z"
+      "verified_at": "2026-09-18T06:03:41.667Z"
     },
     "alextselegidis/easyappointments": {
       "full_name": "alextselegidis/easyappointments",
@@ -197,7 +197,7 @@
       "days_since_release": 114,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:42.975Z"
+      "verified_at": "2026-09-18T06:03:42.192Z"
     },
     "chatwoot/chatwoot": {
       "full_name": "chatwoot/chatwoot",
@@ -219,15 +219,15 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:43.418Z"
+      "verified_at": "2026-09-18T06:03:42.475Z"
     },
     "documenso/documenso": {
       "full_name": "documenso/documenso",
       "url": "https://github.com/documenso/documenso",
       "homepage": "https://documenso.com",
       "description": "The Open Source DocuSign Alternative.",
-      "stars": 15068,
-      "forks": 3230,
+      "stars": 15069,
+      "forks": 3231,
       "open_issues": 218,
       "license": "AGPL-3.0",
       "archived": false,
@@ -241,7 +241,7 @@
       "days_since_release": 9,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:44.174Z"
+      "verified_at": "2026-09-18T06:03:42.821Z"
     },
     "docusealco/docuseal": {
       "full_name": "docusealco/docuseal",
@@ -263,7 +263,7 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:44.650Z"
+      "verified_at": "2026-09-18T06:03:43.182Z"
     },
     "OpenSignLabs/OpenSign": {
       "full_name": "OpenSignLabs/OpenSign",
@@ -285,7 +285,7 @@
       "days_since_release": 28,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:45.078Z"
+      "verified_at": "2026-09-18T06:03:43.501Z"
     },
     "jgraph/drawio": {
       "full_name": "jgraph/drawio",
@@ -307,14 +307,14 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:45.561Z"
+      "verified_at": "2026-09-18T06:03:43.843Z"
     },
     "excalidraw/excalidraw": {
       "full_name": "excalidraw/excalidraw",
       "url": "https://github.com/excalidraw/excalidraw",
       "homepage": "https://excalidraw.com",
       "description": "Virtual whiteboard for sketching hand-drawn like diagrams",
-      "stars": 132261,
+      "stars": 132262,
       "forks": 15328,
       "open_issues": 3479,
       "license": "MIT",
@@ -329,7 +329,7 @@
       "days_since_release": 150,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:46.046Z"
+      "verified_at": "2026-09-18T06:03:44.227Z"
     },
     "toeverything/AFFiNE": {
       "full_name": "toeverything/AFFiNE",
@@ -351,7 +351,7 @@
       "days_since_release": 31,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:46.473Z"
+      "verified_at": "2026-09-18T06:03:44.506Z"
     },
     "AppFlowy-IO/AppFlowy": {
       "full_name": "AppFlowy-IO/AppFlowy",
@@ -373,7 +373,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:46.896Z"
+      "verified_at": "2026-09-18T06:03:44.870Z"
     },
     "docmost/docmost": {
       "full_name": "docmost/docmost",
@@ -395,14 +395,14 @@
       "days_since_release": 10,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:47.322Z"
+      "verified_at": "2026-09-18T06:03:45.152Z"
     },
     "outline/outline": {
       "full_name": "outline/outline",
       "url": "https://github.com/outline/outline",
       "homepage": "https://www.getoutline.com",
       "description": "The fastest knowledge base for growing teams. Beautiful, realtime collaborative, feature packed, and markdown compatible.",
-      "stars": 40600,
+      "stars": 40601,
       "forks": 3563,
       "open_issues": 76,
       "license": null,
@@ -417,7 +417,7 @@
       "days_since_release": 9,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:47.755Z"
+      "verified_at": "2026-09-18T06:03:45.522Z"
     },
     "siyuan-note/siyuan": {
       "full_name": "siyuan-note/siyuan",
@@ -426,10 +426,10 @@
       "description": "An open-source, privacy-first, self-hosted knowledge workspace where humans and AI agents work together 开源、隐私优先、自托管的知识工作空间，让人与智能体在此协作",
       "stars": 46416,
       "forks": 3010,
-      "open_issues": 8,
+      "open_issues": 7,
       "license": "AGPL-3.0",
       "archived": false,
-      "pushed_at": "2026-09-18T05:34:54Z",
+      "pushed_at": "2026-09-18T06:00:27Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "v3.8.4",
@@ -439,7 +439,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:48.226Z"
+      "verified_at": "2026-09-18T06:03:45.842Z"
     },
     "plausible/analytics": {
       "full_name": "plausible/analytics",
@@ -461,7 +461,7 @@
       "days_since_release": 126,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:48.813Z"
+      "verified_at": "2026-09-18T06:03:46.302Z"
     },
     "matomo-org/matomo": {
       "full_name": "matomo-org/matomo",
@@ -483,7 +483,7 @@
       "days_since_release": 32,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:49.303Z"
+      "verified_at": "2026-09-18T06:03:46.558Z"
     },
     "umami-software/umami": {
       "full_name": "umami-software/umami",
@@ -505,7 +505,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:49.956Z"
+      "verified_at": "2026-09-18T06:03:47.053Z"
     },
     "go-vikunja/vikunja": {
       "full_name": "go-vikunja/vikunja",
@@ -527,7 +527,7 @@
       "days_since_release": 17,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:50.425Z"
+      "verified_at": "2026-09-18T06:03:47.368Z"
     },
     "caprover/caprover": {
       "full_name": "caprover/caprover",
@@ -549,7 +549,7 @@
       "days_since_release": 18,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:50.925Z"
+      "verified_at": "2026-09-18T06:03:47.729Z"
     },
     "coollabsio/coolify": {
       "full_name": "coollabsio/coolify",
@@ -571,7 +571,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:51.351Z"
+      "verified_at": "2026-09-18T06:03:48.110Z"
     },
     "Dokploy/dokploy": {
       "full_name": "Dokploy/dokploy",
@@ -593,7 +593,7 @@
       "days_since_release": 9,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:51.827Z"
+      "verified_at": "2026-09-18T06:03:48.400Z"
     },
     "activepieces/activepieces": {
       "full_name": "activepieces/activepieces",
@@ -615,19 +615,19 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:52.462Z"
+      "verified_at": "2026-09-18T06:03:48.731Z"
     },
     "n8n-io/n8n": {
       "full_name": "n8n-io/n8n",
       "url": "https://github.com/n8n-io/n8n",
       "homepage": "https://n8n.io",
       "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
-      "stars": 205111,
+      "stars": 205112,
       "forks": 60756,
       "open_issues": 1198,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-18T03:29:31Z",
+      "pushed_at": "2026-09-18T06:03:43Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "n8n@2.39.7",
@@ -637,7 +637,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:52.956Z"
+      "verified_at": "2026-09-18T06:03:49.030Z"
     },
     "windmill-labs/windmill": {
       "full_name": "windmill-labs/windmill",
@@ -659,7 +659,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-18T05:59:53.594Z"
+      "verified_at": "2026-09-18T06:03:49.318Z"
     }
   },
   "errors": [],
