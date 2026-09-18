@@ -18,13 +18,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Plus $10 per member / month",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         },
         {
@@ -37,13 +37,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Business Recommended $20 per member / month",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         }
       ],
@@ -57,9 +57,15 @@
           "USD8"
         ]
       },
-      "last_checked_at": "2026-09-17",
+      "last_checked_at": "2026-09-18",
       "last_check_ok": true,
-      "last_check_reason": null
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Free",
+        "Plus",
+        "Business",
+        "Enterprise"
+      ]
     },
     {
       "id": "airtable",
@@ -77,13 +83,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "our Team plan is available for $20/user/month when billed annually",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         },
         {
@@ -96,13 +102,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Business is available at $45/user/month when billed annually",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         }
       ],
@@ -114,9 +120,15 @@
           "USD45"
         ]
       },
-      "last_checked_at": "2026-09-17",
+      "last_checked_at": "2026-09-18",
       "last_check_ok": true,
-      "last_check_reason": null
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Free",
+        "Team",
+        "Business",
+        "Enterprise Scale"
+      ]
     },
     {
       "id": "zapier",
@@ -134,14 +146,14 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Professional Starting from $19.99 /month",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
           "caveat": "Entry tier. Zapier prices by task volume, so the real bill rises with usage; this is the floor, not the typical spend.",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         },
         {
@@ -154,14 +166,14 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Team Starting from $69 /month",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
           "caveat": "Entry tier; rises with task volume.",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         }
       ],
@@ -180,9 +192,15 @@
           "USD800"
         ]
       },
-      "last_checked_at": "2026-09-17",
+      "last_checked_at": "2026-09-18",
       "last_check_ok": true,
-      "last_check_reason": null
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Free",
+        "Professional",
+        "Team",
+        "Enterprise"
+      ]
     },
     {
       "id": "auth0",
@@ -200,14 +218,14 @@
           "currency": "USD",
           "billed": "monthly",
           "quote": "Essentials $ 35 / month ... Up to 500 monthly active users",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
           "caveat": "Priced at up to 500 monthly active users. Cost scales with MAU, so this is the entry price for a small user base.",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         },
         {
@@ -220,14 +238,14 @@
           "currency": "USD",
           "billed": "monthly",
           "quote": "Professional $ 240 / month ... Up to 500 monthly active users",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
           "caveat": "Priced at up to 500 monthly active users.",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         }
       ],
@@ -241,9 +259,15 @@
           "USD5000"
         ]
       },
-      "last_checked_at": "2026-09-17",
+      "last_checked_at": "2026-09-18",
       "last_check_ok": true,
-      "last_check_reason": null
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Free",
+        "Essentials",
+        "Professional",
+        "Enterprise"
+      ]
     },
     {
       "id": "calendly",
@@ -261,13 +285,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Standard ... $10 /seat/mo",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         },
         {
@@ -280,13 +304,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Teams ... $16 /seat/mo",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         }
       ],
@@ -299,9 +323,15 @@
           "USD16"
         ]
       },
-      "last_checked_at": "2026-09-17",
+      "last_checked_at": "2026-09-18",
       "last_check_ok": true,
-      "last_check_reason": null
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Free",
+        "Standard",
+        "Teams",
+        "Enterprise"
+      ]
     },
     {
       "id": "1password",
@@ -319,13 +349,14 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "1Password Business costs $8.99 per user per month when billed annually, or $107.88 per user per year",
-          "verified_at": "2026-09-03",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
           "check": {
-            "agreement": "unverifiable",
-            "at": "2026-09-17",
-            "reason": "two prices near the plan name (likely monthly and annual)"
-          }
+            "agreement": "match",
+            "at": "2026-09-18"
+          },
+          "last_auto_confirmed_at": "2026-09-18",
+          "needs_reverification": false
         },
         {
           "id": "teams-starter",
@@ -342,8 +373,8 @@
           "caveat": "Flat price covering up to 10 members.",
           "check": {
             "agreement": "unverifiable",
-            "at": "2026-09-17",
-            "reason": "6 different prices near the plan name"
+            "at": "2026-09-18",
+            "reason": "the stored price appears, but so do unrelated figures (299.4, 29.95, 359.4, 21.95, 263.4) — a human should look"
           }
         }
       ],
@@ -364,9 +395,14 @@
           "USD8.99"
         ]
       },
-      "last_checked_at": "2026-09-17",
+      "last_checked_at": "2026-09-18",
       "last_check_ok": true,
-      "last_check_reason": null
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Teams Starter Pack",
+        "Business",
+        "Enterprise"
+      ]
     },
     {
       "id": "docusign",
@@ -384,13 +420,14 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Standard ... $ 30 /user/month Annual ... This is an annual commitment of $360.",
-          "verified_at": "2026-09-03",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
           "check": {
-            "agreement": "unverifiable",
-            "at": "2026-09-17",
-            "reason": "4 different prices near the plan name"
-          }
+            "agreement": "match",
+            "at": "2026-09-18"
+          },
+          "last_auto_confirmed_at": "2026-09-18",
+          "needs_reverification": false
         }
       ],
       "fingerprint": {
@@ -407,9 +444,15 @@
           "USD540"
         ]
       },
-      "last_checked_at": "2026-09-17",
+      "last_checked_at": "2026-09-18",
       "last_check_ok": true,
-      "last_check_reason": null
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Personal",
+        "Standard",
+        "Business Pro",
+        "Enterprise"
+      ]
     },
     {
       "id": "vercel",
@@ -427,14 +470,19 @@
           "currency": "USD",
           "billed": "monthly",
           "quote": "Pro Popular $20 /mo. ... Team Seats Developer seat 1 $20 / month",
-          "verified_at": "2026-09-03",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
           "caveat": "$20 per developer seat per month, which includes $20 of usage credit. Bandwidth and compute above that credit are billed on top, so real bills commonly exceed the seat price.",
           "check": {
-            "agreement": "unverifiable",
-            "at": "2026-09-17",
-            "reason": "two prices near the plan name (likely monthly and annual)"
-          }
+            "agreement": "match",
+            "at": "2026-09-18"
+          },
+          "extraction_note": "Vercel's headline reads '$20 /mo.' and does not say it is per developer seat; the seats table further down does. The per-seat nature is verified by hand, so the nightly check compares the amount and period only.",
+          "check_ignores": [
+            "per_seat"
+          ],
+          "last_auto_confirmed_at": "2026-09-18",
+          "needs_reverification": false
         }
       ],
       "fingerprint": {
@@ -473,9 +521,14 @@
           "USD50"
         ]
       },
-      "last_checked_at": "2026-09-17",
+      "last_checked_at": "2026-09-18",
       "last_check_ok": true,
-      "last_check_reason": null
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Hobby",
+        "Pro",
+        "Enterprise"
+      ]
     },
     {
       "id": "plausible",
@@ -493,14 +546,14 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Starter /year /month $9 /month ... Up to 10k monthly pageviews",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
           "caveat": "Priced at up to 10k monthly pageviews; scales with traffic.",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         },
         {
@@ -513,13 +566,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Business /year /month $19 /month ... Up to 10 sites",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         }
       ],
@@ -532,9 +585,15 @@
           "USD9"
         ]
       },
-      "last_checked_at": "2026-09-17",
+      "last_checked_at": "2026-09-18",
       "last_check_ok": true,
-      "last_check_reason": null
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Starter",
+        "Growth",
+        "Business",
+        "Enterprise"
+      ]
     },
     {
       "id": "todoist",
@@ -552,13 +611,14 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Individuals Pro Organize your work and life US $5 per user/month $60 billed yearly",
-          "verified_at": "2026-09-03",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
           "check": {
-            "agreement": "unverifiable",
-            "at": "2026-09-17",
-            "reason": "no price found near the plan name"
-          }
+            "agreement": "match",
+            "at": "2026-09-18"
+          },
+          "last_auto_confirmed_at": "2026-09-18",
+          "needs_reverification": false
         },
         {
           "id": "business",
@@ -570,23 +630,35 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Teams Business Manage your teamwork, too ... US $8 plus local tax per user/month, $96 billed yearly",
-          "verified_at": "2026-09-03",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
           "check": {
-            "agreement": "unverifiable",
-            "at": "2026-09-17",
-            "reason": "no price found near the plan name"
-          }
+            "agreement": "match",
+            "at": "2026-09-18"
+          },
+          "last_auto_confirmed_at": "2026-09-18",
+          "needs_reverification": false
         }
       ],
       "fingerprint": {
-        "hash": "e3b0c44298fc1c14",
-        "token_count": 0,
-        "tokens": []
+        "hash": "e0691966ae33fa34",
+        "token_count": 5,
+        "tokens": [
+          "USD0",
+          "USD5",
+          "USD60",
+          "USD8",
+          "USD96"
+        ]
       },
-      "last_checked_at": "2026-09-17",
+      "last_checked_at": "2026-09-18",
       "last_check_ok": true,
-      "last_check_reason": null
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Beginner",
+        "Pro",
+        "Business"
+      ]
     },
     {
       "id": "miro",
@@ -604,13 +676,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Starter For small teams collaborating regularly with unlimited boards $ 8 /month per member, billed yearly",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         },
         {
@@ -623,13 +695,13 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Business For growing organizations and consultants to streamline workflows with AI $ 20 /month per member, billed yearly",
-          "verified_at": "2026-09-17",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
-          "last_auto_confirmed_at": "2026-09-17",
+          "last_auto_confirmed_at": "2026-09-18",
           "needs_reverification": false,
           "check": {
             "agreement": "match",
-            "at": "2026-09-17"
+            "at": "2026-09-18"
           }
         }
       ],
@@ -644,9 +716,15 @@
           "USD8"
         ]
       },
-      "last_checked_at": "2026-09-17",
+      "last_checked_at": "2026-09-18",
       "last_check_ok": true,
-      "last_check_reason": null
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Free",
+        "Starter",
+        "Business",
+        "Enterprise"
+      ]
     },
     {
       "id": "chatwoot-cloud",
@@ -664,13 +742,14 @@
           "currency": "USD",
           "billed": "annual",
           "quote": "Startups $19 /agent/month billed annually",
-          "verified_at": "2026-09-03",
+          "verified_at": "2026-09-18",
           "verified_by": "human",
           "check": {
-            "agreement": "unverifiable",
-            "at": "2026-09-17",
-            "reason": "4 different prices near the plan name"
-          }
+            "agreement": "match",
+            "at": "2026-09-18"
+          },
+          "last_auto_confirmed_at": "2026-09-18",
+          "needs_reverification": false
         }
       ],
       "fingerprint": {
@@ -684,9 +763,15 @@
           "USD99"
         ]
       },
-      "last_checked_at": "2026-09-17",
+      "last_checked_at": "2026-09-18",
       "last_check_ok": true,
-      "last_check_reason": null
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Hacker",
+        "Startups",
+        "Business",
+        "Enterprise"
+      ]
     }
   ]
 }

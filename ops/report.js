@@ -45,6 +45,22 @@ function unattendedDays() {
   return streak;
 }
 
+/**
+ * Which stored prices are actually published.
+ *
+ * A price no comparison uses still ages, but nobody sees it, so demanding a
+ * human re-verify it is make-work — and make-work in a weekly report is how a
+ * weekly report stops being read.
+ */
+function publishedPlans() {
+  const used = new Set();
+  for (const file of listJson(p('data', 'escapes'))) {
+    const e = readJson(file);
+    if (e?.incumbent) used.add(`${e.incumbent.vendor}/${e.incumbent.plan}`);
+  }
+  return used;
+}
+
 /** Affiliate programs that are actually live, read from the data rather than assumed. */
 function connectedPrograms() {
   const d = readJson(p('data', 'affiliates.json'), { programs: [] });
@@ -83,9 +99,13 @@ function main() {
   const metrics = readJson(p('data', 'metrics.json'), {});
 
   // ---- anything that needs a person ---------------------------------------
+  const published = publishedPlans();
+  const isPublished = (v, pl) => published.has(`${v.id}/${pl.id}`);
+  const unusedStale = [];
+
   for (const v of saas.vendors || []) {
     for (const pl of v.plans || []) {
-      if (pl.needs_reverification) {
+      if (pl.needs_reverification && isPublished(v, pl)) {
         needsHuman.push(`${v.name} ${pl.name}: page now shows ${pl.check?.observed?.amount ?? '?'}, we publish ${pl.amount}. ${pl.check?.reason || ''}  ->  ${v.pricing_url}`);
       }
     }
@@ -93,7 +113,9 @@ function main() {
   for (const v of saas.vendors || []) {
     for (const pl of v.plans || []) {
       const a = assess(pl.verified_at, 'saas', now);
-      if (a.state === 'stale') needsHuman.push(`${v.name} ${pl.name}: price is ${a.age_days} days old and has stopped publishing. Re-verify at ${v.pricing_url}`);
+      if (a.state !== 'stale') continue;
+      if (isPublished(v, pl)) needsHuman.push(`${v.name} ${pl.name}: price is ${a.age_days} days old and has stopped publishing. Re-verify at ${v.pricing_url}`);
+      else unusedStale.push(`${v.name} ${pl.name} (${a.age_days}d)`);
     }
   }
   for (const [name, pr] of Object.entries(projects)) {
@@ -127,7 +149,8 @@ function main() {
   out.push('WHAT IS LIVE');
   out.push(bullet(`${index?.counts?.published ?? 0} comparisons published, ${index?.counts?.blocked ?? 0} blocked`));
   out.push(bullet(`${verdicts.switch || 0} say switch, ${verdicts.marginal || 0} marginal, ${verdicts.stay || 0} say stay`));
-  out.push(bullet(`${saas.vendors.length} vendors, ${saas.vendors.reduce((n, v) => n + v.plans.length, 0)} verified prices`));
+  const totalPlans = saas.vendors.reduce((n, v) => n + v.plans.length, 0);
+  out.push(bullet(`${saas.vendors.length} vendors, ${totalPlans} verified prices (${published.size} of them published)`));
   const liveProviders = Object.entries(vps.providers || {}).filter(([, pv]) => pv.ok);
   out.push(bullet(`hosting: ${liveProviders.map(([n]) => n).join(', ') || 'none'} (${Object.values(vps.providers).reduce((n, pv) => n + (pv.plans?.length || 0), 0)} plans)`));
   const skipped = Object.entries(vps.providers || {}).filter(([, pv]) => /TOKEN not set/.test(pv.last_error || ''));
@@ -141,11 +164,13 @@ function main() {
     const a2 = pl.check?.agreement;
     if (a2) agree[a2] = (agree[a2] || 0) + 1;
     const a = assess(pl.verified_at, 'saas', now);
-    if (a.state === 'aging') aging.push(`${v.name} ${pl.name} (${a.age_days}d)`);
+    if (a.state === 'aging') aging.push({ label: `${v.name} ${pl.name} (${a.age_days}d)`, published: isPublished(v, pl) });
   }
   out.push('PRICE CHECKS');
   out.push(bullet(`${agree.match} confirmed automatically, ${agree.drift} drifted, ${agree.unverifiable} could not be read`));
-  if (aging.length) out.push(bullet(`ageing, will stop publishing if not confirmed: ${aging.join(', ')}`));
+  const agingPublished = aging.filter((a) => a.published);
+  if (agingPublished.length) out.push(bullet(`ageing, will stop publishing if not confirmed: ${agingPublished.map((a) => a.label).join(', ')}`));
+  if (unusedStale.length) out.push(bullet(`stale but unused, so nothing is affected: ${unusedStale.join(', ')}`));
   if (agree.unverifiable) out.push(bullet(`the unreadable ones keep their hand-verified value and expire on their own — no action needed unless they reach the list above`));
   out.push('');
 
