@@ -22,12 +22,16 @@
     {
       "provider": "DigitalOcean",
       "url": null,
-      "status": "pending",
+      "status": "awaiting_advertiser_approval",
       "program": "Affiliate via CJ",
       "pays": "10% of referred spend, monthly, for 12 months",
-      "note": "Application not yet submitted. The only recurring program found.",
+      "note": "Publisher account approved on AWIN 2026-09-21; DigitalOcean must still approve us for their programme, which is what 'Pending Approval' on the merchant profile means. 'Link status: online' describes their programme being live on the network, not our membership of it. NOTE: digitalocean.com/affiliates still names CJ (Commission Junction) as the network \u2014 that page is out of date, the signup routes to AWIN. Recorded because the wrong network was previously stored here.",
       "reader_benefit": null,
-      "verified_at": null
+      "verified_at": null,
+      "network": "AWIN",
+      "publisher_id": "3101261",
+      "merchant_profile": "https://ui.awin.com/awin/affiliate/3101261/merchant-profile/123996",
+      "blocked_by": "DO_API_TOKEN. DigitalOcean is not in the provider catalogue, so no comparison recommends a DigitalOcean box and the tracking link would have nowhere to appear. The token must land before this programme can earn anything."
     },
     {
       "provider": "PikaPods",
@@ -41,14 +45,15 @@
     }
   ],
   "_research": {
-    "checked": "2026-09-10",
+    "checked": "2026-09-21",
     "method": "every URL fetched; nothing recorded from memory",
     "worth_pursuing": [
       {
         "name": "DigitalOcean",
         "pays": "10% of referred spend monthly for 12 months",
-        "via": "CJ network",
-        "why": "the only recurring program found"
+        "via": "AWIN (their own page still says CJ; it is stale)",
+        "why": "the only recurring program found",
+        "status": "publisher approved, advertiser approval pending"
       },
       {
         "name": "PikaPods",

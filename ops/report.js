@@ -189,7 +189,13 @@ function main() {
     }
     out.push(bullet('earnings are not visible from here — check the provider dashboard; there is no API to read them'));
   }
-  for (const a of pending) out.push(bullet(`${a.provider}: not applied for yet — ${a.pays || 'terms unknown'}`));
+  for (const a of pending) {
+    const state = a.status === 'awaiting_advertiser_approval'
+      ? `approved on ${a.network || 'the network'}, waiting for them to approve us`
+      : 'not applied for yet';
+    out.push(bullet(`${a.provider}: ${state} — ${a.pays || 'terms unknown'}`));
+    if (a.blocked_by) out.push(`      blocked by: ${a.blocked_by}`);
+  }
   if (metrics.visitors_per_day === undefined) out.push(bullet('no analytics connected — traffic is unmeasured, so gates 2 and 3 cannot be evaluated'));
   else out.push(bullet(`${metrics.visitors_per_day}/day visitors, ${metrics.video_views_month ?? 0} video views this month`));
   out.push('');
