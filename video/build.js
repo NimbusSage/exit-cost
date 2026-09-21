@@ -35,7 +35,28 @@ function copyDir(from, to) {
 }
 const W = 1080, H = 1920, FPS = 30, DUR = 32;
 
+/** The mark, inlined so a render needs no asset lookup. */
+const MARK = `<svg viewBox="0 0 512 512" aria-hidden="true">
+  <g stroke="#8b919b" stroke-linecap="butt" fill="none">
+    <path d="M152 128 L152 368 L392 368" stroke-width="20"/>
+    <g stroke-width="18"><path d="M120 168 H152 M120 248 H152 M120 328 H152"/><path d="M216 400 V368 M288 400 V368 M360 400 V368"/></g>
+  </g>
+  <g fill="none" stroke-linecap="butt">
+    <path d="M152 368 L378 146" stroke="#a81e27" stroke-width="44"/>
+    <path d="M152 256 L378 208" stroke="#0b5137" stroke-width="44"/>
+  </g></svg>`;
+const WORDMARK = `<div class="wordmark">${MARK}<span>Exit Cost</span></div>`;
+
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+/**
+ * Size the big figure to the frame rather than to a guess.
+ * DM Mono advances about 0.6em per character; the usable width is the frame
+ * less its padding. Capped so short numbers do not become absurd.
+ */
+function figPx(text, { cap, maxWidth = 1080 - 168 }) {
+  return Math.min(cap, Math.floor(maxWidth / (text.length * 0.62)));
+}
+
 const money0 = (n) => '$' + Math.round(Math.abs(n)).toLocaleString('en-US');
 const money2 = (n) => '$' + Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
@@ -103,19 +124,19 @@ function composition(e) {
   #root { position:relative; width:${W}px; height:${H}px; overflow:hidden; font-family:var(--serif); }
   .bg { position:absolute; inset:0; background:var(--paper); }
   .clip { position:absolute; inset:0; padding:120px 84px; display:flex; flex-direction:column; justify-content:center; }
-  .kicker { font-size:50px; color:var(--muted); line-height:1.25; margin:0 0 18px; }
-  .kicker b { color:var(--ink); font-weight:500; }
-  .say { font-size:84px; line-height:1.14; margin:0 0 26px; letter-spacing:-.02em; max-width:14ch; }
+  .kicker { font-size:60px; color:var(--ink); font-weight:500; line-height:1.22; margin:0 0 20px; }
+  .kicker b { color:var(--ink); font-weight:600; }
+  .say { font-size:98px; font-weight:500; line-height:1.1; margin:0 0 28px; letter-spacing:-.028em; max-width:13ch; }
   .fig { font-family:var(--mono); font-weight:500; letter-spacing:-.05em; line-height:.92; margin:0; }
-  .fig-xl { font-size:250px; }
-  .fig-lg { font-size:185px; }
-  .per { font-family:var(--serif); font-size:46px; letter-spacing:0; color:var(--muted); }
+  .fig-xl { font-size:268px; }
+  .fig-lg { font-size:198px; }
+  .per { font-family:var(--serif); font-size:.3em; letter-spacing:normal; color:var(--muted); margin-left:.1em; }
   .debit { color:var(--debit); } .credit { color:var(--credit); } .muted { color:var(--muted); }
   .rule { height:2px; background:var(--rule); margin:34px 0; }
-  .line { display:flex; justify-content:space-between; align-items:baseline; font-size:52px; margin:0 0 20px; gap:24px; }
+  .line { display:grid; grid-template-columns:1fr auto; align-items:baseline; font-size:60px; margin:0 0 22px; gap:6px 40px; }
   .line .amt { font-family:var(--mono); font-feature-settings:'tnum' 1; white-space:nowrap; }
-  .line .lbl { color:var(--muted); }
-  .note { font-size:42px; color:var(--muted); line-height:1.35; margin:22px 0 0; max-width:22ch; }
+  .line .lbl { color:var(--ink); line-height:1.2; }
+  .note { font-size:46px; color:var(--muted); line-height:1.32; margin:24px 0 0; max-width:22ch; }
 
   #chart-svg { width:100%; height:auto; display:block; }
   #chart-svg .g { stroke:var(--rule); stroke-width:1; }
@@ -125,7 +146,9 @@ function composition(e) {
   #chart-svg #cross-dot { fill:var(--paper); stroke:var(--ink); stroke-width:4; }
   #chart-svg #wipe { fill:var(--paper); }
 
-  .wordmark { position:absolute; left:84px; bottom:78px; font-size:38px; color:var(--muted); }
+  .wordmark { position:absolute; left:84px; bottom:74px; display:flex; align-items:center; gap:22px; }
+  .wordmark svg { width:82px; height:82px; display:block; }
+  .wordmark span { font-size:46px; color:var(--muted); letter-spacing:-.01em; }
   .cta-url { font-family:var(--mono); font-size:44px; color:var(--ink); margin-top:16px; }
 </style>
 </head>
@@ -135,13 +158,13 @@ function composition(e) {
 
   <section id="scene-bill" class="clip" data-start="0" data-duration="5" data-track-index="1">
     <p class="kicker" id="s1-k">You pay for <b>${esc(inc)}</b>${seats > 1 ? `, ${seats} seats` : ''}.</p>
-    <p class="fig fig-xl debit" id="s1-f">${money0(r.incumbent.annual)}</p>
+    <p class="fig debit" id="s1-f" style="font-size:${figPx(money0(r.incumbent.annual), { cap: 268 })}px">${money0(r.incumbent.annual)}</p>
     <p class="kicker" id="s1-y" style="margin-top:18px">every year</p>
   </section>
 
   <section id="scene-alternative" class="clip" data-start="5" data-duration="4.6" data-track-index="2">
     <p class="kicker" id="s2-k">Self-host <b>${esc(altShort)}</b> instead.</p>
-    <p class="fig fig-xl credit" id="s2-f">${money0(r.alternative.cash_monthly * 12)}</p>
+    <p class="fig credit" id="s2-f" style="font-size:${figPx(money0(r.alternative.cash_monthly * 12), { cap: 268 })}px">${money0(r.alternative.cash_monthly * 12)}</p>
     <p class="kicker" id="s2-y" style="margin-top:18px">a year, all in</p>
   </section>
 
@@ -168,7 +191,7 @@ function composition(e) {
   <section id="scene-verdict" class="clip" data-start="22.6" data-duration="6.4" data-track-index="5">
     ${crossoverBig ? `
     <p class="kicker" id="s5-k">Worth doing only if your hour is worth under</p>
-    <p class="fig fig-lg" id="s5-f">${crossoverBig}<span class="per">/hr</span></p>
+    <p class="fig" id="s5-f" style="font-size:${figPx(crossoverBig + "/hr", { cap: 198 })}px">${crossoverBig}<span class="per">/hr</span></p>
     <p class="say ${verdictClass}" id="s5-v" style="margin-top:44px; font-size:66px">${verdictWord}</p>`
     : `
     <p class="say" id="s5-k">${esc(altShort)} costs more in cash alone.</p>
@@ -180,7 +203,7 @@ function composition(e) {
     <p class="cta-url" id="s6-u">${SITE_URL}</p>
   </section>
 
-  <div class="wordmark">Exit Cost</div>
+  ${WORDMARK}
 </div>
 
 <script>
