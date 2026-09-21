@@ -72,13 +72,35 @@ function mergeProviders(previous, fresh) {
   return { merged, report };
 }
 
-/** Flatten a merged file into a single plan list, dropping stale providers unless asked. */
-function flattenPlans(merged, { includeStale = false } = {}) {
+/**
+ * Flatten a merged file into a single plan list, dropping prices too old to publish.
+ *
+ * Exclusion is by AGE, not by whether the last fetch happened to fail. Those are
+ * different things: `stale` means "we could not reach them this time", while
+ * `verified_at` — which a failure deliberately never advances — says how old the
+ * prices actually are. A single transient timeout used to erase a provider
+ * outright, which silently removed the only revenue link from every page while
+ * the underlying prices were hours old and perfectly good.
+ *
+ * A provider whose prices have genuinely aged past the window is still excluded,
+ * which is the rule that matters.
+ */
+function flattenPlans(merged, { includeStale = false, now = new Date() } = {}) {
+  const { assess } = require('../lib/freshness.js');
   const out = [];
   for (const [name, p] of Object.entries(merged.providers || {})) {
-    if (!includeStale && p.stale) continue;
+    if (!p.plans?.length) continue;
+    const age = assess(p.verified_at, 'vps', now);
+    const tooOld = age.state === 'stale' || age.state === 'undated';
+    if (!includeStale && tooOld) continue;
     for (const plan of p.plans || []) {
-      out.push({ ...plan, _provider_key: name, verified_at: p.verified_at, stale: !!p.stale });
+      out.push({
+        ...plan,
+        _provider_key: name,
+        verified_at: p.verified_at,
+        stale: !!p.stale,              // the last fetch failed
+        age_days: age.age_days,        // how old the price actually is
+      });
     }
   }
   return out;

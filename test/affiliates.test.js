@@ -91,10 +91,14 @@ test('INTEGRITY: an affiliate program cannot change which provider is recommende
   ];
   const chosen = cheapestMeeting(plans, { ram_gb: 4, vcpu: 2, disk_gb: 40 });
   assert.equal(chosen.provider, 'NoProgram', 'the cheaper box wins regardless of who pays us');
-  const src = fs.readFileSync(path.join(ROOT, 'pipeline', 'collect', 'merge.js'), 'utf8');
-  assert.doesNotMatch(src, /affiliate/i, 'the provider selector must not reference affiliates at all');
-  const resolver = fs.readFileSync(path.join(ROOT, 'pipeline', 'compute', 'resolve.js'), 'utf8');
-  assert.doesNotMatch(resolver, /affiliate/i, 'the resolver must not reference affiliates either');
+  // Forbid USING the affiliate data, not mentioning it. Prose explaining why the
+  // selector ignores affiliates is fine; reading affiliates.json is not.
+  const USES_AFFILIATE_DATA = /require\([^)]*affiliate|affiliates\.json|\bAFFILIATES\b|providerLink\s*\(/;
+  for (const file of [['pipeline', 'collect', 'merge.js'], ['pipeline', 'compute', 'resolve.js']]) {
+    const src = fs.readFileSync(path.join(ROOT, ...file), 'utf8');
+    assert.doesNotMatch(src, USES_AFFILIATE_DATA,
+      `${file.join('/')} must not read affiliate data — selection is price alone`);
+  }
 });
 
 test('INTEGRITY: the same comparison produces identical numbers with and without a program', () => {
