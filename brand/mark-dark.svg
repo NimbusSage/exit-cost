@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Exit Cost mark: two cost lines crossing, on an axis.
+       The axis matters — without it the crossing reads as a propeller rather
+       than a chart. Everything is sized to survive a 32px circle crop: few
+       shapes, heavy strokes, no dashes (they mush), no small detail. -->
+  <rect width="512" height="512" fill="#14161a"/>
+  <g stroke-linecap="square" fill="none">
+    <!-- the axis, so it reads as a measurement and not a monogram -->
+    <path d="M128 112 L128 384 L400 384" stroke="#565c66" stroke-width="26"/>
+    <!-- what the subscription costs: steep and unrelenting -->
+    <path d="M128 384 L392 136" stroke="#e8737a" stroke-width="46" stroke-linecap="round"/>
+    <!-- what running it yourself costs: starts higher, barely rises -->
+    <path d="M128 250 L392 196" stroke="#57c295" stroke-width="46" stroke-linecap="round"/>
+  </g>
+</svg>

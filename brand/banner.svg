@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1152" width="2048" height="1152">
+  <!-- YouTube channel banner. Everything that must be readable sits inside the
+       1235x338 centre, which is all that survives on a phone. -->
+  <rect width="2048" height="1152" fill="#edeef0"/>
+  <g transform="translate(407, 407)">
+    <g transform="translate(0,24) scale(0.56)" stroke-linecap="square" fill="none">
+      <path d="M128 112 L128 384 L400 384" stroke="#8b919b" stroke-width="26"/>
+      <path d="M128 384 L392 136" stroke="#a81e27" stroke-width="46" stroke-linecap="round"/>
+      <path d="M128 250 L392 196" stroke="#0b5137" stroke-width="46" stroke-linecap="round"/>
+    </g>
+    <text x="330" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="108"
+          font-weight="600" fill="#000" letter-spacing="-2">Exit Cost</text>
+    <text x="330" y="222" font-family="Georgia, 'Times New Roman', serif" font-size="46"
+          fill="#565c66">What it really costs to leave a subscription.</text>
+    <text x="330" y="292" font-family="ui-monospace, Menlo, monospace" font-size="36"
+          fill="#0b5137">Including your own time.</text>
+  </g>
+</svg>

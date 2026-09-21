@@ -90,7 +90,7 @@ function layout({ title, description, canonical, body, jsonld = null, scripts = 
 <meta property="og:site_name" content="${SITE_NAME}">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="${u('/assets/style.css')}">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23edeef0'/><text y='24' x='4' font-family='Georgia,serif' font-size='22' fill='%23000'>&#8709;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%20%3Crect%20width%3D%27512%27%20height%3D%27512%27%20fill%3D%27%23edeef0%27%2F%3E%20%3Cg%20stroke-linecap%3D%27square%27%20fill%3D%27none%27%3E%20%3Cpath%20d%3D%27M128%20112%20L128%20384%20L400%20384%27%20stroke%3D%27%238b919b%27%20stroke-width%3D%2726%27%2F%3E%20%3Cpath%20d%3D%27M128%20384%20L392%20136%27%20stroke%3D%27%23a81e27%27%20stroke-width%3D%2746%27%20stroke-linecap%3D%27round%27%2F%3E%20%3Cpath%20d%3D%27M128%20250%20L392%20196%27%20stroke%3D%27%230b5137%27%20stroke-width%3D%2746%27%20stroke-linecap%3D%27round%27%2F%3E%20%3C%2Fg%3E%20%3C%2Fsvg%3E">
 ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ''}
 </head>
 <body>
