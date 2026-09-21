@@ -423,25 +423,25 @@
           "verified_at": "2026-09-21",
           "verified_by": "human",
           "check": {
-            "agreement": "unverifiable",
-            "at": "2026-09-21",
-            "reason": "2 different prices near the plan name"
+            "agreement": "match",
+            "at": "2026-09-21"
           },
           "last_auto_confirmed_at": "2026-09-21",
           "needs_reverification": false
         }
       ],
       "fingerprint": {
-        "hash": "4df661afe1db3632",
-        "token_count": 7,
+        "hash": "5d10324d72edb46f",
+        "token_count": 8,
         "tokens": [
-          "USD170",
-          "USD2040",
-          "USD425",
-          "USD5100",
-          "USD680",
-          "USD7",
-          "USD8160"
+          "USD0.36",
+          "USD11",
+          "USD132",
+          "USD2.4",
+          "USD30",
+          "USD360",
+          "USD45",
+          "USD540"
         ]
       },
       "last_checked_at": "2026-09-21",
@@ -614,9 +614,8 @@
           "verified_at": "2026-09-21",
           "verified_by": "human",
           "check": {
-            "agreement": "unverifiable",
-            "at": "2026-09-21",
-            "reason": "two prices near the plan name (likely monthly and annual)"
+            "agreement": "match",
+            "at": "2026-09-21"
           },
           "last_auto_confirmed_at": "2026-09-21",
           "needs_reverification": false
@@ -634,23 +633,22 @@
           "verified_at": "2026-09-21",
           "verified_by": "human",
           "check": {
-            "agreement": "unverifiable",
-            "at": "2026-09-21",
-            "reason": "two prices near the plan name (likely monthly and annual)"
+            "agreement": "match",
+            "at": "2026-09-21"
           },
           "last_auto_confirmed_at": "2026-09-21",
           "needs_reverification": false
         }
       ],
       "fingerprint": {
-        "hash": "c40407bde56cd376",
+        "hash": "e0691966ae33fa34",
         "token_count": 5,
         "tokens": [
           "USD0",
-          "USD3",
-          "USD36",
-          "USD4.83",
-          "USD58"
+          "USD5",
+          "USD60",
+          "USD8",
+          "USD96"
         ]
       },
       "last_checked_at": "2026-09-21",
