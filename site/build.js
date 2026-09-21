@@ -114,7 +114,7 @@ ${body}
   comparisons where staying on the subscription is the right answer.</p>
   <p>Prices are list prices in USD, exclusive of tax, and each carries the date it was
   last verified. We are not affiliated with any of the vendors compared here.
-  <a href="${u('/method/')}">How we count</a> · <a href="${u('/data/')}">Open data</a></p>
+  <a href="${u('/method/')}">How we count</a> · <a href="${u('/data/')}">Open data</a> · <a href="${u('/privacy/')}">Privacy</a></p>
 </footer>
 </div>
 ${scripts}
@@ -595,6 +595,91 @@ It is free to use, including commercially, with attribution.
   });
 }
 
+/* --------------------------------------------------------------- privacy */
+
+/**
+ * A real privacy policy.
+ *
+ * Google's OAuth branding review rejected /data/ as one, correctly — it is a
+ * dataset page. This states what the site and the uploader actually do, which
+ * on a static site with no analytics is close to nothing. Saying "close to
+ * nothing" specifically is more useful, and more credible, than the usual page
+ * of hedged boilerplate.
+ */
+function privacyPage(index, siteUrl) {
+  const body = `
+<div class="standfirst">
+  <h1 class="measure">Privacy</h1>
+  <p class="dek measure">This site is a few hundred static files. It has no accounts, no tracking and no adverts, and the short version is that we do not collect anything about you.</p>
+  <p class="measure muted small">Last updated ${index.day}.</p>
+</div>
+
+<h2 class="section-head">What the website collects</h2>
+<p class="measure"><b>Nothing that identifies you.</b> There are no accounts, no sign-in, no advertising
+and no analytics or tracking scripts of any kind. We do not set cookies.</p>
+<p class="measure">Two settings are remembered <em>in your own browser</em> using local storage: the
+hourly rate and the team size you set on a comparison. They never leave your device, are never sent
+to us, and we cannot read them. Clearing your browser data removes them.</p>
+<p class="measure">The typefaces are served from this site rather than a font service, so loading a
+page makes no request to any third party. That seemed the least we could do given who reads this.</p>
+
+<h2 class="section-head">What the host records</h2>
+<p class="measure">The site is served by GitHub Pages. Like any web server, GitHub records requests —
+including IP addresses — in its own logs, which we do not control and do not have access to. Their
+handling is described in the
+<a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" rel="nofollow">GitHub Privacy Statement</a>.</p>
+
+<h2 class="section-head">Links to other companies</h2>
+<p class="measure">Some links to hosting providers are referral links, disclosed at the foot of every
+page. Following one takes you to that company's site, where their own privacy policy applies and
+where they will typically set a cookie recording that you arrived from here. We receive no personal
+information about you from them — only aggregate counts of clicks and sign-ups. If you would rather
+not be counted, the same providers are reachable by typing their address directly, and the
+comparison reads identically either way.</p>
+
+<h2 class="section-head">The Exit Cost publishing app</h2>
+<p class="measure">We operate a small application that uploads our own videos to our own YouTube
+channel using the YouTube Data API. It exists solely to publish the comparisons on this site.</p>
+<ul class="caveats measure">
+  <li>It authenticates as the channel owner and uploads videos. That is all it is permitted to do —
+  the only scope it requests is <code>youtube.upload</code>.</li>
+  <li><b>It has no users other than us.</b> It does not sign anyone in, does not request access to
+  anyone else's Google account, and handles no third-party Google user data.</li>
+  <li>It reads nothing from your Google account. It cannot see your videos, your subscriptions or
+  your profile, because the scope it holds does not allow it.</li>
+  <li>Its credentials are stored as encrypted repository secrets and are used only to refresh an
+  access token at upload time.</li>
+</ul>
+<p class="measure">Exit Cost's use of information received from Google APIs adheres to the
+<a href="https://developers.google.com/terms/api-services-user-data-policy" rel="nofollow">Google API Services User Data Policy</a>,
+including the Limited Use requirements.</p>
+
+<h2 class="section-head">Children</h2>
+<p class="measure">This site is about business software costs and is not directed at children. We do
+not knowingly collect information from anyone, of any age.</p>
+
+<h2 class="section-head">Changes, and how to reach us</h2>
+<p class="measure">If this policy changes, the date at the top changes with it, and the history of
+every edit is public in the repository — there is no version of this page you cannot check.</p>
+<p class="measure">Questions, or a request about data: <a href="https://github.com/NimbusSage/exit-cost/issues">open an issue</a>.
+There is no mailing list to leave, because there is no mailing list.</p>`;
+
+  return layout({
+    title: `Privacy — ${SITE_NAME}`,
+    description: 'Exit Cost has no accounts, no tracking and no cookies. What the site stores, what the host logs, and what the publishing app can and cannot do.',
+    canonical: `${siteUrl}/privacy/`,
+    body,
+    jsonld: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'Privacy',
+      description: 'Privacy policy for Exit Cost and its publishing application.',
+      mainEntityOfPage: `${siteUrl}/privacy/`,
+      dateModified: index.day,
+    },
+  });
+}
+
 /* ------------------------------------------------------------ vendor pages */
 
 /**
@@ -809,6 +894,7 @@ function main() {
   write('index.html', indexPage(index, siteUrl));
   write('method/index.html', methodPage(index, siteUrl));
   write('data/index.html', dataPage(index, siteUrl));
+  write('privacy/index.html', privacyPage(index, siteUrl));
 
   // One page per subscription, for the broader query a single pairing cannot answer.
   const byVendor = new Map();
@@ -853,7 +939,7 @@ function main() {
     escapes,
   }, null, 2));
 
-  const urls = ['/', '/method/', '/data/', ...vendorUrls, ...escapes.map((e) => `/e/${e.slug}/`)];
+  const urls = ['/', '/method/', '/data/', '/privacy/', ...vendorUrls, ...escapes.map((e) => `/e/${e.slug}/`)];
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `  <url><loc>${siteUrl}${u}</loc><lastmod>${index.day}</lastmod></url>`).join('\n')}

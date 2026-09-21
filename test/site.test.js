@@ -407,3 +407,17 @@ test('the Google verification token is served verbatim at the site root', () => 
   assert.match(body, /^google-site-verification:/, 'Google requires the file contents unchanged');
   assert.ok(body.includes(file), 'the file must name itself, which is what Google checks');
 });
+
+test('the privacy policy exists and says what the publishing app does', () => {
+  // Google's OAuth branding review rejects a policy that does not describe the
+  // app's handling of Google user data.
+  const read = buildWith('https://exitcost.dev');
+  const html = read('privacy/index.html');
+  const words = html.replace(/<[^>]*>/g, ' ').trim().split(/\s+/).length;
+  assert.ok(words > 300, `privacy policy is only ${words} words`);
+  assert.match(html, /youtube\.upload/, 'must name the scope it requests');
+  assert.match(html, /Limited Use/, 'must carry the Google API Limited Use declaration');
+  assert.match(html, /no users other than us|handles no third-party Google user data/i,
+    'must state whether it handles other people\'s Google data');
+  assert.match(read('index.html'), /href="\/privacy\/"/, 'every page must link to it');
+});

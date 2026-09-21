@@ -1,6 +1,7 @@
 # Exit Cost
 
-> Picking this up cold? Read [HANDOFF.md](HANDOFF.md) first — state, the rules
+> Owner: what still needs you is in [SETUP.md](SETUP.md).
+> Picking this up cold as an agent? Read [HANDOFF.md](HANDOFF.md) first — state, the rules
 > that are not obvious from the code, and the traps that have already cost time.
 
 **What it really costs to leave a SaaS subscription — including your own time.**
