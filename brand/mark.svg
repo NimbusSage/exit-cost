@@ -1,15 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <!-- Exit Cost mark: two cost lines crossing, on an axis.
-       The axis matters — without it the crossing reads as a propeller rather
-       than a chart. Everything is sized to survive a 32px circle crop: few
-       shapes, heavy strokes, no dashes (they mush), no small detail. -->
+  <!-- Exit Cost: two cost lines crossing on a measured axis.
+       Ticks rather than numerals — digits are illegible below 48px while ticks
+       still read as measurement. Square caps: a round end reads as a brush
+       stroke, a square one as an instrument.
+       No frame here. This variant is circle-cropped for avatars, and a border
+       slices visibly through the crop. Use mark-framed.svg where it sits in a
+       square. -->
   <rect width="512" height="512" fill="#edeef0"/>
-  <g stroke-linecap="square" fill="none">
-    <!-- the axis, so it reads as a measurement and not a monogram -->
-    <path d="M128 112 L128 384 L400 384" stroke="#8b919b" stroke-width="26"/>
-    <!-- what the subscription costs: steep and unrelenting -->
-    <path d="M128 384 L392 136" stroke="#a81e27" stroke-width="46" stroke-linecap="round"/>
-    <!-- what running it yourself costs: starts higher, barely rises -->
-    <path d="M128 250 L392 196" stroke="#0b5137" stroke-width="46" stroke-linecap="round"/>
+
+  <g stroke="#8b919b" stroke-linecap="butt" fill="none">
+    <path d="M152 128 L152 368 L392 368" stroke-width="20"/>
+    <g stroke-width="18">
+      <path d="M120 168 H152 M120 248 H152 M120 328 H152"/>
+      <path d="M216 400 V368 M288 400 V368 M360 400 V368"/>
+    </g>
+  </g>
+
+  <g fill="none" stroke-linecap="butt">
+    <path d="M152 368 L378 146" stroke="#a81e27" stroke-width="44"/>
+    <path d="M152 256 L378 208" stroke="#0b5137" stroke-width="44"/>
   </g>
 </svg>

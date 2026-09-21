@@ -8,14 +8,22 @@ The axis is not decoration. Without it the crossing reads as a propeller rather
 than a chart; with it the shape is legible at 32px, which is the size that
 actually matters in a feed.
 
+Two variants, because a border that looks right in a square slices visibly
+through a circular crop:
+
 | File | Use |
 |---|---|
-| `mark.svg` | Source. Light ground. |
-| `mark-dark.svg` | Source, for dark surfaces. |
-| `avatar-800.png` | YouTube / TikTok / Instagram channel avatar. |
-| `avatar-98.png` | Small placements; YouTube's stated minimum. |
+| `mark.svg` | **Circle crops** — avatars. No frame. Composition sits inside the circle-safe radius. |
+| `mark-framed.svg` | **Square placements** — favicon, Google Cloud branding, app icons. Adds a plate so it holds its own on another light surface. |
+| `mark-dark.svg`, `mark-framed-dark.svg` | The same, for dark surfaces. |
+| `avatar-800.png`, `avatar-98.png` | YouTube / TikTok / Instagram avatar. 98 is YouTube's stated minimum. |
 | `avatar-dark-800.png` | Where a light ground would glare. |
-| `banner-2048x1152.png` | YouTube channel banner. Everything readable sits inside the centre 1235×338, which is all that survives on a phone. |
+| `icon-512.png`, `icon-192.png`, `icon-48.png` | Square icon placements, including Google Cloud OAuth branding. |
+| `banner-2048x1152.png` | YouTube banner. Readable content sits inside the centre 1235×338, all that survives on a phone. |
+
+Ticks, not numerals: digits are illegible below 48px while tick marks still read
+as measurement. Square line caps, not round: a rounded end reads as a brush
+stroke, a square one as an instrument.
 
 The site favicon is `mark.svg` inlined as a data URI, so it needs no request and
 cannot 404.

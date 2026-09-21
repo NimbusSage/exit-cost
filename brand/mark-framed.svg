@@ -3,12 +3,12 @@
        Ticks rather than numerals — digits are illegible below 48px while ticks
        still read as measurement. Square caps: a round end reads as a brush
        stroke, a square one as an instrument.
-       No frame here. This variant is circle-cropped for avatars, and a border
-       slices visibly through the crop. Use mark-framed.svg where it sits in a
-       square. -->
-  <rect width="512" height="512" fill="#14161a"/>
+       Framed for square placements. This is that framed variant. -->
+  <rect width="512" height="512" fill="#edeef0"/>
+  <!-- a plate, so the mark holds its own on another light surface -->
+  <rect x="22" y="22" width="468" height="468" rx="18" fill="none" stroke="#c0c4cb" stroke-width="11"/>
 
-  <g stroke="#565c66" stroke-linecap="butt" fill="none">
+  <g stroke="#8b919b" stroke-linecap="butt" fill="none">
     <path d="M152 128 L152 368 L392 368" stroke-width="20"/>
     <g stroke-width="18">
       <path d="M120 168 H152 M120 248 H152 M120 328 H152"/>
@@ -17,7 +17,7 @@
   </g>
 
   <g fill="none" stroke-linecap="butt">
-    <path d="M152 368 L378 146" stroke="#e8737a" stroke-width="44"/>
-    <path d="M152 256 L378 208" stroke="#57c295" stroke-width="44"/>
+    <path d="M152 368 L378 146" stroke="#a81e27" stroke-width="44"/>
+    <path d="M152 256 L378 208" stroke="#0b5137" stroke-width="44"/>
   </g>
 </svg>
