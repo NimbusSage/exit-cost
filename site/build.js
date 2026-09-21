@@ -173,6 +173,28 @@ function crossoverCopy(e) {
  * when the honest answer is to let somebody else operate the same software. Four
  * of these comparisons change their verdict once this column exists.
  */
+/**
+ * The same specification at every provider that sells it.
+ *
+ * The arithmetic uses the cheapest, and that selection never consults who pays
+ * us. But most readers already have an account somewhere, and telling them only
+ * the cheapest assumes they will open a new one. Showing all three is the more
+ * useful answer and happens also to be the honest place for a referral link.
+ */
+function elsewhere(e) {
+  const alts = e.alternative.box_alternatives || [];
+  if (alts.length < 2) return '';
+  const cells = alts.map((a) => {
+    const link = providerLink(a.provider, a.url);
+    return `<li><a href="${esc(link.url)}" rel="sponsored nofollow">${esc(a.provider)}</a>
+      <span class="amt-inline">${money(a.monthly_usd)}</span>
+      <span class="note">${esc(a.name)}${a.chosen ? ' · used above' : ''}${link.benefit ? ` · ${esc(link.benefit)}` : ''}</span></li>`;
+  }).join('');
+  return `
+  <p class="small muted measure" style="margin:-.4rem 0 .5rem">The same box elsewhere, if you already have an account. The arithmetic above uses the cheapest.</p>
+  <ul class="elsewhere">${cells}</ul>`;
+}
+
 function managedBlock(e) {
   const m = e.managed;
   if (!m) return '';
@@ -332,6 +354,7 @@ function escapePage(e, siteUrl) {
     <tr class="total"><td>Every month</td><td class="amt" id="alt-monthly">${money(r.alternative.monthly)}</td></tr>
     <tr><td style="padding-top:.9rem">Migration, once<div class="note">${e.alternative.migration_hours} hours of your time, our estimate</div></td><td class="amt" id="alt-upfront" style="padding-top:.9rem">${money(r.alternative.one_time)}</td></tr>
   </table>
+  ${elsewhere(e)}
 
   <h2 class="section-head">The difference</h2>
   <table class="statement">

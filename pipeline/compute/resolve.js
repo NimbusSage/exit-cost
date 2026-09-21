@@ -100,6 +100,18 @@ function resolveEscape(escape, ctx) {
   });
   if (!box) errors.push(`no VPS plan meets ${JSON.stringify(req)} — refusing to substitute a smaller box`);
 
+  // The same specification at every provider that sells it. The arithmetic uses
+  // the cheapest — that selection stays a pure function of price — but a reader
+  // who already has an account somewhere is better served by seeing the others
+  // than by a single number that assumes they will open a new one.
+  const providersSeen = [...new Set(vpsPlans.map((p) => p.provider))];
+  const box_alternatives = providersSeen
+    .map((provider) => cheapestMeeting(vpsPlans, {
+      ram_gb: req.ram_gb || 0, vcpu: req.vcpu || 0, disk_gb: req.disk_gb || 0, providers: [provider],
+    }))
+    .filter(Boolean)
+    .sort((a, b) => a.monthly_usd - b.monthly_usd);
+
   // ---- backup --------------------------------------------------------------
   const storeId = escape.alternative.storage || storage.default;
   const store = (storage.options || []).find((o) => o.id === storeId);
@@ -184,6 +196,11 @@ function resolveEscape(escape, ctx) {
       },
       storage: backupGb > 0 ? { ...store, gb: backupGb, monthly_usd: Math.round(storageMonthly * 100) / 100 } : null,
       requirements: req,
+      box_alternatives: box_alternatives.map((p) => ({
+        provider: p.provider, name: p.name, monthly_usd: p.monthly_usd,
+        vcpu: p.vcpu, ram_gb: p.ram_gb, disk_gb: p.disk_gb, url: p.url,
+        chosen: p.id === box.id,
+      })),
       migration_hours: input.alternative.migration_hours,
       maintenance_hours_per_month: input.alternative.maintenance_hours_per_month,
     },

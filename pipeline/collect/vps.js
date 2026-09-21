@@ -13,7 +13,8 @@
  *   { id, provider, name, vcpu, ram_gb, disk_gb, bandwidth_tb, monthly_usd, currency, url }
  */
 
-const { fetchJson } = require('../lib/http.js');
+const { fetchJson, fetchText, robotsAllows } = require('../lib/http.js');
+const { htmlToText } = require('./extract.js');
 
 const round2 = (n) => Math.round(n * 100) / 100;
 
@@ -120,10 +121,66 @@ async function collectHetzner({ eurUsd }) {
   return { ok: true, source_url, plans };
 }
 
+/**
+ * DigitalOcean from their published pricing page.
+ *
+ * Their API needs an account, and an account needs a verified payment method —
+ * a real barrier for a project that will never create a resource. The pricing
+ * page is public, robots-allowed, and carries the same table the API returns:
+ * memory, vCPU, transfer, disk, hourly and monthly. Reading it is how we can
+ * recommend (and earn on) DigitalOcean without anyone putting a card down.
+ *
+ * Used only when DO_API_TOKEN is absent; the API is preferred when it exists,
+ * because a documented endpoint is steadier than a page layout.
+ */
+async function collectDigitalOceanPublic() {
+  const source_url = 'https://www.digitalocean.com/pricing/droplets';
+  const allowed = await robotsAllows(source_url);
+  if (!allowed.allowed) return { ok: false, skipped: true, reason: `robots.txt disallows: ${allowed.reason}` };
+
+  const text = htmlToText(await fetchText(source_url, { timeoutMs: 25000 }));
+
+  // Rows read: <memory> <vCPU> <transfer> <disk> $<hourly> $<monthly>
+  const ROW = /(\d+(?:[.,]\d+)?)\s*(MiB|GiB)\s+(\d+)\s*vCPUs?\s+([\d,]+)\s*GiB\s+([\d,]+)\s*GiB\s+\$\s?([\d.]+)\s+\$\s?([\d.,]+)/g;
+
+  const seen = new Map();
+  for (const m of text.matchAll(ROW)) {
+    const ramRaw = parseFloat(m[1].replace(/,/g, ''));
+    const ram_gb = m[2] === 'MiB' ? Math.round((ramRaw / 1024) * 100) / 100 : ramRaw;
+    const vcpu = parseInt(m[3], 10);
+    const bandwidth_tb = round2(parseFloat(m[4].replace(/,/g, '')) / 1024);
+    const disk_gb = parseInt(m[5].replace(/,/g, ''), 10);
+    const monthly_usd = round2(parseFloat(m[7].replace(/,/g, '')));
+    if (!(ram_gb > 0 && vcpu > 0 && disk_gb > 0 && monthly_usd > 0)) continue;
+
+    // The page lists several droplet families; identical specs at a higher price
+    // would never be chosen anyway, so keep the cheapest of each shape.
+    const key = `${vcpu}-${ram_gb}-${disk_gb}`;
+    const prev = seen.get(key);
+    if (prev && prev.monthly_usd <= monthly_usd) continue;
+    seen.set(key, {
+      id: `do:${vcpu}vcpu-${ram_gb}gb-${disk_gb}gb`,
+      provider: 'DigitalOcean',
+      name: `${vcpu} vCPU · ${ram_gb} GB`,
+      vcpu, ram_gb, disk_gb, bandwidth_tb,
+      monthly_usd,
+      currency: 'USD',
+      url: 'https://www.digitalocean.com/pricing/droplets',
+      source: 'published pricing page',
+    });
+  }
+
+  const plans = [...seen.values()];
+  if (plans.length < 5) throw new Error(`DigitalOcean: only ${plans.length} plans parsed from the pricing page — the layout has probably changed`);
+  return { ok: true, source_url, plans, via: 'pricing page' };
+}
+
 /** DigitalOcean — needs a read-only token in DO_API_TOKEN. */
 async function collectDigitalOcean() {
   const token = process.env.DO_API_TOKEN;
-  if (!token) return { ok: false, skipped: true, reason: 'DO_API_TOKEN not set' };
+  // No token is not a failure here: their published prices are public, and an
+  // account would mean putting a payment method on file to read a price list.
+  if (!token) return collectDigitalOceanPublic();
 
   const source_url = 'https://api.digitalocean.com/v2/sizes?per_page=200';
   const data = await fetchJson(source_url, { headers: { Authorization: `Bearer ${token}` } });
@@ -188,4 +245,4 @@ async function collectAll() {
   return { fetched_at, fx: eurUsd, providers };
 }
 
-module.exports = { collectAll, collectVultr, collectLinode, collectHetzner, collectDigitalOcean, collectEurUsd, COLLECTORS };
+module.exports = { collectAll, collectVultr, collectLinode, collectHetzner, collectDigitalOcean, collectDigitalOceanPublic, collectEurUsd, COLLECTORS };

@@ -346,3 +346,40 @@ test('every kit in data/kits.json has a spec and a published comparison', () => 
     assert.equal(k.validated, true, `${k.id} is listed but not marked validated`);
   }
 });
+
+test('a comparison shows the same spec at every provider that sells it', () => {
+  const read = buildWith('https://exitcost.dev');
+  const html = read('e/airtable-to-baserow/index.html');
+  assert.match(html, /The same box elsewhere/);
+  for (const p of ['Vultr', 'Linode', 'DigitalOcean']) {
+    assert.match(html, new RegExp(`<a[^>]*>${p}</a>`), `${p} is missing from the alternatives`);
+  }
+  assert.match(html, /used above/, 'the one the arithmetic used must be marked');
+});
+
+test('INTEGRITY: showing alternatives does not change which box the arithmetic used', () => {
+  const read = buildWith('https://exitcost.dev');
+  const api = JSON.parse(read('api/escapes/airtable-to-baserow.json'));
+  const chosen = api.alternative.box_alternatives.filter((a) => a.chosen);
+  assert.equal(chosen.length, 1, 'exactly one alternative is the chosen box');
+  assert.equal(chosen[0].provider, api.alternative.box.provider);
+  assert.equal(chosen[0].monthly_usd, api.alternative.box.monthly_usd);
+  // And it is genuinely the cheapest of them.
+  const cheapest = [...api.alternative.box_alternatives].sort((a, b) => a.monthly_usd - b.monthly_usd)[0];
+  assert.equal(cheapest.provider, api.alternative.box.provider,
+    'the arithmetic must use the cheapest, whoever that is');
+});
+
+test('INTEGRITY: every provider listed actually meets the requirement', () => {
+  const read = buildWith('https://exitcost.dev');
+  const index = JSON.parse(read('api/index.json'));
+  for (const e of index.escapes.slice(0, 8)) {
+    const api = JSON.parse(read(`api/escapes/${e.slug}.json`));
+    const req = api.alternative.requirements;
+    for (const a of api.alternative.box_alternatives || []) {
+      assert.ok(a.ram_gb >= (req.ram_gb || 0), `${e.slug}: ${a.provider} box is too small on RAM`);
+      assert.ok(a.vcpu >= (req.vcpu || 0), `${e.slug}: ${a.provider} box is too small on vCPU`);
+      assert.ok(a.disk_gb >= (req.disk_gb || 0), `${e.slug}: ${a.provider} box is too small on disk`);
+    }
+  }
+});
