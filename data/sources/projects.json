@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-21T08:00:47.924Z",
+  "fetched_at": "2026-09-21T08:19:15.966Z",
   "projects": {
     "passbolt/passbolt_api": {
       "full_name": "passbolt/passbolt_api",
@@ -21,14 +21,14 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:32.684Z"
+      "verified_at": "2026-09-21T08:19:01.913Z"
     },
     "dani-garcia/vaultwarden": {
       "full_name": "dani-garcia/vaultwarden",
       "url": "https://github.com/dani-garcia/vaultwarden",
       "homepage": null,
       "description": "Unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs",
-      "stars": 67943,
+      "stars": 67944,
       "forks": 3234,
       "open_issues": 80,
       "license": "AGPL-3.0",
@@ -43,7 +43,7 @@
       "days_since_release": 8,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:33.278Z"
+      "verified_at": "2026-09-21T08:19:02.382Z"
     },
     "baserow/baserow": {
       "full_name": "baserow/baserow",
@@ -55,7 +55,7 @@
       "open_issues": 1244,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-21T07:50:01Z",
+      "pushed_at": "2026-09-21T08:12:56Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "2.3.4",
@@ -65,7 +65,7 @@
       "days_since_release": 6,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:33.686Z"
+      "verified_at": "2026-09-21T08:19:02.918Z"
     },
     "nocodb/nocodb": {
       "full_name": "nocodb/nocodb",
@@ -87,7 +87,7 @@
       "days_since_release": 11,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:34.155Z"
+      "verified_at": "2026-09-21T08:19:03.336Z"
     },
     "teableio/teable": {
       "full_name": "teableio/teable",
@@ -109,7 +109,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:34.620Z"
+      "verified_at": "2026-09-21T08:19:03.804Z"
     },
     "keycloak/keycloak": {
       "full_name": "keycloak/keycloak",
@@ -118,10 +118,10 @@
       "description": "Open Source Identity and Access Management For Modern Applications and Services",
       "stars": 36899,
       "forks": 8946,
-      "open_issues": 3254,
+      "open_issues": 3251,
       "license": "Apache-2.0",
       "archived": false,
-      "pushed_at": "2026-09-21T07:51:19Z",
+      "pushed_at": "2026-09-21T08:07:40Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "26.7.4",
@@ -131,7 +131,7 @@
       "days_since_release": 5,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:35.065Z"
+      "verified_at": "2026-09-21T08:19:04.246Z"
     },
     "zitadel/zitadel": {
       "full_name": "zitadel/zitadel",
@@ -153,14 +153,14 @@
       "days_since_release": 17,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:35.564Z"
+      "verified_at": "2026-09-21T08:19:04.686Z"
     },
     "calcom/cal.com": {
       "full_name": "calcom/cal.diy",
       "url": "https://github.com/calcom/cal.diy",
       "homepage": "https://cal.diy",
       "description": "Scheduling infrastructure for absolutely everyone.",
-      "stars": 48583,
+      "stars": 48584,
       "forks": 15182,
       "open_issues": 1419,
       "license": "MIT",
@@ -175,7 +175,7 @@
       "days_since_release": 203,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:36.153Z"
+      "verified_at": "2026-09-21T08:19:05.250Z"
     },
     "alextselegidis/easyappointments": {
       "full_name": "alextselegidis/easyappointments",
@@ -197,14 +197,14 @@
       "days_since_release": 117,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:37.069Z"
+      "verified_at": "2026-09-21T08:19:06.036Z"
     },
     "chatwoot/chatwoot": {
       "full_name": "chatwoot/chatwoot",
       "url": "https://github.com/chatwoot/chatwoot",
       "homepage": "https://www.chatwoot.com/help-center",
       "description": "Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬",
-      "stars": 37021,
+      "stars": 37022,
       "forks": 8997,
       "open_issues": 1452,
       "license": null,
@@ -219,7 +219,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:37.558Z"
+      "verified_at": "2026-09-21T08:19:06.496Z"
     },
     "documenso/documenso": {
       "full_name": "documenso/documenso",
@@ -228,10 +228,10 @@
       "description": "The Open Source DocuSign Alternative.",
       "stars": 15123,
       "forks": 3248,
-      "open_issues": 217,
+      "open_issues": 216,
       "license": "AGPL-3.0",
       "archived": false,
-      "pushed_at": "2026-09-21T07:13:58Z",
+      "pushed_at": "2026-09-21T08:12:43Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "v2.18.0",
@@ -241,14 +241,14 @@
       "days_since_release": 12,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:38.013Z"
+      "verified_at": "2026-09-21T08:19:06.895Z"
     },
     "docusealco/docuseal": {
       "full_name": "docusealco/docuseal",
       "url": "https://github.com/docusealco/docuseal",
       "homepage": "https://www.docuseal.com",
       "description": "Open source DocuSign alternative. Create, fill, and sign digital documents ✍️",
-      "stars": 18586,
+      "stars": 18587,
       "forks": 1873,
       "open_issues": 123,
       "license": "AGPL-3.0",
@@ -263,7 +263,7 @@
       "days_since_release": 7,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:38.571Z"
+      "verified_at": "2026-09-21T08:19:07.337Z"
     },
     "OpenSignLabs/OpenSign": {
       "full_name": "OpenSignLabs/OpenSign",
@@ -285,7 +285,7 @@
       "days_since_release": 31,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:39.043Z"
+      "verified_at": "2026-09-21T08:19:07.766Z"
     },
     "jgraph/drawio": {
       "full_name": "jgraph/drawio",
@@ -307,7 +307,7 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:39.507Z"
+      "verified_at": "2026-09-21T08:19:08.136Z"
     },
     "excalidraw/excalidraw": {
       "full_name": "excalidraw/excalidraw",
@@ -315,7 +315,7 @@
       "homepage": "https://excalidraw.com",
       "description": "Virtual whiteboard for sketching hand-drawn like diagrams",
       "stars": 132564,
-      "forks": 15393,
+      "forks": 15392,
       "open_issues": 3494,
       "license": "MIT",
       "archived": false,
@@ -329,7 +329,7 @@
       "days_since_release": 153,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:39.999Z"
+      "verified_at": "2026-09-21T08:19:08.550Z"
     },
     "toeverything/AFFiNE": {
       "full_name": "toeverything/AFFiNE",
@@ -351,14 +351,14 @@
       "days_since_release": 34,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:40.436Z"
+      "verified_at": "2026-09-21T08:19:08.984Z"
     },
     "AppFlowy-IO/AppFlowy": {
       "full_name": "AppFlowy-IO/AppFlowy",
       "url": "https://github.com/AppFlowy-IO/AppFlowy",
       "homepage": "https://appflowy.com",
       "description": "Bring projects, wikis, and teams together with AI. AppFlowy is the AI collaborative workspace where you achieve more without losing control of your data. The leading open source Notion alternative.",
-      "stars": 76868,
+      "stars": 76867,
       "forks": 6029,
       "open_issues": 1026,
       "license": "AGPL-3.0",
@@ -373,7 +373,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:40.927Z"
+      "verified_at": "2026-09-21T08:19:09.414Z"
     },
     "docmost/docmost": {
       "full_name": "docmost/docmost",
@@ -395,14 +395,14 @@
       "days_since_release": 13,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:41.359Z"
+      "verified_at": "2026-09-21T08:19:09.783Z"
     },
     "outline/outline": {
       "full_name": "outline/outline",
       "url": "https://github.com/outline/outline",
       "homepage": "https://www.getoutline.com",
       "description": "The fastest knowledge base for growing teams. Beautiful, realtime collaborative, feature packed, and markdown compatible.",
-      "stars": 40642,
+      "stars": 40643,
       "forks": 3570,
       "open_issues": 74,
       "license": null,
@@ -417,7 +417,7 @@
       "days_since_release": 12,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:41.904Z"
+      "verified_at": "2026-09-21T08:19:10.256Z"
     },
     "siyuan-note/siyuan": {
       "full_name": "siyuan-note/siyuan",
@@ -425,11 +425,11 @@
       "homepage": "https://b3log.org/siyuan",
       "description": "An open-source, privacy-first, self-hosted knowledge workspace where humans and AI agents work together 开源、隐私优先、自托管的知识工作空间，让人与智能体在此协作",
       "stars": 46447,
-      "forks": 3012,
-      "open_issues": 10,
+      "forks": 3011,
+      "open_issues": 7,
       "license": "AGPL-3.0",
       "archived": false,
-      "pushed_at": "2026-09-21T06:06:45Z",
+      "pushed_at": "2026-09-21T08:14:51Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "v3.8.4",
@@ -439,7 +439,7 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:42.411Z"
+      "verified_at": "2026-09-21T08:19:10.675Z"
     },
     "plausible/analytics": {
       "full_name": "plausible/analytics",
@@ -451,7 +451,7 @@
       "open_issues": 63,
       "license": "AGPL-3.0",
       "archived": false,
-      "pushed_at": "2026-09-21T07:58:31Z",
+      "pushed_at": "2026-09-21T08:19:08Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "v3.2.1",
@@ -461,7 +461,7 @@
       "days_since_release": 129,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:43.107Z"
+      "verified_at": "2026-09-21T08:19:11.297Z"
     },
     "matomo-org/matomo": {
       "full_name": "matomo-org/matomo",
@@ -483,7 +483,7 @@
       "days_since_release": 35,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:43.621Z"
+      "verified_at": "2026-09-21T08:19:11.956Z"
     },
     "umami-software/umami": {
       "full_name": "umami-software/umami",
@@ -505,7 +505,7 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:44.255Z"
+      "verified_at": "2026-09-21T08:19:12.513Z"
     },
     "go-vikunja/vikunja": {
       "full_name": "go-vikunja/vikunja",
@@ -527,7 +527,7 @@
       "days_since_release": 21,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:44.711Z"
+      "verified_at": "2026-09-21T08:19:12.917Z"
     },
     "caprover/caprover": {
       "full_name": "caprover/caprover",
@@ -549,14 +549,14 @@
       "days_since_release": 21,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:45.139Z"
+      "verified_at": "2026-09-21T08:19:13.395Z"
     },
     "coollabsio/coolify": {
       "full_name": "coollabsio/coolify",
       "url": "https://github.com/coollabsio/coolify",
       "homepage": "https://coolify.io",
       "description": "An open-source, self-hostable PaaS alternative to Vercel, Heroku & Netlify that lets you easily deploy static sites, databases, full-stack applications and 280+ one-click services on your own servers.",
-      "stars": 62100,
+      "stars": 62101,
       "forks": 5509,
       "open_issues": 715,
       "license": "Apache-2.0",
@@ -571,7 +571,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:45.641Z"
+      "verified_at": "2026-09-21T08:19:13.808Z"
     },
     "Dokploy/dokploy": {
       "full_name": "Dokploy/dokploy",
@@ -579,8 +579,8 @@
       "homepage": "https://dokploy.com/",
       "description": "Open Source Alternative to Vercel, Netlify and Heroku.",
       "stars": 37411,
-      "forks": 2990,
-      "open_issues": 714,
+      "forks": 2989,
+      "open_issues": 715,
       "license": null,
       "archived": false,
       "pushed_at": "2026-09-18T09:12:43Z",
@@ -593,7 +593,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:46.104Z"
+      "verified_at": "2026-09-21T08:19:14.226Z"
     },
     "activepieces/activepieces": {
       "full_name": "activepieces/activepieces",
@@ -605,7 +605,7 @@
       "open_issues": 577,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-21T07:48:27Z",
+      "pushed_at": "2026-09-21T08:17:46Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "0.91.0",
@@ -615,19 +615,19 @@
       "days_since_release": 7,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:46.496Z"
+      "verified_at": "2026-09-21T08:19:14.605Z"
     },
     "n8n-io/n8n": {
       "full_name": "n8n-io/n8n",
       "url": "https://github.com/n8n-io/n8n",
       "homepage": "https://n8n.io",
       "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
-      "stars": 205515,
-      "forks": 60816,
+      "stars": 205516,
+      "forks": 60817,
       "open_issues": 1182,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-21T07:59:15Z",
+      "pushed_at": "2026-09-21T08:15:18Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "n8n@2.39.9",
@@ -637,7 +637,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:46.911Z"
+      "verified_at": "2026-09-21T08:19:15.039Z"
     },
     "windmill-labs/windmill": {
       "full_name": "windmill-labs/windmill",
@@ -646,10 +646,10 @@
       "description": "Open-source developer platform to power your entire infra and turn scripts into webhooks, workflows and UIs. Fastest workflow engine (13x vs Airflow). Open-source alternative to Retool and Temporal.",
       "stars": 17992,
       "forks": 1098,
-      "open_issues": 867,
+      "open_issues": 866,
       "license": null,
       "archived": false,
-      "pushed_at": "2026-09-21T08:00:25Z",
+      "pushed_at": "2026-09-21T08:18:38Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "v1.815.0",
@@ -659,7 +659,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-09-21T08:00:47.445Z"
+      "verified_at": "2026-09-21T08:19:15.426Z"
     }
   },
   "errors": [],
