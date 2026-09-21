@@ -10,3 +10,4 @@ data/sources/last-run.json
 video/out/
 video/**/snapshots/
 kits/out/
+video/assets/bgm/*.mp3

@@ -1,0 +1,12 @@
+{
+  "_comment": "Provenance for the music bed. The project records where every price came from; a track that ships in 30 public videos deserves the same treatment.",
+  "file": "bed.mp3",
+  "derived_from": "leberch-lofi-hip-hop-519408.mp3",
+  "edit": "32s from 00:08, 1.5s fade in, 2.5s fade out, -3dB",
+  "source": "Supplied by the project owner, who holds it as licensed.",
+  "licence": "UNCONFIRMED",
+  "note": "The filename follows the Pixabay pattern (artist-title-numericid), and Pixabay's Content License permits commercial use without attribution. That is an inference from the filename, not a verified fact. Confirm the source before any video using this bed is made public.",
+  "verified_at": null,
+  "blocks_public_release": true,
+  "level_note": "Levelled for music-only video (mean about -17 dBFS). If narration is added later, re-cut at roughly -12dB so the voice sits on top \u2014 it is a one-line ffmpeg change."
+}

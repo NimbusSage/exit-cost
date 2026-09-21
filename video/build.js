@@ -21,6 +21,7 @@ const { readJson, listJson, p } = require('../pipeline/lib/store.js');
 const chart = require('../site/assets/chart.js');
 
 const OUT = path.join(__dirname, 'out');
+const BGM_SRC = path.join(__dirname, 'assets', 'bgm', 'bed.mp3');
 const SITE_URL = (process.env.SITE_URL || 'nimbussage.github.io/exit-cost').replace(/^https?:\/\//, '');
 let TOTAL_ESCAPES = 20;
 
@@ -41,7 +42,7 @@ const MARK = `<svg viewBox="0 0 512 512" aria-hidden="true">
     <path d="M152 128 L152 368 L392 368" stroke-width="20"/>
     <g stroke-width="18"><path d="M120 168 H152 M120 248 H152 M120 328 H152"/><path d="M216 400 V368 M288 400 V368 M360 400 V368"/></g>
   </g>
-  <g fill="none" stroke-linecap="butt">
+  <g fill="none" stroke-linecap="round">
     <path d="M152 368 L378 146" stroke="#a81e27" stroke-width="44"/>
     <path d="M152 256 L378 208" stroke="#0b5137" stroke-width="44"/>
   </g></svg>`;
@@ -91,6 +92,8 @@ function chartSvg(e) {
   parts.push('</svg>');
   return parts.join('');
 }
+
+const BGM = fs.existsSync(BGM_SRC);
 
 function composition(e) {
   const r = e.result;
@@ -155,6 +158,10 @@ function composition(e) {
 <body>
 <div id="root" data-composition-id="short" data-width="${W}" data-height="${H}" data-duration="${DUR}" data-fps="${FPS}">
   <div class="bg"></div>
+${BGM ? `
+  <!-- Music bed. A direct child of the composition root: the runtime only drives
+       media that sits here, and anything nested renders silent. -->
+  <audio id="bgm" src="assets/bgm/bed.mp3" data-start="0" data-duration="${DUR}" data-track-index="0" data-volume="1"></audio>` : ''}
 
   <section id="scene-bill" class="clip" data-start="0" data-duration="5" data-track-index="1">
     <p class="kicker" id="s1-k">You pay for <b>${esc(inc)}</b>${seats > 1 ? `, ${seats} seats` : ''}.</p>
@@ -277,7 +284,17 @@ function main() {
   console.log(`generated ${made.length} compositions in video/out`);
 
   if (render) {
-    const bin = path.join(__dirname, '..', 'node_modules', '.bin', 'hyperframes');
+    // Fail early and legibly. A detached shell does not source nvm, so this
+    // silently ran on Node 18 and every render failed with a message nobody
+    // read — leaving thirty stale videos that looked freshly built.
+    const major = Number(process.versions.node.split('.')[0]);
+    if (major < 22) {
+      console.error(`FATAL: rendering needs Node >= 22, this is ${process.versions.node}.`);
+      console.error('       In a detached shell, source nvm first:');
+      console.error('       . "$HOME/.nvm/nvm.sh" && nvm use 22 && node video/build.js --render');
+      process.exit(1);
+    }
+    const failures = [];
     for (const m of made) {
       const outFile = path.join(OUT, `${m.slug}.mp4`);
       console.log(`rendering ${m.slug} ...`);
@@ -286,8 +303,14 @@ function main() {
           { stdio: 'inherit', env: { ...process.env, HYPERFRAMES_SKIP_SKILLS: '1' } });
       } catch (err) {
         console.error(`  render failed for ${m.slug}`);
+        failures.push(m.slug);
       }
     }
+    if (failures.length) {
+      console.error(`\n${failures.length} of ${made.length} renders failed: ${failures.join(', ')}`);
+      process.exit(1);
+    }
+    console.log(`rendered ${made.length} videos`);
   }
   return made;
 }

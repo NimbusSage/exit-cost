@@ -12,7 +12,10 @@
     </g>
   </g>
 
-  <g fill="none" stroke-linecap="butt">
+  <!-- Rounded caps on the data lines only. Square ends meeting at the crossing
+       read as a hard corner; rounded ones let the two lines pass through each
+       other cleanly. The axis keeps square ends — an axis is a rule, not a stroke. -->
+  <g fill="none" stroke-linecap="round">
     <path d="M152 368 L378 146" stroke="#a81e27" stroke-width="44"/>
     <path d="M152 256 L378 208" stroke="#0b5137" stroke-width="44"/>
   </g>

@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <!-- Exit Cost: two cost lines crossing on a measured axis.
        Ticks rather than numerals — digits are illegible below 48px while ticks
-       still read as measurement. Square caps: a round end reads as a brush
-       stroke, a square one as an instrument.
+       still read as measurement. Square caps on the axis, rounded on the data
+       lines, so the crossing reads clean rather than blocky.
        Framed for square placements. This is that framed variant. -->
   <rect width="512" height="512" fill="#14161a"/>
   <!-- a plate, so the mark holds its own on another light surface -->
@@ -16,7 +16,10 @@
     </g>
   </g>
 
-  <g fill="none" stroke-linecap="butt">
+  <!-- Rounded caps on the data lines only. Square ends meeting at the crossing
+       read as a hard corner; rounded ones let the two lines pass through each
+       other cleanly. The axis keeps square ends — an axis is a rule, not a stroke. -->
+  <g fill="none" stroke-linecap="round">
     <path d="M152 368 L378 146" stroke="#e8737a" stroke-width="44"/>
     <path d="M152 256 L378 208" stroke="#57c295" stroke-width="44"/>
   </g>
