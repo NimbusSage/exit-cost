@@ -22,16 +22,19 @@
     {
       "provider": "DigitalOcean",
       "url": null,
-      "status": "awaiting_advertiser_approval",
+      "status": "rejected",
       "program": "Affiliate via CJ",
       "pays": "10% of referred spend, monthly, for 12 months",
-      "note": "Publisher account approved on AWIN 2026-09-21; DigitalOcean must still approve us for their programme, which is what 'Pending Approval' on the merchant profile means. 'Link status: online' describes their programme being live on the network, not our membership of it. NOTE: digitalocean.com/affiliates still names CJ (Commission Junction) as the network \u2014 that page is out of date, the signup routes to AWIN. Recorded because the wrong network was previously stored here.",
+      "note": "Rejected by DigitalOcean via AWIN. The stated reason is generic, but the likely cause is the publisher profile: the AWIN account is registered as InferHaven, which sells inference hosting and is therefore a competitor to DigitalOcean. Affiliate programmes routinely decline competitors, and a reviewer checking the publisher name would have seen a rival cloud rather than an editorial site. Any reapplication should be under an Exit Cost publisher profile.",
       "reader_benefit": null,
       "verified_at": null,
       "network": "AWIN",
       "publisher_id": "3101261",
       "merchant_profile": "https://ui.awin.com/awin/affiliate/3101261/merchant-profile/123996",
-      "blocked_by": "DO_API_TOKEN. DigitalOcean is not in the provider catalogue, so no comparison recommends a DigitalOcean box and the tracking link would have nowhere to appear. The token must land before this programme can earn anything."
+      "blocked_by": null,
+      "rejected_on": "2026-09-21",
+      "rejection_reason": "Advertiser doesn't work with this publisher type",
+      "worth_retrying": "Yes, but not soon and not under this profile. Reapply once Exit Cost has its own domain and a publisher account in its own name, with traffic to show."
     },
     {
       "provider": "PikaPods",
@@ -53,7 +56,7 @@
         "pays": "10% of referred spend monthly for 12 months",
         "via": "AWIN (their own page still says CJ; it is stale)",
         "why": "the only recurring program found",
-        "status": "publisher approved, advertiser approval pending"
+        "status": "rejected 2026-09-21 \u2014 publisher profile is a competitor"
       },
       {
         "name": "PikaPods",
@@ -99,6 +102,6 @@
         "why": "no affiliate programme"
       }
     ],
-    "note": "The affiliate layer is thin for this audience. The paid product and the managed-hosting column are the better revenue paths."
+    "note": "The affiliate layer is thin for this audience and thinner still while the publisher profile belongs to a hosting company. Vultr is the only live programme. The paid product and the managed-hosting column are the better revenue paths."
   }
 }

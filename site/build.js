@@ -791,6 +791,18 @@ function main() {
 
   fs.rmSync(DIST, { recursive: true, force: true });
   copyDir(path.join(__dirname, 'assets'), path.join(DIST, 'assets'));
+
+  // Root-level files that must survive a rebuild and keep their exact path —
+  // search-engine verification tokens and the like. dist/ is cleared on every
+  // run, so anything dropped there by hand would vanish and quietly unverify
+  // the property weeks later.
+  const staticDir = path.join(__dirname, 'static');
+  if (fs.existsSync(staticDir)) {
+    for (const entry of fs.readdirSync(staticDir, { withFileTypes: true })) {
+      if (entry.isDirectory() || entry.name === 'README.md') continue;
+      fs.copyFileSync(path.join(staticDir, entry.name), path.join(DIST, entry.name));
+    }
+  }
   fs.copyFileSync(p('pipeline', 'compute', 'linear.js'), path.join(DIST, 'assets', 'linear.js'));
 
   SITE_URL_FOR_CSV = siteUrl;

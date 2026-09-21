@@ -383,3 +383,27 @@ test('INTEGRITY: every provider listed actually meets the requirement', () => {
     }
   }
 });
+
+test('root-level static files survive the rebuild that clears dist', () => {
+  // A verification file dropped into dist by hand disappears on the next build,
+  // which is how a verified property quietly unverifies weeks later.
+  const read = buildWith('https://exitcost.dev');
+  const staticDir = path.join(ROOT, 'site', 'static');
+  const expected = fs.readdirSync(staticDir).filter((f) => f !== 'README.md');
+  assert.ok(expected.length >= 1, 'nothing in site/static to check');
+  for (const name of expected) {
+    const out = path.join(DIST, name);
+    assert.ok(fs.existsSync(out), `${name} did not reach the site root`);
+    assert.equal(fs.readFileSync(out, 'utf8'), fs.readFileSync(path.join(staticDir, name), 'utf8'),
+      `${name} was altered on the way through`);
+  }
+});
+
+test('the Google verification token is served verbatim at the site root', () => {
+  const read = buildWith('https://exitcost.dev');
+  const file = fs.readdirSync(path.join(ROOT, 'site', 'static')).find((f) => /^google[0-9a-f]+\.html$/.test(f));
+  assert.ok(file, 'no Google verification file present');
+  const body = fs.readFileSync(path.join(DIST, file), 'utf8');
+  assert.match(body, /^google-site-verification:/, 'Google requires the file contents unchanged');
+  assert.ok(body.includes(file), 'the file must name itself, which is what Google checks');
+});
