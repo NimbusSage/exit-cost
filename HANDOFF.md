@@ -160,6 +160,53 @@ here looks strange, this is why.
 
 ---
 
+## Where the money would actually come from
+
+Written down 2026-09-21 because it is easy to lose, and because it contradicts
+the plan the project was built from.
+
+**One affiliate programme is live: Vultr.** DigitalOcean rejected us, PikaPods
+publishes none. The plan assumed a stack of five; there is one. That is tested,
+not suspected — see `data/affiliates.json` `_research`.
+
+The Vultr terms matter: **$100 pays out only once the referred account has spent
+$100**, which at the $10–24/month boxes we recommend is four to ten months of
+their bills. There is a $10-per-signup alternative that qualifies in month one.
+The $100 version was chosen on expected value, but it means cash arrives late
+even when it works.
+
+**Two paths could reach $100/day, and both need traffic:**
+
+- *Affiliate* — roughly $100 per 1,000 high-intent visitors, if the funnel holds
+  at 2–5% click-to-signup, which is optimistic for hosting links. So about
+  1,000 visitors/day, with every conversion delayed months.
+- *The kits* — $100/day is 3.4 sales at $29. At a realistic 0.3–1% conversion
+  that is 340–1,100 daily visitors on kit-bearing pages. Comparable traffic,
+  but the money arrives immediately and none of it is shared.
+
+**The kits are the better path and they are not monetized.** Three are built and
+validated by deploying them; they sit free in the repo. Stripe is already
+integrated on the owner's workstation, so a checkout needs nobody's approval.
+That is the highest-leverage unbuilt thing.
+
+Everything else is dead or premature: sponsorship needs an audience, a paid API
+is worth little, and advertising would destroy the credibility the site rests on.
+
+**On the domain (~$12/year):** it unblocks YouTube publishing (Google will not
+verify OAuth on a github.io address), retrying affiliates with a credible
+publisher profile, and selling anything at all — a $29 product from a github.io
+URL is a hard sell. Break-even is less than one kit sale.
+
+**The thing to hold on to:** traffic is the binding constraint and is completely
+unmeasured. Every number above multiplies by something nobody knows yet. Do not
+spend more on engineering before Gate 2 (day 60: 100 visitors/day or 10k video
+views, plus one conversion). There is enough engineering. If Gate 2 misses, the
+plan says change the format or stop, and it is right — the gates exist so a
+wrong bet costs weeks rather than the fourteen months the previous two products
+cost.
+
+---
+
 ## If you are wondering what to do next
 
 In rough order of value:
@@ -171,5 +218,7 @@ In rough order of value:
    and store the price by hand — never wire extraction straight into the dataset.
 3. More kits, validated by deploying them. `kits/build.js --verify` checks every
    pinned image tag against the registry.
-4. Do not build more tooling. There is enough. The constraint is traffic and
-   revenue, not capability.
+4. A Stripe checkout for the kits, if the owner decides they are paid. That is
+   the only revenue path that needs no third party's approval.
+5. Do not build more tooling. There is enough. The constraint is traffic and
+   revenue, not capability. See the section above before starting anything.
