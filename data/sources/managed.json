@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-06T12:05:18.449Z",
+  "fetched_at": "2026-10-08T12:06:03.556Z",
   "providers": {
     "pikapods": {
       "ok": true,
@@ -7,7 +7,7 @@
       "url": "https://www.pikapods.com/",
       "source_url": "https://www.pikapods.com/apps",
       "note": "Runs the same open-source software, applies updates, and takes daily encrypted backups to storage you own.",
-      "count": 127,
+      "count": 125,
       "apps": [
         {
           "label": "Actual A fast, privacy-focused",
@@ -33,11 +33,6 @@
           "label": "Audiobookshelf Open source audiobook",
           "from_usd_month": 2.8,
           "quote": "Audiobookshelf Open source audiobook … Run Your Own From $2.8/month"
-        },
-        {
-          "label": "Automatisch Create and manage",
-          "from_usd_month": 4.8,
-          "quote": "Automatisch Create and manage … Run Your Own From $4.8/month"
         },
         {
           "label": "Baserow Create your own",
@@ -123,6 +118,11 @@
           "label": "DokuWiki Lightweight wiki and",
           "from_usd_month": 2,
           "quote": "DokuWiki Lightweight wiki and … Run Your Own From $2.0/month"
+        },
+        {
+          "label": "Easy!Appointments Self-hosted appointment scheduler",
+          "from_usd_month": 1.8,
+          "quote": "Easy!Appointments Self-hosted appointment scheduler … Run Your Own From $1.8/month"
         },
         {
           "label": "Etherpad A modern really-real-time",
@@ -253,11 +253,6 @@
           "label": "Journiv Privacy-first journaling application",
           "from_usd_month": 4.3,
           "quote": "Journiv Privacy-first journaling application … Run Your Own From $4.3/month"
-        },
-        {
-          "label": "Jupyter A web-based interactive",
-          "from_usd_month": 3.1,
-          "quote": "Jupyter A web-based interactive … Run Your Own From $3.1/month"
         },
         {
           "label": "Kan The open-source Trello",
@@ -440,19 +435,9 @@
           "quote": "PdfDing PDF manager, viewer … Run Your Own From $2.7/month"
         },
         {
-          "label": "Penpot Open-source design tool",
-          "from_usd_month": 7.5,
-          "quote": "Penpot Open-source design tool … Run Your Own From $7.5/month"
-        },
-        {
           "label": "PhotoPrism An AI-powered app",
           "from_usd_month": 7.5,
           "quote": "PhotoPrism An AI-powered app … Run Your Own From $7.5/month"
-        },
-        {
-          "label": "Photoview Simple and user-friendly",
-          "from_usd_month": 2.5,
-          "quote": "Photoview Simple and user-friendly … Run Your Own From $2.5/month"
         },
         {
           "label": "Pinry Image board system",
@@ -600,6 +585,11 @@
           "quote": "Twenty CRM Modern, powerful … Run Your Own From $6.7/month"
         },
         {
+          "label": "Tymeslot Open source meeting",
+          "from_usd_month": 2.4,
+          "quote": "Tymeslot Open source meeting … Run Your Own From $2.4/month"
+        },
+        {
           "label": "Umami Umami is a",
           "from_usd_month": 2.8,
           "quote": "Umami Umami is a … Run Your Own From $2.8/month"
@@ -645,8 +635,8 @@
           "quote": "WordPress Popular blogging platform … Run Your Own From $2.4/month"
         }
       ],
-      "fetched_at": "2026-10-06T12:05:18.449Z",
-      "verified_at": "2026-10-06T12:05:18.449Z"
+      "fetched_at": "2026-10-08T12:06:03.556Z",
+      "verified_at": "2026-10-08T12:06:03.556Z"
     }
   }
 }
