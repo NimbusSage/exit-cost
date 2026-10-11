@@ -894,8 +894,8 @@
         }
       ],
       "fingerprint": {
-        "hash": "7063d6a5e3a2b8c1",
-        "token_count": 7,
+        "hash": "d276be91a21ba9e8",
+        "token_count": 8,
         "tokens": [
           "USD0",
           "USD0.5",
@@ -903,7 +903,8 @@
           "USD10.99",
           "USD13.49",
           "USD24.99",
-          "USD30.49"
+          "USD30.49",
+          "USD5.99"
         ]
       },
       "last_checked_at": "2026-10-11",
