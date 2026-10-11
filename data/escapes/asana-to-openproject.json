@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "slug": "asana-to-openproject",
+  "title": "Asana Starter to self-hosted OpenProject",
+  "summary": "OpenProject covers Asana's core — projects, tasks, boards, timelines — and prices per user in EUR instead of per seat per month forever.",
+  "category": "project-management",
+  "incumbent": {
+    "vendor": "asana",
+    "plan": "starter",
+    "seats": 15
+  },
+  "alternative": {
+    "name": "OpenProject (self-hosted)",
+    "repo": "opf/openproject",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 50
+    },
+    "backup_gb": 30,
+    "migration_hours": 12,
+    "maintenance_hours_per_month": 1
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Asana's polish and mobile apps — OpenProject is functional, not delightful",
+      "Asana AI (teammates, dash assistants)",
+      "Forms and approval flows as one-click templates"
+    ],
+    "you_gain": [
+      "Gantt charts and baselines that Asana charges Advanced-tier money for",
+      "GPL-3.0 with unlimited users and no seat count anywhere in the arithmetic",
+      "One place for tasks, wiki, and time tracking instead of three integrations"
+    ]
+  },
+  "caveats": [
+    "OpenProject is heavier to run than the SaaS it replaces — 4 GB RAM is the floor, and updates are frequent and real work.",
+    "CSV import moves tasks but not automation rules, forms, or portfolio hierarchy. Budget the 12 hours for a 15-seat team with a few years of history."
+  ],
+  "hours_are_estimates": true
+}

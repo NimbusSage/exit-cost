@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "slug": "slack-to-zulip",
+  "title": "Slack Pro to self-hosted Zulip",
+  "summary": "Zulip's threaded topics are a different shape of chat — better for decisions, worse for banter, and free of per-seat pricing.",
+  "category": "team-chat",
+  "incumbent": {
+    "vendor": "slack",
+    "plan": "pro",
+    "seats": 12
+  },
+  "alternative": {
+    "name": "Zulip (self-hosted)",
+    "repo": "zulip/zulip",
+    "requirements": {
+      "ram_gb": 2,
+      "vcpu": 1,
+      "disk_gb": 40
+    },
+    "backup_gb": 30,
+    "migration_hours": 9,
+    "maintenance_hours_per_month": 0.8
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Slack's familiar single-stream interface — Zulip's topic threading divides people",
+      "The 2,600-app integration directory",
+      "Huddles; Zulip has voice/video via Jitsi integration but it is not the same"
+    ],
+    "you_gain": [
+      "Topics make a busy channel readable, which is the one thing Slack has never solved",
+      "Apache-2.0 with no edition matrix — every feature is in the free self-hosted build",
+      "Message history and search that never hit a 90-day wall"
+    ]
+  },
+  "caveats": [
+    "Zulip is opinionated: every message goes in a topic. Teams that fight itbounce off; teams that adopt it rarely go back. Do a two-week pilot before moving a whole workspace.",
+    "Import from Slack is first-party (they ship a tooling path for it), which is unusual — the 9-hour estimate assumes it works on your export."
+  ],
+  "hours_are_estimates": true
+}

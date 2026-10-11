@@ -773,6 +773,212 @@
         "Business",
         "Enterprise"
       ]
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "pricing_url": "https://slack.com/pricing",
+      "category": "team-chat",
+      "plans": [
+        {
+          "id": "pro",
+          "name": "Pro",
+          "page_label": "Pro",
+          "amount": 7.25,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "$7.25 USD per user / month, when paying annually",
+          "verified_at": "2026-10-11",
+          "verified_by": "human",
+          "caveat": "Slack's headline shows a 50%-off-for-3-months promo figure ($4.38) next to the real one; $7.25 is the standard annual rate and $8.75 the monthly rate.",
+          "last_auto_confirmed_at": "2026-10-11",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-10-11"
+          }
+        },
+        {
+          "id": "business-plus",
+          "name": "Business+",
+          "page_label": "Business+",
+          "amount": 15,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "$15 USD per user / month, when paying annually",
+          "verified_at": "2026-10-11",
+          "verified_by": "human",
+          "last_auto_confirmed_at": "2026-10-11",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-10-11"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "d58a3f2f065c75df",
+        "token_count": 10,
+        "tokens": [
+          "$0",
+          "$1",
+          "$128",
+          "$15",
+          "$18",
+          "$4.38",
+          "$4.99",
+          "$7.25",
+          "$8.75",
+          "$9"
+        ]
+      },
+      "last_checked_at": "2026-10-11",
+      "last_check_ok": true,
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Free",
+        "Pro",
+        "Business+",
+        "Enterprise"
+      ]
+    },
+    {
+      "id": "asana",
+      "name": "Asana",
+      "pricing_url": "https://asana.com/pricing",
+      "category": "project-management",
+      "plans": [
+        {
+          "id": "starter",
+          "name": "Starter",
+          "page_label": "Starter",
+          "amount": 10.99,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Starter $10.99 per user/month, billed annually",
+          "verified_at": "2026-10-11",
+          "verified_by": "human",
+          "last_auto_confirmed_at": "2026-10-11",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-10-11"
+          }
+        },
+        {
+          "id": "advanced",
+          "name": "Advanced",
+          "page_label": "Advanced",
+          "amount": 24.99,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Advanced $24.99 per user/month, billed annually",
+          "verified_at": "2026-10-11",
+          "verified_by": "human",
+          "last_auto_confirmed_at": "2026-10-11",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-10-11"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "7063d6a5e3a2b8c1",
+        "token_count": 9,
+        "tokens": [
+          "$0",
+          "$0.50",
+          "$0.60",
+          "$10.99",
+          "$13.49",
+          "$24.99",
+          "$24.99x2",
+          "$30.49"
+        ]
+      },
+      "last_checked_at": "2026-10-11",
+      "last_check_ok": true,
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Personal",
+        "Starter",
+        "Advanced",
+        "Enterprise",
+        "Enterprise+"
+      ]
+    },
+    {
+      "id": "openproject-cloud",
+      "name": "OpenProject Cloud",
+      "pricing_url": "https://www.openproject.org/pricing/",
+      "category": "project-management",
+      "plans": [
+        {
+          "id": "basic",
+          "name": "Basic",
+          "page_label": "Basic",
+          "amount": 5.95,
+          "period": "month",
+          "per_seat": true,
+          "currency": "EUR",
+          "billed": "monthly",
+          "quote": "Basic €5.95 per user per month 25 minimum users",
+          "verified_at": "2026-10-11",
+          "verified_by": "human",
+          "caveat": "OpenProject quotes in EUR (the page has a €/$ toggle; € is the displayed default). A 25-user minimum applies, so the smallest real bill is ~€149/month. Annual and 3-year commitments discount this figure; the discount lives behind a client-side modal so it is not in the static HTML and not in this number.",
+          "last_auto_confirmed_at": "2026-10-11",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-10-11"
+          }
+        },
+        {
+          "id": "professional",
+          "name": "Professional",
+          "page_label": "Professional",
+          "amount": 10.95,
+          "period": "month",
+          "per_seat": true,
+          "currency": "EUR",
+          "billed": "monthly",
+          "quote": "Professional €10.95 per user per month 25 minimum users",
+          "verified_at": "2026-10-11",
+          "verified_by": "human",
+          "last_auto_confirmed_at": "2026-10-11",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-10-11"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "op-temp",
+        "token_count": 1,
+        "tokens": [
+          "EUR"
+        ]
+      },
+      "last_checked_at": null,
+      "last_check_ok": null,
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Community",
+        "Basic",
+        "Professional",
+        "Premium",
+        "Corporate"
+      ]
     }
   ]
 }

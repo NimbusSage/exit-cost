@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "slack-to-rocketchat",
+  "title": "Slack Pro to self-hosted Rocket.Chat",
+  "summary": "Rocket.Chat is the closest thing to Slack you can run yourself, and seats are where Slack's bill compounds.",
+  "category": "team-chat",
+  "incumbent": {
+    "vendor": "slack",
+    "plan": "pro",
+    "seats": 12
+  },
+  "alternative": {
+    "name": "Rocket.Chat (self-hosted)",
+    "repo": "RocketChat/Rocket.Chat",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 50
+    },
+    "backup_gb": 40,
+    "migration_hours": 10,
+    "maintenance_hours_per_month": 1
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Slack's 2,600-app directory and the integrations your team already installed",
+      "Huddles and clip — the low-friction audio/video that keeps people out of meetings",
+      "Someone else handling the next security patch on a chat server that faces the internet"
+    ],
+    "you_gain": [
+      "No per-seat charge, so guests and whole departments stop costing money per head",
+      "Unlimited message history — the Free-tier 90-day limit and the Pro-tier pins both go away",
+      "Matrix federation and an API you can automate against without approval"
+    ]
+  },
+  "caveats": [
+    "Rocket.Chat's community edition carries most of the product, but some features (LDAP, audit, OAuth enterprise) are enterprise-licensed — check your must-haves against their edition matrix before committing.",
+    "Chat history grows fast. The 40 GB backup assumption fits a chatty 12-person team for about two years; re-check if you migrate years of logs in.",
+    "Migration means re-creating channels and re-inviting people — Slack does not export member relationships to a competitor. The 10-hour estimate is for a 12-seat workspace, not a 200-seat one."
+  ],
+  "hours_are_estimates": true
+}

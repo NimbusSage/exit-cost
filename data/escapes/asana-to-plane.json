@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "slug": "asana-to-plane",
+  "title": "Asana Starter to self-hosted Plane",
+  "summary": "Plane is the modern-looking one — cycles, modules, and an issue UI your team already knows how to use.",
+  "category": "project-management",
+  "incumbent": {
+    "vendor": "asana",
+    "plan": "starter",
+    "seats": 15
+  },
+  "alternative": {
+    "name": "Plane (self-hosted)",
+    "repo": "makeplane/plane",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 50
+    },
+    "backup_gb": 20,
+    "migration_hours": 10,
+    "maintenance_hours_per_month": 1
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Asana's maturity — Plane is three years old and its API still moves",
+      "Workload view and time tracking at Asana's depth",
+      "The mobile apps"
+    ],
+    "you_gain": [
+      "A UI so close to Linear/Asana that the training cost is an afternoon",
+      "AGPL-3.0, unlimited members, no seat pricing",
+      "Cycles and modules that map cleanly onto sprint-style work"
+    ]
+  },
+  "caveats": [
+    "Plane moves fast, which cuts both ways — pin your Docker image tags and read the changelog before updating.",
+    "There is no Asana importer. The 10-hour estimate covers CSV export from Asana and hand-rebuilding projects and panels."
+  ],
+  "hours_are_estimates": true
+}
