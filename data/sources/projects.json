@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-11T04:28:42.717Z",
+  "fetched_at": "2026-10-11T04:41:49.056Z",
   "projects": {
     "passbolt/passbolt_api": {
       "full_name": "passbolt/passbolt_api",
@@ -21,7 +21,7 @@
       "days_since_release": 24,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:23.935Z"
+      "verified_at": "2026-10-11T04:41:35.409Z"
     },
     "dani-garcia/vaultwarden": {
       "full_name": "dani-garcia/vaultwarden",
@@ -43,7 +43,7 @@
       "days_since_release": 5,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:24.846Z"
+      "verified_at": "2026-10-11T04:41:35.887Z"
     },
     "baserow/baserow": {
       "full_name": "baserow/baserow",
@@ -65,7 +65,7 @@
       "days_since_release": 11,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:25.340Z"
+      "verified_at": "2026-10-11T04:41:36.230Z"
     },
     "nocodb/nocodb": {
       "full_name": "nocodb/nocodb",
@@ -87,7 +87,7 @@
       "days_since_release": 12,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:25.774Z"
+      "verified_at": "2026-10-11T04:41:36.592Z"
     },
     "teableio/teable": {
       "full_name": "teableio/teable",
@@ -109,7 +109,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:26.254Z"
+      "verified_at": "2026-10-11T04:41:37.015Z"
     },
     "opf/openproject": {
       "full_name": "opf/openproject",
@@ -131,14 +131,14 @@
       "days_since_release": 10,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:26.724Z"
+      "verified_at": "2026-10-11T04:41:37.349Z"
     },
     "makeplane/plane": {
       "full_name": "makeplane/plane",
       "url": "https://github.com/makeplane/plane",
       "homepage": "http://plane.so",
       "description": "🔥🔥🔥 Open-source Jira, Linear, Monday, and ClickUp alternative. Plane is a modern project management platform to manage tasks, sprints, docs, and triage.",
-      "stars": 60656,
+      "stars": 60657,
       "forks": 6019,
       "open_issues": 1105,
       "license": "AGPL-3.0",
@@ -153,7 +153,7 @@
       "days_since_release": 49,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:27.186Z"
+      "verified_at": "2026-10-11T04:41:37.695Z"
     },
     "keycloak/keycloak": {
       "full_name": "keycloak/keycloak",
@@ -175,7 +175,7 @@
       "days_since_release": 10,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:27.717Z"
+      "verified_at": "2026-10-11T04:41:38.113Z"
     },
     "zitadel/zitadel": {
       "full_name": "zitadel/zitadel",
@@ -197,7 +197,7 @@
       "days_since_release": 10,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:28.339Z"
+      "verified_at": "2026-10-11T04:41:38.670Z"
     },
     "calcom/cal.com": {
       "full_name": "calcom/cal.diy",
@@ -219,7 +219,7 @@
       "days_since_release": 223,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:28.955Z"
+      "verified_at": "2026-10-11T04:41:39.141Z"
     },
     "alextselegidis/easyappointments": {
       "full_name": "alextselegidis/easyappointments",
@@ -241,7 +241,7 @@
       "days_since_release": 137,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:29.999Z"
+      "verified_at": "2026-10-11T04:41:39.747Z"
     },
     "chatwoot/chatwoot": {
       "full_name": "chatwoot/chatwoot",
@@ -263,7 +263,7 @@
       "days_since_release": 23,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:30.498Z"
+      "verified_at": "2026-10-11T04:41:40.115Z"
     },
     "documenso/documenso": {
       "full_name": "documenso/documenso",
@@ -285,7 +285,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:30.984Z"
+      "verified_at": "2026-10-11T04:41:40.384Z"
     },
     "docusealco/docuseal": {
       "full_name": "docusealco/docuseal",
@@ -307,7 +307,7 @@
       "days_since_release": 6,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:31.459Z"
+      "verified_at": "2026-10-11T04:41:40.744Z"
     },
     "OpenSignLabs/OpenSign": {
       "full_name": "OpenSignLabs/OpenSign",
@@ -329,7 +329,7 @@
       "days_since_release": 51,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:32.049Z"
+      "verified_at": "2026-10-11T04:41:41.124Z"
     },
     "penpot/penpot": {
       "full_name": "penpot/penpot",
@@ -351,7 +351,7 @@
       "days_since_release": 5,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:32.546Z"
+      "verified_at": "2026-10-11T04:41:41.455Z"
     },
     "jgraph/drawio": {
       "full_name": "jgraph/drawio",
@@ -373,7 +373,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:33.004Z"
+      "verified_at": "2026-10-11T04:41:41.733Z"
     },
     "excalidraw/excalidraw": {
       "full_name": "excalidraw/excalidraw",
@@ -395,7 +395,7 @@
       "days_since_release": 173,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:33.600Z"
+      "verified_at": "2026-10-11T04:41:42.076Z"
     },
     "toeverything/AFFiNE": {
       "full_name": "toeverything/AFFiNE",
@@ -417,7 +417,7 @@
       "days_since_release": 53,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:34.114Z"
+      "verified_at": "2026-10-11T04:41:42.359Z"
     },
     "AppFlowy-IO/AppFlowy": {
       "full_name": "AppFlowy-IO/AppFlowy",
@@ -439,7 +439,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:34.559Z"
+      "verified_at": "2026-10-11T04:41:42.847Z"
     },
     "docmost/docmost": {
       "full_name": "docmost/docmost",
@@ -461,7 +461,7 @@
       "days_since_release": 33,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:35.101Z"
+      "verified_at": "2026-10-11T04:41:43.164Z"
     },
     "outline/outline": {
       "full_name": "outline/outline",
@@ -483,7 +483,7 @@
       "days_since_release": 32,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:35.584Z"
+      "verified_at": "2026-10-11T04:41:43.509Z"
     },
     "siyuan-note/siyuan": {
       "full_name": "siyuan-note/siyuan",
@@ -495,7 +495,7 @@
       "open_issues": 6,
       "license": "AGPL-3.0",
       "archived": false,
-      "pushed_at": "2026-10-11T03:27:27Z",
+      "pushed_at": "2026-10-11T04:38:30Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "v3.8.6",
@@ -505,7 +505,7 @@
       "days_since_release": 12,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:36.060Z"
+      "verified_at": "2026-10-11T04:41:43.931Z"
     },
     "plausible/analytics": {
       "full_name": "plausible/analytics",
@@ -527,14 +527,14 @@
       "days_since_release": 149,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:36.681Z"
+      "verified_at": "2026-10-11T04:41:44.491Z"
     },
     "matomo-org/matomo": {
       "full_name": "matomo-org/matomo",
       "url": "https://github.com/matomo-org/matomo",
       "homepage": "https://matomo.org/",
       "description": "Empowering People Ethically 🚀 — Matomo is hiring! Join us → https://matomo.org/jobs Matomo is the leading open-source alternative to Google Analytics, giving you complete control and built-in privacy. Easily collect, visualise, and analyse data from websites & apps. Star us on GitHub ⭐️  – Pull Requests welcome! ",
-      "stars": 21940,
+      "stars": 21941,
       "forks": 2909,
       "open_issues": 2545,
       "license": "GPL-3.0",
@@ -549,7 +549,7 @@
       "days_since_release": 6,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:37.100Z"
+      "verified_at": "2026-10-11T04:41:44.799Z"
     },
     "umami-software/umami": {
       "full_name": "umami-software/umami",
@@ -571,7 +571,7 @@
       "days_since_release": 24,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:37.842Z"
+      "verified_at": "2026-10-11T04:41:45.268Z"
     },
     "RocketChat/Rocket.Chat": {
       "full_name": "RocketChat/Rocket.Chat",
@@ -593,7 +593,7 @@
       "days_since_release": 5,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:38.262Z"
+      "verified_at": "2026-10-11T04:41:45.571Z"
     },
     "zulip/zulip": {
       "full_name": "zulip/zulip",
@@ -615,7 +615,7 @@
       "days_since_release": 19,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:38.735Z"
+      "verified_at": "2026-10-11T04:41:45.995Z"
     },
     "go-vikunja/vikunja": {
       "full_name": "go-vikunja/vikunja",
@@ -637,7 +637,7 @@
       "days_since_release": 8,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:39.222Z"
+      "verified_at": "2026-10-11T04:41:46.454Z"
     },
     "caprover/caprover": {
       "full_name": "caprover/caprover",
@@ -659,7 +659,7 @@
       "days_since_release": 41,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:39.832Z"
+      "verified_at": "2026-10-11T04:41:46.824Z"
     },
     "coollabsio/coolify": {
       "full_name": "coollabsio/coolify",
@@ -681,7 +681,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:40.370Z"
+      "verified_at": "2026-10-11T04:41:47.123Z"
     },
     "Dokploy/dokploy": {
       "full_name": "Dokploy/dokploy",
@@ -703,7 +703,7 @@
       "days_since_release": 12,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:40.817Z"
+      "verified_at": "2026-10-11T04:41:47.501Z"
     },
     "activepieces/activepieces": {
       "full_name": "activepieces/activepieces",
@@ -725,7 +725,7 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:41.277Z"
+      "verified_at": "2026-10-11T04:41:47.871Z"
     },
     "n8n-io/n8n": {
       "full_name": "n8n-io/n8n",
@@ -747,7 +747,7 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:41.699Z"
+      "verified_at": "2026-10-11T04:41:48.243Z"
     },
     "windmill-labs/windmill": {
       "full_name": "windmill-labs/windmill",
@@ -769,7 +769,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:28:42.216Z"
+      "verified_at": "2026-10-11T04:41:48.631Z"
     }
   },
   "errors": [],

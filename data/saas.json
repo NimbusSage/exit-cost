@@ -894,8 +894,8 @@
         }
       ],
       "fingerprint": {
-        "hash": "d276be91a21ba9e8",
-        "token_count": 8,
+        "hash": "7063d6a5e3a2b8c1",
+        "token_count": 7,
         "tokens": [
           "USD0",
           "USD0.5",
@@ -903,8 +903,7 @@
           "USD10.99",
           "USD13.49",
           "USD24.99",
-          "USD30.49",
-          "USD5.99"
+          "USD30.49"
         ]
       },
       "last_checked_at": "2026-10-11",
@@ -1009,8 +1008,9 @@
           "last_auto_confirmed_at": "2026-10-11",
           "needs_reverification": false,
           "check": {
-            "agreement": "match",
-            "at": "2026-10-11"
+            "agreement": "unverifiable",
+            "at": "2026-10-11",
+            "reason": "the stored price appears, but so do unrelated figures (9, 27, 90, 18, 10) — a human should look"
           }
         },
         {
@@ -1028,16 +1028,41 @@
           "last_auto_confirmed_at": "2026-10-11",
           "needs_reverification": false,
           "check": {
-            "agreement": "match",
-            "at": "2026-10-11"
+            "agreement": "unverifiable",
+            "at": "2026-10-11",
+            "reason": "the stored price appears, but so do unrelated figures (45, 20, 135, 60, 190, 220, 41, 28, 30) — a human should look"
           }
         }
       ],
       "fingerprint": {
         "hash": "e482f2c54d15aeeb",
-        "token_count": 1,
+        "token_count": 25,
         "tokens": [
-          "multiple"
+          "USD0",
+          "USD10",
+          "USD12",
+          "USD120",
+          "USD135",
+          "USD140",
+          "USD17",
+          "USD18",
+          "USD19",
+          "USD190",
+          "USD20",
+          "USD220",
+          "USD25",
+          "USD250",
+          "USD27",
+          "USD28",
+          "USD30",
+          "USD31",
+          "USD36",
+          "USD41",
+          "USD45",
+          "USD60",
+          "USD9",
+          "USD90",
+          "USD93"
         ]
       },
       "last_checked_at": "2026-10-11",
@@ -1073,8 +1098,9 @@
           "last_auto_confirmed_at": "2026-10-11",
           "needs_reverification": false,
           "check": {
-            "agreement": "match",
-            "at": "2026-10-11"
+            "agreement": "unverifiable",
+            "at": "2026-10-11",
+            "reason": "3 different prices near the plan name"
           }
         },
         {
@@ -1092,16 +1118,24 @@
           "last_auto_confirmed_at": "2026-10-11",
           "needs_reverification": false,
           "check": {
-            "agreement": "match",
-            "at": "2026-10-11"
+            "agreement": "unverifiable",
+            "at": "2026-10-11",
+            "reason": "3 different prices near the plan name"
           }
         }
       ],
       "fingerprint": {
         "hash": "7ad125e1ce4767f3",
-        "token_count": 1,
+        "token_count": 8,
         "tokens": [
-          "multiple"
+          "USD12",
+          "USD16",
+          "USD25",
+          "USD3",
+          "USD35",
+          "USD5",
+          "USD55",
+          "USD90"
         ]
       },
       "last_checked_at": "2026-10-11",
