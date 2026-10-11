@@ -986,6 +986,133 @@
         "Premium",
         "Corporate"
       ]
+    },
+    {
+      "id": "monday",
+      "name": "monday.com",
+      "pricing_url": "https://monday.com/pricing",
+      "category": "project-management",
+      "plans": [
+        {
+          "id": "basic",
+          "name": "Basic",
+          "page_label": "Basic",
+          "amount": 12,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Basic $ 12 seat / month Total of $120 $140 $12 x 10 seats = $120 ... billed annually",
+          "verified_at": "2026-10-11",
+          "verified_by": "human",
+          "caveat": "monday shows worked bills at a 10-seat example. The $12 is per seat per month; the page also carries a monthly-cadence price ($19-20 for the same tier) shown under a billing toggle.",
+          "last_auto_confirmed_at": "2026-10-11",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-10-11"
+          }
+        },
+        {
+          "id": "pro",
+          "name": "Pro",
+          "page_label": "Pro",
+          "amount": 19,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Pro $ 19 seat / month Total of $190 $220 $19 x 10 seats = $190 ... billed annually",
+          "verified_at": "2026-10-11",
+          "verified_by": "human",
+          "last_auto_confirmed_at": "2026-10-11",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-10-11"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "e482f2c54d15aeeb",
+        "token_count": 1,
+        "tokens": [
+          "multiple"
+        ]
+      },
+      "last_checked_at": "2026-10-11",
+      "last_check_ok": true,
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Free",
+        "Basic",
+        "Standard",
+        "Pro",
+        "Enterprise"
+      ]
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "pricing_url": "https://www.figma.com/pricing/",
+      "category": "design",
+      "plans": [
+        {
+          "id": "professional-full",
+          "name": "Professional — Full seat",
+          "page_label": "Professional",
+          "amount": 16,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Professional Monthly Annual Full seat $16 /mo + 3,000 AI credits/mo",
+          "verified_at": "2026-10-11",
+          "verified_by": "human",
+          "caveat": "Figma prices per seat with three seat types. Full seat is the editor; Dev and Collab seats are cheaper and read- or comment-mostly.",
+          "last_auto_confirmed_at": "2026-10-11",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-10-11"
+          }
+        },
+        {
+          "id": "professional-dev",
+          "name": "Professional — Dev seat",
+          "page_label": "Professional",
+          "amount": 12,
+          "period": "month",
+          "per_seat": true,
+          "currency": "USD",
+          "billed": "annual",
+          "quote": "Dev seat $12 /mo + 500 AI credits/mo",
+          "verified_at": "2026-10-11",
+          "verified_by": "human",
+          "last_auto_confirmed_at": "2026-10-11",
+          "needs_reverification": false,
+          "check": {
+            "agreement": "match",
+            "at": "2026-10-11"
+          }
+        }
+      ],
+      "fingerprint": {
+        "hash": "7ad125e1ce4767f3",
+        "token_count": 1,
+        "tokens": [
+          "multiple"
+        ]
+      },
+      "last_checked_at": "2026-10-11",
+      "last_check_ok": true,
+      "last_check_reason": null,
+      "page_plan_names": [
+        "Starter",
+        "Professional",
+        "Organization",
+        "Enterprise"
+      ]
     }
   ]
 }

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "figma-to-penpot",
+  "title": "Figma Professional to self-hosted Penpot",
+  "summary": "Penpot is the only design tool where open file format and open source are the same decision, and the seat math is where Figma charges most.",
+  "category": "design",
+  "incumbent": {
+    "vendor": "figma",
+    "plan": "professional-full",
+    "seats": 6
+  },
+  "alternative": {
+    "name": "Penpot (self-hosted)",
+    "repo": "penpot/penpot",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 50
+    },
+    "backup_gb": 40,
+    "migration_hours": 12,
+    "maintenance_hours_per_month": 1
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "Figma's plugin ecosystem, which is years ahead of anyone's",
+      "Auto-layout and some of the newer prototyping interactions behave differently",
+      "Figma AI — Penpot has AI in cloud offerings, not in the self-hosted build"
+    ],
+    "you_gain": [
+      "No seat taxonomy: no Full/Dev/Collab split to manage, everyone edits",
+      "SVG-native — files are web standards, not a proprietary format",
+      "MPL-2.0, and Penpot is the only design tool the EU has invested in as public infrastructure"
+    ]
+  },
+  "caveats": [
+    "Penpot is genuinely close on UI but not identical. Auto-layout, variant behaviour and some keyboard muscle memory differ; budget a re-learning week for a design-heavy team.",
+    "Importing Figma files works file-by-file via SVG/PDF rather than a full-workspace importer. The 12-hour estimate assumes a 6-seat team's active projects, not every historical draft.",
+    "Penpot self-hosted needs 4 GB RAM minimum and is heavier on disk than the design work itself suggests — the render pipeline and Postgres dominate."
+  ],
+  "hours_are_estimates": true
+}

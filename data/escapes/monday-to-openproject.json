@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "slug": "monday-to-openproject",
+  "title": "monday.com Pro to self-hosted OpenProject",
+  "summary": "monday charges per seat for boards; OpenProject gives you boards, Gantt, wikis and time tracking with no seat count anywhere in the bill.",
+  "category": "project-management",
+  "incumbent": {
+    "vendor": "monday",
+    "plan": "pro",
+    "seats": 15
+  },
+  "alternative": {
+    "name": "OpenProject (self-hosted)",
+    "repo": "opf/openproject",
+    "requirements": {
+      "ram_gb": 4,
+      "vcpu": 2,
+      "disk_gb": 50
+    },
+    "backup_gb": 30,
+    "migration_hours": 12,
+    "maintenance_hours_per_month": 1
+  },
+  "tradeoffs": {
+    "you_lose": [
+      "monday's automations marketplace and its no-code automation builder",
+      "The polish of monday's UI — OpenProject is utilitarian by comparison",
+      "Native docs and whiteboard in the same workspace"
+    ],
+    "you_gain": [
+      "Gantt charts with dependencies and baselines, which monday gates behind expensive tiers",
+      "GPL-3.0 with unlimited users — no seat count in any direction of the arithmetic",
+      "Time tracking and agile boards native, no add-on cost"
+    ]
+  },
+  "caveats": [
+    "monday's credit system (2,000-3,000 actions/month) makes its real bill move with usage; the $19 figure is the per-seat base, so if your endpoint automations burn credits the honest price is higher and OpenProject wins sooner.",
+    "There is no monday importer. Export boards to CSV and rebuild the automations yourself or accept losing them — the 12-hour estimate covers the second choice.",
+    "OpenProject needs 4 GB RAM and regular updates; more moving parts than the SaaS it replaces, which is exactly the trade the page prices."
+  ],
+  "hours_are_estimates": true
+}
