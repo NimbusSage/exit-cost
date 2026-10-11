@@ -15,7 +15,10 @@ const { mergeProviders } = require('./merge.js');
 const { collectRepos } = require('./github.js');
 const { checkAll, summarise } = require('./saas.js');
 const { collectAll: collectManaged } = require('./managed.js');
+const { fetchCatalog: fetchOpenStore } = require('./openstore.js');
 const { today } = require('../lib/freshness.js');
+
+const OPENSTORE_FILE = p('data', 'sources', 'openstore.json');
 
 const VPS_FILE      = p('data', 'sources', 'vps.json');
 const PROJECTS_FILE = p('data', 'sources', 'projects.json');
@@ -116,6 +119,29 @@ async function main() {
     }
     log(`  -> ${summary.match} confirmed, ${summary.drift} drifted, ${summary.unverifiable} unverifiable`);
     for (const d of summary.drifted) log(`  DRIFT   ${d.vendor}/${d.plan}: ${d.reason}`);
+  }
+
+  // ---- 5. OpenStore directory ----------------------------------------------
+  // A failure never removes the links we already publish; it only stops the
+  // verification date from advancing, and the site withholds what goes stale.
+  if (!only || only === 'openstore') {
+    log('\n[openstore] fetching the OpenStore catalog');
+    const previous = readJson(OPENSTORE_FILE);
+    try {
+      const fresh = await fetchOpenStore({ log });
+      if (!dry) writeJson(OPENSTORE_FILE, fresh);
+      run.steps.openstore = { ok: true, count: fresh.count };
+      log(`  -> ${fresh.count} apps from ${fresh.source_repo}`);
+    } catch (e) {
+      const stale = previous && previous.ok ? previous : null;
+      if (stale && !dry) {
+        writeJson(OPENSTORE_FILE, { ...stale, stale: true, last_error: String(e.message || e), last_attempt_at: new Date().toISOString() });
+        log(`  STALE   openstore: ${e.message || e} (keeping ${stale.count} apps from ${stale.verified_at?.slice(0, 10)})`);
+      } else {
+        log(`  FAIL    openstore: ${e.message || e}${previous ? ' (no previous copy to keep)' : ''}`);
+      }
+      run.steps.openstore = { ok: false, error: String(e.message || e), kept_previous: !!stale };
+    }
   }
 
   // ---- done ----------------------------------------------------------------

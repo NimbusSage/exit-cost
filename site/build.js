@@ -11,6 +11,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { readJson, listJson, p } = require('../pipeline/lib/store.js');
+const { repoKey } = require('../pipeline/collect/openstore.js');
 const chart = require('./assets/chart.js');
 
 const DIST = process.env.EXITCOST_DIST || path.join(__dirname, 'dist');
@@ -261,6 +262,28 @@ function provenanceTable(e) {
   return rows.join('\n');
 }
 
+/**
+ * The link to OpenStore, shown only when their catalog lists project(s) that
+ * replace the same subscription this page prices. It points outward to a
+ * directory that does something this site does not: browsing what else is out
+ * there. The comparison itself stays here.
+ */
+function openstoreBlock(e) {
+  const peers = openstorePeerProjects(e.incumbent.vendor);
+  if (!peers.length) return '';
+  const items = peers.slice(0, 4).map((o) =>
+    `<a href="${esc(o.url)}" rel="noopener">${esc(o.name)}</a>`).join(', ');
+  return `
+  <h2 class="section-head">Other projects that replace ${esc(e.incumbent.vendor)}</h2>
+  <p class="measure">${items}
+  ${peers.length > 4 ? `and ${peers.length - 4} more ` : ''}are catalogued on
+  <a href="https://www.openstore.site/" rel="noopener">OpenStore</a>, a curated directory of
+  open-source software with notes on what each project replaces and how actively it is
+  maintained. This site prices the exit; that one browses the market. Weighing the options before
+  committing hours to a migration is time better spent than time spent monitoring a server you
+  chose too quickly. Entries verified ${niceDate(OPENSTORE.verified_at)}.</p>`;
+}
+
 function escapePage(e, siteUrl) {
   const r = e.result;
   const yrs = r.inputs.horizon_months / 12;
@@ -382,6 +405,8 @@ function escapePage(e, siteUrl) {
   generated from a spec so the pinned image tags are checked against the registry on every build.</p>` : ''}
 
   ${e.caveats.length ? `<h2 class="section-head">Read this before you decide</h2><ul class="caveats measure">${e.caveats.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>` : ''}
+
+  ${openstoreBlock(e)}
 
   ${pj ? `<h2 class="section-head">Is the project alive?</h2>
   <p class="measure">${esc(pj.full_name)} has ${pj.stars.toLocaleString('en-US')} stars, was last pushed ${plural(pj.days_since_push, 'day', 'days')} ago${pj.latest_release ? `, and last cut a release (${esc(pj.latest_release.tag)}) ${plural(pj.days_since_release, 'day', 'days')} ago` : ' and does not cut tagged releases'}. ${pj.license ? `Licence: ${esc(pj.license)}. ` : 'Its licence is not one GitHub recognises automatically, so check the repository before you rely on it. '}We rate it <b>${esc(pj.health)}</b>. We do not publish comparisons against software that has gone dormant, however good the arithmetic looks.</p>` : ''}
@@ -863,11 +888,105 @@ would rather hear it from you than keep publishing it.</p>`;
 
 /* -------------------------------------------------------------------- main */
 
+/**
+ * The OpenStore directory (openstore.site), collected nightly like every other
+ * source. Comparisons whose alternative has an entry there get a link to it;
+ * the feed at /api/openstore.json lets OpenStore join OUR prices against THEIR
+ * catalog without another PR from us — they read this file on their schedule
+ * and the numbers are always the fresh ones, because it is rebuilt nightly.
+ */
+let OPENSTORE = null;
+function loadOpenStore() {
+  const d = readJson(p('data', 'sources', 'openstore.json'), null);
+  if (d && d.ok && Array.isArray(d.apps) && !d.stale) OPENSTORE = d;
+}
+
+/** OpenStore entry for a GitHub repo, if one exists in the collected catalog. */
+function openstoreFor(repo) {
+  if (!OPENSTORE || !repo) return null;
+  return OPENSTORE.apps.find((a) => repoKey(a.repo) === repoKey(repo)) || null;
+}
+
+/**
+ * OpenStore entries that replace the same subscription, even when the project
+ * is a different one from ours. Their catalog records, per app, the product it
+ * replaces ("Notion", "1Password"). Matching on that turns one comparison page
+ * into a doorway to every other open-source project that answers the same
+ * question, which is the part of the journey this site deliberately leaves out.
+ */
+function openstorePeerProjects(vendor) {
+  if (!OPENSTORE || !vendor) return [];
+  const want = vendor.toLowerCase().replace(/\s+/g, '');
+  const hit = (s) => s && s.toLowerCase().replace(/\s+/g, '').includes(want);
+  return OPENSTORE.apps.filter((a) => (a.replaces || []).some(hit));
+}
+
+function openstoreFeed(escapes, siteUrl) {
+  return {
+    name: 'Exit Cost',
+    description: 'The fully-loaded cost of leaving a SaaS subscription for a self-hosted alternative, including the operator\'s own time.',
+    licence: 'CC BY 4.0 — free to use, including commercially, with attribution',
+    licence_url: 'https://creativecommons.org/licenses/by/4.0/',
+    method: `${siteUrl}/method/`,
+    corrections: 'https://github.com/NimbusSage/exit-cost/issues',
+    feed_url: `${siteUrl}/api/openstore.json`,
+    generated_at: new Date().toISOString(),
+    directory: {
+      name: 'OpenStore',
+      url: 'https://www.openstore.site/',
+      source_repo: OPENSTORE.source_repo,
+      fetched_at: OPENSTORE.fetched_at,
+      verified_at: OPENSTORE.verified_at,
+      site_url_app_prefix: 'https://www.openstore.site/app/',
+    },
+    escapes: escapes.map((e) => {
+      const o = openstoreFor(e.alternative.repo);
+      return {
+        slug: e.slug,
+        title: e.title,
+        category: e.category,
+        incumbent_vendor: e.incumbent.vendor,
+        incumbent_plan: e.incumbent.plan,
+        incumbent_monthly_usd: e.result.incumbent.monthly,
+        incumbent_price_verified_at: e.incumbent.verified_at,
+        incumbent_price_quote: e.incumbent.quote,
+        per_seat: !!e.incumbent.per_seat,
+        seats: e.result.inputs.seats,
+        alternative_name: e.alternative.name.replace(/ \(self-hosted\)$/, ''),
+        alternative_repo: e.alternative.repo,
+        openstore_id: o ? o.id : null,
+        openstore_url: o ? o.url : null,
+        openstore_replaces_this_vendor: (o
+          ? true
+          : openstorePeerProjects(e.incumbent.vendor).length > 0),
+        host_provider: e.alternative.box.provider,
+        host_plan: e.alternative.box.name,
+        host_monthly_usd: e.alternative.box.monthly_usd,
+        host_price_verified_at: e.alternative.box.verified_at,
+        vcpu: e.alternative.box.vcpu,
+        ram_gb: e.alternative.box.ram_gb,
+        disk_gb: e.alternative.box.disk_gb,
+        migration_hours: e.alternative.migration_hours,
+        maintenance_hours_per_month: e.alternative.maintenance_hours_per_month,
+        horizon_months: e.result.inputs.horizon_months,
+        hourly_rate_usd: e.result.inputs.hourly_rate,
+        break_even_month: e.result.break_even_month,
+        break_even_hourly_rate: e.result.break_even_hourly_rate,
+        savings_36mo_usd: e.result.savings?.at_horizon ?? null,
+        verdict: e.result.verdict,
+        url: `${siteUrl}/e/${e.slug}/`,
+        json: `${siteUrl}/api/escapes/${e.slug}.json`,
+      };
+    }),
+  };
+}
+
 function main() {
   const siteUrl = (process.env.SITE_URL || 'https://nimbussage.github.io/exit-cost').replace(/\/$/, '');
   BASE = new URL(siteUrl).pathname.replace(/\/$/, '');
   loadAffiliates();
   loadKits();
+  loadOpenStore();
   const index = readJson(p('data', 'build', 'index.json'));
   if (!index) { console.error('FATAL: no data/build/index.json. Run `npm run build:data` first.'); process.exit(1); }
 
@@ -920,6 +1039,10 @@ function main() {
     escapes: index.escapes.map((e) => ({ ...e, url: `${siteUrl}/e/${e.slug}/`, json: `${siteUrl}/api/escapes/${e.slug}.json` })),
   }, null, 2));
   for (const e of escapes) write(`api/escapes/${e.slug}.json`, JSON.stringify(e, null, 2));
+
+  // The feed OpenStore (or anyone) can pull on their own schedule. Rebuilt with
+  // every site build, so joining their catalog against it never needs a PR.
+  if (OPENSTORE) write('api/openstore.json', JSON.stringify(openstoreFeed(escapes, siteUrl), null, 2));
 
   write('api/escapes.csv', datasetCsv(escapes));
   write('api/dataset.json', JSON.stringify({
