@@ -796,8 +796,9 @@
           "last_auto_confirmed_at": "2026-10-11",
           "needs_reverification": false,
           "check": {
-            "agreement": "match",
-            "at": "2026-10-11"
+            "agreement": "unverifiable",
+            "at": "2026-10-11",
+            "reason": "the stored price appears, but so do unrelated figures (8.75, 4.38) — a human should look"
           }
         },
         {
@@ -815,25 +816,24 @@
           "last_auto_confirmed_at": "2026-10-11",
           "needs_reverification": false,
           "check": {
-            "agreement": "match",
-            "at": "2026-10-11"
+            "agreement": "unverifiable",
+            "at": "2026-10-11",
+            "reason": "the stored price appears, but so do unrelated figures (18, 9) — a human should look"
           }
         }
       ],
       "fingerprint": {
-        "hash": "d58a3f2f065c75df",
-        "token_count": 10,
+        "hash": "123d956af3ca364e",
+        "token_count": 8,
         "tokens": [
-          "$0",
-          "$1",
-          "$128",
-          "$15",
-          "$18",
-          "$4.38",
-          "$4.99",
-          "$7.25",
-          "$8.75",
-          "$9"
+          "USD0",
+          "USD15",
+          "USD18",
+          "USD4.38",
+          "USD45",
+          "USD7.25",
+          "USD8.75",
+          "USD9"
         ]
       },
       "last_checked_at": "2026-10-11",
@@ -867,8 +867,9 @@
           "last_auto_confirmed_at": "2026-10-11",
           "needs_reverification": false,
           "check": {
-            "agreement": "match",
-            "at": "2026-10-11"
+            "agreement": "unverifiable",
+            "at": "2026-10-11",
+            "reason": "the stored price appears, but so do unrelated figures (13.49) — a human should look"
           }
         },
         {
@@ -886,23 +887,24 @@
           "last_auto_confirmed_at": "2026-10-11",
           "needs_reverification": false,
           "check": {
-            "agreement": "match",
-            "at": "2026-10-11"
+            "agreement": "unverifiable",
+            "at": "2026-10-11",
+            "reason": "the stored price appears, but so do unrelated figures (30.49) — a human should look"
           }
         }
       ],
       "fingerprint": {
-        "hash": "7063d6a5e3a2b8c1",
-        "token_count": 9,
+        "hash": "d276be91a21ba9e8",
+        "token_count": 8,
         "tokens": [
-          "$0",
-          "$0.50",
-          "$0.60",
-          "$10.99",
-          "$13.49",
-          "$24.99",
-          "$24.99x2",
-          "$30.49"
+          "USD0",
+          "USD0.5",
+          "USD0.6",
+          "USD10.99",
+          "USD13.49",
+          "USD24.99",
+          "USD30.49",
+          "USD5.99"
         ]
       },
       "last_checked_at": "2026-10-11",
@@ -938,8 +940,9 @@
           "last_auto_confirmed_at": "2026-10-11",
           "needs_reverification": false,
           "check": {
-            "agreement": "match",
-            "at": "2026-10-11"
+            "agreement": "unverifiable",
+            "at": "2026-10-11",
+            "reason": "the stored price appears, but so do unrelated figures (1) — a human should look"
           }
         },
         {
@@ -963,14 +966,18 @@
         }
       ],
       "fingerprint": {
-        "hash": "op-temp",
-        "token_count": 1,
+        "hash": "17938f3bfc386292",
+        "token_count": 5,
         "tokens": [
-          "EUR"
+          "EUR0",
+          "EUR1",
+          "EUR10.95",
+          "EUR15.95",
+          "EUR5.95"
         ]
       },
-      "last_checked_at": null,
-      "last_check_ok": null,
+      "last_checked_at": "2026-10-11",
+      "last_check_ok": true,
       "last_check_reason": null,
       "page_plan_names": [
         "Community",
