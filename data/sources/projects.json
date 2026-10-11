@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-11T04:07:23.480Z",
+  "fetched_at": "2026-10-11T04:28:42.717Z",
   "projects": {
     "passbolt/passbolt_api": {
       "full_name": "passbolt/passbolt_api",
@@ -21,15 +21,15 @@
       "days_since_release": 24,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:08.092Z"
+      "verified_at": "2026-10-11T04:28:23.935Z"
     },
     "dani-garcia/vaultwarden": {
       "full_name": "dani-garcia/vaultwarden",
       "url": "https://github.com/dani-garcia/vaultwarden",
       "homepage": null,
       "description": "Unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs",
-      "stars": 68821,
-      "forks": 3301,
+      "stars": 68820,
+      "forks": 3302,
       "open_issues": 92,
       "license": "AGPL-3.0",
       "archived": false,
@@ -43,7 +43,7 @@
       "days_since_release": 5,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:08.581Z"
+      "verified_at": "2026-10-11T04:28:24.846Z"
     },
     "baserow/baserow": {
       "full_name": "baserow/baserow",
@@ -65,7 +65,7 @@
       "days_since_release": 11,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:08.990Z"
+      "verified_at": "2026-10-11T04:28:25.340Z"
     },
     "nocodb/nocodb": {
       "full_name": "nocodb/nocodb",
@@ -87,7 +87,7 @@
       "days_since_release": 12,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:09.396Z"
+      "verified_at": "2026-10-11T04:28:25.774Z"
     },
     "teableio/teable": {
       "full_name": "teableio/teable",
@@ -109,7 +109,7 @@
       "days_since_release": 0,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:09.807Z"
+      "verified_at": "2026-10-11T04:28:26.254Z"
     },
     "opf/openproject": {
       "full_name": "opf/openproject",
@@ -131,7 +131,7 @@
       "days_since_release": 10,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:10.375Z"
+      "verified_at": "2026-10-11T04:28:26.724Z"
     },
     "makeplane/plane": {
       "full_name": "makeplane/plane",
@@ -153,7 +153,7 @@
       "days_since_release": 49,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:10.807Z"
+      "verified_at": "2026-10-11T04:28:27.186Z"
     },
     "keycloak/keycloak": {
       "full_name": "keycloak/keycloak",
@@ -175,7 +175,7 @@
       "days_since_release": 10,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:11.226Z"
+      "verified_at": "2026-10-11T04:28:27.717Z"
     },
     "zitadel/zitadel": {
       "full_name": "zitadel/zitadel",
@@ -197,7 +197,7 @@
       "days_since_release": 10,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:11.697Z"
+      "verified_at": "2026-10-11T04:28:28.339Z"
     },
     "calcom/cal.com": {
       "full_name": "calcom/cal.diy",
@@ -219,7 +219,7 @@
       "days_since_release": 223,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:12.214Z"
+      "verified_at": "2026-10-11T04:28:28.955Z"
     },
     "alextselegidis/easyappointments": {
       "full_name": "alextselegidis/easyappointments",
@@ -241,14 +241,14 @@
       "days_since_release": 137,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:13.107Z"
+      "verified_at": "2026-10-11T04:28:29.999Z"
     },
     "chatwoot/chatwoot": {
       "full_name": "chatwoot/chatwoot",
       "url": "https://github.com/chatwoot/chatwoot",
       "homepage": "https://www.chatwoot.com/help-center",
       "description": "Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬",
-      "stars": 37691,
+      "stars": 37690,
       "forks": 9183,
       "open_issues": 1581,
       "license": null,
@@ -263,7 +263,7 @@
       "days_since_release": 23,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:13.513Z"
+      "verified_at": "2026-10-11T04:28:30.498Z"
     },
     "documenso/documenso": {
       "full_name": "documenso/documenso",
@@ -275,7 +275,7 @@
       "open_issues": 214,
       "license": "AGPL-3.0",
       "archived": false,
-      "pushed_at": "2026-10-11T02:21:14Z",
+      "pushed_at": "2026-10-11T04:11:32Z",
       "days_since_push": 0,
       "latest_release": {
         "tag": "v2.20.0",
@@ -285,7 +285,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:13.949Z"
+      "verified_at": "2026-10-11T04:28:30.984Z"
     },
     "docusealco/docuseal": {
       "full_name": "docusealco/docuseal",
@@ -307,7 +307,7 @@
       "days_since_release": 6,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:14.349Z"
+      "verified_at": "2026-10-11T04:28:31.459Z"
     },
     "OpenSignLabs/OpenSign": {
       "full_name": "OpenSignLabs/OpenSign",
@@ -329,7 +329,29 @@
       "days_since_release": 51,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:14.823Z"
+      "verified_at": "2026-10-11T04:28:32.049Z"
+    },
+    "penpot/penpot": {
+      "full_name": "penpot/penpot",
+      "url": "https://github.com/penpot/penpot",
+      "homepage": "https://penpot.app",
+      "description": "Penpot: The open-source design platform for Product teams that need scalable collaboration.",
+      "stars": 60890,
+      "forks": 4199,
+      "open_issues": 808,
+      "license": "MPL-2.0",
+      "archived": false,
+      "pushed_at": "2026-10-10T22:05:05Z",
+      "days_since_push": 0,
+      "latest_release": {
+        "tag": "2.18.3",
+        "published_at": "2026-10-06T12:46:50Z",
+        "url": "https://github.com/penpot/penpot/releases/tag/2.18.3"
+      },
+      "days_since_release": 5,
+      "health": "active",
+      "recommended": true,
+      "verified_at": "2026-10-11T04:28:32.546Z"
     },
     "jgraph/drawio": {
       "full_name": "jgraph/drawio",
@@ -351,15 +373,15 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:15.260Z"
+      "verified_at": "2026-10-11T04:28:33.004Z"
     },
     "excalidraw/excalidraw": {
       "full_name": "excalidraw/excalidraw",
       "url": "https://github.com/excalidraw/excalidraw",
       "homepage": "https://excalidraw.com",
       "description": "Virtual whiteboard for sketching hand-drawn like diagrams",
-      "stars": 133624,
-      "forks": 15633,
+      "stars": 133625,
+      "forks": 15634,
       "open_issues": 3260,
       "license": "MIT",
       "archived": false,
@@ -373,7 +395,7 @@
       "days_since_release": 173,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:15.642Z"
+      "verified_at": "2026-10-11T04:28:33.600Z"
     },
     "toeverything/AFFiNE": {
       "full_name": "toeverything/AFFiNE",
@@ -381,7 +403,7 @@
       "homepage": "https://affine.pro",
       "description": "There can be more than Notion and Miro. AFFiNE(pronounced [ə‘fain]) is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use. ",
       "stars": 73373,
-      "forks": 5346,
+      "forks": 5347,
       "open_issues": 768,
       "license": null,
       "archived": false,
@@ -395,7 +417,7 @@
       "days_since_release": 53,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:16.051Z"
+      "verified_at": "2026-10-11T04:28:34.114Z"
     },
     "AppFlowy-IO/AppFlowy": {
       "full_name": "AppFlowy-IO/AppFlowy",
@@ -417,7 +439,7 @@
       "days_since_release": 3,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:16.480Z"
+      "verified_at": "2026-10-11T04:28:34.559Z"
     },
     "docmost/docmost": {
       "full_name": "docmost/docmost",
@@ -439,7 +461,7 @@
       "days_since_release": 33,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:16.889Z"
+      "verified_at": "2026-10-11T04:28:35.101Z"
     },
     "outline/outline": {
       "full_name": "outline/outline",
@@ -461,7 +483,7 @@
       "days_since_release": 32,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:17.318Z"
+      "verified_at": "2026-10-11T04:28:35.584Z"
     },
     "siyuan-note/siyuan": {
       "full_name": "siyuan-note/siyuan",
@@ -483,7 +505,7 @@
       "days_since_release": 12,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:17.772Z"
+      "verified_at": "2026-10-11T04:28:36.060Z"
     },
     "plausible/analytics": {
       "full_name": "plausible/analytics",
@@ -505,7 +527,7 @@
       "days_since_release": 149,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:18.271Z"
+      "verified_at": "2026-10-11T04:28:36.681Z"
     },
     "matomo-org/matomo": {
       "full_name": "matomo-org/matomo",
@@ -527,7 +549,7 @@
       "days_since_release": 6,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:18.734Z"
+      "verified_at": "2026-10-11T04:28:37.100Z"
     },
     "umami-software/umami": {
       "full_name": "umami-software/umami",
@@ -549,7 +571,7 @@
       "days_since_release": 24,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:19.292Z"
+      "verified_at": "2026-10-11T04:28:37.842Z"
     },
     "RocketChat/Rocket.Chat": {
       "full_name": "RocketChat/Rocket.Chat",
@@ -571,7 +593,7 @@
       "days_since_release": 5,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:19.732Z"
+      "verified_at": "2026-10-11T04:28:38.262Z"
     },
     "zulip/zulip": {
       "full_name": "zulip/zulip",
@@ -593,7 +615,7 @@
       "days_since_release": 19,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:20.175Z"
+      "verified_at": "2026-10-11T04:28:38.735Z"
     },
     "go-vikunja/vikunja": {
       "full_name": "go-vikunja/vikunja",
@@ -615,7 +637,7 @@
       "days_since_release": 8,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:20.636Z"
+      "verified_at": "2026-10-11T04:28:39.222Z"
     },
     "caprover/caprover": {
       "full_name": "caprover/caprover",
@@ -637,7 +659,7 @@
       "days_since_release": 41,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:21.039Z"
+      "verified_at": "2026-10-11T04:28:39.832Z"
     },
     "coollabsio/coolify": {
       "full_name": "coollabsio/coolify",
@@ -659,7 +681,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:21.437Z"
+      "verified_at": "2026-10-11T04:28:40.370Z"
     },
     "Dokploy/dokploy": {
       "full_name": "Dokploy/dokploy",
@@ -681,14 +703,14 @@
       "days_since_release": 12,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:21.827Z"
+      "verified_at": "2026-10-11T04:28:40.817Z"
     },
     "activepieces/activepieces": {
       "full_name": "activepieces/activepieces",
       "url": "https://github.com/activepieces/activepieces",
       "homepage": "https://www.activepieces.com",
       "description": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI Workflows & AI Agents • MCPs for AI Agents",
-      "stars": 24987,
+      "stars": 24988,
       "forks": 4324,
       "open_issues": 700,
       "license": null,
@@ -703,16 +725,16 @@
       "days_since_release": 4,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:22.236Z"
+      "verified_at": "2026-10-11T04:28:41.277Z"
     },
     "n8n-io/n8n": {
       "full_name": "n8n-io/n8n",
       "url": "https://github.com/n8n-io/n8n",
       "homepage": "https://n8n.io",
       "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
-      "stars": 206942,
-      "forks": 61052,
-      "open_issues": 1174,
+      "stars": 206941,
+      "forks": 61051,
+      "open_issues": 1175,
       "license": null,
       "archived": false,
       "pushed_at": "2026-10-10T21:12:27Z",
@@ -725,14 +747,14 @@
       "days_since_release": 2,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:22.655Z"
+      "verified_at": "2026-10-11T04:28:41.699Z"
     },
     "windmill-labs/windmill": {
       "full_name": "windmill-labs/windmill",
       "url": "https://github.com/windmill-labs/windmill",
       "homepage": "https://windmill.dev",
       "description": "Open-source developer platform to power your entire infra and turn scripts into webhooks, workflows and UIs. Fastest workflow engine (13x vs Airflow). Open-source alternative to Retool and Temporal.",
-      "stars": 18155,
+      "stars": 18156,
       "forks": 1116,
       "open_issues": 856,
       "license": null,
@@ -747,7 +769,7 @@
       "days_since_release": 1,
       "health": "active",
       "recommended": true,
-      "verified_at": "2026-10-11T04:07:23.112Z"
+      "verified_at": "2026-10-11T04:28:42.216Z"
     }
   },
   "errors": [],
