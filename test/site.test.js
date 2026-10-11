@@ -23,14 +23,27 @@ const PINNED_NOW = vps.fetched_at;
 let prepared = false;
 function prepare() {
   if (prepared) return;
-  execFileSync(NODE, [path.join(ROOT, 'pipeline', 'render', 'build.js')],
-    { env: { ...process.env, EXITCOST_NOW: PINNED_NOW }, stdio: 'ignore' });
+  try {
+    execFileSync(NODE, [path.join(ROOT, 'pipeline', 'render', 'build.js')],
+      { env: { ...process.env, EXITCOST_NOW: PINNED_NOW }, stdio: 'pipe' });
+  } catch (e) {
+    const detail = [e.stderr?.toString(), e.stdout?.toString()].filter(Boolean).join('\n---stdout---\n');
+    assert.fail(`pipeline/render/build.js exited ${e.status}\n${detail.slice(0, 4000)}`);
+  }
   prepared = true;
 }
 
 function buildWith(siteUrl) {
   prepare();
-  execFileSync(NODE, [path.join(ROOT, 'site', 'build.js')], { env: { ...process.env, SITE_URL: siteUrl, EXITCOST_DIST: DIST }, stdio: 'ignore' });
+  // stdio pipe, not 'ignore': when the generator fails, this is the only place
+  // its stderr ever appears — a bare "Command failed" with status 1 and no
+  // reason is exactly what cost an hour today.
+  try {
+    execFileSync(NODE, [path.join(ROOT, 'site', 'build.js')], { env: { ...process.env, SITE_URL: siteUrl, EXITCOST_DIST: DIST }, stdio: 'pipe' });
+  } catch (e) {
+    const detail = [e.stderr?.toString(), e.stdout?.toString()].filter(Boolean).join('\n---stdout---\n');
+    assert.fail(`site/build.js exited ${e.status}\n${detail.slice(0, 4000)}`);
+  }
   return (rel) => fs.readFileSync(path.join(DIST, rel), 'utf8');
 }
 
