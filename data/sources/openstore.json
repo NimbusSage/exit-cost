@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "fetched_at": "2026-10-11T01:49:34.241Z",
-  "verified_at": "2026-10-11T01:49:34.241Z",
+  "fetched_at": "2026-10-11T02:14:22.904Z",
+  "verified_at": "2026-10-11T02:14:22.904Z",
   "source_repo": "dev-krish-xyz/OpenStore",
   "files": [
     "catalog.js",
@@ -887,8 +887,5 @@
       "url": "https://www.openstore.site/app/openresume",
       "source_file": "open-catalog.js"
     }
-  ],
-  "stale": true,
-  "last_error": "fetch failed",
-  "last_attempt_at": "2026-10-11T02:04:56.470Z"
+  ]
 }

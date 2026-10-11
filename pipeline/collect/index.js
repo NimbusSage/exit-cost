@@ -122,8 +122,11 @@ async function main() {
   }
 
   // ---- 5. OpenStore directory ----------------------------------------------
-  // A failure never removes the links we already publish; it only stops the
-  // verification date from advancing, and the site withholds what goes stale.
+  // This source points at somebody else's repository, so a transient failure
+  // there must not damage what we already hold. When the previous copy is
+  // still inside its window it is left exactly as it is — un-refreshed, still
+  // valid, and the site keeps publishing from it — rather than being rewritten
+  // as a broken-looking copy that every downstream consumer would then refuse.
   if (!only || only === 'openstore') {
     log('\n[openstore] fetching the OpenStore catalog');
     const previous = readJson(OPENSTORE_FILE);
@@ -133,14 +136,8 @@ async function main() {
       run.steps.openstore = { ok: true, count: fresh.count };
       log(`  -> ${fresh.count} apps from ${fresh.source_repo}`);
     } catch (e) {
-      const stale = previous && previous.ok ? previous : null;
-      if (stale && !dry) {
-        writeJson(OPENSTORE_FILE, { ...stale, stale: true, last_error: String(e.message || e), last_attempt_at: new Date().toISOString() });
-        log(`  STALE   openstore: ${e.message || e} (keeping ${stale.count} apps from ${stale.verified_at?.slice(0, 10)})`);
-      } else {
-        log(`  FAIL    openstore: ${e.message || e}${previous ? ' (no previous copy to keep)' : ''}`);
-      }
-      run.steps.openstore = { ok: false, error: String(e.message || e), kept_previous: !!stale };
+      run.steps.openstore = { ok: false, error: String(e.message || e) };
+      log(`  FAIL    openstore: ${e.message || e} (previous copy untouched)`);
     }
   }
 

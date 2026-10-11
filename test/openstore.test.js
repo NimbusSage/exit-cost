@@ -5,7 +5,7 @@ const os = require('node:os');
 const fs = require('node:fs');
 
 const ROOT = path.resolve(__dirname, '..');
-const { catalogueFromSources, evaluateCatalogSource, repoKey, isFresh, DAYS_FRESH } = require('../pipeline/collect/openstore.js');
+const { catalogueFromSources, evaluateCatalogSource, repoKey, isFresh, isUsable, DAYS_FRESH, DAYS_KEEP } = require('../pipeline/collect/openstore.js');
 
 // --- collector: source evaluation -------------------------------------------
 
@@ -131,4 +131,17 @@ test('isFresh refuses past the freshness window', () => {
   assert.ok(!isFresh(broken));
   const empty = { ok: true, apps: [], fetched_at: new Date().toISOString() };
   assert.ok(!isFresh(empty));
+});
+
+test('REGRESSION: a still-valid copy is usable even after its fetch started failing', () => {
+  // A CI run once failed its own fetch and rewrote a healthy copy of the file
+  // marked stale, which took the feed and every cross-link off the live site
+  // while a green build said otherwise. Age, not the presence of a broken
+  // refresh, decides when a copy stops being published.
+  const young = { ok: true, apps: [{}], fetched_at: new Date().toISOString() };
+  assert.ok(isUsable(young), 'a fresh copy must survive a failed refresh');
+  const old = { ok: true, apps: [{}], fetched_at: new Date(Date.now() - (DAYS_KEEP + 1) * 86400000).toISOString() };
+  assert.ok(!isUsable(old), 'an unrefreshed copy expires on its own date');
+  const brokenFlag = { ok: true, apps: [{}], fetched_at: new Date().toISOString(), stale_of_failure: true };
+  assert.ok(!isUsable(brokenFlag));
 });

@@ -11,7 +11,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { readJson, listJson, p } = require('../pipeline/lib/store.js');
-const { repoKey } = require('../pipeline/collect/openstore.js');
+const { repoKey, isUsable } = require('../pipeline/collect/openstore.js');
 const chart = require('./assets/chart.js');
 
 const DIST = process.env.EXITCOST_DIST || path.join(__dirname, 'dist');
@@ -898,7 +898,7 @@ would rather hear it from you than keep publishing it.</p>`;
 let OPENSTORE = null;
 function loadOpenStore() {
   const d = readJson(p('data', 'sources', 'openstore.json'), null);
-  if (d && d.ok && Array.isArray(d.apps) && !d.stale) OPENSTORE = d;
+  if (isUsable(d)) OPENSTORE = d;
 }
 
 /** OpenStore entry for a GitHub repo, if one exists in the collected catalog. */

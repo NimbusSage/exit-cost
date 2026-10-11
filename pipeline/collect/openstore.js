@@ -16,9 +16,19 @@
 const vm = require('node:vm');
 
 const REPO = 'dev-krish-xyz/OpenStore';
-const RAW = (file) => `https://raw.githubusercontent.com/${REPO}/HEAD/${file}`;
+/**
+ * Two routes to the same three files. raw.githubusercontent.com hiccuped once
+ * in CI and a single-homed source turned "one transient failure" into "the
+ * links silently vanish from every page". jsDelivr mirrors any GitHub repo's
+ * files straight from its CDN, so it stands in when raw is unreachable.
+ */
+const MIRRORS = [
+  (file) => `https://raw.githubusercontent.com/${REPO}/HEAD/${file}`,
+  (file) => `https://cdn.jsdelivr.net/gh/${REPO}@main/${file}`,
+];
 const SOURCES = ['catalog.js', 'open-catalog.js', 'trending-catalog.js'];
 const DAYS_FRESH = 45;
+const DAYS_KEEP = 90;
 
 /**
  * Run one catalog source and pull the const exports out of it. The files carry
@@ -95,6 +105,20 @@ async function fetchText(url, { timeoutMs = 15000 } = {}) {
   }
 }
 
+/** Try each mirror in turn; the first that answers wins. */
+async function fetchWithFallback(file, { log = () => {} } = {}) {
+  let lastError;
+  for (const mirror of MIRRORS) {
+    try {
+      return await fetchText(mirror(file));
+    } catch (e) {
+      lastError = e;
+      log(`  retry   ${file} via next mirror after: ${e.message}`);
+    }
+  }
+  throw lastError;
+}
+
 /**
  * The whole collection step. Returns the shape everything downstream expects:
  * `{ ok, fetched_at, verified_at, apps: [...] }` on success, or
@@ -104,7 +128,7 @@ async function fetchCatalog({ log = () => {} } = {}) {
   const fetched_at = new Date().toISOString();
   const done = [];
   for (const file of SOURCES) {
-    const source = await fetchText(RAW(file));
+    const source = await fetchWithFallback(file, { log });
     done.push({ name: file, source });
     log(`  ok      ${REPO}/${file}`);
   }
@@ -125,4 +149,12 @@ async function fetchCatalog({ log = () => {} } = {}) {
 const daysSince = (iso) => (Date.now() - new Date(iso).getTime()) / 86400000;
 const isFresh = (store) => !!store?.ok && !!store?.apps?.length && daysSince(store.fetched_at) <= DAYS_FRESH;
 
-module.exports = { fetchCatalog, catalogueFromSources, evaluateCatalogSource, repoKey, isFresh, DAYS_FRESH };
+/**
+ * The caller-side rule: use the stored copy only while it is within the keep
+ * window and not explicitly void. Age is checked here rather than trusted to
+ * the absence of a `stale` flag, because a copy that simply stopped being
+ * refreshed must stop being published too — quietly, on its own date.
+ */
+const isUsable = (store) => !!store?.ok && !!store?.apps?.length && !store.stale_of_failure && daysSince(store.fetched_at) <= DAYS_KEEP;
+
+module.exports = { fetchCatalog, catalogueFromSources, evaluateCatalogSource, repoKey, isFresh, isUsable, DAYS_FRESH, DAYS_KEEP };
