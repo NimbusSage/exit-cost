@@ -887,5 +887,8 @@
       "url": "https://www.openstore.site/app/openresume",
       "source_file": "open-catalog.js"
     }
-  ]
+  ],
+  "stale": true,
+  "last_error": "fetch failed",
+  "last_attempt_at": "2026-10-11T02:04:56.470Z"
 }
