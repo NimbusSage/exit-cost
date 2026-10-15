@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "fetched_at": "2026-10-14T10:19:21.233Z",
-  "verified_at": "2026-10-14T10:19:21.233Z",
+  "fetched_at": "2026-10-15T10:02:51.360Z",
+  "verified_at": "2026-10-15T10:02:51.360Z",
   "source_repo": "dev-krish-xyz/OpenStore",
   "files": [
     "catalog.js",
