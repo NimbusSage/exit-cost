@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-20T10:09:35.886Z",
+  "fetched_at": "2026-10-21T10:17:07.625Z",
   "providers": {
     "pikapods": {
       "ok": true,
@@ -7,7 +7,7 @@
       "url": "https://www.pikapods.com/",
       "source_url": "https://www.pikapods.com/apps",
       "note": "Runs the same open-source software, applies updates, and takes daily encrypted backups to storage you own.",
-      "count": 125,
+      "count": 128,
       "apps": [
         {
           "label": "Actual A fast, privacy-focused",
@@ -113,6 +113,11 @@
           "label": "Docmost A collaborative wiki",
           "from_usd_month": 2.8,
           "quote": "Docmost A collaborative wiki … Run Your Own From $2.8/month"
+        },
+        {
+          "label": "DocuSeal Open-source DocuSign alternative",
+          "from_usd_month": 2.4,
+          "quote": "DocuSeal Open-source DocuSign alternative … Run Your Own From $2.4/month"
         },
         {
           "label": "DokuWiki Lightweight wiki and",
@@ -278,6 +283,11 @@
           "label": "Komga A media server",
           "from_usd_month": 4.5,
           "quote": "Komga A media server … Run Your Own From $4.5/month"
+        },
+        {
+          "label": "Leantime Goals-focused open-source project",
+          "from_usd_month": 3.3,
+          "quote": "Leantime Goals-focused open-source project … Run Your Own From $3.3/month"
         },
         {
           "label": "Linkding Simple bookmark service",
@@ -448,6 +458,11 @@
           "label": "Pocketbase Simple backend for",
           "from_usd_month": 2.1,
           "quote": "Pocketbase Simple backend for … Run Your Own From $2.1/month"
+        },
+        {
+          "label": "Pocket ID Simple OpenID",
+          "from_usd_month": 1.8,
+          "quote": "Pocket ID Simple OpenID … Run Your Own From $1.8/month"
         },
         {
           "label": "Poznote Note-taking and personal",
@@ -635,8 +650,8 @@
           "quote": "WordPress Popular blogging platform … Run Your Own From $2.4/month"
         }
       ],
-      "fetched_at": "2026-10-20T10:09:35.886Z",
-      "verified_at": "2026-10-20T10:09:35.886Z"
+      "fetched_at": "2026-10-21T10:17:07.625Z",
+      "verified_at": "2026-10-21T10:17:07.625Z"
     }
   }
 }
