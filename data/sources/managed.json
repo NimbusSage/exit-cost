@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-28T11:25:20.345Z",
+  "fetched_at": "2026-10-29T11:35:55.375Z",
   "providers": {
     "pikapods": {
       "ok": true,
@@ -7,7 +7,7 @@
       "url": "https://www.pikapods.com/",
       "source_url": "https://www.pikapods.com/apps",
       "note": "Runs the same open-source software, applies updates, and takes daily encrypted backups to storage you own.",
-      "count": 128,
+      "count": 126,
       "apps": [
         {
           "label": "Actual A fast, privacy-focused",
@@ -248,11 +248,6 @@
           "label": "Immich A Google Photos",
           "from_usd_month": 6.8,
           "quote": "Immich A Google Photos … Run Your Own From $6.8/month"
-        },
-        {
-          "label": "Joplin Open source note-taking",
-          "from_usd_month": 2.2,
-          "quote": "Joplin Open source note-taking … Run Your Own From $2.2/month"
         },
         {
           "label": "Journiv Privacy-first journaling application",
@@ -510,11 +505,6 @@
           "quote": "RSSHub An open source, … Run Your Own From $3.1/month"
         },
         {
-          "label": "Seafile A self-hosted file",
-          "from_usd_month": 7.4,
-          "quote": "Seafile A self-hosted file … Run Your Own From $7.4/month"
-        },
-        {
           "label": "SerpBear Search Engine Position",
           "from_usd_month": 2.5,
           "quote": "SerpBear Search Engine Position … Run Your Own From $2.5/month"
@@ -650,8 +640,8 @@
           "quote": "WordPress Popular blogging platform … Run Your Own From $2.4/month"
         }
       ],
-      "fetched_at": "2026-10-28T11:25:20.345Z",
-      "verified_at": "2026-10-28T11:25:20.345Z"
+      "fetched_at": "2026-10-29T11:35:55.375Z",
+      "verified_at": "2026-10-29T11:35:55.375Z"
     }
   }
 }
