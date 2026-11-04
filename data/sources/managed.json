@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-03T12:52:17.333Z",
+  "fetched_at": "2026-11-04T13:04:23.196Z",
   "providers": {
     "pikapods": {
       "ok": true,
@@ -375,9 +375,9 @@
           "quote": "My Idlers Web app … Run Your Own From $1.8/month"
         },
         {
-          "label": "n8n n8n is an",
+          "label": "n8n A workflow automation",
           "from_usd_month": 3.7,
-          "quote": "n8n n8n is an … Run Your Own From $3.7/month"
+          "quote": "n8n A workflow automation … Run Your Own From $3.7/month"
         },
         {
           "label": "Navidrome Navidrome allows you",
@@ -645,8 +645,8 @@
           "quote": "WordPress Popular blogging platform … Run Your Own From $2.4/month"
         }
       ],
-      "fetched_at": "2026-11-03T12:52:17.333Z",
-      "verified_at": "2026-11-03T12:52:17.333Z"
+      "fetched_at": "2026-11-04T13:04:23.196Z",
+      "verified_at": "2026-11-04T13:04:23.196Z"
     }
   }
 }
