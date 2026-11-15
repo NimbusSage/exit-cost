@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-14T12:17:24.530Z",
+  "fetched_at": "2026-11-15T12:49:53.920Z",
   "providers": {
     "pikapods": {
       "ok": true,
@@ -649,7 +649,7 @@
       "verified_at": "2026-11-05T13:18:06.920Z",
       "stale": true,
       "last_error": "PikaPods: only 0 apps parsed — the catalogue layout has probably changed",
-      "last_attempt_at": "2026-11-14T12:17:24.530Z"
+      "last_attempt_at": "2026-11-15T12:49:53.920Z"
     }
   }
 }
